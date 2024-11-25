@@ -3,10 +3,12 @@ import { EncodedExtension } from '@openshift/dynamic-plugin-sdk-webpack';
 import {
   ContextProvider,
   CreateResource,
+  HrefNavItem,
   ModelMetadata,
   ResourceDetailsPage,
   ResourceListPage,
   ResourceNSNavItem,
+  RoutePage,
 } from '@openshift-console/dynamic-plugin-sdk';
 import type { ConsolePluginBuildMetadata } from '@openshift-console/dynamic-plugin-sdk-webpack';
 
@@ -16,6 +18,7 @@ export const exposedModules: ConsolePluginBuildMetadata['exposedModules'] = {
   ProvidersCreatePage: './modules/Providers/views/create/ProvidersCreatePage',
   ProvidersCreateVmMigrationContext:
     './modules/Providers/views/migrate/ProvidersCreateVmMigrationContext',
+  ExampleNamespacedPage: './modules/Providers/views/create/ExampleNamespacedPage',
 };
 
 export const extensions: EncodedExtension[] = [
@@ -74,6 +77,35 @@ export const extensions: EncodedExtension[] = [
       ...ProviderModel,
     },
   } as EncodedExtension<CreateResource>,
+
+  {
+    type: 'console.page/route',
+    properties: {
+      component: {
+        $codeRef: 'ExampleNamespacedPage',
+      },
+      path: ['/mtv/example/ns/:ns', '/mtv/example/all-namespaces'],
+      exact: false,
+    },
+    flags: {
+      required: ['CAN_LIST_NS'],
+    },
+  } as EncodedExtension<RoutePage>,
+  {
+    type: 'console.navigation/href',
+    properties: {
+      id: 'exampleNamespacedPage',
+      insertAfter: 'importSeparator',
+      perspective: 'admin',
+      section: 'migration',
+      href: '/mtv/example',
+      namespaced: true,
+      name: 'ExampleNamespacedPage',
+    },
+    flags: {
+      required: ['CAN_LIST_NS'],
+    },
+  } as EncodedExtension<HrefNavItem>,
 
   {
     type: 'console.context-provider',

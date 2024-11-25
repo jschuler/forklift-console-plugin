@@ -230,7 +230,7 @@ export const ProvidersCreatePage: React.FC<{
           </Alert>
         )}
 
-        {!namespace && (
+        {!namespace && false && (
           <Alert
             className="co-alert co-alert--margin-top"
             isInline
