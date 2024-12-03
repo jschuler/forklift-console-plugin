@@ -89,7 +89,7 @@ export const PlanCreatePage: React.FC<{ namespace: string }> = ({ namespace }) =
   return (
     <>
       <PageSection variant="light">
-        {!namespace && (
+        {!namespace && false && (
           <Alert
             className="co-alert forklift--create-plan--alert"
             isInline

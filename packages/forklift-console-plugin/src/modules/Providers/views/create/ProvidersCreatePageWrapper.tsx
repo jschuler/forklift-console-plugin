@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
+// import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
-import { NamespaceBar, useActiveNamespace } from '@openshift-console/dynamic-plugin-sdk';
+import { /*NamespaceBar,*/ useActiveNamespace } from '@openshift-console/dynamic-plugin-sdk';
+// import * as ALL from '@openshift-console/dynamic-plugin-sdk';
 // import {
 //   Card,
 //   CardBody,
@@ -11,7 +12,7 @@ import { NamespaceBar, useActiveNamespace } from '@openshift-console/dynamic-plu
 //   PageSectionVariants,
 //   Title,
 // } from '@patternfly/react-core';
-import { Alert } from '@patternfly/react-core';
+// import { Alert } from '@patternfly/react-core';
 
 import { ProvidersCreatePage } from './ProvidersCreatePage';
 
@@ -40,31 +41,32 @@ import { ProvidersCreatePage } from './ProvidersCreatePage';
 //   );
 // };
 
-export const ExampleNamespacedPage: React.FC = () => {
-  const { t } = useForkliftTranslation();
+export const ProvidersCreatePageWrapper: React.FC<{
+  namespace: string;
+}> = ({ namespace }) => {
+  //   console.log(ALL);
+  console.log(namespace);
+  // eslint-disable-next-line no-debugger
+  debugger;
+  // const { t } = useForkliftTranslation();
   const [activeNamespace] = useActiveNamespace();
 
-  const defaultNamespace = process?.env?.DEFAULT_NAMESPACE || 'default';
+  // const defaultNamespace = process?.env?.DEFAULT_NAMESPACE || 'default';
 
   return (
     <>
-      <NamespaceBar />
+      {/* <NamespaceBar />
       {activeNamespace === '#ALL_NS#' && (
-        <Alert
-          className="co-alert co-alert--margin-top"
-          isInline
-          variant="warning"
-          title={t('Select a namespace')}
-        >
+        <Alert className="co-alert" isInline variant="warning" title={t('Select a namespace')}>
           <ForkliftTrans>
-            This provider will be created in <strong>{defaultNamespace}</strong> namespace, if you
-            wish to choose another namespace, choose a namespace from the top bar.
+            This provider will be created in the <strong>{defaultNamespace}</strong> namespace, if
+            you wish to choose another namespace, choose a namespace from the top bar.
           </ForkliftTrans>
         </Alert>
-      )}
+      )} */}
       <ProvidersCreatePage namespace={activeNamespace === '#ALL_NS#' ? '' : activeNamespace} />
     </>
   );
 };
 
-export default ExampleNamespacedPage;
+export default ProvidersCreatePageWrapper;

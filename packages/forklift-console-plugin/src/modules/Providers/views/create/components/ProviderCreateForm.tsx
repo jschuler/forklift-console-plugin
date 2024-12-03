@@ -8,6 +8,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { FormGroupWithHelpText } from '@kubev2v/common';
 import { IoK8sApiCoreV1Secret, ProviderType, V1beta1Provider } from '@kubev2v/types';
+import { NamespaceBar } from '@openshift-console/dynamic-plugin-sdk';
 import {
   Flex,
   FlexItem,
@@ -103,6 +104,9 @@ export const ProvidersCreateForm: React.FC<ProvidersCreateFormProps> = ({
         <EditProviderSectionHeading text={t('Provider details')} />
 
         <Form isWidthLimited className="forklift-section-secret-edit">
+          <FormGroupWithHelpText label={t('Select a project')} isRequired fieldId="type">
+            <NamespaceBar />
+          </FormGroupWithHelpText>
           <FormGroupWithHelpText label={t('Select provider type')} isRequired fieldId="type">
             {newProvider?.spec?.type ? (
               <Flex>

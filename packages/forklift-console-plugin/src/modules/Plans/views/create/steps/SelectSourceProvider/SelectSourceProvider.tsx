@@ -35,6 +35,8 @@ export const SelectSourceProvider: React.FC<{
     <>
       <Title headingLevel="h2">{t('Select source provider')}</Title>
 
+      {filteredProviders.length === 0 && 'Create a provider first'}
+
       <PlanCreateForm
         providers={filteredProviders}
         filterState={filterState}
