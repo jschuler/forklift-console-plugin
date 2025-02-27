@@ -4,7 +4,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { ManageColumnsModal, ManageColumnsToolbarItem } from '@kubev2v/common';
 import { ResourceField } from '@kubev2v/common';
 
-export interface ManageColumnsToolbarProps {
+interface ManageColumnsToolbarProps {
   /** Read only. State maintained by parent component. */
   resourceFields: ResourceField[];
   /** Read only. The defaults used for initialization.*/

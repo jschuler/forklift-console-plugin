@@ -7,7 +7,7 @@ import { PlanCreatePageState } from '../states';
 import SearchInputProvider from './SearchInputProvider';
 import SelectProvider from './SelectProvider';
 
-export interface FiltersToolbarProvidersProps {
+interface FiltersToolbarProvidersProps {
   filterState: PlanCreatePageState;
   filterDispatch: React.Dispatch<{
     type: string;

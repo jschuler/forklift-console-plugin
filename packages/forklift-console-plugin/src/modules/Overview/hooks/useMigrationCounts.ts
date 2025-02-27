@@ -5,9 +5,9 @@ import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 import { getMigrationCounts, getVmCounts } from '../utils';
 
-export type MigrationCounts = { [key: string]: number };
+type MigrationCounts = { [key: string]: number };
 
-export interface MigrationCountsHookResponse {
+interface MigrationCountsHookResponse {
   count: MigrationCounts;
   vmCount: MigrationCounts;
   loaded: boolean;

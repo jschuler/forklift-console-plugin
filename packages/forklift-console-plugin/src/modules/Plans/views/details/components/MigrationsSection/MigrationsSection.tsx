@@ -26,6 +26,6 @@ export const MigrationsSection: React.FC<MigrationsSectionProps> = ({ obj }) => 
   );
 };
 
-export type MigrationsSectionProps = {
+type MigrationsSectionProps = {
   obj: V1beta1Plan;
 };

@@ -12,7 +12,7 @@ import { V1beta1Provider } from '@kubev2v/types';
 import { Alert, Checkbox, Form, Popover, Radio, TextInput } from '@patternfly/react-core';
 import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 
-export interface VCenterProviderCreateFormProps {
+interface VCenterProviderCreateFormProps {
   provider: V1beta1Provider;
   caCert: string;
   onChange: (newValue: V1beta1Provider) => void;

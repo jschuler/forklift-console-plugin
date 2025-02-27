@@ -11,7 +11,7 @@ import {
   StatusDetailsItem,
 } from './components';
 
-export type DetailsSectionProps = {
+type DetailsSectionProps = {
   obj: V1beta1Plan;
 };
 

@@ -12,7 +12,7 @@ import { MigrationVirtualMachinesList } from './Migration';
 import { PlanVirtualMachinesList } from './Plan';
 import { PlanData } from './types';
 
-export interface PlanVirtualMachinesProps {
+interface PlanVirtualMachinesProps {
   obj: PlanData;
   ns?: string;
   name?: string;

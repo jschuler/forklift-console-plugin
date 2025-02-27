@@ -178,7 +178,7 @@ function getNetworkName(value: string | number): string {
   return parts[parts.length - 1];
 }
 
-export type EditProviderDefaultTransferNetworkProps = Modify<
+type EditProviderDefaultTransferNetworkProps = Modify<
   EditModalProps,
   {
     resource: V1beta1Provider;
