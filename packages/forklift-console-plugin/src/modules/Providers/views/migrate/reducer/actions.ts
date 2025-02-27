@@ -105,7 +105,7 @@ export type SelectedVms = {
   sourceProvider: V1beta1Provider;
 };
 
-export interface PlanDescription {
+interface PlanDescription {
   description: string;
 }
 

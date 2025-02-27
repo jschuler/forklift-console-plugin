@@ -1,6 +1,6 @@
 import { loadFromLocalStorage, removeFromLocalStorage, saveToLocalStorage } from '@kubev2v/common';
 
-export interface OverviewUserSettings {
+interface OverviewUserSettings {
   welcome?: WelcomeSettings;
 }
 

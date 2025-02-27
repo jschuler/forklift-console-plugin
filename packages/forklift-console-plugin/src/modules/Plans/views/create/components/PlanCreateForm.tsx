@@ -33,7 +33,7 @@ import { FiltersToolbarProviders } from './FiltersToolbarProviders';
 import { PlanNameTextField } from './PlanNameTextField';
 import { ProviderCardEmptyState } from './ProvidersEmptyState';
 
-export type PlanCreateFormProps = {
+type PlanCreateFormProps = {
   providers: V1beta1Provider[];
   filterState: PlanCreatePageState;
   state: CreateVmMigrationPageState;

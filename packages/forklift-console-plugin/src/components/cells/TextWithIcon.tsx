@@ -3,7 +3,7 @@ import Linkify from 'react-linkify';
 
 import { Flex, FlexItem } from '@patternfly/react-core';
 
-export type TextWithIconProps = {
+type TextWithIconProps = {
   label: string;
   icon: React.ReactNode;
   className?: string;

@@ -205,7 +205,7 @@ export const ContentField: React.FC<{
  * @property {ReactNode | ReactNode[]} content - Array of content fields to be displayed for the details item.
  * @property {Function | Function[]} onEdit - Array of functions per content field to be called when the edit button is clicked or null if the field is non editable.
  */
-export type DetailsItemProps = {
+type DetailsItemProps = {
   title: string;
   helpContent?: ReactNode;
   showHelpIconNextToTitle?: boolean;

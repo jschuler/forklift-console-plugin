@@ -9,7 +9,7 @@ import {
 import { EsxiCredentialsEdit } from './components/edit/EsxiCredentialsEdit';
 import { EsxiCredentialsList } from './components/list';
 
-export type EsxiCredentialsSectionProps = Omit<
+type EsxiCredentialsSectionProps = Omit<
   BaseCredentialsSectionProps,
   'ListComponent' | 'EditComponent' | 'validator'
 >;

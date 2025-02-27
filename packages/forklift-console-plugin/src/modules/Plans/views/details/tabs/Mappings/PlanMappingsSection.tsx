@@ -64,7 +64,7 @@ interface PlanMappingsSectionState {
   updatedStorage: V1beta1StorageMapSpecMap[];
 }
 
-export type PlanMappingsSectionProps = {
+type PlanMappingsSectionProps = {
   plan: V1beta1Plan;
   planNetworkMaps: V1beta1NetworkMap;
   planStorageMaps: V1beta1StorageMap;
