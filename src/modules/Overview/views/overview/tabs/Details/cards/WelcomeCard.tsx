@@ -30,7 +30,7 @@ type OverviewCardProps = {
 };
 
 const hideFromViewDropdownOption = (onHide: () => void, t) => {
-  const hasHideAction = !!onHide;
+  const hasHideAction = Boolean(onHide);
 
   return hasHideAction ? (
     <DropdownItem

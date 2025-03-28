@@ -58,7 +58,7 @@ export const validatePlanName = (name: string, existingPlans: V1beta1Plan[]) =>
     : 'error';
 
 export const validateTargetNamespace = (namespace: string, alreadyInUseBySelectedVms: boolean) =>
-  !!namespace && validateK8sName(namespace) && !alreadyInUseBySelectedVms ? 'success' : 'error';
+  Boolean(namespace) && validateK8sName(namespace) && !alreadyInUseBySelectedVms ? 'success' : 'error';
 
 export const setTargetProvider = (
   draft: Draft<CreateVmMigrationPageState>,

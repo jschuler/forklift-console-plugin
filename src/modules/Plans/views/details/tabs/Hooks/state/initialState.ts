@@ -49,7 +49,7 @@ export const initialState = (
   hasChanges: false,
   isLoading: false,
   postHook: deepCopy(postHookResource) || postHookTemplate(plan),
-  postHookSet: !!postHookResource,
+  postHookSet: Boolean(postHookResource),
   preHook: deepCopy(preHookResource) || preHookTemplate(plan),
-  preHookSet: !!preHookResource,
+  preHookSet: Boolean(preHookResource),
 });

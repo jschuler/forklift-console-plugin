@@ -111,7 +111,7 @@ export const concernsMatcher: ValueMatcher = {
 
 export const featuresMatcher: ValueMatcher = {
   filterType: 'features',
-  matchValue: (features: Record<string, boolean>) => (filter: string) => !!features?.[filter],
+  matchValue: (features: Record<string, boolean>) => (filter: string) => Boolean(features?.[filter]),
 };
 
 export const hostMatcher: ValueMatcher = {

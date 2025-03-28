@@ -250,7 +250,7 @@ export const FilterableSelect: React.FunctionComponent<FilterableSelectProps> = 
         />
 
         <TextInputGroupUtilities>
-          {!!inputValue && (
+          {Boolean(inputValue) && (
             <Button
               variant="plain"
               onClick={() => {

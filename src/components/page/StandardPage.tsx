@@ -403,7 +403,7 @@ export const StandardPageInner = <T,>({
                 selectedFilters={selectedFilters}
                 supportedFilterTypes={supportedFilters}
               />
-              {!!fields.find((field) => field.filter?.standalone) && (
+              {Boolean(fields.find((field) => field.filter?.standalone)) && (
                 <FilterGroup
                   fieldFilters={fields
                     .filter((field) => field.filter?.standalone)

@@ -69,7 +69,7 @@ export const PlanCutoverMigrationModal: React.FC<PlanCutoverMigrationModalProps>
     value: string,
     date?: Date,
   ) => void = (_event, value, date) => {
-    setIsDateValid(!!date);
+    setIsDateValid(Boolean(date));
     if (!date) return;
 
     const updatedFromDate = cutoverDate ? new Date(cutoverDate) : new Date();
@@ -92,7 +92,7 @@ export const PlanCutoverMigrationModal: React.FC<PlanCutoverMigrationModalProps>
     isTimeValid?: boolean,
   ) => void = (_event, timeInput, hour, minute, _seconds, isTimeValid) => {
     setTime(timeInput);
-    setIsTimeValid(isTimeValid && !!timeInput);
+    setIsTimeValid(isTimeValid && Boolean(timeInput));
 
     if (!isTimeValid) return;
 

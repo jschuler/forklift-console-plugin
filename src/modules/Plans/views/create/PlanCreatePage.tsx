@@ -148,7 +148,7 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
             footer={{
               isNextDisabled:
                 emptyContext ||
-                !!state?.flow?.apiError ||
+                Boolean(state?.flow?.apiError) ||
                 anyValidationError ||
                 !initialLoading[SET_AVAILABLE_SOURCE_NETWORKS] ||
                 !initialLoading[SET_AVAILABLE_SOURCE_STORAGES],
