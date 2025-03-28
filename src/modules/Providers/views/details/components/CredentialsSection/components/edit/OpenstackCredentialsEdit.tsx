@@ -126,7 +126,7 @@ export const OpenstackCredentialsEdit: React.FC<EditComponentProps> = ({ onChang
         case 'passwordSecretFields':
           onChange({
             ...secret,
-            data: { ...secret.data, ['authType']: Base64.encode('password') },
+            data: { ...secret.data, 'authType': Base64.encode('password') },
           });
           break;
         case 'tokenWithUserIDSecretFields':
@@ -136,7 +136,7 @@ export const OpenstackCredentialsEdit: React.FC<EditComponentProps> = ({ onChang
             ...secret,
             data: {
               ...secret.data,
-              ['authType']: Base64.encode('token'),
+              'authType': Base64.encode('token'),
               userID: undefined,
               username: undefined,
             },
@@ -150,7 +150,7 @@ export const OpenstackCredentialsEdit: React.FC<EditComponentProps> = ({ onChang
             data: {
               ...secret.data,
               applicationCredentialID: undefined,
-              ['authType']: Base64.encode('applicationcredential'),
+              'authType': Base64.encode('applicationcredential'),
               username: undefined,
             },
           });

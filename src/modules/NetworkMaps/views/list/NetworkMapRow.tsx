@@ -41,13 +41,13 @@ const renderTd = ({ resourceData, resourceFieldId, resourceFields }: RenderTdPro
 };
 
 const cellRenderers: Record<string, React.FC<CellProps>> = {
-  ['actions']: (props) => NetworkMapActionsDropdown({ isKebab: true, ...props }),
-  ['destination']: ProviderLinkCell,
-  ['name']: NetworkMapLinkCell,
-  ['namespace']: NamespaceCell,
-  ['owner']: PlanCell,
-  ['phase']: StatusCell,
-  ['source']: ProviderLinkCell,
+  'actions': (props) => NetworkMapActionsDropdown({ isKebab: true, ...props }),
+  'destination': ProviderLinkCell,
+  'name': NetworkMapLinkCell,
+  'namespace': NamespaceCell,
+  'owner': PlanCell,
+  'phase': StatusCell,
+  'source': ProviderLinkCell,
 };
 
 type RenderTdProps = {
