@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useReducer } from 'react';
+import React, { type FC, useMemo, useReducer } from 'react';
 import { useHistory } from 'react-router';
 import { getResourceUrl } from 'src/modules/Providers/utils/helpers';
 import { useCreateVmMigrationData } from 'src/modules/Providers/views/migrate';
@@ -18,12 +18,13 @@ import {
   PlanModelRef,
   ProviderModelGroupVersionKind,
   ProviderModelRef,
-  V1beta1Provider,
+  type V1beta1Provider,
 } from '@kubev2v/types';
 import { useActiveNamespace, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { PageSection, Title, Wizard, WizardStep } from '@patternfly/react-core';
 
 import { anyValidationErrorExists } from '../../utils';
+
 import { findProviderByID } from './components';
 import { planCreatePageInitialState, planCreatePageReducer } from './states';
 import { SelectSourceProvider } from './steps';
@@ -44,21 +45,25 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
     data?.projectName ||
     (activeNamespace === Namespace.AllProjects ? defaultNamespace : activeNamespace);
 
-  const plansListURL = useMemo(() => {
-    return getResourceUrl({
-      reference: PlanModelRef,
-      namespace: activeNamespace,
-      namespaced: true,
-    });
-  }, [activeNamespace]);
+  const plansListURL = useMemo(
+    () =>
+      getResourceUrl({
+        namespace: activeNamespace,
+        namespaced: true,
+        reference: PlanModelRef,
+      }),
+    [activeNamespace],
+  );
 
-  const providerURL = useMemo(() => {
-    return getResourceUrl({
-      reference: ProviderModelRef,
-      name: data?.provider?.metadata?.name,
-      namespace: data?.provider?.metadata?.namespace,
-    });
-  }, [data?.provider]);
+  const providerURL = useMemo(
+    () =>
+      getResourceUrl({
+        name: data?.provider?.metadata?.name,
+        namespace: data?.provider?.metadata?.namespace,
+        reference: ProviderModelRef,
+      }),
+    [data?.provider],
+  );
 
   // Init Select source provider form state
   const [filterState, filterDispatch] = useReducer(planCreatePageReducer, {
@@ -69,9 +74,9 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
 
   const [providers] = useK8sWatchResource<V1beta1Provider[]>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     isList: true,
     namespace: namespace || projectName,
+    namespaced: true,
   });
 
   const selectedProvider =
@@ -82,10 +87,10 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
   // Init Create migration plan form state
   const [state, dispatch, emptyContext] = useFetchEffects({
     data: {
-      projectName,
-      selectedVms: filterState.selectedVMs,
-      provider: selectedProvider || data?.provider,
       planName: data?.planName,
+      projectName,
+      provider: selectedProvider || data?.provider,
+      selectedVms: filterState.selectedVMs,
     },
   });
 
@@ -96,12 +101,10 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
     [state, filterState],
   );
 
-  const anyValidationError = useMemo(() => {
-    return anyValidationErrorExists(state);
-  }, [state]);
+  const anyValidationError = useMemo(() => anyValidationErrorExists(state), [state]);
 
   const title = t('Plans wizard');
-  const initialLoading = state.flow.initialLoading;
+  const { initialLoading } = state.flow;
 
   return (
     <>
@@ -117,9 +120,9 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
           className="forklift--create-plan--wizard-content"
           shouldFocusContent
           title={title}
-          onClose={() =>
-            history.push(createPlanFromPlansList ? plansListURL : `${providerURL}/vms`)
-          }
+          onClose={() => {
+            history.push(createPlanFromPlansList ? plansListURL : `${providerURL}/vms`);
+          }}
           onSave={() => {
             setActiveNamespace(state.underConstruction.projectName);
             dispatch(startCreate());
@@ -145,13 +148,13 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
             id="step-2"
             isDisabled={!isFirstStepValid}
             footer={{
-              nextButtonText: t('Create migration plan'),
               isNextDisabled:
                 emptyContext ||
-                !!state?.flow?.apiError ||
+                Boolean(state?.flow?.apiError) ||
                 anyValidationError ||
                 !initialLoading[SET_AVAILABLE_SOURCE_NETWORKS] ||
                 !initialLoading[SET_AVAILABLE_SOURCE_STORAGES],
+              nextButtonText: t('Create migration plan'),
             }}
           >
             <ProvidersCreateVmMigrationPage

@@ -11,9 +11,8 @@ export type SetURLSearchParams = (params: MappedSearchParams) => void;
  * @param {string} search params url string
  * @returns {{}} a key:value map of the search params
  */
-export const toMap = (search: string): MappedSearchParams => {
-  return Object.fromEntries(new URLSearchParams(search).entries());
-};
+export const toMap = (search: string): MappedSearchParams =>
+  Object.fromEntries(new URLSearchParams(search).entries());
 
 /**
  * A hook to get and set the URL search params.
@@ -24,7 +23,7 @@ export const toMap = (search: string): MappedSearchParams => {
 export const useSearchParams = (): [MappedSearchParams, SetURLSearchParams] => {
   const [searchParams, internalSetSearchParams] = React.useState(toMap(location.search));
 
-  const removeUndefinedKeys = (obj: { [k: string]: string }): { [k: string]: string } =>
+  const removeUndefinedKeys = (obj: Record<string, string>): Record<string, string> =>
     Object.fromEntries(Object.entries(obj).filter(([, value]) => value !== undefined));
 
   /**

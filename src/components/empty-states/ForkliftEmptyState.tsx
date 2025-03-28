@@ -18,28 +18,26 @@ export type EmptyStateProps = {
 };
 
 export const ForkliftEmptyState: React.FC<EmptyStateProps> = ({
-  icon,
-  title,
-  textContent,
   callForActionButtons,
-}) => {
-  return (
-    <EmptyState variant={EmptyStateVariant.lg} isFullHeight>
-      {icon && <EmptyStateIcon icon={icon} />}
+  icon,
+  textContent,
+  title,
+}) => (
+  <EmptyState variant={EmptyStateVariant.lg} isFullHeight>
+    {icon && <EmptyStateIcon icon={icon} />}
 
-      <Title headingLevel="h4" size="lg">
-        {title}
-      </Title>
+    <Title headingLevel="h4" size="lg">
+      {title}
+    </Title>
 
-      <EmptyStateBody style={{ textAlign: 'left' }}>
-        <Bullseye>
-          <TextContent>{textContent}</TextContent>
-        </Bullseye>
-      </EmptyStateBody>
+    <EmptyStateBody style={{ textAlign: 'left' }}>
+      <Bullseye>
+        <TextContent>{textContent}</TextContent>
+      </Bullseye>
+    </EmptyStateBody>
 
-      {callForActionButtons}
-    </EmptyState>
-  );
-};
+    {callForActionButtons}
+  </EmptyState>
+);
 
 export default ForkliftEmptyState;

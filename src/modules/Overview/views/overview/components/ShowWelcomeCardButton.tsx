@@ -14,7 +14,9 @@ export const ShowWelcomeCardButton: React.FC = () => {
     setData({ hideWelcomeCardByContext: false });
   };
 
-  if (!hideWelcomeCardByContext) return null;
+  if (!hideWelcomeCardByContext) {
+    return null;
+  }
 
   return (
     <Label
