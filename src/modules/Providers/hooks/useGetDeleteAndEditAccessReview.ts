@@ -1,6 +1,6 @@
 import { type K8sModel, useAccessReview } from '@openshift-console/dynamic-plugin-sdk';
 
-import { type ProvidersPermissionStatus } from '../utils';
+import type { ProvidersPermissionStatus } from '../utils';
 
 /**
  * Type for the parameters of the useGetDeleteAndEditAccessReview custom hook.

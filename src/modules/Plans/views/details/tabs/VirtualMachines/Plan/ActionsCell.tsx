@@ -3,7 +3,7 @@ import { ModalHOC } from 'src/modules/Providers';
 
 import { Flex, FlexItem } from '@patternfly/react-core';
 
-import { type PlanVMsCellProps } from '../components';
+import type { PlanVMsCellProps } from '../components';
 
 import PlanVMActionsDropdown from './PlanVMActionsDropdown';
 

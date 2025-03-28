@@ -36,7 +36,7 @@ import {
   setPlanTargetNamespace,
   setPlanTargetProvider,
 } from '../reducer/actions';
-import { type CreateVmMigrationPageState, type NetworkAlerts, type StorageAlerts } from '../types';
+import type { CreateVmMigrationPageState, NetworkAlerts, StorageAlerts } from '../types';
 
 import { MappingList } from './MappingList';
 import { MappingListHeader } from './MappingListHeader';

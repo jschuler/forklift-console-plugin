@@ -2,7 +2,7 @@ import React from 'react';
 import { TableCell, TableEmptyCell } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type Concern } from '@kubev2v/types';
+import type { Concern } from '@kubev2v/types';
 import { Button, Flex, FlexItem, Label, Popover, Stack, StackItem } from '@patternfly/react-core';
 
 import {
@@ -12,7 +12,7 @@ import {
   groupConcernsByCategory,
 } from '../utils';
 
-import { type VMCellProps } from './VMCellProps';
+import type { VMCellProps } from './VMCellProps';
 
 /**
  * Renders a table cell containing concerns grouped by category.

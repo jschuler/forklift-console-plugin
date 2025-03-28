@@ -1,8 +1,8 @@
-import { type Draft } from 'immer';
+import type { Draft } from 'immer';
 
-import { type OpenstackVolume, type OVirtDisk } from '@kubev2v/types';
+import type { OpenstackVolume, OVirtDisk } from '@kubev2v/types';
 
-import { type VmData } from '../../details';
+import type { VmData } from '../../details';
 
 // based on packages legacy/src/Plans/components/Wizard/helpers.tsx
 export const getStoragesUsedBySelectedVms = (

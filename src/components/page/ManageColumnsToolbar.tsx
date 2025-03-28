@@ -3,7 +3,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { ManageColumnsModal } from '../common/TableView/ManageColumnsModal';
 import { ManageColumnsToolbarItem } from '../common/TableView/ManageColumnsToolbarItem';
-import { type ResourceField } from '../common/utils/types';
+import type { ResourceField } from '../common/utils/types';
 
 export type ManageColumnsToolbarProps = {
   /** Read only. State maintained by parent component. */

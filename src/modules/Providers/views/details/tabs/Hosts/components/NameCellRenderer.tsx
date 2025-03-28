@@ -5,7 +5,7 @@ import { getResourceUrl, TableCell } from 'src/modules/Providers/utils';
 import { HostModelRef } from '@kubev2v/types';
 import ExternalLinkAltIcon from '@patternfly/react-icons/dist/esm/icons/external-link-alt-icon';
 
-import { type HostCellProps } from './HostCellProps';
+import type { HostCellProps } from './HostCellProps';
 
 // Define cell renderer for 'name'
 export const NameCellRenderer: React.FC<HostCellProps> = ({ data }) => {

@@ -10,7 +10,7 @@ import {
 } from '../Filter';
 import { areSameDayInUTCZero, isInClosedRange, type ResourceField } from '../utils';
 
-import { type FilterRenderer, type ValueMatcher } from './types';
+import type { FilterRenderer, ValueMatcher } from './types';
 
 /**
  * Get the field value of a given field id, using resourceData and resourceFields

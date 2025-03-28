@@ -7,7 +7,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { PlanModelRef, type V1beta1Provider } from '@kubev2v/types';
 import { Button, ToolbarItem } from '@patternfly/react-core';
 
-import { type VmData } from './VMCellProps';
+import type { VmData } from './VMCellProps';
 
 export const MigrationAction: FC<{
   selectedVms: VmData[];

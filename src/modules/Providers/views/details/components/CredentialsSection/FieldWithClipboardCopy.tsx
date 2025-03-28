@@ -3,7 +3,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { ClipboardCopy, Switch, TextInput, Tooltip } from '@patternfly/react-core';
 
-import { type Field } from './components/list/Fields';
+import type { Field } from './components/list/Fields';
 
 export type ShowFieldWithClipboardCopyProps = {
   value: string;

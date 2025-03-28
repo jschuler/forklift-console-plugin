@@ -1,13 +1,13 @@
 import React from 'react';
-import { type CreateVmMigration, type PageAction } from 'src/modules/Providers/views/migrate/reducer/actions';
-import { type CreateVmMigrationPageState } from 'src/modules/Providers/views/migrate/types';
+import type { CreateVmMigration, PageAction } from 'src/modules/Providers/views/migrate/reducer/actions';
+import type { CreateVmMigrationPageState } from 'src/modules/Providers/views/migrate/types';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type V1beta1Provider } from '@kubev2v/types';
+import type { V1beta1Provider } from '@kubev2v/types';
 import { Title } from '@patternfly/react-core';
 
 import { PlanCreateForm } from '../../components';
-import { type PlanCreatePageActionTypes, type PlanCreatePageState } from '../../states';
+import type { PlanCreatePageActionTypes, PlanCreatePageState } from '../../states';
 
 import { MemoizedProviderVirtualMachinesList } from './MemoizedProviderVirtualMachinesList';
 

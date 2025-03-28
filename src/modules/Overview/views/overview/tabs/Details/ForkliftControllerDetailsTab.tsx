@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCreateOverviewContext } from 'src/modules/Overview/hooks/OverviewContextProvider';
 
-import { type V1beta1ForkliftController } from '@kubev2v/types';
+import type { V1beta1ForkliftController } from '@kubev2v/types';
 import { Flex, FlexItem, Stack, StackItem } from '@patternfly/react-core';
 
 import { ConditionsCard, ControllerCard, OperatorCard, OverviewCard, SettingsCard } from './cards';

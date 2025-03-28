@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpText/FormGroupWithHelpText';
-import { type Validation } from 'src/modules/Providers';
+import type { Validation } from 'src/modules/Providers';
 import { useForkliftTranslation } from 'src/utils';
 
 import { TextInput } from '@patternfly/react-core';

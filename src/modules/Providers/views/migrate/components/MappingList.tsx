@@ -4,7 +4,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { Button, DataList } from '@patternfly/react-core';
 import { PlusCircleIcon } from '@patternfly/react-icons';
 
-import { type Mapping, type MappingSource } from '../types';
+import type { Mapping, MappingSource } from '../types';
 
 import { MappingListItem } from './MappingListItem';
 

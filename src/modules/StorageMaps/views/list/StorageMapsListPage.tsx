@@ -5,7 +5,7 @@ import StandardPage from 'src/components/page/StandardPage';
 import { useGetDeleteAndEditAccessReview } from 'src/modules/Providers/hooks';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type ResourceFieldFactory } from '@components/common/utils/types';
+import type { ResourceFieldFactory } from '@components/common/utils/types';
 import {
   StorageMapModel,
   StorageMapModelGroupVersionKind,

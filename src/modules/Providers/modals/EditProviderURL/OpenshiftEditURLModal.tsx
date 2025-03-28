@@ -8,7 +8,7 @@ import { validateOpenshiftURL } from '../../utils/validators';
 import { EditModal } from '../EditModal';
 
 import { patchProviderURL } from './utils/patchProviderURL';
-import { type EditProviderURLModalProps } from './EditProviderURLModal';
+import type { EditProviderURLModalProps } from './EditProviderURLModal';
 
 export const OpenshiftEditURLModal: React.FC<EditProviderURLModalProps> = (props) => {
   const { t } = useForkliftTranslation();

@@ -7,7 +7,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { StorageMapModel, StorageMapModelRef } from '@kubev2v/types';
 import { DropdownItem } from '@patternfly/react-core';
 
-import { type StorageMapData } from '../utils';
+import type { StorageMapData } from '../utils';
 
 export const StorageMapActionsDropdownItems = ({ data }: StorageMapActionsDropdownItemsProps) => {
   const { t } = useForkliftTranslation();

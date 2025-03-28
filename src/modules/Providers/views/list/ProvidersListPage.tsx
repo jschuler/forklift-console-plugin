@@ -6,7 +6,7 @@ import { type ProviderData, SOURCE_ONLY_PROVIDER_TYPES } from 'src/modules/Provi
 import { PROVIDER_STATUS, PROVIDERS } from 'src/utils/enums';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
-import { type ResourceFieldFactory } from '@components/common/utils/types';
+import type { ResourceFieldFactory } from '@components/common/utils/types';
 import {
   type OpenshiftProvider,
   type OpenstackProvider,

@@ -1,10 +1,10 @@
-import { type InventoryNetwork } from 'src/modules/Providers/hooks/useNetworks';
-import { type InventoryStorage } from 'src/modules/Providers/hooks/useStorages';
+import type { InventoryNetwork } from 'src/modules/Providers/hooks/useNetworks';
+import type { InventoryStorage } from 'src/modules/Providers/hooks/useStorages';
 
-import {
-  type OpenShiftNetworkAttachmentDefinition,
-  type OpenShiftStorageClass,
-  type V1beta1Plan,
+import type {
+  OpenShiftNetworkAttachmentDefinition,
+  OpenShiftStorageClass,
+  V1beta1Plan,
 } from '@kubev2v/types';
 
 import { POD_NETWORK } from './constants';

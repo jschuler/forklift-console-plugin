@@ -1,6 +1,6 @@
-import { type NetworkMapData } from 'src/modules/NetworkMaps/utils';
+import type { NetworkMapData } from 'src/modules/NetworkMaps/utils';
 
-import { type ResourceField } from '@components/common/utils/types';
+import type { ResourceField } from '@components/common/utils/types';
 
 export type CellProps = {
   data: NetworkMapData;

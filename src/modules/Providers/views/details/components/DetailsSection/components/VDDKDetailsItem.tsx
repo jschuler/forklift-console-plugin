@@ -7,7 +7,7 @@ import { ExclamationTriangleIcon } from '@patternfly/react-icons';
 
 import { DetailsItem } from '../../../../../utils';
 
-import { type ProviderDetailsItemProps } from './ProviderDetailsItem';
+import type { ProviderDetailsItemProps } from './ProviderDetailsItem';
 
 export const VDDKDetailsItem: React.FC<ProviderDetailsItemProps> = ({
   canPatch,

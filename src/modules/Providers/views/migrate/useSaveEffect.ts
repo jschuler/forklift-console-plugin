@@ -18,7 +18,7 @@ import { getResourceUrl } from '../../utils';
 
 import { setAPiError } from './reducer/actions';
 import { getObjectRef } from './reducer/helpers';
-import { type CreateVmMigrationPageState } from './types';
+import type { CreateVmMigrationPageState } from './types';
 
 const createStorage = (storageMap: V1beta1StorageMap) =>
   k8sCreate({

@@ -21,7 +21,7 @@ import {
 } from '@patternfly/react-core';
 import { HelpIcon, VirtualMachineIcon } from '@patternfly/react-icons';
 
-import { type CellProps } from './CellProps';
+import type { CellProps } from './CellProps';
 
 type PlanStatusDetailsProps = {
   counters: MigrationVmsCounts;

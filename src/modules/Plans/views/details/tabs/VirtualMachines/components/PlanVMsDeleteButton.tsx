@@ -3,7 +3,7 @@ import { isPlanArchived } from 'src/modules/Plans/utils';
 import { useModal } from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type V1beta1Plan } from '@kubev2v/types';
+import type { V1beta1Plan } from '@kubev2v/types';
 import { ToolbarItem } from '@patternfly/react-core';
 
 import { PlanVMsDeleteModal } from '../modals';

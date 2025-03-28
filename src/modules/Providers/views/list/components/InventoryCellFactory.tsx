@@ -2,7 +2,7 @@ import React, { type ReactNode } from 'react';
 import { getResourceFieldValue } from 'src/components/common/FilterGroup/matchers';
 import { TableEmptyCell, TableIconCell } from 'src/modules/Providers/utils';
 
-import { type CellProps } from './CellProps';
+import type { CellProps } from './CellProps';
 import { OpenshiftNetworkCell } from './OpenshiftNetworkCell';
 import { VSphereHostCell } from './VSphereHostCell';
 

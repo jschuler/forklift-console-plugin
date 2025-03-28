@@ -19,7 +19,7 @@ import {
 } from '@patternfly/react-core';
 import { MinusCircleIcon } from '@patternfly/react-icons';
 
-import { type Mapping, type MappingSource } from '../types';
+import type { Mapping, MappingSource } from '../types';
 
 import '../ProvidersCreateVmMigration.style.css';
 

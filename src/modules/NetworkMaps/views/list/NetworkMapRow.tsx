@@ -1,11 +1,11 @@
 import React from 'react';
-import { type RowProps } from 'src/components/common/TableView/types';
+import type { RowProps } from 'src/components/common/TableView/types';
 
-import { type ResourceField } from '@components/common/utils/types';
+import type { ResourceField } from '@components/common/utils/types';
 import { Td, Tr } from '@patternfly/react-table';
 
 import { NetworkMapActionsDropdown } from '../../actions';
-import { type NetworkMapData } from '../../utils';
+import type { NetworkMapData } from '../../utils';
 
 import {
   type CellProps,

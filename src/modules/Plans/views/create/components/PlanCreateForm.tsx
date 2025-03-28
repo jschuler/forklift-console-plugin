@@ -3,17 +3,17 @@ import { ProjectNameSelect, useProjectNameSelectOptions } from 'src/components/c
 import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpText/FormGroupWithHelpText';
 import { SelectableCard } from 'src/modules/Providers/utils/components/Gallery/SelectableCard';
 import { SelectableGallery } from 'src/modules/Providers/utils/components/Gallery/SelectableGallery';
-import { type VmData } from 'src/modules/Providers/views';
+import type { VmData } from 'src/modules/Providers/views';
 import { useCreateVmMigrationData } from 'src/modules/Providers/views/migrate';
 import {
   type PageAction,
   setPlanName,
   setProjectName as setProjectNameAction,
 } from 'src/modules/Providers/views/migrate/reducer/actions';
-import { type CreateVmMigrationPageState } from 'src/modules/Providers/views/migrate/types';
+import type { CreateVmMigrationPageState } from 'src/modules/Providers/views/migrate/types';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils';
 
-import { type V1beta1Provider } from '@kubev2v/types';
+import type { V1beta1Provider } from '@kubev2v/types';
 import {
   Flex,
   FlexItem,
@@ -25,7 +25,7 @@ import {
   Tooltip,
 } from '@patternfly/react-core';
 
-import { type PlanCreatePageState } from '../states';
+import type { PlanCreatePageState } from '../states';
 
 import { PlanNameTextField } from './PlanName/PlanNameTextField';
 import { ChipsToolbarProviders } from './ChipsToolbarProviders';

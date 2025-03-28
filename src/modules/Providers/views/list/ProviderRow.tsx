@@ -1,8 +1,8 @@
 import React from 'react';
-import { type RowProps } from 'src/components/common/TableView/types';
-import { type ProviderData } from 'src/modules/Providers/utils';
+import type { RowProps } from 'src/components/common/TableView/types';
+import type { ProviderData } from 'src/modules/Providers/utils';
 
-import { type ResourceField } from '@components/common/utils/types';
+import type { ResourceField } from '@components/common/utils/types';
 import { DatabaseIcon, NetworkIcon, OutlinedHddIcon } from '@patternfly/react-icons';
 import { Td, Tr } from '@patternfly/react-table';
 

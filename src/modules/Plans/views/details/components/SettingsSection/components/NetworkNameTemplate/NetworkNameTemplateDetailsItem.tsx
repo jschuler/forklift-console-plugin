@@ -4,8 +4,8 @@ import { useModal } from 'src/modules/Providers/modals';
 import { DetailsItem } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type PlanDetailsItemProps } from '../../../DetailsSection';
-import { type EnhancedPlan } from '../../utils/types';
+import type { PlanDetailsItemProps } from '../../../DetailsSection';
+import type { EnhancedPlan } from '../../utils/types';
 
 import NetworkNameTemplateModal from './NetworkNameTemplateModal';
 

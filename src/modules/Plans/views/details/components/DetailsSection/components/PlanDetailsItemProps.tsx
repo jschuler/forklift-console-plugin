@@ -1,6 +1,6 @@
-import { type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import { type V1beta1Plan, type V1beta1Provider } from '@kubev2v/types';
+import type { V1beta1Plan, V1beta1Provider } from '@kubev2v/types';
 
 export type PlanDetailsItemProps = {
   resource: V1beta1Plan;

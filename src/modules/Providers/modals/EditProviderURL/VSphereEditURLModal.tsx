@@ -8,7 +8,7 @@ import { validateEsxiURL, validateVCenterURL } from '../../utils/validators';
 import { EditModal, type ValidationHookType } from '../EditModal';
 
 import { patchProviderURL } from './utils/patchProviderURL';
-import { type EditProviderURLModalProps } from './EditProviderURLModal';
+import type { EditProviderURLModalProps } from './EditProviderURLModal';
 
 export const VSphereEditURLModal: React.FC<EditProviderURLModalProps> = ({
   insecureSkipVerify,

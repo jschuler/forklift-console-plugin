@@ -22,7 +22,7 @@ import {
   defaultSupportedFilters,
   defaultValueMatchers,
 } from '../common/FilterGroup/matchers';
-import { type FilterRenderer, type ValueMatcher } from '../common/FilterGroup/types';
+import type { FilterRenderer, ValueMatcher } from '../common/FilterGroup/types';
 import { useUrlFilters } from '../common/FilterGroup/useUrlFilters';
 import {
   ErrorState,
@@ -30,15 +30,15 @@ import {
   NoResultsFound,
   NoResultsMatchFilter,
 } from '../common/Page/PageStates';
-import { type UserSettings } from '../common/Page/types';
+import type { UserSettings } from '../common/Page/types';
 import { useFields } from '../common/Page/useFields';
 import { DEFAULT_PER_PAGE, usePagination } from '../common/Page/usePagination';
 import { DefaultHeader } from '../common/TableView/DefaultHeader';
 import { DefaultRow } from '../common/TableView/DefaultRow';
 import { TableView } from '../common/TableView/TableView';
-import { type RowProps, type TableViewHeaderProps } from '../common/TableView/types';
+import type { RowProps, TableViewHeaderProps } from '../common/TableView/types';
 import { withTr } from '../common/TableView/withTr';
-import { type GlobalActionToolbarProps, type ResourceField } from '../common/utils/types';
+import type { GlobalActionToolbarProps, ResourceField } from '../common/utils/types';
 import {
   TableSortContext,
   type TableSortContextProps,

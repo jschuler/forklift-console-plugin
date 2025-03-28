@@ -18,7 +18,7 @@ import {
   toISODateInterval,
 } from '../utils';
 
-import { type FilterTypeProps } from './types';
+import type { FilterTypeProps } from './types';
 
 /**
  * This Filter type enables selecting an closed date range.

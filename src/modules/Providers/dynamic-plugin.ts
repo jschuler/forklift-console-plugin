@@ -1,12 +1,12 @@
 import { ProviderModel, ProviderModelGroupVersionKind } from '@kubev2v/types';
-import { type EncodedExtension } from '@openshift/dynamic-plugin-sdk-webpack';
-import {
-  type ContextProvider,
-  type CreateResource,
-  type ModelMetadata,
-  type ResourceDetailsPage,
-  type ResourceListPage,
-  type ResourceNSNavItem,
+import type { EncodedExtension } from '@openshift/dynamic-plugin-sdk-webpack';
+import type {
+  ContextProvider,
+  CreateResource,
+  ModelMetadata,
+  ResourceDetailsPage,
+  ResourceListPage,
+  ResourceNSNavItem,
 } from '@openshift-console/dynamic-plugin-sdk';
 import type { ConsolePluginBuildMetadata } from '@openshift-console/dynamic-plugin-sdk-webpack';
 

@@ -6,7 +6,7 @@ import {
   ModalHOC,
   useModal,
 } from 'src/modules/Providers/modals';
-import { type ProviderData } from 'src/modules/Providers/utils';
+import type { ProviderData } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {

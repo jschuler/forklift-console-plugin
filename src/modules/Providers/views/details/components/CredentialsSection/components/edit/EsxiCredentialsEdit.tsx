@@ -18,7 +18,7 @@ import EyeIcon from '@patternfly/react-icons/dist/esm/icons/eye-icon';
 import EyeSlashIcon from '@patternfly/react-icons/dist/esm/icons/eye-slash-icon';
 import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 
-import { type EditComponentProps } from '../BaseCredentialsSection';
+import type { EditComponentProps } from '../BaseCredentialsSection';
 
 export const EsxiCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, secret }) => {
   const { t } = useForkliftTranslation();

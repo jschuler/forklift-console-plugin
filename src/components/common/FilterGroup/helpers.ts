@@ -1,6 +1,6 @@
-import { type ResourceField } from '../utils';
+import type { ResourceField } from '../utils';
 
-import { type FieldFilter } from './types';
+import type { FieldFilter } from './types';
 
 export const toFieldFilter =
   (data?: unknown[]): ((field: ResourceField) => FieldFilter) =>

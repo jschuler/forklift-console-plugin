@@ -1,26 +1,26 @@
-import { type FC } from 'react';
-import { type RowProps } from 'src/components/common/TableView/types';
+import type { FC } from 'react';
+import type { RowProps } from 'src/components/common/TableView/types';
 
-import { type ResourceFieldFactory } from '@components/common/utils/types';
-import {
-  type OpenShiftNamespace,
-  type OpenshiftResource,
-  type OpenShiftStorageClass,
-  type OpenstackVolume,
-  type OVirtDisk,
-  type OVirtNicProfile,
-  type V1beta1NetworkMap,
-  type V1beta1Plan,
-  type V1beta1Provider,
-  type V1beta1StorageMap,
+import type { ResourceFieldFactory } from '@components/common/utils/types';
+import type {
+  OpenShiftNamespace,
+  OpenshiftResource,
+  OpenShiftStorageClass,
+  OpenstackVolume,
+  OVirtDisk,
+  OVirtNicProfile,
+  V1beta1NetworkMap,
+  V1beta1Plan,
+  V1beta1Provider,
+  V1beta1StorageMap,
 } from '@kubev2v/types';
 
-import { type InventoryNetwork } from '../../hooks/useNetworks';
-import { type InventoryStorage } from '../../hooks/useStorages';
-import { type Validation } from '../../utils';
-import { type VmData } from '../details';
+import type { InventoryNetwork } from '../../hooks/useNetworks';
+import type { InventoryStorage } from '../../hooks/useStorages';
+import type { Validation } from '../../utils';
+import type { VmData } from '../details';
 
-import { type CreateVmMigration } from './reducer/actions';
+import type { CreateVmMigration } from './reducer/actions';
 
 export type CreateVmMigrationPageState = {
   underConstruction: {

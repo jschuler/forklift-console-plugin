@@ -13,7 +13,7 @@ import { k8sGet, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 
 import { createHost } from './createHost';
 import { createHostSecret } from './createHostSecret';
-import { type InventoryHostPair } from './matchHostsToInventory';
+import type { InventoryHostPair } from './matchHostsToInventory';
 import { patchHostSecretOwner } from './patchHostSecretOwner';
 
 type OnSaveHostParams = {

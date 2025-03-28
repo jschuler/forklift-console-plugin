@@ -7,7 +7,7 @@ import { Label } from '@patternfly/react-core';
 
 import { DetailsItem } from '../../../../../utils';
 
-import { type ProviderDetailsItemProps } from './ProviderDetailsItem';
+import type { ProviderDetailsItemProps } from './ProviderDetailsItem';
 
 export const TypeDetailsItem: React.FC<ProviderDetailsItemProps> = ({
   helpContent,

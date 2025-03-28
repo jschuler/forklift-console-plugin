@@ -1,7 +1,7 @@
-import { type V1beta1Provider } from '@kubev2v/types';
+import type { V1beta1Provider } from '@kubev2v/types';
 import { k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 
-import { type OnConfirmHookType } from '../EditModal';
+import type { OnConfirmHookType } from '../EditModal';
 
 /**
  * Handles the confirmation action for editing a resource annotations.

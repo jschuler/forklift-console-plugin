@@ -1,4 +1,4 @@
-import { type WizardStepType } from '@patternfly/react-core';
+import type { WizardStepType } from '@patternfly/react-core';
 import { t } from '@utils/i18n';
 
 export enum PlanWizardStepId {

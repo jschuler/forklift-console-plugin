@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { type IoK8sApiCoreV1Secret } from '@kubev2v/types';
+import type { IoK8sApiCoreV1Secret } from '@kubev2v/types';
 import { useK8sWatchResource, type WatchK8sResource } from '@openshift-console/dynamic-plugin-sdk';
 
 /**

@@ -1,4 +1,4 @@
-import { type V1beta1Plan } from '@kubev2v/types';
+import type { V1beta1Plan } from '@kubev2v/types';
 
 import { type PlanData, PlanPhase } from '../types';
 

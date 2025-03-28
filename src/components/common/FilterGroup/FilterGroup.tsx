@@ -3,7 +3,7 @@ import React from 'react';
 import { ToolbarGroup } from '@patternfly/react-core';
 
 import { FilterFromDef } from './FilterFromDef';
-import { type MetaFilterProps } from './types';
+import type { MetaFilterProps } from './types';
 
 /**
  * This is an implementation of [<font>``PatternFly 4`` filter group</font>](https://www.patternfly.org/v4/demos/filters/design-guidelines/#filter-group) pattern,

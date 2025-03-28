@@ -40,8 +40,8 @@ import {
 } from './reducer/actions';
 import { createInitialState } from './reducer/createInitialState';
 import { reducer } from './reducer/reducer';
-import { type CreateVmMigrationContextType } from './ProvidersCreateVmMigrationContext';
-import { type CreateVmMigrationPageState } from './types';
+import type { CreateVmMigrationContextType } from './ProvidersCreateVmMigrationContext';
+import type { CreateVmMigrationPageState } from './types';
 
 export const useFetchEffects = (
   createVmMigrationContext: CreateVmMigrationContextType,

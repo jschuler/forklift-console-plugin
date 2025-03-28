@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react';
 
 import { useSearchParams } from '../hooks/useSearchParams';
-import { type UserSettings } from '../Page';
-import { type ResourceField } from '../utils';
+import type { UserSettings } from '../Page';
+import type { ResourceField } from '../utils';
 
-import { type GlobalFilters } from './types';
+import type { GlobalFilters } from './types';
 
 /**
  * Safely parses a JSON string.

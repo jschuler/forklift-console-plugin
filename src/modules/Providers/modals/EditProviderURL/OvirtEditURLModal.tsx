@@ -8,7 +8,7 @@ import { validateOvirtURL } from '../../utils/validators';
 import { EditModal } from '../EditModal';
 
 import { patchProviderURL } from './utils/patchProviderURL';
-import { type EditProviderURLModalProps } from './EditProviderURLModal';
+import type { EditProviderURLModalProps } from './EditProviderURLModal';
 
 export const OvirtEditURLModal: React.FC<EditProviderURLModalProps> = (props) => {
   const { t } = useForkliftTranslation();

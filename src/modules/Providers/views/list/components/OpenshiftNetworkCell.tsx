@@ -6,7 +6,7 @@ import { getResourceUrl, TableEmptyCell, TableLabelCell } from 'src/modules/Prov
 import { ProviderModelRef } from '@kubev2v/types';
 import { NetworkIcon } from '@patternfly/react-icons';
 
-import { type CellProps } from './CellProps';
+import type { CellProps } from './CellProps';
 
 export const OpenshiftNetworkCell: React.FC<CellProps> = ({ data, fieldId, fields }: CellProps) => {
   const { inventory, provider } = data;

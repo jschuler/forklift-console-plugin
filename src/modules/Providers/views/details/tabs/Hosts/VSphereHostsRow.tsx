@@ -1,11 +1,11 @@
 import React from 'react';
-import { type RowProps } from 'src/components/common/TableView/types';
+import type { RowProps } from 'src/components/common/TableView/types';
 
-import { type ResourceField } from '@components/common/utils/types';
+import type { ResourceField } from '@components/common/utils/types';
 import { Td } from '@patternfly/react-table';
 
 import { NameCellRenderer } from './components/NameCellRenderer';
-import { type InventoryHostPair } from './utils/helpers';
+import type { InventoryHostPair } from './utils/helpers';
 import {
   type HostCellProps,
   IDCellRenderer,

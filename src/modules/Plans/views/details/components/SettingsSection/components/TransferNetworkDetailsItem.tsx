@@ -4,9 +4,9 @@ import { useModal } from 'src/modules/Providers/modals';
 import { DetailsItem } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type V1beta1PlanSpecTransferNetwork } from '@kubev2v/types';
+import type { V1beta1PlanSpecTransferNetwork } from '@kubev2v/types';
 
-import { type PlanDetailsItemProps } from '../../DetailsSection';
+import type { PlanDetailsItemProps } from '../../DetailsSection';
 import { EditPlanTransferNetwork } from '../modals/EditPlanTransferNetwork';
 
 export const TransferNetworkDetailsItem: React.FC<PlanDetailsItemProps> = ({

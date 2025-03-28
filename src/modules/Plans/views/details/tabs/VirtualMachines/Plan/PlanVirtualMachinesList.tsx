@@ -6,16 +6,16 @@ import {
 } from 'src/components/page/StandardPageWithSelection';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type ResourceFieldFactory } from '@components/common/utils/types';
-import {
-  type V1beta1PlanSpecVms,
-  type V1beta1PlanStatusConditions,
-  type V1beta1PlanStatusMigrationVms,
-  type V1beta1Provider,
+import type { ResourceFieldFactory } from '@components/common/utils/types';
+import type {
+  V1beta1PlanSpecVms,
+  V1beta1PlanStatusConditions,
+  V1beta1PlanStatusMigrationVms,
+  V1beta1Provider,
 } from '@kubev2v/types';
 
 import { PlanVMsDeleteButton } from '../components';
-import { type PlanData, type VMData } from '../types';
+import type { PlanData, VMData } from '../types';
 
 import { PlanVirtualMachinesRow } from './PlanVirtualMachinesRow';
 

@@ -1,8 +1,8 @@
 import React, { type ReactNode, useReducer, useState } from 'react';
 import { universalComparator } from 'src/components/common/TableView/sort';
 import { isPlanEditable } from 'src/modules/Plans/utils';
-import { type InventoryNetwork } from 'src/modules/Providers/hooks/useNetworks';
-import { type InventoryStorage } from 'src/modules/Providers/hooks/useStorages';
+import type { InventoryNetwork } from 'src/modules/Providers/hooks/useNetworks';
+import type { InventoryStorage } from 'src/modules/Providers/hooks/useStorages';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {

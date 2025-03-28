@@ -6,7 +6,7 @@ import { useForkliftTranslation } from 'src/utils';
 
 import { Button, ButtonVariant, Flex, Label } from '@patternfly/react-core';
 
-import { type CellProps } from './CellProps';
+import type { CellProps } from './CellProps';
 
 export const MigrationTypeCell: FC<CellProps> = ({ data }) => {
   const { t } = useForkliftTranslation();

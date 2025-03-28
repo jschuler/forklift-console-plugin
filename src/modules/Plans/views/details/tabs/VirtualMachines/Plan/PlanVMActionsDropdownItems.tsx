@@ -8,7 +8,7 @@ import { DropdownItem, DropdownList } from '@patternfly/react-core';
 import NetworkNameTemplateModal from '../../../components/SettingsSection/components/NetworkNameTemplate/NetworkNameTemplateModal';
 import PVCNameTemplateModal from '../../../components/SettingsSection/components/PVCNameTemplate/PVCNameTemplateModal';
 import VolumeNameTemplateModal from '../../../components/SettingsSection/components/VolumeNameTemplate/VolumeNameTemplateModal';
-import { type VMData } from '../types';
+import type { VMData } from '../types';
 
 type PlanVMActionsDropdownItemsProps = {
   data: VMData;

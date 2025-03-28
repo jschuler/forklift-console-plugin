@@ -24,7 +24,7 @@ import chart_color_red_100 from '@patternfly/react-tokens/dist/esm/chart_color_r
 import { TimeRangeOptions, TimeRangeOptionsDictionary } from '../utils/timeRangeOptions';
 import { type MigrationDataPoint, toDataPoints } from '../utils/toDataPointsHelper';
 
-import { type MigrationsCardProps } from './MigrationsCard';
+import type { MigrationsCardProps } from './MigrationsCard';
 
 const toStartedMigration = (m: V1beta1Migration): string => m.status.started;
 const toFinishedMigration = (m: V1beta1Migration): string => m.status.completed;

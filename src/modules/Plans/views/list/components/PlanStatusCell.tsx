@@ -25,7 +25,7 @@ import {
 } from '@patternfly/react-core';
 import StartIcon from '@patternfly/react-icons/dist/esm/icons/play-icon';
 
-import { type CellProps } from './CellProps';
+import type { CellProps } from './CellProps';
 import { PlanStatusVmCount } from './PlanStatusVmCount';
 
 import './PlanStatusCell.style.scss';

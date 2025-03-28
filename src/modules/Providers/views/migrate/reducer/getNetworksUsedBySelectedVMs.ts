@@ -1,6 +1,6 @@
-import { type OVirtNicProfile, type ProviderVirtualMachine } from '@kubev2v/types';
+import type { OVirtNicProfile, ProviderVirtualMachine } from '@kubev2v/types';
 
-import { type VmData } from '../../details';
+import type { VmData } from '../../details';
 
 import { POD_NETWORK } from './actions';
 

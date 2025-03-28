@@ -5,7 +5,7 @@ import { DescriptionList } from '@patternfly/react-core';
 
 import { DetailsItem } from '../../../../utils';
 
-import { type InventoryProps } from './InventorySection';
+import type { InventoryProps } from './InventorySection';
 
 export const VSphereInventorySection: React.FC<InventoryProps> = ({ data }) => {
   const { t } = useForkliftTranslation();

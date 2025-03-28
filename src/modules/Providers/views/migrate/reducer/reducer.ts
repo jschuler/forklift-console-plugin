@@ -1,7 +1,7 @@
-import { type Draft } from 'immer';
+import type { Draft } from 'immer';
 import { isProviderLocalOpenshift } from 'src/utils/resources';
 
-import { type ProviderType } from '@kubev2v/types';
+import type { ProviderType } from '@kubev2v/types';
 
 import { getIsTarget } from '../../../utils';
 import { toId } from '../../details';

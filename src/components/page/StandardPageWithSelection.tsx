@@ -3,9 +3,9 @@ import React, { type FC, useState } from 'react';
 import { Td, Th } from '@patternfly/react-table';
 
 import { DefaultHeader } from '../common/TableView/DefaultHeader';
-import { type RowProps, type TableViewHeaderProps } from '../common/TableView/types';
+import type { RowProps, TableViewHeaderProps } from '../common/TableView/types';
 import { withTr } from '../common/TableView/withTr';
-import { type GlobalActionToolbarProps } from '../common/utils/types';
+import type { GlobalActionToolbarProps } from '../common/utils/types';
 
 import StandardPage, { type StandardPageProps } from './StandardPage';
 

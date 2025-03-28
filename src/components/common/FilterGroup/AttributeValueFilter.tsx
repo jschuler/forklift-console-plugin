@@ -11,7 +11,7 @@ import {
 } from '@patternfly/react-core';
 
 import { FilterFromDef } from './FilterFromDef';
-import { type MetaFilterProps } from './types';
+import type { MetaFilterProps } from './types';
 
 /**
  * This is an implementation of [<font>``PatternFly 4`` attribute-value filter</font>](https://www.patternfly.org/v4/demos/filters/design-guidelines/#attribute-value-filter) pattern,

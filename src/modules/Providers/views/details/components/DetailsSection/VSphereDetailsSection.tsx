@@ -16,7 +16,7 @@ import {
   URLDetailsItem,
   VDDKDetailsItem,
 } from './components';
-import { type DetailsSectionProps } from './DetailsSection';
+import type { DetailsSectionProps } from './DetailsSection';
 import { getVSphereProviderWebUILink } from './utils';
 
 export const VSphereDetailsSection: React.FC<DetailsSectionProps> = ({ data }) => {

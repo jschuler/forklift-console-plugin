@@ -6,7 +6,7 @@ import {
   useSourceNetworks,
 } from 'src/modules/Providers/hooks/useNetworks';
 import { MappingList } from 'src/modules/Providers/views/migrate/components/MappingList';
-import { type Mapping } from 'src/modules/Providers/views/migrate/types';
+import type { Mapping } from 'src/modules/Providers/views/migrate/types';
 import { updateNetworkMapDestination } from 'src/modules/Providers/views/migrate/useSaveEffect';
 import { useForkliftTranslation } from 'src/utils/i18n';
 

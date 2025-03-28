@@ -1,20 +1,20 @@
-import { type FC } from 'react';
-import { type Draft } from 'immer';
+import type { FC } from 'react';
+import type { Draft } from 'immer';
 import { DefaultRow } from 'src/components/common/TableView/DefaultRow';
-import { type RowProps } from 'src/components/common/TableView/types';
+import type { RowProps } from 'src/components/common/TableView/types';
 import { withTr } from 'src/components/common/TableView/withTr';
 
-import { type ResourceFieldFactory } from '@components/common/utils/types';
-import {
-  type IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  type OVirtNicProfile,
-  type ProviderType,
-  type V1beta1Plan,
-  type V1beta1Provider,
+import type { ResourceFieldFactory } from '@components/common/utils/types';
+import type {
+  IoK8sApimachineryPkgApisMetaV1ObjectMeta,
+  OVirtNicProfile,
+  ProviderType,
+  V1beta1Plan,
+  V1beta1Provider,
 } from '@kubev2v/types';
 
 import { getIsTarget, validateK8sName } from '../../../utils';
-import { type VmData } from '../../details';
+import type { VmData } from '../../details';
 import { openShiftVmFieldsMetadataFactory } from '../../details/tabs/VirtualMachines/OpenShiftVirtualMachinesList';
 import { OpenShiftVirtualMachinesCells } from '../../details/tabs/VirtualMachines/OpenShiftVirtualMachinesRow';
 import { openStackVmFieldsMetadataFactory } from '../../details/tabs/VirtualMachines/OpenStackVirtualMachinesList';
@@ -41,7 +41,7 @@ import {
   UNMAPPED_STORAGES,
 } from '../types';
 
-import { type CreateVmMigration } from './actions';
+import type { CreateVmMigration } from './actions';
 import { calculateNetworks, calculateStorages } from './calculateMappings';
 import { hasMultiplePodNetworkMappings } from './hasMultiplePodNetworkMappings';
 

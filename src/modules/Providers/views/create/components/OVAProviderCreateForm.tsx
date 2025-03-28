@@ -3,7 +3,7 @@ import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpTe
 import { validateOvaNfsPath } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type V1beta1Provider } from '@kubev2v/types';
+import type { V1beta1Provider } from '@kubev2v/types';
 import { Form, TextInput } from '@patternfly/react-core';
 
 export type OVAProviderCreateFormProps = {

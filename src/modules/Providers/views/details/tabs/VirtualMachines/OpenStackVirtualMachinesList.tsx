@@ -1,13 +1,13 @@
 import React from 'react';
 import { EnumToTuple } from 'src/components/common/FilterGroup/helpers';
 
-import { type ResourceFieldFactory } from '@components/common/utils/types';
+import type { ResourceFieldFactory } from '@components/common/utils/types';
 
 import { concernFilter } from './utils/filters/concernFilter';
 import { getVmPowerState } from './utils/helpers/getVmPowerState';
 import { ProviderVirtualMachinesList, type VmData } from './components';
 import { OpenStackVirtualMachinesCells } from './OpenStackVirtualMachinesRow';
-import { type ProviderVirtualMachinesProps } from './ProviderVirtualMachines';
+import type { ProviderVirtualMachinesProps } from './ProviderVirtualMachines';
 
 export const openStackVmFieldsMetadataFactory: ResourceFieldFactory = (t) => [
   {

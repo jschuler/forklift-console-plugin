@@ -5,7 +5,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { Dropdown, DropdownList, MenuToggle, type MenuToggleElement } from '@patternfly/react-core';
 import { EllipsisVIcon } from '@patternfly/react-icons';
 
-import { type CellProps } from '../views/list/components';
+import type { CellProps } from '../views/list/components';
 
 import { PlanActionsDropdownItems } from './PlanActionsDropdownItems';
 

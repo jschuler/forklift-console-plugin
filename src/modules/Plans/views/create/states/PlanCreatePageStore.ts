@@ -1,4 +1,4 @@
-import { type VmData } from 'src/modules/Providers/views';
+import type { VmData } from 'src/modules/Providers/views';
 
 export type PlanCreatePageState = {
   nameFilter: string;

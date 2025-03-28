@@ -1,8 +1,8 @@
 import { deepCopy } from 'src/utils';
 
-import { type V1beta1Hook, type V1beta1Plan } from '@kubev2v/types';
+import type { V1beta1Hook, V1beta1Plan } from '@kubev2v/types';
 
-import { type FormState } from './reducer';
+import type { FormState } from './reducer';
 
 const preHookTemplate = (plan: V1beta1Plan) => ({
   apiVersion: 'forklift.konveyor.io/v1beta1',

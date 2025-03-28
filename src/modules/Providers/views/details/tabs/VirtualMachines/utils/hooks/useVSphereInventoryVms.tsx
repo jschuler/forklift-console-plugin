@@ -1,7 +1,7 @@
 import { useProviderInventory, type UseProviderInventoryParams } from 'src/modules/Providers/hooks';
-import { type ProviderData } from 'src/modules/Providers/utils';
+import type { ProviderData } from 'src/modules/Providers/utils';
 
-import { type ProviderHost, type VSphereResource } from '@kubev2v/types';
+import type { ProviderHost, VSphereResource } from '@kubev2v/types';
 
 /**
  * A hook for retrieving hosts and folders from the inventory.

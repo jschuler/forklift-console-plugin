@@ -1,7 +1,7 @@
 import React from 'react';
-import { type SelectableGalleryItem } from 'src/modules/Providers/utils/components/Gallery/SelectableGallery';
+import type { SelectableGalleryItem } from 'src/modules/Providers/utils/components/Gallery/SelectableGallery';
 
-import { type V1beta1Provider } from '@kubev2v/types';
+import type { V1beta1Provider } from '@kubev2v/types';
 
 import providerTypes from '../constanats/providerTypes';
 

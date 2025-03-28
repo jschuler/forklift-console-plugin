@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { type Modify, ProviderModel, type V1beta1Provider } from '@kubev2v/types';
-import { type K8sModel } from '@openshift-console/dynamic-plugin-sdk';
+import type { K8sModel } from '@openshift-console/dynamic-plugin-sdk';
 import { Alert, Checkbox, TextInput } from '@patternfly/react-core';
 
 import { VDDKHelperTextShort } from '../../utils/components/VDDKHelperText';

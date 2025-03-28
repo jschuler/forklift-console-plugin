@@ -1,4 +1,4 @@
-import { type V1beta1Plan } from '@kubev2v/types';
+import type { V1beta1Plan } from '@kubev2v/types';
 
 export const hasSomeCompleteRunningVMs = (plan: V1beta1Plan) => {
   const planHasNeverStarted = !plan.status?.migration?.started ? true : false;

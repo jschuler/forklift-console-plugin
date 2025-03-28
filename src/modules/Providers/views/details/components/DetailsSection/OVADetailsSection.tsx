@@ -13,7 +13,7 @@ import {
   TypeDetailsItem,
   URLDetailsItem,
 } from './components';
-import { type DetailsSectionProps } from './DetailsSection';
+import type { DetailsSectionProps } from './DetailsSection';
 
 export const OVADetailsSection: React.FC<DetailsSectionProps> = ({ data }) => {
   const { t } = useForkliftTranslation();

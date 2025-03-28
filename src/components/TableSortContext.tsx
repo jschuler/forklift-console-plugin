@@ -1,8 +1,8 @@
 import React, { createContext, type FC, type PropsWithChildren, useContext } from 'react';
 
 import { useSort } from './common/TableView/sort';
-import { type SortType } from './common/TableView/types';
-import { type ResourceField } from './common/utils/types';
+import type { SortType } from './common/TableView/types';
+import type { ResourceField } from './common/utils/types';
 
 export type TableSortContextProps = {
   activeSort: SortType;

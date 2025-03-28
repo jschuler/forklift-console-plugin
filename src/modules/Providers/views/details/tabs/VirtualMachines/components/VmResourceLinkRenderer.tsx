@@ -3,7 +3,7 @@ import { TableCell } from 'src/modules/Providers/utils';
 
 import { type K8sGroupVersionKind, ResourceLink } from '@openshift-console/dynamic-plugin-sdk';
 
-import { type VMCellProps } from './VMCellProps';
+import type { VMCellProps } from './VMCellProps';
 
 export const withResourceLink = ({
   toGVK,

@@ -1,22 +1,22 @@
 import React, { type FC } from 'react';
 import { EnumFilter } from 'src/components/common/Filter/EnumFilter';
 import { GroupedEnumFilter } from 'src/components/common/Filter/GroupedEnumFilter';
-import { type ValueMatcher } from 'src/components/common/FilterGroup/types';
+import type { ValueMatcher } from 'src/components/common/FilterGroup/types';
 import { loadUserSettings } from 'src/components/common/Page/userSettings';
-import { type RowProps } from 'src/components/common/TableView/types';
+import type { RowProps } from 'src/components/common/TableView/types';
 import {
   type GlobalActionWithSelection,
   StandardPageWithSelection,
 } from 'src/components/page/StandardPageWithSelection';
-import { type ProviderData } from 'src/modules/Providers/utils';
+import type { ProviderData } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type ResourceFieldFactory } from '@components/common/utils/types';
-import { type Concern } from '@kubev2v/types';
+import type { ResourceFieldFactory } from '@components/common/utils/types';
+import type { Concern } from '@kubev2v/types';
 
 import { ConcernsTable } from './ConcernsTable';
 import { MigrationAction } from './MigrationAction';
-import { type VmData } from './VMCellProps';
+import type { VmData } from './VMCellProps';
 
 export type ProviderVirtualMachinesListProps = {
   title?: string;

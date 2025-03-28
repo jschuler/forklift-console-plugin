@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom-v5-compat';
 import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpText/FormGroupWithHelpText';
 import { useToggle } from 'src/modules/Providers/hooks';
 import { AlertMessageForModals, useModal } from 'src/modules/Providers/modals';
-import { type Validation } from 'src/modules/Providers/utils/types';
+import type { Validation } from 'src/modules/Providers/utils/types';
 import { validateK8sName } from 'src/modules/Providers/utils/validators';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 

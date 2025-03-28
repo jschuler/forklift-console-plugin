@@ -9,7 +9,7 @@ import { ProviderModelRef } from '@kubev2v/types';
 import { Button, Popover, Spinner, Text, TextContent, TextVariants } from '@patternfly/react-core';
 import { CheckCircleIcon, ExclamationCircleIcon } from '@patternfly/react-icons';
 
-import { type CellProps } from './CellProps';
+import type { CellProps } from './CellProps';
 
 /**
  * StatusCell component, used for displaying the status of a resource.

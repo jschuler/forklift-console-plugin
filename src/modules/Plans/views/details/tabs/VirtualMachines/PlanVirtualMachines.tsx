@@ -11,7 +11,7 @@ import { Suspend } from '../../components';
 
 import { MigrationVirtualMachinesList } from './Migration';
 import { PlanVirtualMachinesList } from './Plan';
-import { type PlanData } from './types';
+import type { PlanData } from './types';
 
 export type PlanVirtualMachinesProps = {
   obj: PlanData;

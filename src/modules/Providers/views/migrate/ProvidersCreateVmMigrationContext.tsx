@@ -9,9 +9,9 @@ import {
 } from 'react';
 import { produce } from 'immer';
 
-import { type V1beta1Provider } from '@kubev2v/types';
+import type { V1beta1Provider } from '@kubev2v/types';
 
-import { type VmData } from '../details';
+import type { VmData } from '../details';
 
 export type CreateVmMigrationContextData = {
   selectedVms: VmData[];

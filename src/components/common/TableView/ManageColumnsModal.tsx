@@ -20,7 +20,7 @@ import {
   TextVariants,
 } from '@patternfly/react-core';
 
-import { type ResourceField } from '../utils';
+import type { ResourceField } from '../utils';
 
 export type ManagedColumnsProps = {
   /**

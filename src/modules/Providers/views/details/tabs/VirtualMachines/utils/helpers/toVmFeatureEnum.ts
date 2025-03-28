@@ -1,4 +1,4 @@
-import { type VmFeatures } from 'src/utils/types';
+import type { VmFeatures } from 'src/utils/types';
 
 export const toVmFeatureEnum = (t: (string) => string): { [k in keyof VmFeatures]: string } => ({
   dedicatedCpu: t('Dedicated CPU'),

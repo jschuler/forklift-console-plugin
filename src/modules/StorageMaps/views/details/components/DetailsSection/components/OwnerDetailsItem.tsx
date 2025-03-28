@@ -2,7 +2,7 @@ import React from 'react';
 import { DetailsItem, OwnerReferencesItem } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type StorageDetailsItemProps } from './StorageDetailsItemProps';
+import type { StorageDetailsItemProps } from './StorageDetailsItemProps';
 
 export const OwnerDetailsItem: React.FC<StorageDetailsItemProps> = ({
   helpContent,

@@ -1,6 +1,6 @@
 import React from 'react';
 import SectionHeading from 'src/components/headers/SectionHeading';
-import { type ProviderData } from 'src/modules/Providers/utils';
+import type { ProviderData } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { ProviderModelGroupVersionKind, type V1beta1Provider } from '@kubev2v/types';

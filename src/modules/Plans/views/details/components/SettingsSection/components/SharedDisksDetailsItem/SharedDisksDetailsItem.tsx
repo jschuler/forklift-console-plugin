@@ -6,7 +6,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { Label } from '@patternfly/react-core';
 
-import { type PlanDetailsItemProps } from '../../../DetailsSection';
+import type { PlanDetailsItemProps } from '../../../DetailsSection';
 
 import MigrateSharedDisksModal from './components/MigrateSharedDisksModal/MigrateSharedDisksModal';
 import { getMigrateSharedDisks } from './utils/helpers';

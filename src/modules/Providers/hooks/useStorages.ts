@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
 
-import {
-  type OpenShiftStorageClass,
-  type OpenstackVolumeType,
-  type OVirtStorageDomain,
-  type ProviderType,
-  type TypedOvaResource,
-  type V1beta1Provider,
-  type VSphereDataStore,
+import type {
+  OpenShiftStorageClass,
+  OpenstackVolumeType,
+  OVirtStorageDomain,
+  ProviderType,
+  TypedOvaResource,
+  V1beta1Provider,
+  VSphereDataStore,
 } from '@kubev2v/types';
 
 import useProviderInventory from './useProviderInventory';

@@ -6,7 +6,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { Label } from '@patternfly/react-core';
 
-import { type PlanDetailsItemProps } from '../../DetailsSection';
+import type { PlanDetailsItemProps } from '../../DetailsSection';
 import { EditPlanWarm } from '../modals';
 
 export const WarmDetailsItem: React.FC<PlanDetailsItemProps> = ({

@@ -3,7 +3,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { SearchInput } from '@patternfly/react-core';
 
-import { type PlanCreatePageState } from '../states';
+import type { PlanCreatePageState } from '../states';
 
 export type SearchInputProviderProps = {
   filterState: PlanCreatePageState;

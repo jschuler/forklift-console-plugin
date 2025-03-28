@@ -7,7 +7,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { Label, Tooltip } from '@patternfly/react-core';
 import { ExclamationTriangleIcon } from '@patternfly/react-icons';
 
-import { type PlanDetailsItemProps } from '../../DetailsSection';
+import type { PlanDetailsItemProps } from '../../DetailsSection';
 import { VIRT_V2V_HELP_LINK } from '../modals';
 import { getRootDiskLabelByKey } from '../modals/EditRootDisk';
 import { EditRootDisk } from '../modals/EditRootDisk/EditRootDisk';

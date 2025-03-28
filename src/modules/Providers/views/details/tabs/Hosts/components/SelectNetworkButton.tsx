@@ -2,11 +2,11 @@ import React, { type FC } from 'react';
 import { useModal } from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type V1beta1Provider } from '@kubev2v/types';
+import type { V1beta1Provider } from '@kubev2v/types';
 import { Button, ToolbarItem } from '@patternfly/react-core';
 
 import { VSphereNetworkModal } from '../modals';
-import { type InventoryHostPair } from '../utils';
+import type { InventoryHostPair } from '../utils';
 
 /**
  * `SelectNetworkButton` is a functional component that renders a button for selecting a migration network.

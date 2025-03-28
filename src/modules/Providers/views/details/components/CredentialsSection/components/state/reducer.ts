@@ -1,7 +1,7 @@
-import { type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { isSecretDataChanged, type ValidationMsg } from 'src/modules/Providers/utils';
 
-import { type IoK8sApiCoreV1Secret } from '@kubev2v/types';
+import type { IoK8sApiCoreV1Secret } from '@kubev2v/types';
 
 /**
  * Represents the state of the secret edit form.

@@ -1,6 +1,6 @@
 import type React from 'react';
 
-import { type SelectOptionObject } from '@patternfly/react-core/deprecated';
+import type { SelectOptionObject } from '@patternfly/react-core/deprecated';
 export type EnumGroup = {
   groupId: string;
   label: string;

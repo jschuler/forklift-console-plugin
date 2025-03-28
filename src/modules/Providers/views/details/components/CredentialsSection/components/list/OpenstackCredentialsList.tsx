@@ -7,9 +7,9 @@ import { DescriptionList, Text, TextVariants } from '@patternfly/react-core';
 
 import { FieldWithClipboardCopy } from '../../FieldWithClipboardCopy';
 import { MaskedField } from '../../MaskedField';
-import { type ListComponentProps } from '../BaseCredentialsSection';
+import type { ListComponentProps } from '../BaseCredentialsSection';
 
-import { type Fields } from './Fields';
+import type { Fields } from './Fields';
 
 export const OpenstackCredentialsList: React.FC<ListComponentProps> = ({ reveal, secret }) => {
   const { t } = useForkliftTranslation();

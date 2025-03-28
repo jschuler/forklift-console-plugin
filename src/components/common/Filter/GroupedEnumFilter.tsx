@@ -12,7 +12,7 @@ import {
 } from '@patternfly/react-core';
 import { FilterIcon } from '@patternfly/react-icons';
 
-import { type FilterTypeProps } from './types';
+import type { FilterTypeProps } from './types';
 
 /**
  * This Filter type enables selecting one or many enum values that are separated by groups.

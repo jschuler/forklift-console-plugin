@@ -13,7 +13,7 @@ import {
 
 import { localeCompare } from '../utils';
 
-import { type FilterTypeProps } from './types';
+import type { FilterTypeProps } from './types';
 
 /**
  * One label may map to multiple enum ids due to translation or by design (i.e. "Unknown")

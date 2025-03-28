@@ -1,4 +1,4 @@
-import { type OpenApiJsonPath } from 'src/modules';
+import type { OpenApiJsonPath } from 'src/modules';
 
 export const safeBoolean = (value): boolean => {
   if (typeof value === 'boolean') return value;

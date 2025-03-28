@@ -3,7 +3,7 @@ import React, { type FC, type Ref, useState } from 'react';
 import { Dropdown, MenuToggle, type MenuToggleElement } from '@patternfly/react-core';
 import { EllipsisVIcon } from '@patternfly/react-icons';
 
-import { type PlanVMsCellProps } from '../components';
+import type { PlanVMsCellProps } from '../components';
 
 import { PlanVMActionsDropdownItems } from './PlanVMActionsDropdownItems';
 

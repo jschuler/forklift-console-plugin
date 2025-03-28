@@ -2,7 +2,7 @@ import React, { type FC } from 'react';
 import { useModal } from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type V1beta1Migration } from '@kubev2v/types';
+import type { V1beta1Migration } from '@kubev2v/types';
 import { ToolbarItem } from '@patternfly/react-core';
 
 import { MigrationVMsCancelModal } from '../modals';

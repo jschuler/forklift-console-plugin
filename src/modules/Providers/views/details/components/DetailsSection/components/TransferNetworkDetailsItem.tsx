@@ -4,7 +4,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { DetailsItem } from '../../../../../utils';
 
-import { type ProviderDetailsItemProps } from './ProviderDetailsItem';
+import type { ProviderDetailsItemProps } from './ProviderDetailsItem';
 
 export const TransferNetworkDetailsItem: React.FC<ProviderDetailsItemProps> = ({
   canPatch,

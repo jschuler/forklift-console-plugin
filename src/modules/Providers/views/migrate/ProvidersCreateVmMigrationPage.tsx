@@ -4,9 +4,9 @@ import { LoadingDots } from 'src/components/common/LoadingDots/LoadingDots';
 import { Alert } from '@patternfly/react-core';
 
 import { PlansCreateForm } from './components/PlansCreateForm';
-import { type CreateVmMigration, type PageAction } from './reducer/actions';
+import type { CreateVmMigration, PageAction } from './reducer/actions';
 import { isDone } from './reducer/helpers';
-import { type CreateVmMigrationPageState } from './types';
+import type { CreateVmMigrationPageState } from './types';
 
 const ProvidersCreateVmMigrationPage: React.FC<{
   state: CreateVmMigrationPageState;

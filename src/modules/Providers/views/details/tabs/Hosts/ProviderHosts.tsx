@@ -1,7 +1,7 @@
 import React from 'react';
 import { useGetDeleteAndEditAccessReview } from 'src/modules/Providers/hooks';
 import { ModalHOC } from 'src/modules/Providers/modals';
-import { type ProviderData } from 'src/modules/Providers/utils';
+import type { ProviderData } from 'src/modules/Providers/utils';
 
 import { ProviderModel, ProviderModelGroupVersionKind, type V1beta1Provider } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';

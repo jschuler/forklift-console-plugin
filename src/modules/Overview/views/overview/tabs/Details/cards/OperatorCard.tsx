@@ -4,7 +4,7 @@ import { getOperatorPhase } from 'src/modules/Overview/utils/helpers/getOperator
 import { DetailsItem } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type V1beta1ForkliftController } from '@kubev2v/types';
+import type { V1beta1ForkliftController } from '@kubev2v/types';
 import { ResourceLink } from '@openshift-console/dynamic-plugin-sdk';
 import {
   Card,

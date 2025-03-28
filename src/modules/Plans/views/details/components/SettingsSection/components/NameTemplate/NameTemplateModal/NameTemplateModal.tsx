@@ -4,7 +4,7 @@ import { EditModal } from 'src/modules/Providers/modals';
 
 import { PlanModel } from '@kubev2v/types';
 
-import { type EnhancedPlan, type SettingsEditModalProps } from '../../../utils/types';
+import type { EnhancedPlan, SettingsEditModalProps } from '../../../utils/types';
 import NameTemplateInputFactory from '../NameTemplateInput/NameTemplateInput';
 import { NameTemplateRadioOptions } from '../utils/constants';
 import { onConfirmNameTemplate } from '../utils/utils';

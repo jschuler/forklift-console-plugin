@@ -8,13 +8,13 @@ import {
 import { useProviderInventory } from 'src/modules/Providers/hooks';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type ResourceFieldFactory } from '@components/common/utils/types';
+import type { ResourceFieldFactory } from '@components/common/utils/types';
 import { HostModelGroupVersionKind, type V1beta1Host, type VSphereHost } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 import { type InventoryHostPair, matchHostsToInventory } from './utils/helpers';
 import { SelectNetworkButton } from './components';
-import { type ProviderHostsProps } from './ProviderHosts';
+import type { ProviderHostsProps } from './ProviderHosts';
 import { VSphereHostsCells } from './VSphereHostsRow';
 
 export const hostsFieldsMetadataFactory: ResourceFieldFactory = (t) => [

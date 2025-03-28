@@ -1,14 +1,14 @@
-import {
-  type IoK8sApiBatchV1Job,
-  type IoK8sApiCoreV1PersistentVolumeClaim,
-  type IoK8sApiCoreV1Pod,
-  type V1beta1DataVolume,
-  type V1beta1PlanSpecVms,
-  type V1beta1PlanStatusConditions,
-  type V1beta1PlanStatusMigrationVms,
+import type {
+  IoK8sApiBatchV1Job,
+  IoK8sApiCoreV1PersistentVolumeClaim,
+  IoK8sApiCoreV1Pod,
+  V1beta1DataVolume,
+  V1beta1PlanSpecVms,
+  V1beta1PlanStatusConditions,
+  V1beta1PlanStatusMigrationVms,
 } from '@kubev2v/types';
 
-import { type PlanData } from './PlanData';
+import type { PlanData } from './PlanData';
 
 export type VMData = {
   specVM: V1beta1PlanSpecVms;

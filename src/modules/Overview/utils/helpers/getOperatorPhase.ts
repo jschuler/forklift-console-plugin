@@ -1,4 +1,4 @@
-import { type K8sResourceCondition, type V1beta1ForkliftController } from '@kubev2v/types';
+import type { K8sResourceCondition, V1beta1ForkliftController } from '@kubev2v/types';
 
 /**
  * This function gets the phase and corresponding message from a status object.

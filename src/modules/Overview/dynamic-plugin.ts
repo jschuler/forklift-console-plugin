@@ -1,5 +1,5 @@
-import { type EncodedExtension } from '@openshift/dynamic-plugin-sdk-webpack';
-import { type ContextProvider, type HrefNavItem, type RoutePage } from '@openshift-console/dynamic-plugin-sdk';
+import type { EncodedExtension } from '@openshift/dynamic-plugin-sdk-webpack';
+import type { ContextProvider, HrefNavItem, RoutePage } from '@openshift-console/dynamic-plugin-sdk';
 import type { ConsolePluginBuildMetadata } from '@openshift-console/dynamic-plugin-sdk-webpack';
 
 export const exposedModules: ConsolePluginBuildMetadata['exposedModules'] = {

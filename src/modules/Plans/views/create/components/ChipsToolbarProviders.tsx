@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Chip, ChipGroup, Toolbar, ToolbarContent, ToolbarItem } from '@patternfly/react-core';
 
-import { type PlanCreatePageState } from '../states';
+import type { PlanCreatePageState } from '../states';
 
 export type ChipsToolbarProvidersProps = {
   filterState: PlanCreatePageState;

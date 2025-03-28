@@ -8,7 +8,7 @@ import { validateOpenshiftUILink } from '../../utils/validators';
 import { EditModal } from '../EditModal';
 
 import { patchProviderUI } from './utils/patchProviderUI';
-import { type EditProviderUIModalProps } from './EditProviderUIModal';
+import type { EditProviderUIModalProps } from './EditProviderUIModal';
 
 export const OpenshiftEditUIModal: React.FC<EditProviderUIModalProps> = (props) => {
   const { t } = useForkliftTranslation();

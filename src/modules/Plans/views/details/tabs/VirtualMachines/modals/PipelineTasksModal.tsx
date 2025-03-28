@@ -3,7 +3,7 @@ import { ConsoleTimestamp } from 'src/components/ConsoleTimestamp';
 import { useModal } from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type V1beta1PlanStatusMigrationVmsPipeline } from '@kubev2v/types';
+import type { V1beta1PlanStatusMigrationVmsPipeline } from '@kubev2v/types';
 import { Modal, ModalVariant } from '@patternfly/react-core';
 import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 

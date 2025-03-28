@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import { Suspend } from 'src/modules/Plans/views/details/components';
 import { useOpenShiftStorages, useSourceStorages } from 'src/modules/Providers/hooks/useStorages';
 import { MappingList } from 'src/modules/Providers/views/migrate/components/MappingList';
-import { type Mapping } from 'src/modules/Providers/views/migrate/types';
+import type { Mapping } from 'src/modules/Providers/views/migrate/types';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {

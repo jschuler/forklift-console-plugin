@@ -1,4 +1,4 @@
-import { type ResourceField } from '../utils';
+import type { ResourceField } from '../utils';
 
 export type SortType = {
   isAsc: boolean;

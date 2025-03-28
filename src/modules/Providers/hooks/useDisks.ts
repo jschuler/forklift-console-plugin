@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { type OpenstackVolume, type OVirtDisk, type ProviderType, type V1beta1Provider } from '@kubev2v/types';
+import type { OpenstackVolume, OVirtDisk, ProviderType, V1beta1Provider } from '@kubev2v/types';
 
 import useProviderInventory from './useProviderInventory';
 

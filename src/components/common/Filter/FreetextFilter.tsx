@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { InputGroup, SearchInput, ToolbarFilter } from '@patternfly/react-core';
 
-import { type FilterTypeProps } from './types';
+import type { FilterTypeProps } from './types';
 
 /**
  * This Filter type uses an unsensitive-case text provided by the user.

@@ -1,12 +1,12 @@
 import React from 'react';
-import { type RowProps } from 'src/components/common/TableView/types';
+import type { RowProps } from 'src/components/common/TableView/types';
 
-import { type ResourceField } from '@components/common/utils/types';
+import type { ResourceField } from '@components/common/utils/types';
 import { Td } from '@patternfly/react-table';
 
 import { ConditionsCellRenderer, type PlanVMsCellProps } from '../components';
 import { NameCellRenderer } from '../components/NameCellRenderer';
-import { type VMData } from '../types';
+import type { VMData } from '../types';
 
 import ActionsCell from './ActionsCell';
 

@@ -5,7 +5,7 @@ import { Table, Tbody, Td, Thead, Tr } from '@patternfly/react-table';
 
 import { type ResourceField, UID } from '../utils';
 
-import { type RowProps, type SortType, type TableViewHeaderProps } from './types';
+import type { RowProps, SortType, TableViewHeaderProps } from './types';
 
 /**
  * Displays provided list of entities as table.

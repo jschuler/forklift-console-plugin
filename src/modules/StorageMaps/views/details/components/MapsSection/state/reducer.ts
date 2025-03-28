@@ -1,6 +1,6 @@
 import { deepCopy } from 'src/utils';
 
-import { type V1beta1StorageMap, type V1beta1StorageMapSpecMap } from '@kubev2v/types';
+import type { V1beta1StorageMap, V1beta1StorageMapSpecMap } from '@kubev2v/types';
 
 export type MapsSectionState = {
   StorageMap: V1beta1StorageMap | null;

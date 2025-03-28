@@ -6,7 +6,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { ForkliftControllerModel } from '@kubev2v/types';
 import { ModalVariant } from '@patternfly/react-core';
 
-import { type EditSettingsModalProps } from './EditSettingsModalProps';
+import type { EditSettingsModalProps } from './EditSettingsModalProps';
 import SettingsNumberInput from './SettingsNumberInput';
 
 /**

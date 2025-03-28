@@ -8,7 +8,7 @@ import { SelectableCard } from 'src/modules/Providers/utils/components/Gallery/S
 import { SelectableGallery } from 'src/modules/Providers/utils/components/Gallery/SelectableGallery';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
-import { type IoK8sApiCoreV1Secret, type ProviderType, type V1beta1Provider } from '@kubev2v/types';
+import type { IoK8sApiCoreV1Secret, ProviderType, V1beta1Provider } from '@kubev2v/types';
 import {
   Flex,
   FlexItem,

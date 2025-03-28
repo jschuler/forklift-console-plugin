@@ -1,4 +1,4 @@
-import { type V1beta1PlanStatusMigrationVms } from '@kubev2v/types';
+import type { V1beta1PlanStatusMigrationVms } from '@kubev2v/types';
 
 const emptyCount = {
   canceled: 0,

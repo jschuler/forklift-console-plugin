@@ -4,7 +4,7 @@ import { DatePicker, InputGroup, ToolbarFilter } from '@patternfly/react-core';
 
 import { changeFormatToISODate, isValidDate, parseISOtoJSDate, toISODate } from '../utils';
 
-import { type FilterTypeProps } from './types';
+import type { FilterTypeProps } from './types';
 
 /**
  * This Filter type enables selecting a single date (a day).

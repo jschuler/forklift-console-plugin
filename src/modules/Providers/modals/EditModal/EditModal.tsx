@@ -8,12 +8,12 @@ import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 
 import { useToggle } from '../../hooks';
 import { getValueByJsonPath } from '../../utils/helpers';
-import { type ValidationMsg } from '../../utils/validators';
+import type { ValidationMsg } from '../../utils/validators';
 import { AlertMessageForModals, ItemIsOwnedAlert } from '../components';
 import { useModal } from '../ModalHOC';
 
 import { defaultOnConfirm } from './utils/defaultOnConfirm';
-import { type EditModalProps } from './types';
+import type { EditModalProps } from './types';
 
 import './EditModal.style.css';
 

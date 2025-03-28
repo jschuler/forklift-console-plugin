@@ -1,4 +1,4 @@
-import { type ValidationMsg } from '../validators';
+import type { ValidationMsg } from '../validators';
 
 /**
  * Function to ensure that the input url, token fields are both set or both empty.

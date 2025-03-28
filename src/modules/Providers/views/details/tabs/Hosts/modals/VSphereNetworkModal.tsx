@@ -5,8 +5,8 @@ import { AlertMessageForModals, useModal } from 'src/modules/Providers/modals';
 import { validateNoSpaces } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type SelectEventType, type SelectValueType } from '@components/common/utils/types';
-import { type NetworkAdapters, type V1beta1Provider } from '@kubev2v/types';
+import type { SelectEventType, SelectValueType } from '@components/common/utils/types';
+import type { NetworkAdapters, V1beta1Provider } from '@kubev2v/types';
 import {
   Button,
   Form,

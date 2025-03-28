@@ -1,9 +1,9 @@
 import React from 'react';
 import { ModalHOC } from 'src/modules/Providers/modals';
-import { type ProviderData, type SecretSubType } from 'src/modules/Providers/utils';
+import type { ProviderData, SecretSubType } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { type IoK8sApiCoreV1Secret } from '@kubev2v/types';
+import type { IoK8sApiCoreV1Secret } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 import { EsxiCredentialsSection } from './EsxiCredentialsSection';
