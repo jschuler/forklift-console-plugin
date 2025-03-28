@@ -7,7 +7,7 @@ type HelpIconPopoverProps = {
   children: React.ReactNode;
   header?: string;
   popoverProps?: Omit<PopoverProps, 'bodyContent' | 'titleContent'>;
-}
+};
 
 export const HelpIconPopover: React.FC<HelpIconPopoverProps> = ({
   children,

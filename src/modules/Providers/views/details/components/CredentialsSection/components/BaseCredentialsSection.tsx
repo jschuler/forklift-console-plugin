@@ -25,12 +25,12 @@ import './BaseCredentialsSection.style.css';
 export type ListComponentProps = {
   secret: IoK8sApiCoreV1Secret;
   reveal: boolean;
-}
+};
 
 export type EditComponentProps = {
   secret: IoK8sApiCoreV1Secret;
   onChange: (newValue: IoK8sApiCoreV1Secret) => void;
-}
+};
 
 export type BaseCredentialsSectionProps = {
   secret: IoK8sApiCoreV1Secret;

@@ -25,7 +25,7 @@ export type UseProviderInventoryParams = {
   interval?: number;
   fetchTimeout?: number;
   disabled?: boolean;
-}
+};
 
 /**
  * @typedef {Object} UseProviderInventoryResult
@@ -38,7 +38,7 @@ type UseProviderInventoryResult<T> = {
   inventory: T | null;
   loading: boolean;
   error: Error | null;
-}
+};
 
 /**
  * A React hook to fetch and cache inventory data from a provider.
@@ -114,7 +114,9 @@ export const useProviderInventory = <T>({
     fetchData();
 
     const intervalId = setInterval(fetchData, interval);
-    return () => { clearInterval(intervalId); };
+    return () => {
+      clearInterval(intervalId);
+    };
   }, [stableProvider, subPath, interval, disabled]);
 
   /**

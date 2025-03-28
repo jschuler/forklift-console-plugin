@@ -44,7 +44,7 @@ type RenderTdProps = {
   resourceData: VmData;
   resourceFieldId: string;
   resourceFields: ResourceField[];
-}
+};
 
 export const OpenShiftVirtualMachinesCells: React.FC<RowProps<VmData>> = ({
   resourceData,

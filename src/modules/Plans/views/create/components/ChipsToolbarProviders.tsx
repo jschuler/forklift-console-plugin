@@ -10,7 +10,7 @@ export type ChipsToolbarProvidersProps = {
     type: string;
     payload?: string | string[];
   }>;
-}
+};
 
 export const ChipsToolbarProviders: React.FunctionComponent<ChipsToolbarProvidersProps> = ({
   filterDispatch,
@@ -36,7 +36,12 @@ export const ChipsToolbarProviders: React.FunctionComponent<ChipsToolbarProvider
         {name && (
           <ToolbarItem>
             <ChipGroup categoryName="Name">
-              <Chip key={name} onClick={() => { deleteNameFilter(name); }}>
+              <Chip
+                key={name}
+                onClick={() => {
+                  deleteNameFilter(name);
+                }}
+              >
                 {name}
               </Chip>
             </ChipGroup>
@@ -46,7 +51,12 @@ export const ChipsToolbarProviders: React.FunctionComponent<ChipsToolbarProvider
           <ToolbarItem>
             <ChipGroup categoryName="Types">
               {types.map((type, index) => (
-                <Chip key={index} onClick={() => { deleteTypeFilter(type); }}>
+                <Chip
+                  key={index}
+                  onClick={() => {
+                    deleteTypeFilter(type);
+                  }}
+                >
                   {type}
                 </Chip>
               ))}

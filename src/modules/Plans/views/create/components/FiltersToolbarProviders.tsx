@@ -14,7 +14,7 @@ export type FiltersToolbarProvidersProps = {
     payload?: string | string[];
   }>;
   className?: string;
-}
+};
 
 export const FiltersToolbarProviders: React.FunctionComponent<FiltersToolbarProvidersProps> = ({
   className,

@@ -25,7 +25,7 @@ type Option = {
   key: number | string;
   name: number | string;
   description: string;
-}
+};
 
 /**
  * @typedef SettingsSelectInputProps
@@ -37,7 +37,7 @@ export type SettingsSelectInputProps = {
   value: number | string;
   onChange: (value: number | string) => void;
   options?: Option[];
-}
+};
 
 /**
  * SelectInput component. Provides a select input form element with predefined options.
@@ -87,19 +87,18 @@ export const SettingsSelectInput: FC<SettingsSelectInputProps> = ({ onChange, op
   };
 
   // Callback function to handle selection in the dropdown menu
-  const onSelect: (event?: ReactMouseEvent, value?: string | number) => void =
-    useCallback(
-      (_event, value: string | number) => {
-        // Use the dictionary to find the key corresponding to the selected name
-        const key = nameToKey[value] || value;
-        onChange(key);
+  const onSelect: (event?: ReactMouseEvent, value?: string | number) => void = useCallback(
+    (_event, value: string | number) => {
+      // Use the dictionary to find the key corresponding to the selected name
+      const key = nameToKey[value] || value;
+      onChange(key);
 
-        // Toggle the dropdown menu open state
-        setSelected(value as string);
-        setIsOpen(false);
-      },
-      [isOpen, nameToKey, onChange], // Dependencies for useCallback
-    );
+      // Toggle the dropdown menu open state
+      setSelected(value as string);
+      setIsOpen(false);
+    },
+    [isOpen, nameToKey, onChange], // Dependencies for useCallback
+  );
 
   // Render the Select component with dynamically created SelectOption children
   return (
@@ -110,7 +109,9 @@ export const SettingsSelectInput: FC<SettingsSelectInputProps> = ({ onChange, op
       isOpen={isOpen}
       selected={selected}
       onSelect={onSelect}
-      onOpenChange={(nextOpen: boolean) => { setIsOpen(nextOpen); }}
+      onOpenChange={(nextOpen: boolean) => {
+        setIsOpen(nextOpen);
+      }}
       toggle={toggle}
       shouldFocusToggleOnSelect
       shouldFocusFirstItemOnOpen={false}

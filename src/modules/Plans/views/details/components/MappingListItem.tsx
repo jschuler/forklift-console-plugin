@@ -20,7 +20,7 @@ import { MinusCircleIcon } from '@patternfly/react-icons';
 export type Mapping = {
   source: string;
   destination: string;
-}
+};
 
 type MappingListItemProps = {
   source: string;
@@ -33,7 +33,7 @@ type MappingListItemProps = {
   replaceMapping: (val: { current: Mapping; next: Mapping }) => void;
   deleteMapping: (mapping: Mapping) => void;
   isEditable: boolean;
-}
+};
 
 export const MappingListItem: FC<MappingListItemProps> = ({
   deleteMapping,
@@ -130,7 +130,9 @@ export const MappingListItem: FC<MappingListItemProps> = ({
                 isOpen={isSrcOpen}
                 selected={srcSelected}
                 onSelect={onSelectSource}
-                onOpenChange={(nextOpen: boolean) => { setIsSrcOpen(nextOpen); }}
+                onOpenChange={(nextOpen: boolean) => {
+                  setIsSrcOpen(nextOpen);
+                }}
                 toggle={srcToggle}
                 isScrollable
                 shouldFocusFirstItemOnOpen={false}
@@ -155,7 +157,9 @@ export const MappingListItem: FC<MappingListItemProps> = ({
                 isOpen={isTrgOpen}
                 selected={trgSelected}
                 onSelect={onSelectDestination}
-                onOpenChange={(nextOpen: boolean) => { setIsTrgOpen(nextOpen); }}
+                onOpenChange={(nextOpen: boolean) => {
+                  setIsTrgOpen(nextOpen);
+                }}
                 toggle={trgToggle}
                 shouldFocusToggleOnSelect
                 shouldFocusFirstItemOnOpen={false}

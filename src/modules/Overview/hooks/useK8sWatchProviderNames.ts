@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import { ForkliftControllerModelGroupVersionKind, type V1beta1ForkliftController } from '@kubev2v/types';
+import {
+  ForkliftControllerModelGroupVersionKind,
+  type V1beta1ForkliftController,
+} from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 /**

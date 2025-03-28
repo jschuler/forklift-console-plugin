@@ -46,4 +46,4 @@ export const NetworkMapActionsDropdownItems = ({ data }: NetworkMapActionsDropdo
 
 type NetworkMapActionsDropdownItemsProps = {
   data: NetworkMapData;
-}
+};

@@ -17,7 +17,7 @@ type SelectableCardProps = {
   isCompact?: boolean;
   /** Optional: A string representing a CSS class name. This class will be applied to the card's top-level DOM element, allowing you to style the card with custom CSS. */
   className?: string;
-}
+};
 
 /**
  * SelectableCard component

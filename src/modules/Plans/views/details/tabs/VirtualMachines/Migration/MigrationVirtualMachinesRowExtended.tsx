@@ -39,10 +39,10 @@ export const MigrationVirtualMachinesRowExtended: React.FC<RowProps<VMData>> = (
 
   const pipeline = props.resourceData.statusVM?.pipeline || [];
   const conditions = props.resourceData.statusVM?.conditions || [];
-  const {pods} = props.resourceData;
-  const {jobs} = props.resourceData;
-  const {pvcs} = props.resourceData;
-  const {dvs} = props.resourceData;
+  const { pods } = props.resourceData;
+  const { jobs } = props.resourceData;
+  const { pvcs } = props.resourceData;
+  const { dvs } = props.resourceData;
   const vmCreated = pipeline.find(
     (p) => p?.name === 'VirtualMachineCreation' && p?.phase === 'Completed',
   );
@@ -314,9 +314,9 @@ export const MigrationVirtualMachinesRowExtended: React.FC<RowProps<VMData>> = (
                     <Button
                       className="forklift-page-plan-details-vm-tasks"
                       variant="link"
-                      onClick={() =>
-                        { showModal(<PipelineTasksModal name={p?.name} tasks={p.tasks} />); }
-                      }
+                      onClick={() => {
+                        showModal(<PipelineTasksModal name={p?.name} tasks={p.tasks} />);
+                      }}
                     >
                       <TaskIcon /> {t('{{completed}} / {{total}}', getPipelineTasks(p))}
                     </Button>

@@ -55,7 +55,7 @@ export const useSourceStorages = (
 
   const typedStorages = useMemo(() => {
     const storageList = Array.isArray(storages)
-      ? storages.map((st) => ({ ...st, providerType } as InventoryStorage))
+      ? storages.map((st) => ({ ...st, providerType }) as InventoryStorage)
       : [];
 
     if (Array.isArray(storages) && providerType === 'openstack') {
@@ -85,7 +85,7 @@ export const useOpenShiftStorages = (
   const typedStorages = useMemo(
     () =>
       Array.isArray(storages)
-        ? storages.map((st) => ({ ...st, providerType: 'openshift' } as OpenShiftStorageClass))
+        ? storages.map((st) => ({ ...st, providerType: 'openshift' }) as OpenShiftStorageClass)
         : [],
     [storages],
   );

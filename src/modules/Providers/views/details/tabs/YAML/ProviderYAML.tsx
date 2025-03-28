@@ -12,7 +12,7 @@ type ProviderYAMLPageProps = {
   name?: string;
   loaded?: boolean;
   loadError?: unknown;
-}
+};
 
 export const ProviderYAMLPage: React.FC<ProviderYAMLPageProps> = ({ loaded, loadError, obj }) => {
   const { t } = useForkliftTranslation();

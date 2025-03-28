@@ -64,6 +64,6 @@ type RenderTdProps = {
   resourceData: PlanData;
   resourceFieldId: string;
   resourceFields: ResourceField[];
-}
+};
 
 export default PlanRow;

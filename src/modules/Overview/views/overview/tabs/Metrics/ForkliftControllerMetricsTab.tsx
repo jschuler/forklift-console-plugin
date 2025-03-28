@@ -11,7 +11,7 @@ type ForkliftControllerMetricsTabProps = {
   name?: string;
   loaded?: boolean;
   loadError?: unknown;
-}
+};
 
 export const ForkliftControllerMetricsTab: React.FC<ForkliftControllerMetricsTabProps> = ({
   obj,

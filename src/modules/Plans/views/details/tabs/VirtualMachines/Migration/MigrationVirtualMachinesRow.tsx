@@ -158,7 +158,7 @@ type RenderTdProps = {
   resourceData: VMData;
   resourceFieldId: string;
   resourceFields: ResourceField[];
-}
+};
 
 type ProgressStepperVariant = 'default' | 'success' | 'info' | 'pending' | 'warning' | 'danger';
 type PopoverVariant = 'success' | 'info' | 'warning' | 'danger' | 'custom';

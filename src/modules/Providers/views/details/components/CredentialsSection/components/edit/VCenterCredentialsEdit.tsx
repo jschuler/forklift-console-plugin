@@ -147,7 +147,9 @@ export const VCenterCredentialsEdit: React.FC<EditComponentProps> = ({ onChange,
           type="text"
           id="username"
           name="username"
-          onChange={(e, v) => { onChangeUser(v, e); }}
+          onChange={(e, v) => {
+            onChangeUser(v, e);
+          }}
           value={user}
           validated={state.validation.user.type}
         />
@@ -167,7 +169,9 @@ export const VCenterCredentialsEdit: React.FC<EditComponentProps> = ({ onChange,
             isRequired
             type={state.passwordHidden ? 'password' : 'text'}
             aria-label="Password input"
-            onChange={(e, v) => { onChangePassword(v, e); }}
+            onChange={(e, v) => {
+              onChangePassword(v, e);
+            }}
             value={password}
             validated={state.validation.password.type}
           />
@@ -207,7 +211,9 @@ export const VCenterCredentialsEdit: React.FC<EditComponentProps> = ({ onChange,
           label={t('Skip certificate validation')}
           isChecked={insecureSkipVerify === 'true'}
           hasCheckIcon
-          onChange={(e, v) => { onChangeInsecure(v, e); }}
+          onChange={(e, v) => {
+            onChangeInsecure(v, e);
+          }}
         />
       </FormGroupWithHelpText>
 
@@ -234,9 +240,15 @@ export const VCenterCredentialsEdit: React.FC<EditComponentProps> = ({ onChange,
           url={url}
           value={cacert}
           validated={state.validation.cacert.type}
-          onDataChange={(_e, v) => { onDataChange(v); }}
-          onTextChange={(_e, v) => { onTextChange(v); }}
-          onClearClick={() => { handleChange('cacert', ''); }}
+          onDataChange={(_e, v) => {
+            onDataChange(v);
+          }}
+          onTextChange={(_e, v) => {
+            onTextChange(v);
+          }}
+          onClearClick={() => {
+            handleChange('cacert', '');
+          }}
           isDisabled={insecureSkipVerify === 'true'}
         />
       </FormGroupWithHelpText>

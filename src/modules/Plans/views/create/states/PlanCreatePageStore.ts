@@ -5,7 +5,7 @@ export type PlanCreatePageState = {
   typeFilters: string[];
   selectedProviderUID: string;
   selectedVMs: VmData[];
-}
+};
 
 export const planCreatePageInitialState: PlanCreatePageState = {
   nameFilter: '',
@@ -23,22 +23,22 @@ export const UPDATE_SELECTED_VMS = 'UPDATE_SELECTED_VMS';
 type SetNameFilterAction = {
   type: typeof SET_NAME_FILTER;
   payload: string;
-}
+};
 
 type UpdateTypeFiltersAction = {
   type: typeof UPDATE_TYPE_FILTERS;
   payload: string[];
-}
+};
 
 type SelectProviderAction = {
   type: typeof SELECT_PROVIDER;
   payload: string;
-}
+};
 
 type UpdateSelectedVMsAction = {
   type: typeof UPDATE_SELECTED_VMS;
   payload: VmData[];
-}
+};
 
 export type PlanCreatePageActionTypes =
   | SetNameFilterAction

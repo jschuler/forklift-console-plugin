@@ -64,7 +64,7 @@ export type PageHeadingsProps = {
   actions?: ReactNode;
   status?: string;
   children?: React.ReactNode;
-}
+};
 
 const BreadCrumbs: React.FC<BreadCrumbsProps> = ({ model, namespace }) => {
   const { t } = useForkliftTranslation();

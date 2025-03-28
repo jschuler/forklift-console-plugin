@@ -58,7 +58,9 @@ export const validatePlanName = (name: string, existingPlans: V1beta1Plan[]) =>
     : 'error';
 
 export const validateTargetNamespace = (namespace: string, alreadyInUseBySelectedVms: boolean) =>
-  Boolean(namespace) && validateK8sName(namespace) && !alreadyInUseBySelectedVms ? 'success' : 'error';
+  Boolean(namespace) && validateK8sName(namespace) && !alreadyInUseBySelectedVms
+    ? 'success'
+    : 'error';
 
 export const setTargetProvider = (
   draft: Draft<CreateVmMigrationPageState>,
@@ -141,7 +143,7 @@ export const recalculateStorages = (draft) => {
 export const reTestStorages = (draft) => {
   draft.alerts.storageMappings.warnings = [];
 
-  const {storageMappings} = draft.calculatedPerNamespace;
+  const { storageMappings } = draft.calculatedPerNamespace;
   if (
     storageMappings &&
     storageMappings.length > 1 &&
@@ -166,7 +168,7 @@ export const recalculateNetworks = (draft) => {
 export const reTestNetworks = (draft) => {
   draft.alerts.networkMappings.warnings = [];
 
-  const {networkMappings} = draft.calculatedPerNamespace;
+  const { networkMappings } = draft.calculatedPerNamespace;
   if (
     networkMappings &&
     networkMappings.length !== 0 &&

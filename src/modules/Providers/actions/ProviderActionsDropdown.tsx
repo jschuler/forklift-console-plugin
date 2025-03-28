@@ -37,10 +37,7 @@ const ProviderActionsKebabDropdown_: React.FC<ProviderActionsDropdownProps> = ({
     setIsOpen((isOpen) => !isOpen);
   };
 
-  const onSelect = (
-    _event: React.MouseEvent | undefined,
-    _value: string | number | undefined,
-  ) => {
+  const onSelect = (_event: React.MouseEvent | undefined, _value: string | number | undefined) => {
     setIsOpen(false);
   };
 
@@ -90,4 +87,4 @@ export const ProviderActionsDropdown: React.FC<ProviderActionsDropdownProps> = (
 
 export type ProviderActionsDropdownProps = {
   isKebab?: boolean;
-} & CellProps
+} & CellProps;

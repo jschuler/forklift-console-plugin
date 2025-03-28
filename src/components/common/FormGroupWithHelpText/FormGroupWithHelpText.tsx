@@ -23,7 +23,7 @@ export type FormGroupWithHelpTextProps = {
    * Helper text after the field when the field is invalid. It can be a simple text or an object.
    */
   helperTextInvalid?: React.ReactNode;
-} & FormGroupProps
+} & FormGroupProps;
 
 /**
  * Convert the formGroup validated mode into the variant styling of the helper text item

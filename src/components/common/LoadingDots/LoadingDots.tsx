@@ -5,7 +5,7 @@ export type LoadingDotsProps = {
    * Delay in Milliseconds
    */
   delayInMs?: number;
-}
+};
 
 /**
  *  Port of the LoadingBox component from the console.
@@ -24,8 +24,12 @@ export const LoadingDots = ({ delayInMs = 500 }: LoadingDotsProps) => {
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
   const [showDots, setShowDots] = useState(false);
   useEffect(() => {
-    timerRef.current = setTimeout(() => { setShowDots(true); }, delayInMs);
-    return () => { clearTimeout(timerRef.current); };
+    timerRef.current = setTimeout(() => {
+      setShowDots(true);
+    }, delayInMs);
+    return () => {
+      clearTimeout(timerRef.current);
+    };
   });
 
   if (!showDots) {

@@ -7,7 +7,12 @@ import type { OVirtVM } from '@kubev2v/types';
 import { Td } from '@patternfly/react-table';
 
 import { PowerStateCellRenderer } from './components/PowerStateCellRenderer';
-import { type VMCellProps, VMConcernsCellRenderer, type VmData, VMNameCellRenderer } from './components';
+import {
+  type VMCellProps,
+  VMConcernsCellRenderer,
+  type VmData,
+  VMNameCellRenderer,
+} from './components';
 
 const renderTd = ({ resourceData, resourceFieldId, resourceFields }: RenderTdProps) => {
   const fieldId = resourceFieldId;
@@ -24,7 +29,7 @@ type RenderTdProps = {
   resourceData: VmData;
   resourceFieldId: string;
   resourceFields: ResourceField[];
-}
+};
 
 const cellRenderers: Record<string, React.FC<VMCellProps>> = {
   cluster: ({ data }) => <TableCell>{(data?.vm as OVirtVM)?.cluster}</TableCell>,

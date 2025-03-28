@@ -26,7 +26,7 @@ export const SettingsNumberInput: React.FC<SettingsSelectInputProps> = ({
   };
 
   const onUserChange: (event: React.FormEvent<HTMLInputElement>) => void = (event) => {
-    const {value} = (event.target as HTMLInputElement);
+    const { value } = event.target as HTMLInputElement;
     const newValue = value === '' ? value : +value;
     setNewValue(newValue || 0);
   };

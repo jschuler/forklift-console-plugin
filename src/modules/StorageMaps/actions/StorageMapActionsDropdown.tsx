@@ -27,10 +27,7 @@ const StorageMapActionsKebabDropdown_: FC<StorageMapActionsDropdownProps> = ({ d
     setIsOpen((isOpen) => !isOpen);
   };
 
-  const onSelect = (
-    _event: React.MouseEvent | undefined,
-    _value: string | number | undefined,
-  ) => {
+  const onSelect = (_event: React.MouseEvent | undefined, _value: string | number | undefined) => {
     setIsOpen(false);
   };
 
@@ -74,4 +71,4 @@ export const StorageMapActionsDropdown: React.FC<StorageMapActionsDropdownProps>
 
 export type StorageMapActionsDropdownProps = {
   isKebab?: boolean;
-} & CellProps
+} & CellProps;

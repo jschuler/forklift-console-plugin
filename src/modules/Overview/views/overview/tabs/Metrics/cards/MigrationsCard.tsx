@@ -18,7 +18,7 @@ type StatusCardProps = {
   status: string;
   count: number | string;
   counterClassName?: string;
-}
+};
 
 /**
  * StatusCard component displays count of given status

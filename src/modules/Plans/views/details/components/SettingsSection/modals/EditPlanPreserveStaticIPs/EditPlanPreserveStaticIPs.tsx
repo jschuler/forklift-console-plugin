@@ -34,7 +34,7 @@ const onConfirm: OnConfirmHookType = async ({ model, newValue, resource }) => {
 type SwitchRendererProps = {
   value: string | number;
   onChange: (string) => void;
-}
+};
 
 const PreserveStaticIPsInputFactory: () => ModalInputComponentType = () => {
   const { t } = useForkliftTranslation();
@@ -52,7 +52,9 @@ const PreserveStaticIPsInputFactory: () => ModalInputComponentType = () => {
         label={t('Preserve the static IPs of the virtual machines migrated')}
         isChecked={value === 'true'}
         hasCheckIcon
-        onChange={(e, v) => { onChangeInternal(v, e); }}
+        onChange={(e, v) => {
+          onChangeInternal(v, e);
+        }}
       />
     );
   };

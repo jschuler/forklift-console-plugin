@@ -100,19 +100,19 @@ export type CreateVmMigrationPageState = {
     apiError?: Error;
     initialLoading: Partial<Record<CreateVmMigration, boolean>>;
   };
-}
+};
 export type MappingSource = {
   // Read-only
   label: string;
   usedBySelectedVms: boolean;
   // Mutated via UI
   isMapped: boolean;
-}
+};
 
 export type Mapping = {
   source: string;
   destination: string;
-}
+};
 
 export const NET_MAP_NAME_REGENERATED = 'NET_MAP_NAME_REGENERATED';
 export const NETWORK_MAPPING_REGENERATED = 'NETWORK_MAPPING_REGENERATED';

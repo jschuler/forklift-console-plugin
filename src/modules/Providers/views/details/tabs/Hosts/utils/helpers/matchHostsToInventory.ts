@@ -8,7 +8,7 @@ export type InventoryHostPair = {
   inventory: VSphereHost;
   host?: V1beta1Host;
   networkAdapter?: NetworkAdapters;
-}
+};
 
 /**
  * Function that matches ProviderHost items to V1beta1Host and NetworkAdapters items based on the id and ipAddress properties respectively.

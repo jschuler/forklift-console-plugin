@@ -49,11 +49,11 @@ export type MetaFilterProps = {
    * Language to be used for locale sensitive sorting/filtering. Defaults to 'en'.
    */
   resolvedLanguage?: string;
-}
+};
 
-export type GlobalFilters = Record<string, string[]>
+export type GlobalFilters = Record<string, string[]>;
 
 export type ValueMatcher = {
   filterType: string;
   matchValue: (value: unknown) => (filter: string) => boolean;
-}
+};

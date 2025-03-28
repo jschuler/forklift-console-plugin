@@ -17,4 +17,4 @@ export type ProviderDetailsItemProps = {
   canPatch?: boolean;
   moreInfoLink?: string;
   helpContent?: ReactNode;
-}
+};

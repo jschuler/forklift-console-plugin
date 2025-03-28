@@ -140,4 +140,4 @@ type TableViewProps<T> = {
    * Expanded ids
    */
   expandedIds?: string[];
-}
+};

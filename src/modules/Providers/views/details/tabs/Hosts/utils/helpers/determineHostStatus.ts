@@ -3,7 +3,7 @@ import type { V1beta1Host } from '@kubev2v/types';
 type StatusResult = {
   status: string;
   message: string;
-}
+};
 
 /**
  * @description Determine the current status of a host.

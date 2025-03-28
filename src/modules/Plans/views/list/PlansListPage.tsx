@@ -220,7 +220,7 @@ const PlansListPage: React.FC<{
 
 type EmptyStateProps = {
   namespace: string;
-}
+};
 
 const EmptyState_: React.FC<EmptyStateProps> = ({ namespace }) => {
   return <PlansEmptyState namespace={namespace} />;

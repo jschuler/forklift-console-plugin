@@ -7,4 +7,4 @@ export type StorageDetailsItemProps = {
   canPatch?: boolean;
   moreInfoLink?: string;
   helpContent?: ReactNode;
-}
+};

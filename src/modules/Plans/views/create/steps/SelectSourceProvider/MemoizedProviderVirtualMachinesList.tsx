@@ -11,7 +11,7 @@ export type ProviderVirtualMachinesListProps = {
   initialSelectedIds: string[];
   showActions: boolean;
   selectedCountLabel?: (selectedIdCount: number) => string;
-}
+};
 
 export const MemoizedProviderVirtualMachinesList = memo(
   ({

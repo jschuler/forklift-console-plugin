@@ -31,4 +31,4 @@ type GetResourceUrlProps = {
   namespaced?: boolean;
   namespace?: string;
   name?: string;
-}
+};

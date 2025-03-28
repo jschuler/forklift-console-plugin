@@ -17,7 +17,7 @@ type TimeRangeOptionsProperties = {
   bucket: { day: number } | { hour: number };
   unit: 'day' | 'hour';
   filter: (date: DateTime) => boolean;
-}
+};
 
 export const TimeRangeOptionsDictionary: {
   Last7Days: TimeRangeOptionsProperties;

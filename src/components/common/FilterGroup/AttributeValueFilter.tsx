@@ -45,10 +45,10 @@ export const AttributeValueFilter = ({
     </MenuToggle>
   );
 
-  const onSelect: (
-    event?: ReactMouseEvent,
-    value?: string | number,
-  ) => void = (_event, value: string) => {
+  const onSelect: (event?: ReactMouseEvent, value?: string | number) => void = (
+    _event,
+    value: string,
+  ) => {
     setCurrentFilter(selectOptionToFilter(value));
     setIsOpen((isOpen) => !isOpen);
   };
@@ -70,7 +70,9 @@ export const AttributeValueFilter = ({
           isOpen={isOpen}
           selected={currentFilter && currentFilter.label}
           onSelect={onSelect}
-          onOpenChange={(nextOpen: boolean) => { setIsOpen(nextOpen); }}
+          onOpenChange={(nextOpen: boolean) => {
+            setIsOpen(nextOpen);
+          }}
           toggle={toggle}
           shouldFocusToggleOnSelect
           shouldFocusFirstItemOnOpen={false}

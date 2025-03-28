@@ -13,7 +13,7 @@ export type SelectableGalleryItem = {
   logo?: ReactNode;
   /** The content of the item */
   content: string;
-}
+};
 
 type SelectableGalleryProps = {
   /** An object of items to be displayed in the gallery. Key is the item's id */
@@ -24,7 +24,7 @@ type SelectableGalleryProps = {
   sortFunction?: (a: [string, SelectableGalleryItem], b: [string, SelectableGalleryItem]) => number;
   /** Initial selected value */
   selectedID?: string;
-}
+};
 
 /**
  * SelectableGallery component
@@ -65,7 +65,9 @@ export const SelectableGallery: FC<SelectableGalleryProps> = ({
             titleLogo={item.logo}
             content={item.content}
             isSelected={id === selectedCardId}
-            onChange={(isSelected) => { handleCardChange(isSelected, id); }}
+            onChange={(isSelected) => {
+              handleCardChange(isSelected, id);
+            }}
           />
         </GalleryItem>
       ))}

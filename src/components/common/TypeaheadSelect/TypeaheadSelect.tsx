@@ -23,17 +23,14 @@ export type TypeaheadSelectOption = {
   value: string | number;
   /** Indicator for option being selected */
   isSelected?: boolean;
-} & Omit<SelectOptionProps, 'content' | 'isSelected'>
+} & Omit<SelectOptionProps, 'content' | 'isSelected'>;
 
 export type TypeaheadSelectProps = {
   /** Options of the select */
   selectOptions: TypeaheadSelectOption[];
   /** Callback triggered on selection. */
   onSelect?: (
-    _event:
-      | React.MouseEvent
-      | React.KeyboardEvent<HTMLInputElement>
-      | undefined,
+    _event: React.MouseEvent | React.KeyboardEvent<HTMLInputElement> | undefined,
     selection: string | number,
   ) => void;
   /** Callback triggered when the select opens or closes. */
@@ -67,7 +64,7 @@ export type TypeaheadSelectProps = {
   toggleWidth?: string;
   /** Additional props passed to the toggle. */
   toggleProps?: MenuToggleProps;
-} & Omit<SelectProps, 'toggle' | 'onSelect'>
+} & Omit<SelectProps, 'toggle' | 'onSelect'>;
 
 const defaultNoOptionsFoundMessage = (filter: string) => `No results found for "${filter}"`;
 const defaultCreateOptionMessage = (newValue: string) => `Create "${newValue}"`;
@@ -218,10 +215,7 @@ export const TypeaheadSelect: React.FC<TypeaheadSelectProps> = ({
   };
 
   const selectOption = (
-    _event:
-      | React.MouseEvent
-      | React.KeyboardEvent<HTMLInputElement>
-      | undefined,
+    _event: React.MouseEvent | React.KeyboardEvent<HTMLInputElement> | undefined,
     option: TypeaheadSelectOption,
   ) => {
     if (onSelect) {
@@ -368,7 +362,7 @@ export const TypeaheadSelect: React.FC<TypeaheadSelectProps> = ({
     >
       <TextInputGroup isPlain>
         <TextInputGroupMain
-          value={isFiltering ? filterValue : selected?.content ?? ''}
+          value={isFiltering ? filterValue : (selected?.content ?? '')}
           onClick={onInputClick}
           onChange={onTextInputChange}
           onKeyDown={onInputKeyDown}

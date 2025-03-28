@@ -1,6 +1,10 @@
 import { useMemo } from 'react';
 
-import { ProviderModelGroupVersionKind, type V1beta1Plan, type V1beta1Provider } from '@kubev2v/types';
+import {
+  ProviderModelGroupVersionKind,
+  type V1beta1Plan,
+  type V1beta1Provider,
+} from '@kubev2v/types';
 import { useK8sWatchResource, type WatchK8sResult } from '@openshift-console/dynamic-plugin-sdk';
 
 const usePlanSourceProvider = (

@@ -4,7 +4,7 @@ export type SortType = {
   isAsc: boolean;
   resourceFieldId: string;
   label: string;
-}
+};
 
 export type RowProps<T> = {
   resourceFields: ResourceField[];
@@ -15,7 +15,7 @@ export type RowProps<T> = {
   isExpanded?: boolean;
   toggleSelect?: () => void;
   length?: number;
-}
+};
 
 export type TableViewHeaderProps<T> = {
   /**
@@ -35,4 +35,4 @@ export type TableViewHeaderProps<T> = {
    * Currently visible items on the screen, for handling bulk selection ("select all" checkbox).
    */
   dataOnScreen?: T[];
-}
+};

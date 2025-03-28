@@ -24,7 +24,7 @@ export const EditMaxVMInFlightModal: React.FC<EditSettingsModalProps> = (props) 
   const { t } = useForkliftTranslation();
 
   // Set default value to 20
-  const {resource} = props;
+  const { resource } = props;
   resource.spec.controller_max_vm_inflight = resource.spec.controller_max_vm_inflight || 20;
 
   return (

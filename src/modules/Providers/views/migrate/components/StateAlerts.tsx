@@ -13,7 +13,13 @@ export const StateAlerts: FC<{
         key={key}
         isInline
         actionClose={
-          onClose && !blocker ? <AlertActionCloseButton onClose={() => { onClose(key); }} /> : undefined
+          onClose && !blocker ? (
+            <AlertActionCloseButton
+              onClose={() => {
+                onClose(key);
+              }}
+            />
+          ) : undefined
         }
         variant={variant}
         title={title}

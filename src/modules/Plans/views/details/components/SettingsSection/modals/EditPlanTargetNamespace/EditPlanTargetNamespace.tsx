@@ -43,7 +43,7 @@ const onConfirm: OnConfirmHookType = async ({ model, newValue, resource }) => {
 type DropdownRendererProps = {
   value: string | number;
   onChange: (string) => void;
-}
+};
 
 const OpenshiftNamespaceInputFactory: ({ resource }) => ModalInputComponentType = ({
   resource,

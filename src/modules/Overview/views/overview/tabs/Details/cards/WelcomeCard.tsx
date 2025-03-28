@@ -55,12 +55,16 @@ export const OverviewCard: FC<OverviewCardProps> = ({ onHide }) => {
   const { t } = useForkliftTranslation();
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const actionDropdownItems = [hideFromViewDropdownOption(onHide, t)];
-  const onToggle = () => { setMenuIsOpen((open) => !open); };
+  const onToggle = () => {
+    setMenuIsOpen((open) => !open);
+  };
 
   const headerActions = (
     <Dropdown
       isOpen={menuIsOpen}
-      onOpenChange={(menuIsOpen: boolean) => { setMenuIsOpen(menuIsOpen); }}
+      onOpenChange={(menuIsOpen: boolean) => {
+        setMenuIsOpen(menuIsOpen);
+      }}
       toggle={(toggleRef: Ref<MenuToggleElement>) => (
         <MenuToggle ref={toggleRef} onClick={onToggle} isExpanded={menuIsOpen} variant={'plain'}>
           {<EllipsisVIcon />}

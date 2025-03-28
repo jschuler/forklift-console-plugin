@@ -112,9 +112,9 @@ export const CredentialsSection_: React.FC<{
     case 'vsphere':
       if (subType === 'esxi') {
         return <EsxiCredentialsSection secret={secret} />;
-      } 
-        return <VCenterCredentialsSection secret={secret} />;
-      
+      }
+      return <VCenterCredentialsSection secret={secret} />;
+
     default:
       return <></>;
   }

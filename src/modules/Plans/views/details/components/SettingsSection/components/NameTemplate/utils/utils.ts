@@ -15,7 +15,8 @@ export const onConfirmNameTemplate: (selected: NameTemplateRadioOptions) => OnCo
 
     const updatedPlanDraft = produce(plan, (draft) => {
       if (selected === NameTemplateRadioOptions.customNameTemplate) {
-        setObjectValueByPath(draft, jsonPath, newValue); return;
+        setObjectValueByPath(draft, jsonPath, newValue);
+        return;
       }
 
       unsetObjectValueByPath(draft, jsonPath);

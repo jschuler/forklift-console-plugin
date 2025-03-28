@@ -64,4 +64,4 @@ declare type Window = {
     k8sMode: string;
     capabilities: Record<string, string>[];
   };
-}
+};

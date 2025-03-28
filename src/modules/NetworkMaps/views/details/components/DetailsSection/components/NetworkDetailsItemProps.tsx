@@ -7,4 +7,4 @@ export type NetworkDetailsItemProps = {
   canPatch?: boolean;
   moreInfoLink?: string;
   helpContent?: ReactNode;
-}
+};

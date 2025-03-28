@@ -31,7 +31,7 @@ import './PlanCutoverMigrationModal.style.css';
 type PlanCutoverMigrationModalProps = {
   resource: V1beta1Plan;
   title?: string;
-}
+};
 
 /**
  * A generic delete modal component

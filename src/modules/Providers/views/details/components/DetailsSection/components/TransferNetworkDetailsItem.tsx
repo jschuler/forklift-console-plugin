@@ -41,7 +41,10 @@ export const TransferNetworkDetailsItem: React.FC<ProviderDetailsItemProps> = ({
         'forklift.konveyor.io/defaultTransferNetwork',
       ]}
       onEdit={
-        canPatch && (() => { showModal(<EditProviderDefaultTransferNetwork resource={provider} />); })
+        canPatch &&
+        (() => {
+          showModal(<EditProviderDefaultTransferNetwork resource={provider} />);
+        })
       }
     />
   );

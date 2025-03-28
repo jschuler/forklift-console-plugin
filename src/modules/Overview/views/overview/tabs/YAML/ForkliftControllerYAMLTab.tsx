@@ -11,7 +11,7 @@ type ForkliftControllerYAMLTabProps = {
   name?: string;
   loaded?: boolean;
   loadError?: unknown;
-}
+};
 
 export const ForkliftControllerYAMLTab: React.FC<ForkliftControllerYAMLTabProps> = ({
   loaded,

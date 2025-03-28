@@ -18,7 +18,7 @@ type LazyTextInputProps = {
     | 'time'
     | 'url';
   ariaLabel?: string;
-}
+};
 
 /**
  * LazyTextInput is a custom input component that triggers the onChange event
@@ -62,7 +62,9 @@ export const LazyTextInput: React.FunctionComponent<LazyTextInputProps> = ({
       spellCheck="false"
       value={value}
       type={type}
-      onChange={(e, v) => { onChangeText(v, e); }}
+      onChange={(e, v) => {
+        onChangeText(v, e);
+      }}
       onBlur={handleBlur}
       onKeyDown={handleKeyDown}
       aria-label={ariaLabel}

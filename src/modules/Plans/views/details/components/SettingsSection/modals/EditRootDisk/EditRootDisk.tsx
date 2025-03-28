@@ -44,7 +44,7 @@ const onConfirm: OnConfirmHookType = async ({ model, newValue, resource }) => {
 type DropdownRendererProps = {
   value: string | number;
   onChange: (string) => void;
-}
+};
 
 const RootDiskInputFactory: () => ModalInputComponentType = () => {
   const DropdownRenderer: React.FC<DropdownRendererProps> = ({ onChange, value }) => {

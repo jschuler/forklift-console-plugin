@@ -13,7 +13,7 @@ import './alerts.style.css';
 type ItemIsOwnedAlertProps = {
   owner: OwnerReference;
   namespace: string;
-}
+};
 
 export const ItemIsOwnedAlert: React.FC<ItemIsOwnedAlertProps> = ({ namespace, owner }) => {
   const { t } = useForkliftTranslation();

@@ -12,4 +12,4 @@ export type VmFeatures = {
   gpusHostDevices?: boolean;
   persistentTpmEfi?: boolean;
   dedicatedCpu?: boolean;
-}
+};

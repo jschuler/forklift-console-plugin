@@ -6,4 +6,4 @@ export type HostCellProps = {
   data: InventoryHostPair;
   fieldId: string;
   fields: ResourceField[];
-}
+};

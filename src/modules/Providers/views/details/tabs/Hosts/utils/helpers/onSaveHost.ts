@@ -22,7 +22,7 @@ type OnSaveHostParams = {
   network: NetworkAdapters;
   user: string;
   password: string;
-}
+};
 
 /**
  * Saves hosts data, including associated secrets, for a given set of host+secret pairs.

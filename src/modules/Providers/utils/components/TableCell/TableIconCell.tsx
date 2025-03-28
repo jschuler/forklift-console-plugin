@@ -25,4 +25,4 @@ export const TableIconCell: React.FC<TableIconCellProps> = ({
 
 export type TableIconCellProps = {
   icon?: ReactNode;
-} & TableLabelCellProps
+} & TableLabelCellProps;

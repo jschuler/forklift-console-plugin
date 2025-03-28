@@ -41,19 +41,19 @@ const renderTd = ({ resourceData, resourceFieldId, resourceFields }: RenderTdPro
 };
 
 const cellRenderers: Record<string, React.FC<CellProps>> = {
-  'actions': (props) => StorageMapActionsDropdown({ isKebab: true, ...props }),
-  'destination': ProviderLinkCell,
-  'name': StorageMapLinkCell,
-  'namespace': NamespaceCell,
-  'owner': PlanCell,
-  'phase': StatusCell,
-  'source': ProviderLinkCell,
+  actions: (props) => StorageMapActionsDropdown({ isKebab: true, ...props }),
+  destination: ProviderLinkCell,
+  name: StorageMapLinkCell,
+  namespace: NamespaceCell,
+  owner: PlanCell,
+  phase: StatusCell,
+  source: ProviderLinkCell,
 };
 
 type RenderTdProps = {
   resourceData: StorageMapData;
   resourceFieldId: string;
   resourceFields: ResourceField[];
-}
+};
 
 export default ProviderRow;

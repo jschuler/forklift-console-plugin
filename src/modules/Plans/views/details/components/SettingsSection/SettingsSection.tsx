@@ -2,7 +2,11 @@ import React from 'react';
 import { ModalHOC } from 'src/modules/Providers/modals';
 import type { ProvidersPermissionStatus } from 'src/modules/Providers/utils';
 
-import { ProviderModelGroupVersionKind, type V1beta1Plan, type V1beta1Provider } from '@kubev2v/types';
+import {
+  ProviderModelGroupVersionKind,
+  type V1beta1Plan,
+  type V1beta1Provider,
+} from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { DescriptionList } from '@patternfly/react-core';
 

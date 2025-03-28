@@ -4,14 +4,14 @@ import type { SelectOptionObject } from '@patternfly/react-core/deprecated';
 export type EnumGroup = {
   groupId: string;
   label: string;
-}
+};
 
 export type EnumValue = {
   id: string;
   groupId?: string;
   label: string;
   resourceFieldId?: string;
-}
+};
 
 export enum FilterDefType {
   FreeText = 'freetext',
@@ -36,7 +36,7 @@ export type FilterDef = {
   dynamicFilter?: (items: unknown[]) => Partial<FilterDef>;
   isHidden?: boolean;
   showFilterIcon?: boolean;
-}
+};
 
 type OpenApiJsonPath = string | ((resourceData: unknown) => unknown);
 
@@ -56,7 +56,7 @@ export type ResourceField = {
   isPersistent?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   compareFn?: (a: any, b: any, locale: string) => number;
-}
+};
 
 export type ResourceFieldPartialFactory = { (t: (string) => string): Partial<ResourceField> };
 export type ResourceFieldFactory = { (t: (string) => string): ResourceField[] };
@@ -67,7 +67,7 @@ export type K8sConditionStatus = (typeof K8sConditionStatusValues)[number];
 export type GlobalActionToolbarProps<T> = {
   // Data currently visible on the screen (i.e. adjusted by paging and filtering)
   dataOnScreen: T[];
-}
+};
 
 /**
  * @typedef {Object} ToggleEventType
@@ -78,11 +78,7 @@ export type GlobalActionToolbarProps<T> = {
  * @property {React.MouseEvent<Element, MouseEvent>} React.MouseEvent - A React-specific mouse event.
  * @property {React.ChangeEvent<Element>} React.ChangeEvent - A React-specific change event.
  */
-export type ToggleEventType =
-  | Event
-  | React.KeyboardEvent
-  | React.MouseEvent
-  | React.ChangeEvent;
+export type ToggleEventType = Event | React.KeyboardEvent | React.MouseEvent | React.ChangeEvent;
 
 /**
  * @typedef {Object} SelectEventType

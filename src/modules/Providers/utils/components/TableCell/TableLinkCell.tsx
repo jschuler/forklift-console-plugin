@@ -29,4 +29,4 @@ export type TableLinkCellProps = {
   groupVersionKind: K8sGroupVersionKind;
   name: string;
   namespace: string;
-} & TableLabelCellProps
+} & TableLabelCellProps;

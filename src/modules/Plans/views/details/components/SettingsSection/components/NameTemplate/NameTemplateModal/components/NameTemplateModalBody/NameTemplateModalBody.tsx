@@ -28,7 +28,9 @@ const NameTemplateModalBody: FC<NameTemplateModalBodyProps> = ({ allowedVariable
           toggleText={isExpanded ? t('Hide variables') : t('Show variables')}
           isExpanded={isExpanded}
           truncateMaxLines={1}
-          onToggle={(_, expand) => { setIsExpanded(expand); }}
+          onToggle={(_, expand) => {
+            setIsExpanded(expand);
+          }}
         >
           <StackItem>{t('Variables that can be used for the template:')}</StackItem>
           {allowedVariables.map((allowedVariable) => (

@@ -32,7 +32,7 @@ type MappingListProps = {
    * Is in edit/view mode? In case of view mode, the DataListCells are disabled and buttons are hidden
    */
   isEditable?: boolean;
-}
+};
 
 export const MappingList: FC<MappingListProps> = ({
   addMapping,

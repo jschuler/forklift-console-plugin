@@ -1,4 +1,8 @@
-import { MigrationModelGroupVersionKind, type V1beta1Migration, type V1beta1Plan } from '@kubev2v/types';
+import {
+  MigrationModelGroupVersionKind,
+  type V1beta1Migration,
+  type V1beta1Plan,
+} from '@kubev2v/types';
 import { useK8sWatchResource, type WatchK8sResult } from '@openshift-console/dynamic-plugin-sdk';
 
 export const usePlanMigration = (plan: V1beta1Plan): WatchK8sResult<V1beta1Migration> => {

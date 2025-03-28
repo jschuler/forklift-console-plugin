@@ -10,7 +10,7 @@ import { consoleFetchJSON } from '@openshift-console/dynamic-plugin-sdk';
  */
 type UseInventoryParams = {
   interval?: number;
-}
+};
 
 /**
  * Result of useProvidersInventoryIsLive hook.
@@ -21,7 +21,7 @@ type UseInventoryParams = {
 type UseInventoryIsLiveResult = {
   loaded: boolean;
   loadError: Error | null;
-}
+};
 
 /**
  * Hook to periodically check server liveliness by attempting to fetch inventory.
@@ -58,7 +58,9 @@ export const useProvidersInventoryIsLive = ({
 
     // Polling interval set by the passed parameter
     const intervalId = setInterval(fetchData, interval);
-    return () => { clearInterval(intervalId); };
+    return () => {
+      clearInterval(intervalId);
+    };
   }, [interval]);
 
   return { loaded, loadError };

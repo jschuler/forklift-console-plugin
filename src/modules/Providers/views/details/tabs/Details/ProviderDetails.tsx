@@ -30,7 +30,7 @@ type ProviderDetailsProps = {
   name?: string;
   loaded?: boolean;
   loadError?: unknown;
-}
+};
 
 export const ProviderDetails: React.FC<ProviderDetailsProps> = ({ loaded, loadError, obj }) => {
   const { t } = useForkliftTranslation();

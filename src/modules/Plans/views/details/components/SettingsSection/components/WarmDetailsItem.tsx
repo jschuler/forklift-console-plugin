@@ -40,8 +40,9 @@ export const WarmDetailsItem: React.FC<PlanDetailsItemProps> = ({
       onEdit={
         canPatch &&
         isPlanEditable(resource) &&
-        (() =>
-          { showModal(<EditPlanWarm resource={resource} destinationProvider={destinationProvider} />); })
+        (() => {
+          showModal(<EditPlanWarm resource={resource} destinationProvider={destinationProvider} />);
+        })
       }
     />
   );

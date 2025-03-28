@@ -12,7 +12,7 @@ export type MigrationCountsHookResponse = {
   vmCount: MigrationCounts;
   loaded: boolean;
   loadError: Error | null;
-}
+};
 
 type CountState = {
   migrationCounts: MigrationCounts;

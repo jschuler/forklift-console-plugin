@@ -14,7 +14,7 @@ type K8sModelAccessReviewParams = {
   model: K8sModel;
   name?: string;
   namespace?: string;
-}
+};
 
 /**
  * A React hook that checks permissions for different actions on a Kubernetes model within a specified namespace.

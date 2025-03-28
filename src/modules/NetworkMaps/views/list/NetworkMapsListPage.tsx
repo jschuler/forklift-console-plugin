@@ -162,7 +162,7 @@ const NetworkMapsListPage: React.FC<{
 type EmptyStateProps = {
   AddButton: JSX.Element;
   namespace?: string;
-}
+};
 
 const EmptyState_: React.FC<EmptyStateProps> = ({ namespace }) => {
   return <NetworkMapsEmptyState namespace={namespace} />;

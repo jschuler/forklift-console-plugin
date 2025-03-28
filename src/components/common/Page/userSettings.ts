@@ -52,11 +52,12 @@ export const loadUserSettings = ({ pageId }): UserSettings => {
         saveRestOrRemoveKey(key, { fields, rest });
       },
       data: sanitizeFields(fields),
-      save: (fields) =>
-        { saveToLocalStorage(
+      save: (fields) => {
+        saveToLocalStorage(
           key,
           JSON.stringify({ ...parseOrClean(key), fields: fields.map(toField) }),
-        ); },
+        );
+      },
     },
     filters: {
       clear: () => {
@@ -64,7 +65,9 @@ export const loadUserSettings = ({ pageId }): UserSettings => {
         saveRestOrRemoveKey(key, { filters, rest });
       },
       data: filters,
-      save: (filters) => { saveToLocalStorage(key, JSON.stringify({ ...parseOrClean(key), filters })); },
+      save: (filters) => {
+        saveToLocalStorage(key, JSON.stringify({ ...parseOrClean(key), filters }));
+      },
     },
     pagination: {
       clear: () => {
@@ -72,7 +75,9 @@ export const loadUserSettings = ({ pageId }): UserSettings => {
         saveRestOrRemoveKey(key, { perPage, rest });
       },
       perPage: typeof perPage === 'number' ? perPage : undefined,
-      save: (perPage) => { saveToLocalStorage(key, JSON.stringify({ ...parseOrClean(key), perPage })); },
+      save: (perPage) => {
+        saveToLocalStorage(key, JSON.stringify({ ...parseOrClean(key), perPage }));
+      },
     },
   };
 };

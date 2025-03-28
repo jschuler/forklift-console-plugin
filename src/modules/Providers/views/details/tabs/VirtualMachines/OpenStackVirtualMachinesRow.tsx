@@ -6,7 +6,12 @@ import type { ResourceField } from '@components/common/utils/types';
 import type { OpenstackVM } from '@kubev2v/types';
 import { Td } from '@patternfly/react-table';
 
-import { type VMCellProps, VMConcernsCellRenderer, type VmData, VMNameCellRenderer } from './components';
+import {
+  type VMCellProps,
+  VMConcernsCellRenderer,
+  type VmData,
+  VMNameCellRenderer,
+} from './components';
 
 const renderTd = ({ resourceData, resourceFieldId, resourceFields }: RenderTdProps) => {
   const fieldId = resourceFieldId;
@@ -23,7 +28,7 @@ type RenderTdProps = {
   resourceData: VmData;
   resourceFieldId: string;
   resourceFields: ResourceField[];
-}
+};
 
 const cellRenderers: Record<string, React.FC<VMCellProps>> = {
   concerns: VMConcernsCellRenderer,

@@ -13,12 +13,12 @@ import { loadUserSettings } from '../utils/helpers/OverviewUserSettings';
 
 export type CreateOverviewContextData = {
   hideWelcomeCardByContext: boolean;
-}
+};
 
 export type CreateOverviewContextType = {
   data?: CreateOverviewContextData;
   setData: (data: CreateOverviewContextData) => void;
-}
+};
 
 export const CreateOverviewContext = createContext<CreateOverviewContextType>({
   setData: () => undefined,

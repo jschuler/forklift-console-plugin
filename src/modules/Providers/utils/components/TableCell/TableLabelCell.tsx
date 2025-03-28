@@ -56,4 +56,4 @@ export type TableLabelCellProps = {
   label?: ReactNode | ReactNode[];
   labelColor?: Colors | Colors[];
   isWrap?: boolean;
-} & TableCellProps
+} & TableCellProps;

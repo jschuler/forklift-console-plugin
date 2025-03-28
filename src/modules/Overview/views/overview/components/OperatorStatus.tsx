@@ -9,7 +9,7 @@ import {
 
 type OperatorStatusProps = {
   status: string;
-}
+};
 
 export const statusIcons = {
   Failure: <ExclamationCircleIcon color="#C9190B" />,

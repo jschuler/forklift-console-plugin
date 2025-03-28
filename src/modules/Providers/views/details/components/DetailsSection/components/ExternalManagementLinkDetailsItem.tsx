@@ -18,7 +18,7 @@ import type { ProviderDetailsItemProps } from './ProviderDetailsItem';
 export type ExternalManagementLinkDetailsItemProps = {
   webUILinkText?: string;
   webUILink?: string;
-} & ProviderDetailsItemProps
+} & ProviderDetailsItemProps;
 
 /**
  * Component for displaying the provider management system external link.
@@ -62,7 +62,9 @@ export const ExternalManagementLinkDetailsItem: React.FC<
         onEdit={
           canPatch &&
           provider?.metadata &&
-          (() => { showModal(<EditProviderUIModal resource={provider} content={webUILink} />); })
+          (() => {
+            showModal(<EditProviderUIModal resource={provider} content={webUILink} />);
+          })
         }
       />
     </DescriptionListDescription>

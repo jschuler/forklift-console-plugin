@@ -95,7 +95,9 @@ export const DateRangeFilter = ({
     <ToolbarFilter
       key={filterId}
       chips={validFilters.map(rangeToOption)}
-      deleteChip={(category, option) => { clearSingleRange(option); }}
+      deleteChip={(category, option) => {
+        clearSingleRange(option);
+      }}
       deleteChipGroup={() => onFilterUpdate([])}
       categoryName={title}
       showToolbarItem={showFilter}

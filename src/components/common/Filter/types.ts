@@ -47,8 +47,8 @@ export type FilterTypeProps = {
   showFilterIcon?: boolean;
   /** Used for grouped enum filters that deal with groups pointing to different resources. */
   hasMultipleResources?: boolean;
-}
+};
 
 export type InlineFilter = {
   hasInlineFilter?: boolean;
-}
+};

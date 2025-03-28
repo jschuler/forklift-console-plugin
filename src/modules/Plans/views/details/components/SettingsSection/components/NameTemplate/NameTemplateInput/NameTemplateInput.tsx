@@ -22,21 +22,27 @@ const NameTemplateInputFactory: (
       <Radio
         isChecked={selected === NameTemplateRadioOptions.defaultNameTemplate}
         name="name-template"
-        onChange={() => { setSelected(NameTemplateRadioOptions.defaultNameTemplate); }}
+        onChange={() => {
+          setSelected(NameTemplateRadioOptions.defaultNameTemplate);
+        }}
         label={t('Use default naming template')}
         id="default-naming-template"
       />
       <Radio
         isChecked={selected === NameTemplateRadioOptions.customNameTemplate}
         name="name-template"
-        onChange={() => { setSelected(NameTemplateRadioOptions.customNameTemplate); }}
+        onChange={() => {
+          setSelected(NameTemplateRadioOptions.customNameTemplate);
+        }}
         label={t('Enter custom naming template')}
         id="custom-naming-template"
       />
       <TextInput
         isDisabled={selected === NameTemplateRadioOptions.defaultNameTemplate}
         value={value}
-        onChange={(_, newValue) => { onChange(newValue); }}
+        onChange={(_, newValue) => {
+          onChange(newValue);
+        }}
       />
     </>
   );

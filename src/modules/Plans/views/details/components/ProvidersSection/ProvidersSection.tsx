@@ -3,7 +3,11 @@ import { Suspend } from 'src/modules/Plans/views/details/components/Suspend';
 import { DetailsItem } from 'src/modules/Providers/utils/components/DetailsPage';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { ProviderModelGroupVersionKind, type V1beta1Plan, type V1beta1Provider } from '@kubev2v/types';
+import {
+  ProviderModelGroupVersionKind,
+  type V1beta1Plan,
+  type V1beta1Provider,
+} from '@kubev2v/types';
 import { ResourceLink, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { DescriptionList } from '@patternfly/react-core';
 

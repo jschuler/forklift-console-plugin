@@ -62,4 +62,4 @@ type RenderTdProps = {
   resourceData: InventoryHostPair;
   resourceFieldId: string;
   resourceFields: ResourceField[];
-}
+};

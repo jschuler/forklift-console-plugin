@@ -24,7 +24,7 @@ type PlanStartMigrationModalProps = {
   title?: string;
   redirectTo?: string;
   setButtonEnabledOnChange: (enableStartButton: boolean) => void;
-}
+};
 
 /**
  * A generic delete modal component
@@ -100,9 +100,7 @@ export const PlanStartMigrationModal: React.FC<PlanStartMigrationModalProps> = (
     }
   }, [resource, lastMigration]);
 
-  const onClickToggleModal: (event: React.MouseEvent<HTMLButtonElement>) => void = (
-    _event,
-  ) => {
+  const onClickToggleModal: (event: React.MouseEvent<HTMLButtonElement>) => void = (_event) => {
     toggleModal();
     setButtonEnabledOnChange(true);
   };

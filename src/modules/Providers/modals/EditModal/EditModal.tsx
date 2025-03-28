@@ -144,14 +144,21 @@ export const EditModal: React.FC<EditModalProps> = ({
    * InputComponent_ is a higher-order component that renders either the passed-in InputComponent, or a default TextInput,
    */
   const InputComponent_ = InputComponent ? (
-    <InputComponent value={value} onChange={(value) => { handleValueChange(value); }} />
+    <InputComponent
+      value={value}
+      onChange={(value) => {
+        handleValueChange(value);
+      }}
+    />
   ) : (
     <TextInput
       spellCheck="false"
       id="modal-with-form-form-field"
       name="modal-with-form-form-field"
       value={value}
-      onChange={(e, v) => { onChange(v, e); }}
+      onChange={(e, v) => {
+        onChange(v, e);
+      }}
       validated={validation.type}
     />
   );

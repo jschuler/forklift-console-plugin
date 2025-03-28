@@ -142,9 +142,8 @@ function k8sMemoryToBytes(memoryString) {
     }
     // Assuming plain bytes if no unit is specified
     return value;
-  } 
-    throw new Error('Invalid memory string format');
-  
+  }
+  throw new Error('Invalid memory string format');
 }
 
 function k8sCpuToCores(cpuString) {
@@ -160,8 +159,7 @@ function k8sCpuToCores(cpuString) {
     // Remove the "m" and convert to millicores, then to cores.
     const millicores = parseInt(cpuString.slice(0, -1), 10);
     return millicores / 1000.0; // Convert millicores to cores
-  } 
-    // Directly parse the string as a float representing cores.
-    return parseFloat(cpuString);
-  
+  }
+  // Directly parse the string as a float representing cores.
+  return parseFloat(cpuString);
 }

@@ -6,7 +6,7 @@ export type MapsSectionState = {
   StorageMap: V1beta1StorageMap | null;
   hasChanges: boolean;
   updating: boolean;
-}
+};
 
 export type MapsAction =
   | { type: 'SET_MAP'; payload: V1beta1StorageMapSpecMap[] }

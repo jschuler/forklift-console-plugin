@@ -8,7 +8,7 @@ import { ResourceYAMLEditor, useK8sWatchResource } from '@openshift-console/dyna
 type NetworkMapYAMLTabProps = {
   name: string;
   namespace: string;
-}
+};
 
 export const NetworkMapYAMLTab: React.FC<NetworkMapYAMLTabProps> = ({ name, namespace }) => {
   const { t } = useForkliftTranslation();

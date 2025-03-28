@@ -4,7 +4,12 @@ import { useGetDeleteAndEditAccessReview } from 'src/modules/Providers/hooks';
 import usePlanSourceProvider from 'src/modules/Providers/hooks/usePlanSourceProvider';
 import { ModalHOC } from 'src/modules/Providers/modals';
 
-import { PlanModel, PlanModelGroupVersionKind, type V1beta1Plan, type V1beta1Provider } from '@kubev2v/types';
+import {
+  PlanModel,
+  PlanModelGroupVersionKind,
+  type V1beta1Plan,
+  type V1beta1Provider,
+} from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 import { Suspend } from '../../components';
@@ -20,7 +25,7 @@ export type PlanVirtualMachinesProps = {
   loaded?: boolean;
   loadError?: unknown;
   sourceProvider?: V1beta1Provider;
-}
+};
 
 const PlanVirtualMachines_: React.FC<PlanVirtualMachinesProps> = (props) => {
   const plan = props?.obj.plan;
@@ -31,9 +36,8 @@ const PlanVirtualMachines_: React.FC<PlanVirtualMachinesProps> = (props) => {
     return <MigrationVirtualMachinesList {...props} />;
   } else if (canPlanReStart(plan)) {
     return <MigrationVirtualMachinesList {...props} />;
-  } 
-    return <PlanVirtualMachinesList {...props} />;
-  
+  }
+  return <PlanVirtualMachinesList {...props} />;
 };
 
 export const PlanVirtualMachines: React.FC<{ name: string; namespace: string }> = ({

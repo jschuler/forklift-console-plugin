@@ -17,7 +17,7 @@ export type ManageColumnsToolbarItemProps = {
    * A text describing the button.
    */
   ariaLabel?: string;
-}
+};
 
 /**
  * A Toolbar button item with columns icon, uses to show the Manage Columns dialog modal.

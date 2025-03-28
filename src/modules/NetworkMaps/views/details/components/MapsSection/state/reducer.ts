@@ -6,7 +6,7 @@ export type MapsSectionState = {
   networkMap: V1beta1NetworkMap | null;
   hasChanges: boolean;
   updating: boolean;
-}
+};
 
 export type MapsAction =
   | { type: 'SET_MAP'; payload: V1beta1NetworkMapSpecMap[] }

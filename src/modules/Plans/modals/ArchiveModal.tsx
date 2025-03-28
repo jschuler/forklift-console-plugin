@@ -23,7 +23,7 @@ type ArchiveModalProps = {
   model: K8sModel;
   title?: string;
   redirectTo?: string;
-}
+};
 
 /**
  * A generic delete modal component

@@ -23,7 +23,7 @@ const INVENTORY_TYPES: string[] = ['openshift', 'openstack', 'ovirt', 'vsphere',
 type UseInventoryParams = {
   namespace?: string;
   interval?: number; // Polling interval in milliseconds
-}
+};
 
 /**
  * The result object from useProvidersInventoryList hook.
@@ -36,7 +36,7 @@ type UseInventoryResult = {
   inventory: ProvidersInventoryList | null;
   loading: boolean;
   error: Error | null;
-}
+};
 
 /**
  * A React hook to fetch and maintain an up-to-date list of providers' inventory data, belongs to a given namespace or to all namespaces
@@ -78,7 +78,9 @@ export const useProvidersInventoryList = ({
     fetchData();
 
     const intervalId = setInterval(fetchData, interval);
-    return () => { clearInterval(intervalId); };
+    return () => {
+      clearInterval(intervalId);
+    };
   }, [interval, namespace]);
 
   /**

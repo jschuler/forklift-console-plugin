@@ -21,7 +21,7 @@ export type BaseCredentialsSectionState = {
   dataChanged: boolean;
   dataError: ValidationMsg;
   alertMessage: ReactNode;
-}
+};
 
 export type BaseCredentialsAction =
   | { type: 'TOGGLE_REVEAL' }

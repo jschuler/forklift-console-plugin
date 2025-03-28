@@ -26,7 +26,7 @@ type ProviderNetworksProps = {
   name?: string;
   loaded?: boolean;
   loadError?: unknown;
-}
+};
 
 const ProviderNetworks_: React.FC<ProviderNetworksProps> = ({ obj }) => {
   const { t } = useForkliftTranslation();

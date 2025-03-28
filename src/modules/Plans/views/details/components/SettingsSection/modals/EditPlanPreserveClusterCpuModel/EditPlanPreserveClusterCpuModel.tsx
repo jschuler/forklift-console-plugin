@@ -35,7 +35,7 @@ const onConfirm: OnConfirmHookType = async ({ model, newValue, resource }) => {
 type SwitchRendererProps = {
   value: string | number;
   onChange: (string) => void;
-}
+};
 
 const PreserveClusterCpuModelInputFactory: () => ModalInputComponentType = () => {
   const SwitchRenderer: React.FC<SwitchRendererProps> = ({ onChange, value }) => {
@@ -51,7 +51,9 @@ const PreserveClusterCpuModelInputFactory: () => ModalInputComponentType = () =>
         label="Preserve the CPU model and flags the VM runs with in its oVirt cluster."
         labelOff="Do not try to preserve the CPU model and flags the VM runs with in its oVirt cluster."
         isChecked={value === 'true'}
-        onChange={(e, v) => { onChangeInternal(v, e); }}
+        onChange={(e, v) => {
+          onChangeInternal(v, e);
+        }}
       />
     );
   };

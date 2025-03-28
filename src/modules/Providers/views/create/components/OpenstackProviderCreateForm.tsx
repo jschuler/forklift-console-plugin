@@ -9,7 +9,7 @@ import { Form, TextInput } from '@patternfly/react-core';
 export type OpenstackProviderCreateFormProps = {
   provider: V1beta1Provider;
   onChange: (newValue: V1beta1Provider) => void;
-}
+};
 
 export const OpenstackProviderCreateForm: React.FC<OpenstackProviderCreateFormProps> = ({
   onChange,
@@ -83,7 +83,9 @@ export const OpenstackProviderCreateForm: React.FC<OpenstackProviderCreateFormPr
           name="url"
           value={url || ''}
           validated={state.validation.url.type}
-          onChange={(e, v) => { onChangeUrl(v, e); }}
+          onChange={(e, v) => {
+            onChangeUrl(v, e);
+          }}
         />
       </FormGroupWithHelpText>
     </Form>

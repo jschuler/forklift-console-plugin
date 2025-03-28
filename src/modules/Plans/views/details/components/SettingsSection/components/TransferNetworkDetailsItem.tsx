@@ -39,13 +39,14 @@ export const TransferNetworkDetailsItem: React.FC<PlanDetailsItemProps> = ({
       onEdit={
         canPatch &&
         isPlanEditable(resource) &&
-        (() =>
-          { showModal(
+        (() => {
+          showModal(
             <EditPlanTransferNetwork
               resource={resource}
               destinationProvider={destinationProvider}
             />,
-          ); })
+          );
+        })
       }
     />
   );

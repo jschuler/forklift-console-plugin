@@ -6,7 +6,11 @@ import { getResourceUrl } from 'src/modules/Providers/utils';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
 import type { V1beta1Plan } from '@kubev2v/types';
-import { k8sDelete, type K8sGroupVersionKind, type K8sModel } from '@openshift-console/dynamic-plugin-sdk';
+import {
+  k8sDelete,
+  type K8sGroupVersionKind,
+  type K8sModel,
+} from '@openshift-console/dynamic-plugin-sdk';
 import { Alert, Button, Modal, ModalVariant } from '@patternfly/react-core';
 
 import { getPlanPhase, PlanPhase } from '../utils';
@@ -24,7 +28,7 @@ type PlanDeleteModalProps = {
   model: K8sModel;
   title?: string;
   redirectTo?: string;
-}
+};
 
 /**
  * A generic delete modal component

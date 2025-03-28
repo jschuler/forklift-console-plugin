@@ -10,7 +10,7 @@ export type StatusCellProps = {
   label: string;
   conditions: { type?: string; message?: string; category?: string; status?: string }[];
   icon: React.ReactNode;
-}
+};
 
 export const StatusCell: React.FC<StatusCellProps> = ({ conditions, icon, label }) => {
   if (!conditions?.length) {

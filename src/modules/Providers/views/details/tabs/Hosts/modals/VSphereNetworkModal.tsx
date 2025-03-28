@@ -29,7 +29,7 @@ export type VSphereNetworkModalProps = {
   provider: V1beta1Provider;
   data: InventoryHostPair[];
   selected: string[];
-}
+};
 
 const initialState = {
   endpointType: 'vcenter',
@@ -112,7 +112,9 @@ export const VSphereNetworkModal: React.FC<VSphereNetworkModalProps> = ({
 
   const [state, dispatch] = useReducer(reducer, { ...initialState, endpointType });
 
-  const onSelectToggle = () => { dispatch({ type: 'TOGGLE_OPEN' }); };
+  const onSelectToggle = () => {
+    dispatch({ type: 'TOGGLE_OPEN' });
+  };
 
   const onSelect: (
     event: SelectEventType,
@@ -128,8 +130,12 @@ export const VSphereNetworkModal: React.FC<VSphereNetworkModalProps> = ({
     onSelectToggle();
   };
 
-  const toggleIsLoading = () => { dispatch({ type: 'TOGGLE_LOADING' }); };
-  const togglePasswordHidden = () => { dispatch({ type: 'TOGGLE_PASSWORD_HIDDEN' }); };
+  const toggleIsLoading = () => {
+    dispatch({ type: 'TOGGLE_LOADING' });
+  };
+  const togglePasswordHidden = () => {
+    dispatch({ type: 'TOGGLE_PASSWORD_HIDDEN' });
+  };
 
   const selectedInventoryHostPairs = data
     .filter((pair) => selected.includes(pair.inventory.id))
@@ -226,7 +232,9 @@ export const VSphereNetworkModal: React.FC<VSphereNetworkModalProps> = ({
           <FilterableSelect
             placeholder="Select a network"
             aria-label="Select Network"
-            onSelect={(value) => { onSelect(null, value); }}
+            onSelect={(value) => {
+              onSelect(null, value);
+            }}
             value={state.network ? `${state.network.name} - ${state.network.ipAddress}` : undefined}
             selectOptions={networkOptions.map((option) => ({
               children: (
@@ -261,7 +269,9 @@ export const VSphereNetworkModal: React.FC<VSphereNetworkModalProps> = ({
                 type="text"
                 id="username"
                 value={state.username}
-                onChange={(e, v) => { onChangUser(v, e); }}
+                onChange={(e, v) => {
+                  onChangUser(v, e);
+                }}
                 validated={state.validation.username}
               />
             </FormGroupWithHelpText>
@@ -281,7 +291,9 @@ export const VSphereNetworkModal: React.FC<VSphereNetworkModalProps> = ({
                   type={state.passwordHidden ? 'password' : 'text'}
                   aria-label="Password input"
                   value={state.password}
-                  onChange={(e, v) => { onChangePassword(v, e); }}
+                  onChange={(e, v) => {
+                    onChangePassword(v, e);
+                  }}
                   validated={state.validation.password}
                 />
                 <Button variant="control" onClick={togglePasswordHidden}>

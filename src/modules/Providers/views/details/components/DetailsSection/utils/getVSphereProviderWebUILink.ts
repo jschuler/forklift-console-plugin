@@ -20,7 +20,6 @@ export const getVSphereProviderWebUILink = (provider: V1beta1Provider): string =
 
   if (url.endsWith(suffix)) {
     return url.slice(0, -suffix.length) + newSuffix;
-  } 
-    return '';
-  
+  }
+  return '';
 };

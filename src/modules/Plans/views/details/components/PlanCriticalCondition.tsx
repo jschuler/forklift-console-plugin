@@ -51,7 +51,13 @@ const PlanCriticalCondition: React.FC<PlanCriticalConditionProps> = ({
     troubleshootMessage = (
       <ForkliftTrans>
         To troubleshoot, check and edit your plan{' '}
-        <Button isInline variant="link" onClick={() => { history.push(`${planURL}/mappings`); }}>
+        <Button
+          isInline
+          variant="link"
+          onClick={() => {
+            history.push(`${planURL}/mappings`);
+          }}
+        >
           mappings
         </Button>
         .

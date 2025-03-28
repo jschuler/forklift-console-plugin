@@ -51,7 +51,9 @@ export const DateFilter = ({
     <ToolbarFilter
       key={filterId}
       chips={validFilters}
-      deleteChip={(category, option) => { clearSingleDate(option); }}
+      deleteChip={(category, option) => {
+        clearSingleDate(option);
+      }}
       deleteChipGroup={() => onFilterUpdate([])}
       categoryName={title}
       showToolbarItem={showFilter}

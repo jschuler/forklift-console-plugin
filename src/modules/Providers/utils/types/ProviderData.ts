@@ -11,4 +11,4 @@ export type ProviderData = {
   vmData?: VmData[];
   vmDataLoading?: boolean;
   permissions?: ProvidersPermissionStatus;
-}
+};

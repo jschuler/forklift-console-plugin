@@ -11,7 +11,7 @@ export type SearchInputProviderProps = {
     type: string;
     payload?: string | string[];
   }>;
-}
+};
 
 export const SearchInputProvider: React.FunctionComponent<SearchInputProviderProps> = ({
   filterDispatch,

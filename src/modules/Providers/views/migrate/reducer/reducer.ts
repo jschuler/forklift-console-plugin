@@ -90,10 +90,13 @@ import {
 } from './helpers';
 import { mapSourceNetworksToLabels, mapSourceStoragesToLabels } from './mapSourceToLabels';
 
-const handlers: Record<string, (
+const handlers: Record<
+  string,
+  (
     draft: Draft<CreateVmMigrationPageState>,
     action: PageAction<CreateVmMigration, unknown>,
-  ) => CreateVmMigrationPageState | void> = {
+  ) => CreateVmMigrationPageState | void
+> = {
   [ADD_NETWORK_MAPPING](draft) {
     const { calculatedPerNamespace: cpn } = draft;
     const { mappings, sources } = addMapping(
@@ -594,5 +597,5 @@ export const reducer = (
   }
   return draft.flow.editingDone && !actionsAllowedAfterEditingIsDone.includes(action?.type)
     ? draft
-    : handlers?.[action?.type]?.(draft, action) ?? draft;
+    : (handlers?.[action?.type]?.(draft, action) ?? draft);
 };

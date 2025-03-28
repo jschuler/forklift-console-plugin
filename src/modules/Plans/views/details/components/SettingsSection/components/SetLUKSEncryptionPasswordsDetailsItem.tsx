@@ -45,13 +45,14 @@ export const SetLUKSEncryptionPasswordsDetailsItem: React.FC<PlanDetailsItemProp
       onEdit={
         canPatch &&
         isPlanEditable(resource) &&
-        (() =>
-          { showModal(
+        (() => {
+          showModal(
             <EditLUKSEncryptionPasswords
               resource={resource}
               destinationProvider={destinationProvider}
             />,
-          ); })
+          );
+        })
       }
     />
   );

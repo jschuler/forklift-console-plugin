@@ -11,7 +11,7 @@ export type FormState = {
   hasChanges: boolean;
   isLoading: boolean;
   alertMessage: React.ReactNode;
-}
+};
 
 export type FormAction =
   | { type: 'PRE_HOOK_SET'; payload: boolean }

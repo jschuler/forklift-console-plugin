@@ -86,17 +86,17 @@ export type CreateVmMigration =
 export type PageAction<S, T> = {
   type: S;
   payload: T;
-}
+};
 
 // Action payload types
 
 export type PlanName = {
   name: string;
-}
+};
 
 export type ProjectName = {
   name: string;
-}
+};
 
 export type SourceProvider = {
   sourceProvider: V1beta1Provider;
@@ -109,94 +109,94 @@ export type SelectedVms = {
 
 export type PlanDescription = {
   description: string;
-}
+};
 
 export type PlanTargetProvider = {
   targetProviderName: string;
-}
+};
 
 export type PlanTargetNamespace = {
   targetNamespace: string;
-}
+};
 
 export type PlanAvailableProviders = {
   availableProviders: V1beta1Provider[];
   loading: boolean;
   error?: Error;
-}
+};
 
 export type PlanExistingPlans = {
   existingPlans: V1beta1Plan[];
   loading: boolean;
   error?: Error;
-}
+};
 
 export type PlanExistingNetMaps = {
   existingNetMaps: V1beta1NetworkMap[];
   loading: boolean;
   error?: Error;
-}
+};
 
 export type PlanExistingStorageMaps = {
   existingStorageMaps: V1beta1StorageMap[];
   loading: boolean;
   error?: Error;
-}
+};
 
 export type PlanAvailableTargetNamespaces = {
   availableTargetNamespaces: OpenShiftNamespace[];
   loading: boolean;
   error?: Error;
-}
+};
 
 export type PlanAvailableTargetNetworks = {
   availableTargetNetworks: OpenShiftNetworkAttachmentDefinition[];
   loading: boolean;
   error?: Error;
-}
+};
 
 export type PlanAvailableSourceNetworks = {
   availableSourceNetworks: InventoryNetwork[];
   loading: boolean;
   error?: Error;
-}
+};
 
 export type PlanAvailableTargetStorages = {
   availableTargetStorages: OpenShiftStorageClass[];
   loading: boolean;
   error?: Error;
-}
+};
 
 export type PlanAvailableSourceStorages = {
   availableSourceStorages: InventoryStorage[];
   loading: boolean;
   error?: Error;
-}
+};
 
 export type PlanNicProfiles = {
   nicProfiles: OVirtNicProfile[];
   loading: boolean;
   error?: Error;
-}
+};
 
 export type PlanDisks = {
   disks: (OVirtDisk | OpenstackVolume)[];
   loading: boolean;
   error?: Error;
-}
+};
 
 export type PlanError = {
   error: Error;
-}
+};
 
 export type PlanAlert = {
   alertKey: NetworkAlerts | StorageAlerts;
-}
+};
 
 export type PlanMapping = {
   current: Mapping;
   next: Mapping;
-}
+};
 
 // Action creators
 

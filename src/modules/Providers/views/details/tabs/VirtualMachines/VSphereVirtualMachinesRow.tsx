@@ -29,7 +29,7 @@ type RenderTdProps = {
   resourceData: VmData;
   resourceFieldId: string;
   resourceFields: ResourceField[];
-}
+};
 
 const cellRenderers: Record<string, React.FC<VMCellProps>> = {
   concerns: VMConcernsCellRenderer,

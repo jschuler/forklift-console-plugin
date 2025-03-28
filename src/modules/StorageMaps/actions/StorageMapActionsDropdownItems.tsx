@@ -46,4 +46,4 @@ export const StorageMapActionsDropdownItems = ({ data }: StorageMapActionsDropdo
 
 type StorageMapActionsDropdownItemsProps = {
   data: StorageMapData;
-}
+};

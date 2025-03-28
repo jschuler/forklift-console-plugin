@@ -25,7 +25,7 @@ export type ProviderVirtualMachinesProps = {
   showActions: boolean;
   className?: string;
   selectedCountLabel?: (selectedIdCount: number) => string;
-}
+};
 
 export const ProviderVirtualMachines: React.FC<{ name: string; namespace: string }> = ({
   name,

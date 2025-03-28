@@ -231,7 +231,7 @@ export type StandardPageProps<T> = {
    * Label to show count of selected items
    */
   selectedCountLabel?: (selectedIdCount: number) => string;
-}
+};
 
 /**
  * Standard list page component.
@@ -302,7 +302,9 @@ export const StandardPageInner = <T,>({
     fields: fieldsMetadata,
     userSettings,
   });
-  const clearAllFilters = () => { setSelectedFilters({}); };
+  const clearAllFilters = () => {
+    setSelectedFilters({});
+  };
   const [fields, setFields] = useFields(namespace, fieldsMetadata, userSettings?.fields);
 
   const supportedMatchers = extraSupportedMatchers

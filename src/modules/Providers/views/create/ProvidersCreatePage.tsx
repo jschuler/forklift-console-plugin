@@ -35,7 +35,7 @@ type ProvidersCreatePageState = {
   projectName: string;
   validationError: ValidationMsg;
   apiError: Error | null;
-}
+};
 
 export const ProvidersCreatePage: React.FC<{
   namespace: string;
@@ -270,7 +270,9 @@ export const ProvidersCreatePage: React.FC<{
           projectName={state.projectName}
           onNewProviderChange={onNewProviderChange}
           onNewSecretChange={onNewSecretChange}
-          onProjectNameChange={(value) => { dispatch({ payload: value, type: 'SET_PROJECT_NAME' }); }}
+          onProjectNameChange={(value) => {
+            dispatch({ payload: value, type: 'SET_PROJECT_NAME' });
+          }}
           providerNames={providerNames}
         />
 

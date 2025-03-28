@@ -12,7 +12,7 @@ import { ConditionsSection, DetailsSection, MapsSection, ProvidersSection } from
 type NetworkMapDetailsTabProps = {
   name: string;
   namespace: string;
-}
+};
 
 export const NetworkMapDetailsTab: React.FC<NetworkMapDetailsTabProps> = ({ name, namespace }) => {
   const { t } = useForkliftTranslation();

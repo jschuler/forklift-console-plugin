@@ -152,12 +152,12 @@ describe('saves fields to user settings', () => {
         { clear: () => undefined, data: [], save: saveSettings },
       ),
     );
-    act(() =>
-      { setFields([
+    act(() => {
+      setFields([
         { isVisible: true, label: '', resourceFieldId: NAMESPACE },
         { isVisible: false, label: '', resourceFieldId: NAME },
-      ]); },
-    );
+      ]);
+    });
     expect(saveSettings).toBeCalledWith([
       { isVisible: true, resourceFieldId: NAMESPACE },
       { isVisible: false, resourceFieldId: NAME },
@@ -179,12 +179,12 @@ describe('saves fields to user settings', () => {
         { clear: clearSettings, data: [], save: () => undefined },
       ),
     );
-    act(() =>
-      { setFields([
+    act(() => {
+      setFields([
         { isVisible: true, label: '', resourceFieldId: NAME },
         { isVisible: true, label: '', resourceFieldId: NAMESPACE },
-      ]); },
-    );
+      ]);
+    });
     expect(clearSettings).toBeCalled();
   });
 });

@@ -15,7 +15,7 @@ type PlanStatusVmCountProps = {
   linkPath: string;
   status: IconComponentProps['status'] | 'canceled';
   tooltipLabel?: string;
-}
+};
 
 export const PlanStatusVmCount: React.FC<PlanStatusVmCountProps> = ({
   count,

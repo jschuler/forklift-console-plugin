@@ -63,9 +63,15 @@ export const useTlsCertificate = (url: string) => {
       method: 'GET',
     })
       .then((response: Response) => response.text())
-      .then((certificate) => { setCertificate(certificate); })
-      .catch((e) => { setFetchError(e); })
-      .then(() => { setLoading(false); });
+      .then((certificate) => {
+        setCertificate(certificate);
+      })
+      .catch((e) => {
+        setFetchError(e);
+      })
+      .then(() => {
+        setLoading(false);
+      });
   }, [url]);
 
   const x509Cert: X509 = parseToX509(certificate);

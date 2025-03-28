@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { InputList, LazyTextInput } from 'src/components';
-import { EditModal, type EditModalProps, type ModalInputComponentType } from 'src/modules/Providers/modals';
+import {
+  EditModal,
+  type EditModalProps,
+  type ModalInputComponentType,
+} from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
@@ -19,7 +23,7 @@ import { onLUKSEncryptionPasswordsConfirm } from './onLUKSEncryptionPasswordsCon
 type SecretRendererProps = {
   value: string | number;
   onChange: (string) => void;
-}
+};
 
 const EditPassphraseFactory: (initialValue: string) => ModalInputComponentType = (initialValue) => {
   const SecretRenderer: React.FC<SecretRendererProps> = ({ onChange }) => {
@@ -27,12 +31,16 @@ const EditPassphraseFactory: (initialValue: string) => ModalInputComponentType =
     const items = initialValue && JSON.parse(initialValue);
 
     // Init component internal value
-    useEffect(() => { onChange(initialValue); }, [initialValue]);
+    useEffect(() => {
+      onChange(initialValue);
+    }, [initialValue]);
 
     return (
       <InputList
         items={items}
-        onChange={(list) => { onChange(JSON.stringify(list)); }}
+        onChange={(list) => {
+          onChange(JSON.stringify(list));
+        }}
         InputRow={LazyTextInput}
         addButtonText={t('Add passphrase')}
       />

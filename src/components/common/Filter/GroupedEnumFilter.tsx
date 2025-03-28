@@ -105,10 +105,7 @@ export const GroupedEnumFilter = ({
     );
   };
 
-  const onSelect = (
-    _event: ReactMouseEvent | undefined,
-    value: string | number | undefined,
-  ) => {
+  const onSelect = (_event: ReactMouseEvent | undefined, value: string | number | undefined) => {
     const label = value?.toString();
     const id = label2enum?.[label] ? label2enum[label]?.id : label;
     hasFilter(id) ? deleteFilter(id) : addFilter(id);
@@ -187,7 +184,9 @@ export const GroupedEnumFilter = ({
           isOpen={isOpen}
           selected={supportedEnumValues.filter(({ id }) => selectedEnumIds.includes(id))}
           onSelect={onSelect}
-          onOpenChange={(nextOpen: boolean) => { setIsOpen(nextOpen); }}
+          onOpenChange={(nextOpen: boolean) => {
+            setIsOpen(nextOpen);
+          }}
           toggle={toggle}
           shouldFocusToggleOnSelect
           shouldFocusFirstItemOnOpen={false}

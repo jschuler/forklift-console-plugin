@@ -30,13 +30,14 @@ export const TargetNamespaceDetailsItem: React.FC<PlanDetailsItemProps> = ({
       onEdit={
         canPatch &&
         isPlanEditable(resource) &&
-        (() =>
-          { showModal(
+        (() => {
+          showModal(
             <EditPlanTargetNamespace
               resource={resource}
               destinationProvider={destinationProvider}
             />,
-          ); })
+          );
+        })
       }
     />
   );

@@ -12,7 +12,7 @@ import { ConditionsSection, DetailsSection, MapsSection, ProvidersSection } from
 type StorageMapDetailsTabProps = {
   name: string;
   namespace: string;
-}
+};
 
 export const StorageMapDetailsTab: React.FC<StorageMapDetailsTabProps> = ({ name, namespace }) => {
   const { t } = useForkliftTranslation();

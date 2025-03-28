@@ -102,7 +102,7 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
   }, [state]);
 
   const title = t('Plans wizard');
-  const {initialLoading} = state.flow;
+  const { initialLoading } = state.flow;
 
   return (
     <>
@@ -118,9 +118,9 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
           className="forklift--create-plan--wizard-content"
           shouldFocusContent
           title={title}
-          onClose={() =>
-            { history.push(createPlanFromPlansList ? plansListURL : `${providerURL}/vms`); }
-          }
+          onClose={() => {
+            history.push(createPlanFromPlansList ? plansListURL : `${providerURL}/vms`);
+          }}
           onSave={() => {
             setActiveNamespace(state.underConstruction.projectName);
             dispatch(startCreate());

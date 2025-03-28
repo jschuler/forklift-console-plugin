@@ -21,10 +21,7 @@ const PlanActionsKebabDropdown_: React.FC<PlanActionsDropdownProps> = ({ data, i
     setIsOpen((isOpen) => !isOpen);
   };
 
-  const onSelect = (
-    _event: React.MouseEvent | undefined,
-    _value: string | number | undefined,
-  ) => {
+  const onSelect = (_event: React.MouseEvent | undefined, _value: string | number | undefined) => {
     setIsOpen(false);
   };
 
@@ -63,4 +60,4 @@ export const PlanActionsDropdown: React.FC<PlanActionsDropdownProps> = (props) =
 
 export type PlanActionsDropdownProps = {
   isKebab?: boolean;
-} & CellProps
+} & CellProps;

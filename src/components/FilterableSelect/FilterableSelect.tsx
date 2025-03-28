@@ -40,7 +40,7 @@ export type FilterableSelectProps = {
   isPlain?: boolean;
   /** Indicates if the menu should be scrollable */
   isScrollable?: boolean;
-}
+};
 
 /**
  * A filterable select component that allows users to select from a list of options,
@@ -291,7 +291,9 @@ export const FilterableSelect: React.FunctionComponent<FilterableSelectProps> = 
             key={option.itemId}
             isFocused={focusedItemIndex === index}
             className={option.className}
-            onClick={() => { setSelected(option.itemId); }}
+            onClick={() => {
+              setSelected(option.itemId);
+            }}
             {...option}
             ref={null}
           />
@@ -302,7 +304,9 @@ export const FilterableSelect: React.FunctionComponent<FilterableSelectProps> = 
             <SelectOption
               itemId={filterValue}
               key={filterValue}
-              onClick={() => { setSelected(filterValue); }}
+              onClick={() => {
+                setSelected(filterValue);
+              }}
               ref={null}
             >
               <>

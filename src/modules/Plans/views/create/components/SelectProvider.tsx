@@ -26,7 +26,7 @@ export type SelectProviderProps = {
     type: string;
     payload?: string | string[];
   }>;
-}
+};
 
 export const SelectProvider: FunctionComponent<SelectProviderProps> = ({
   filterDispatch,
@@ -39,10 +39,7 @@ export const SelectProvider: FunctionComponent<SelectProviderProps> = ({
     setIsOpen((isOpen) => !isOpen);
   };
 
-  const onSelect = (
-    _event: ReactMouseEvent | undefined,
-    value: string | number | undefined,
-  ) => {
+  const onSelect = (_event: ReactMouseEvent | undefined, value: string | number | undefined) => {
     const prevTypeFilters = filterState.typeFilters;
 
     const typeFilters = prevTypeFilters.includes(value as string)
@@ -92,7 +89,9 @@ export const SelectProvider: FunctionComponent<SelectProviderProps> = ({
         isOpen={isOpen}
         selected={filterState.typeFilters}
         onSelect={onSelect}
-        onOpenChange={(nextOpen: boolean) => { setIsOpen(nextOpen); }}
+        onOpenChange={(nextOpen: boolean) => {
+          setIsOpen(nextOpen);
+        }}
         toggle={toggle}
         shouldFocusToggleOnSelect
         shouldFocusFirstItemOnOpen={false}

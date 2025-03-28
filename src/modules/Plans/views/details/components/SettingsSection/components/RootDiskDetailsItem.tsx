@@ -34,7 +34,9 @@ export const RootDiskDetailsItem: React.FC<PlanDetailsItemProps> = ({
       onEdit={
         canPatch &&
         isPlanEditable(resource) &&
-        (() => { showModal(<EditRootDisk resource={resource} />); })
+        (() => {
+          showModal(<EditRootDisk resource={resource} />);
+        })
       }
     />
   );

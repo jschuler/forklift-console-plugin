@@ -46,10 +46,7 @@ export const VmMigrationsChartCard: FC<MigrationsCardProps> = () => {
     setIsDropdownOpened((isDropdownOpened) => !isDropdownOpened);
   };
 
-  const onSelect = (
-    _event: React.MouseEvent | undefined,
-    _value: string | number | undefined,
-  ) => {
+  const onSelect = (_event: React.MouseEvent | undefined, _value: string | number | undefined) => {
     setIsDropdownOpened(false);
   };
 

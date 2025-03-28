@@ -13,7 +13,7 @@ type PlanNameTextFieldProps = {
   onChange: (event: React.FormEvent<HTMLInputElement>, value: string) => void;
   isRequired?: boolean;
   isDisabled?: boolean;
-}
+};
 
 export const PlanNameTextField: React.FC<PlanNameTextFieldProps> = ({
   isDisabled,

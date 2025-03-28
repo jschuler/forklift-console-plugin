@@ -101,9 +101,7 @@ export const OpenshiftCredentialsEdit: React.FC<EditComponentProps> = ({ onChang
     dispatch({ type: 'TOGGLE_PASSWORD_HIDDEN' });
   }
 
-  const onClickEventPreventDef: (event: React.MouseEvent<HTMLButtonElement>) => void = (
-    event,
-  ) => {
+  const onClickEventPreventDef: (event: React.MouseEvent<HTMLButtonElement>) => void = (event) => {
     event.preventDefault();
   };
 
@@ -148,7 +146,9 @@ export const OpenshiftCredentialsEdit: React.FC<EditComponentProps> = ({ onChang
             isRequired
             type={state.passwordHidden ? 'password' : 'text'}
             aria-label="Token input"
-            onChange={(e, v) => { onChangeToken(v, e); }}
+            onChange={(e, v) => {
+              onChangeToken(v, e);
+            }}
             value={token}
             validated={state.validation.token.type}
           />
@@ -192,7 +192,9 @@ export const OpenshiftCredentialsEdit: React.FC<EditComponentProps> = ({ onChang
           label={t('Skip certificate validation')}
           isChecked={insecureSkipVerify === 'true'}
           hasCheckIcon
-          onChange={(e, v) => { onChangeInsecure(v, e); }}
+          onChange={(e, v) => {
+            onChangeInsecure(v, e);
+          }}
         />
       </FormGroupWithHelpText>
 
@@ -224,9 +226,15 @@ export const OpenshiftCredentialsEdit: React.FC<EditComponentProps> = ({ onChang
           filenamePlaceholder="Drag and drop a file or upload one"
           value={cacert}
           validated={state.validation.cacert.type}
-          onDataChange={(_e, v) => { onDataChange(v); }}
-          onTextChange={(_e, v) => { onTextChange(v); }}
-          onClearClick={() => { handleChange('cacert', ''); }}
+          onDataChange={(_e, v) => {
+            onDataChange(v);
+          }}
+          onTextChange={(_e, v) => {
+            onTextChange(v);
+          }}
+          onClearClick={() => {
+            handleChange('cacert', '');
+          }}
           browseButtonText="Upload"
           url={url}
           isDisabled={insecureSkipVerify === 'true'}

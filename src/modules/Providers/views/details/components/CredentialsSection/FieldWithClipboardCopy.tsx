@@ -8,7 +8,7 @@ import type { Field } from './components/list/Fields';
 export type ShowFieldWithClipboardCopyProps = {
   value: string;
   field?: Field;
-}
+};
 
 /**
  * Displays a field with its value. If the value is empty, shows a disabled text input with a tooltip indicating the field is missing.

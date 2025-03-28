@@ -8,13 +8,13 @@ export const DEFAULT_PER_PAGE = 10;
 export type PaginationHookProps = {
   filteredDataLength: number;
   userSettings?: PaginationSettings;
-}
+};
 
 export type PaginationHookResult = {
   itemsPerPage: number;
   lastPage: number;
   setPerPage: (perPage: number) => void;
-}
+};
 
 export function usePagination({
   filteredDataLength,

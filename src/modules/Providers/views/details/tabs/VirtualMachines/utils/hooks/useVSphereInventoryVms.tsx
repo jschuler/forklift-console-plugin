@@ -51,8 +51,11 @@ function convertArrayToDictionary<T>(resources: T[]): Record<string, T> {
     return undefined;
   }
 
-  return resources.reduce((dict, resource) => {
-    dict[resource.id] = resource;
-    return dict;
-  }, {} as Record<string, T>);
+  return resources.reduce(
+    (dict, resource) => {
+      dict[resource.id] = resource;
+      return dict;
+    },
+    {} as Record<string, T>,
+  );
 }

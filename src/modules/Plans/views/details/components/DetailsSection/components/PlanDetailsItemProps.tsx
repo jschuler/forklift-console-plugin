@@ -9,4 +9,4 @@ export type PlanDetailsItemProps = {
   helpContent?: ReactNode;
   destinationProvider?: V1beta1Provider;
   sourceProvider?: V1beta1Provider;
-}
+};

@@ -46,7 +46,7 @@ export const useSourceNetworks = (
 
   const typedNetworks = useMemo(() => {
     const networksList = Array.isArray(networks)
-      ? networks.map((net) => ({ ...net, providerType } as InventoryNetwork))
+      ? networks.map((net) => ({ ...net, providerType }) as InventoryNetwork)
       : [];
 
     if (Array.isArray(networks) && provider?.spec?.type === 'openshift') {

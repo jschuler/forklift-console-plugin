@@ -106,7 +106,7 @@ export type IdBasedSelectionProps<T> = {
    * Expanded ids
    */
   expandedIds?: string[];
-}
+};
 
 export type GlobalActionWithSelection<T> = GlobalActionToolbarProps<T> & {
   selectedIds: string[];
@@ -230,7 +230,7 @@ export type StandardPageWithSelectionProps<T> = {
   selectedIds?: string[];
   onExpand?: (expandedIds: string[]) => void;
   expandedIds?: string[];
-} & StandardPageProps<T>
+} & StandardPageProps<T>;
 
 /**
  * Renders a standard page with selection capabilities.

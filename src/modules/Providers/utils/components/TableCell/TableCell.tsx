@@ -31,4 +31,4 @@ export const TableCell: React.FC<TableCellProps> = ({ children, isWrap = false }
 export type TableCellProps = {
   children?: ReactNode;
   isWrap?: boolean;
-}
+};

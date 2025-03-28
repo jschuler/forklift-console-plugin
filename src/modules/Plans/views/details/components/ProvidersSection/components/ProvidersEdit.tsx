@@ -34,7 +34,9 @@ export const ProvidersEdit: React.FC<ProvidersEditProps> = ({
         >
           <FormSelect
             value={selectedProviderName}
-            onChange={(e, v) => { onChange(v, e); }}
+            onChange={(e, v) => {
+              onChange(v, e);
+            }}
             id="targetProvider"
             isDisabled={!hasProviders}
             validated={validated}
@@ -53,25 +55,30 @@ export const ProvidersEdit: React.FC<ProvidersEditProps> = ({
         </FormGroupWithHelpText>
       </Form>
     );
-  } 
-    return (
-      <DetailsItem
-        title={label}
-        content={
-          <ResourceLink
-            inline
-            name={selectedProviderName}
-            namespace={targetProvider?.metadata?.namespace}
-            groupVersionKind={ProviderModelGroupVersionKind}
-            linkTo={targetProvider !== undefined}
-          />
-        }
-        onEdit={hasProviders ? () => { setMode('edit'); } : undefined}
-        helpContent={helpContent}
-        crumbs={['spec', 'providers']}
-      />
-    );
-  
+  }
+  return (
+    <DetailsItem
+      title={label}
+      content={
+        <ResourceLink
+          inline
+          name={selectedProviderName}
+          namespace={targetProvider?.metadata?.namespace}
+          groupVersionKind={ProviderModelGroupVersionKind}
+          linkTo={targetProvider !== undefined}
+        />
+      }
+      onEdit={
+        hasProviders
+          ? () => {
+              setMode('edit');
+            }
+          : undefined
+      }
+      helpContent={helpContent}
+      crumbs={['spec', 'providers']}
+    />
+  );
 };
 
 const ProviderOption = (provider, index) => (

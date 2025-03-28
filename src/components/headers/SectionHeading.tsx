@@ -6,7 +6,7 @@ export type SectionHeadingProps = {
   id?: string;
   'data-testid'?: string;
   children?: React.ReactNode;
-}
+};
 
 /**
  * SectionHeading Component

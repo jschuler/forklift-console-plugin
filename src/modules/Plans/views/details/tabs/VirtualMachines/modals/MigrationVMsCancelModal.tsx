@@ -12,7 +12,7 @@ import './PlanVMsDeleteModal.style.css';
 export type MigrationVMsCancelModalProps = {
   migration: V1beta1Migration;
   selected: string[];
-}
+};
 
 export const MigrationVMsCancelModal: React.FC<MigrationVMsCancelModalProps> = ({
   migration,

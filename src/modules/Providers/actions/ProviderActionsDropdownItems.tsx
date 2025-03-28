@@ -64,4 +64,4 @@ export const ProviderActionsDropdownItems = ({ data }: ProviderActionsDropdownIt
 
 type ProviderActionsDropdownItemsProps = {
   data: ProviderData;
-}
+};

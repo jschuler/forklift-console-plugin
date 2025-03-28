@@ -107,9 +107,7 @@ export const OvirtCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, s
     dispatch({ type: 'TOGGLE_PASSWORD_HIDDEN' });
   };
 
-  const onClickEventPreventDef: (event: React.MouseEvent<HTMLButtonElement>) => void = (
-    event,
-  ) => {
+  const onClickEventPreventDef: (event: React.MouseEvent<HTMLButtonElement>) => void = (event) => {
     event.preventDefault();
   };
 
@@ -161,7 +159,9 @@ export const OvirtCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, s
           name="user"
           value={user}
           validated={state.validation.user.type}
-          onChange={(e, v) => { onChangeUser(v, e); }}
+          onChange={(e, v) => {
+            onChangeUser(v, e);
+          }}
         />
       </FormGroupWithHelpText>
       <FormGroupWithHelpText
@@ -181,7 +181,9 @@ export const OvirtCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, s
             aria-label="Password input"
             value={password}
             validated={state.validation.password.type}
-            onChange={(e, v) => { onChangePassword(v, e); }}
+            onChange={(e, v) => {
+              onChangePassword(v, e);
+            }}
           />
           <Button
             variant="control"
@@ -223,7 +225,9 @@ export const OvirtCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, s
           label={t('Skip certificate validation')}
           isChecked={insecureSkipVerify === 'true'}
           hasCheckIcon
-          onChange={(e, v) => { onChangeInsecure(v, e); }}
+          onChange={(e, v) => {
+            onChangeInsecure(v, e);
+          }}
         />
       </FormGroupWithHelpText>
 
@@ -255,9 +259,15 @@ export const OvirtCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, s
           filenamePlaceholder="Drag and drop a file or upload one"
           value={cacert}
           validated={state.validation.cacert.type}
-          onDataChange={(_e, v) => { onDataChange(v); }}
-          onTextChange={(_e, v) => { onTextChange(v); }}
-          onClearClick={() => { handleChange('cacert', ''); }}
+          onDataChange={(_e, v) => {
+            onDataChange(v);
+          }}
+          onTextChange={(_e, v) => {
+            onTextChange(v);
+          }}
+          onClearClick={() => {
+            handleChange('cacert', '');
+          }}
           browseButtonText="Upload"
           url={url}
           isDisabled={insecureSkipVerify === 'true'}

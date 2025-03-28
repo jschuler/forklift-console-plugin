@@ -19,38 +19,37 @@ import type { PlanData, VMData } from '../types';
 
 import { PlanVirtualMachinesRow } from './PlanVirtualMachinesRow';
 
-const fieldsMetadataFactory: (isVsphere: boolean) => ResourceFieldFactory = (isVsphere) => (t) =>
-  [
-    {
-      filter: {
-        placeholderLabel: t('Filter by name'),
-        type: 'freetext',
-      },
-      isIdentity: true, // Name is sufficient ID when Namespace is pre-selected
-      isVisible: true,
-      jsonPath: '$.specVM.name',
-      label: t('Name'),
-      resourceFieldId: 'name',
-      sortable: true,
+const fieldsMetadataFactory: (isVsphere: boolean) => ResourceFieldFactory = (isVsphere) => (t) => [
+  {
+    filter: {
+      placeholderLabel: t('Filter by name'),
+      type: 'freetext',
     },
-    {
-      isVisible: true,
-      jsonPath: (obj: VMData) => {
-        return obj?.conditions?.[0]?.category;
-      },
-      label: t('Conditions'),
-      resourceFieldId: 'conditions',
-      sortable: true,
+    isIdentity: true, // Name is sufficient ID when Namespace is pre-selected
+    isVisible: true,
+    jsonPath: '$.specVM.name',
+    label: t('Name'),
+    resourceFieldId: 'name',
+    sortable: true,
+  },
+  {
+    isVisible: true,
+    jsonPath: (obj: VMData) => {
+      return obj?.conditions?.[0]?.category;
     },
-    {
-      isAction: true,
-      isHidden: !isVsphere,
-      isVisible: true,
-      label: '',
-      resourceFieldId: 'actions',
-      sortable: false,
-    },
-  ];
+    label: t('Conditions'),
+    resourceFieldId: 'conditions',
+    sortable: true,
+  },
+  {
+    isAction: true,
+    isHidden: !isVsphere,
+    isVisible: true,
+    label: '',
+    resourceFieldId: 'actions',
+    sortable: false,
+  },
+];
 
 const PageWithSelection = StandardPageWithSelection<VMData>;
 type PageGlobalActions = FC<GlobalActionWithSelection<VMData>>[];

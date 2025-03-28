@@ -131,4 +131,4 @@ export const PlanActionsDropdownItems = ({ data }: PlanActionsDropdownItemsProps
 
 type PlanActionsDropdownItemsProps = {
   data: PlanData;
-}
+};

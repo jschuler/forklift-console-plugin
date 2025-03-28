@@ -18,12 +18,12 @@ export type CreateVmMigrationContextData = {
   provider?: V1beta1Provider;
   planName?: string;
   projectName?: string;
-}
+};
 
 export type CreateVmMigrationContextType = {
   data?: CreateVmMigrationContextData;
   setData?: (data: CreateVmMigrationContextData) => void;
-}
+};
 
 export const CreateVmMigrationContext = createContext<CreateVmMigrationContextType>({
   setData: () => undefined,
@@ -55,7 +55,9 @@ export const useCreateVmMigrationContextValue = (): CreateVmMigrationContextType
   return useMemo(
     () => ({
       data,
-      setData: (newState: CreateVmMigrationContextData) => { setValueSafe(produce(() => newState)); },
+      setData: (newState: CreateVmMigrationContextData) => {
+        setValueSafe(produce(() => newState));
+      },
     }),
     [data, setData],
   );

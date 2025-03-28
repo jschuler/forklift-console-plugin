@@ -43,7 +43,9 @@ export const MapsEdit: React.FC<MapsEditProps> = ({
         >
           <FormSelect
             value={selectedProviderName}
-            onChange={(e, v) => { onChange(v, e); }}
+            onChange={(e, v) => {
+              onChange(v, e);
+            }}
             id="targetProvider"
             isDisabled={!hasProviders}
             validated={validated}
@@ -62,25 +64,30 @@ export const MapsEdit: React.FC<MapsEditProps> = ({
         </FormGroupWithHelpText>
       </Form>
     );
-  } 
-    return (
-      <DetailsItem
-        title={label}
-        content={
-          <ResourceLink
-            inline
-            name={selectedProviderName}
-            namespace={targetProvider?.metadata?.namespace}
-            groupVersionKind={ProviderModelGroupVersionKind}
-            linkTo={targetProvider !== undefined}
-          />
-        }
-        onEdit={hasProviders ? () => { setEdit(true); } : undefined}
-        helpContent={helpContent}
-        crumbs={['spec', 'providers']}
-      />
-    );
-  
+  }
+  return (
+    <DetailsItem
+      title={label}
+      content={
+        <ResourceLink
+          inline
+          name={selectedProviderName}
+          namespace={targetProvider?.metadata?.namespace}
+          groupVersionKind={ProviderModelGroupVersionKind}
+          linkTo={targetProvider !== undefined}
+        />
+      }
+      onEdit={
+        hasProviders
+          ? () => {
+              setEdit(true);
+            }
+          : undefined
+      }
+      helpContent={helpContent}
+      crumbs={['spec', 'providers']}
+    />
+  );
 };
 
 export type MapsEditProps = {

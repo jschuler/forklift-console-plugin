@@ -10,7 +10,7 @@ import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 export type PipelineTasksModalProps = {
   name: string;
   tasks: V1beta1PlanStatusMigrationVmsPipeline[];
-}
+};
 
 export const PipelineTasksModal: React.FC<PipelineTasksModalProps> = ({ name, tasks }) => {
   const { t } = useForkliftTranslation();

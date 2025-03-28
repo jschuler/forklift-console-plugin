@@ -27,10 +27,7 @@ const NetworkMapActionsKebabDropdown_: FC<NetworkMapActionsDropdownProps> = ({ d
     setIsOpen((isOpen) => !isOpen);
   };
 
-  const onSelect = (
-    _event: React.MouseEvent | undefined,
-    _value: string | number | undefined,
-  ) => {
+  const onSelect = (_event: React.MouseEvent | undefined, _value: string | number | undefined) => {
     setIsOpen(false);
   };
 
@@ -39,7 +36,9 @@ const NetworkMapActionsKebabDropdown_: FC<NetworkMapActionsDropdownProps> = ({ d
     <Dropdown
       className={isKebab ? undefined : 'forklift-dropdown pf-c-menu-toggle'}
       isOpen={isOpen}
-      onOpenChange={(isOpen: boolean) => { setIsOpen(isOpen); }}
+      onOpenChange={(isOpen: boolean) => {
+        setIsOpen(isOpen);
+      }}
       onSelect={onSelect}
       toggle={(toggleRef: Ref<MenuToggleElement>) => (
         <MenuToggle
@@ -74,4 +73,4 @@ export const NetworkMapActionsDropdown: FC<NetworkMapActionsDropdownProps> = (pr
 
 export type NetworkMapActionsDropdownProps = {
   isKebab?: boolean;
-} & CellProps
+} & CellProps;

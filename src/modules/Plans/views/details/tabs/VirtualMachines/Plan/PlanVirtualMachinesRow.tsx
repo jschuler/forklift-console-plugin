@@ -44,4 +44,4 @@ type RenderTdProps = {
   resourceData: VMData;
   resourceFieldId: string;
   resourceFields: ResourceField[];
-}
+};

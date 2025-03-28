@@ -12,7 +12,7 @@ import './PlanVMsDeleteModal.style.css';
 export type PlanVMsDeleteModalProps = {
   plan: V1beta1Plan;
   selected: string[];
-}
+};
 
 export const PlanVMsDeleteModal: React.FC<PlanVMsDeleteModalProps> = ({ plan, selected }) => {
   const { t } = useForkliftTranslation();

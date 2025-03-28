@@ -23,7 +23,7 @@ type ProvidersEmptyStateProps = {
   AddButton: ReactNode;
   title: ReactNode;
   Icon: ComponentType;
-}
+};
 
 export const ProvidersEmptyState: React.FC<ProvidersEmptyStateProps> = ({
   AddButton,

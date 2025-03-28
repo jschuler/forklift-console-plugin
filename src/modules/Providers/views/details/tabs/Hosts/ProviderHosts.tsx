@@ -14,7 +14,7 @@ export type ProviderHostsProps = {
   name?: string;
   loaded?: boolean;
   loadError?: unknown;
-}
+};
 
 const ProviderHosts_: React.FC<ProviderHostsProps> = (props) => {
   const { provider } = props.obj;

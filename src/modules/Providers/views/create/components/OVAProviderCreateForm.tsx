@@ -9,7 +9,7 @@ import { Form, TextInput } from '@patternfly/react-core';
 export type OVAProviderCreateFormProps = {
   provider: V1beta1Provider;
   onChange: (newValue: V1beta1Provider) => void;
-}
+};
 
 export const OVAProviderCreateForm: React.FC<OVAProviderCreateFormProps> = ({
   onChange,
@@ -81,7 +81,9 @@ export const OVAProviderCreateForm: React.FC<OVAProviderCreateFormProps> = ({
           isRequired
           value={url || ''}
           validated={state.validation.url.type}
-          onChange={(e, v) => { onChangeUrl(v, e); }}
+          onChange={(e, v) => {
+            onChangeUrl(v, e);
+          }}
         />
       </FormGroupWithHelpText>
     </Form>

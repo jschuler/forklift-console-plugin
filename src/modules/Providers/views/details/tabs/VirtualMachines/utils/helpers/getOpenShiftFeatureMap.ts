@@ -13,7 +13,8 @@ export const getOpenShiftFeatureMap = (vm: ProviderVirtualMachine): VmFeatures =
 
   return {
     dedicatedCpu: Boolean(domain?.cpu?.dedicatedCpuPlacement),
-    gpusHostDevices: Boolean(domain.devices?.gpus?.length) || Boolean(domain?.devices?.hostDevices?.length),
+    gpusHostDevices:
+      Boolean(domain.devices?.gpus?.length) || Boolean(domain?.devices?.hostDevices?.length),
     numa: Boolean(domain.cpu?.numa),
     persistentTpmEfi:
       Boolean(domain?.devices?.tpm?.persistent) || domain?.firmware?.bootloader?.efi?.persistent,

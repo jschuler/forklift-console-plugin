@@ -7,7 +7,7 @@ type HeaderTitleProps = {
   title: ReactNode;
   status?: ReactNode;
   badge?: React.ReactNode;
-}
+};
 
 export const HeaderTitle: FC<HeaderTitleProps> = ({ badge, status, title }) => {
   return (

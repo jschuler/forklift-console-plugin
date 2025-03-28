@@ -14,7 +14,7 @@ type FilterFromDefProps = {
   FilterType: (props: FilterTypeProps) => JSX.Element;
   showFilter?: boolean;
   resolvedLanguage: string;
-}
+};
 
 export const FilterFromDef = ({
   filterDef: def,

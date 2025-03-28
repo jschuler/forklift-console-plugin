@@ -10,7 +10,7 @@ import './CertificateUpload.style.css';
 
 export type CertificateUploadProps = {
   url?: string;
-} & FileUploadProps
+} & FileUploadProps;
 
 /**
  * Provide the certificate using following paths:
@@ -38,7 +38,9 @@ export const CertificateUpload: FC<CertificateUploadProps> = ({
     showModal(
       <FetchCertificateModal
         url={url}
-        handleSave={(v) => { onTextChange(null, v); }}
+        handleSave={(v) => {
+          onTextChange(null, v);
+        }}
         existingCert={value ? String(value) : undefined}
       />,
     );

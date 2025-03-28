@@ -45,10 +45,7 @@ export const MigrationsChartCard: FC<MigrationsCardProps> = () => {
   const onToggleClick = () => {
     setIsDropdownOpened((isDropdownOpened) => !isDropdownOpened);
   };
-  const onSelect = (
-    _event: React.MouseEvent | undefined,
-    _value: string | number | undefined,
-  ) => {
+  const onSelect = (_event: React.MouseEvent | undefined, _value: string | number | undefined) => {
     setIsDropdownOpened(false);
   };
 

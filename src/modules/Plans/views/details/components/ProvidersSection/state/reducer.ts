@@ -8,7 +8,7 @@ export type ProvidersSectionState = {
   targetProviderMode: 'view' | 'edit';
   hasChanges: boolean;
   updating: boolean;
-}
+};
 
 export type ProvidersAction =
   | { type: 'SET_SOURCE_PROVIDER'; payload: V1beta1Provider }

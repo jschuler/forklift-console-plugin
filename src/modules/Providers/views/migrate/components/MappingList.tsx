@@ -21,7 +21,7 @@ type MappingListProps = {
   generalSourcesLabel: string;
   noSourcesLabel: string;
   isDisabled: boolean;
-}
+};
 
 export const MappingList: FC<MappingListProps> = ({
   addMapping,

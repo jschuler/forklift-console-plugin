@@ -133,7 +133,9 @@ export const PlanCreateForm: React.FC<PlanCreateFormProps> = ({
                   <SelectableCard
                     title={selectedProviderCardItem.title}
                     titleLogo={selectedProviderCardItem.logo}
-                    onChange={() => { onProviderChange(''); }}
+                    onChange={() => {
+                      onProviderChange('');
+                    }}
                     isSelected
                     isCompact
                     content={

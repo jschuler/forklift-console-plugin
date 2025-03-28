@@ -229,7 +229,7 @@ const ProvidersListPage: React.FC<{
 type EmptyStateProps = {
   AddButton: JSX.Element;
   namespace?: string;
-}
+};
 
 const ModernizeMigration = () => (
   <img src={modernizeMigration} className="forklift-empty-state__icon" />

@@ -61,7 +61,7 @@ const onConfirm: OnConfirmHookType = async ({ model, newValue: value, resource }
 type DropdownRendererProps = {
   value: string | number;
   onChange: (string) => void;
-}
+};
 
 const OpenshiftNetworksInputFactory: ({ resource }) => ModalInputComponentType = ({
   resource: provider,
@@ -93,7 +93,9 @@ const OpenshiftNetworksInputFactory: ({ resource }) => ModalInputComponentType =
         value={0}
         key="Pod network"
         description={'Default pod network'}
-        onClick={() => { onChange(''); }}
+        onClick={() => {
+          onChange('');
+        }}
       >
         {'Pod network'}
       </DropdownItem>,
@@ -102,7 +104,9 @@ const OpenshiftNetworksInputFactory: ({ resource }) => ModalInputComponentType =
           value={1}
           key={n.name}
           description={n.namespace}
-          onClick={() => { onChange(`${n.namespace}/${n.name}`); }}
+          onClick={() => {
+            onChange(`${n.namespace}/${n.name}`);
+          }}
         >
           {n.name}
         </DropdownItem>

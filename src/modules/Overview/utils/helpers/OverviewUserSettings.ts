@@ -6,13 +6,13 @@ import {
 
 export type OverviewUserSettings = {
   welcome?: WelcomeSettings;
-}
+};
 
 type WelcomeSettings = {
   hideWelcome: boolean;
   save: (showWelcome: boolean) => void;
   clear: () => void;
-}
+};
 
 const parseOrClean = (key) => {
   try {
@@ -51,8 +51,9 @@ export const loadUserSettings = ({ userSettingsKeySuffix }): OverviewUserSetting
         saveRestOrRemoveKey(key, { hideWelcome, rest });
       },
       hideWelcome: typeof hideWelcome === 'boolean' ? hideWelcome : undefined,
-      save: (hideWelcome) =>
-        { saveToLocalStorage(key, JSON.stringify({ ...parseOrClean(key), hideWelcome })); },
+      save: (hideWelcome) => {
+        saveToLocalStorage(key, JSON.stringify({ ...parseOrClean(key), hideWelcome }));
+      },
     },
   };
 };

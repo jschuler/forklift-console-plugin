@@ -15,7 +15,7 @@ type ProviderCredentialsProps = {
   name?: string;
   loaded?: boolean;
   loadError?: unknown;
-}
+};
 
 export const ProviderCredentials: React.FC<ProviderCredentialsProps> = ({
   loaded,

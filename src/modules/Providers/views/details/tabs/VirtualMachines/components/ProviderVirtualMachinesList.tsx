@@ -32,7 +32,7 @@ export type ProviderVirtualMachinesListProps = {
   showActions: boolean;
   className?: string;
   selectedCountLabel?: (selectedIdCount: number) => string;
-}
+};
 
 export const toId = (item: VmData) => item.vm.id;
 
@@ -111,7 +111,8 @@ export const concernsMatcher: ValueMatcher = {
 
 export const featuresMatcher: ValueMatcher = {
   filterType: 'features',
-  matchValue: (features: Record<string, boolean>) => (filter: string) => Boolean(features?.[filter]),
+  matchValue: (features: Record<string, boolean>) => (filter: string) =>
+    Boolean(features?.[filter]),
 };
 
 export const hostMatcher: ValueMatcher = {

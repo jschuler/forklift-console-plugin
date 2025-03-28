@@ -1,5 +1,8 @@
 import React from 'react';
-import type { CreateVmMigration, PageAction } from 'src/modules/Providers/views/migrate/reducer/actions';
+import type {
+  CreateVmMigration,
+  PageAction,
+} from 'src/modules/Providers/views/migrate/reducer/actions';
 import type { CreateVmMigrationPageState } from 'src/modules/Providers/views/migrate/types';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
@@ -66,9 +69,9 @@ export const SelectSourceProvider: React.FC<{
             title=""
             name={selectedProviderName}
             namespace={selectedProviderNamespace}
-            onSelect={(selectedVms) =>
-              { filterDispatch({ payload: selectedVms, type: 'UPDATE_SELECTED_VMS' }); }
-            }
+            onSelect={(selectedVms) => {
+              filterDispatch({ payload: selectedVms, type: 'UPDATE_SELECTED_VMS' });
+            }}
             initialSelectedIds={filterState.selectedVMs.map((vm) => vm.vm.id)}
             showActions={false}
             selectedCountLabel={(selectedIdCount) =>

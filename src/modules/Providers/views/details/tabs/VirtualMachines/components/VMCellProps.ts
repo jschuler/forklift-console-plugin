@@ -8,10 +8,10 @@ export type VmData = {
   isProviderLocalOpenshift?: boolean;
   folderName?: string;
   hostName?: string;
-}
+};
 
 export type VMCellProps = {
   data: VmData;
   fieldId: string;
   fields: ResourceField[];
-}
+};

@@ -10,7 +10,7 @@ export type SecretDetailsItemProps = {
   resource: V1beta1Provider;
   moreInfoLink?: string;
   helpContent?: ReactNode;
-}
+};
 
 export const SecretDetailsItem: React.FC<SecretDetailsItemProps> = ({
   helpContent,

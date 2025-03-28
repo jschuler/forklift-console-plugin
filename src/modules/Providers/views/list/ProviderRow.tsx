@@ -72,22 +72,22 @@ const renderTd = ({ resourceData, resourceFieldId, resourceFields }: RenderTdPro
 };
 
 const cellRenderers: Record<string, React.FC<CellProps>> = {
-  'actions': (props) => ProviderActionsDropdown({ isKebab: true, ...props }),
-  'hostCount': InventoryCellFactory({ icon: <OutlinedHddIcon /> }),
-  'name': ProviderLinkCell,
-  'namespace': NamespaceCell,
-  'networkCount': InventoryCellFactory({ icon: <NetworkIcon /> }),
-  'phase': StatusCell,
-  'storageCount': InventoryCellFactory({ icon: <DatabaseIcon /> }),
-  'type': TypeCell,
-  'url': URLCell,
-  'vmCount': VirtualMachinesCell,
+  actions: (props) => ProviderActionsDropdown({ isKebab: true, ...props }),
+  hostCount: InventoryCellFactory({ icon: <OutlinedHddIcon /> }),
+  name: ProviderLinkCell,
+  namespace: NamespaceCell,
+  networkCount: InventoryCellFactory({ icon: <NetworkIcon /> }),
+  phase: StatusCell,
+  storageCount: InventoryCellFactory({ icon: <DatabaseIcon /> }),
+  type: TypeCell,
+  url: URLCell,
+  vmCount: VirtualMachinesCell,
 };
 
 type RenderTdProps = {
   resourceData: ProviderData;
   resourceFieldId: string;
   resourceFields: ResourceField[];
-}
+};
 
 export default ProviderRow;
