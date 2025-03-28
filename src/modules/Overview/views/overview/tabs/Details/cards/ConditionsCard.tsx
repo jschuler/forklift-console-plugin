@@ -18,7 +18,7 @@ export const ConditionsCard: FC<ConditionsCardProps> = ({ obj }) => {
     <Card>
       <CardTitle className="forklift-title">{t('Conditions')}</CardTitle>
       <CardBody>
-        <ConditionsSection conditions={obj?.status?.['conditions']} />
+        <ConditionsSection conditions={obj?.status?.conditions} />
       </CardBody>
     </Card>
   );

@@ -38,7 +38,7 @@ export const TypeDetailsItem: React.FC<ProviderDetailsItemProps> = ({
             </Label>
           )}
           {provider?.spec?.type === 'vsphere' &&
-            (provider?.spec?.settings?.['sdkEndpoint'] === 'esxi' ? (
+            (provider?.spec?.settings?.sdkEndpoint === 'esxi' ? (
               <Label isCompact color={'grey'} className="forklift-table__flex-cell-label">
                 {t('ESXi')}
               </Label>

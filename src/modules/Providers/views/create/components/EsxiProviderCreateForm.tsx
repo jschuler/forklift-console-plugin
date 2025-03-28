@@ -25,8 +25,8 @@ export const EsxiProviderCreateForm: React.FC<EsxiProviderCreateFormProps> = ({
   const url = provider?.spec?.url;
   const emptyVddkInitImage =
     provider?.metadata?.annotations?.['forklift.konveyor.io/empty-vddk-init-image'];
-  const vddkInitImage = provider?.spec?.settings?.['vddkInitImage'];
-  const sdkEndpoint = provider?.spec?.settings?.['sdkEndpoint'];
+  const vddkInitImage = provider?.spec?.settings?.vddkInitImage;
+  const sdkEndpoint = provider?.spec?.settings?.sdkEndpoint;
 
   const initialState = {
     validation: {

@@ -53,20 +53,20 @@ export const MigrationsCard: React.FC<MigrationsCardProps> = () => {
       <CardTitle className="forklift-title">{t('Migrations')}</CardTitle>
       <CardBody className="forklift-status-migration">
         <Flex justifyContent={{ default: 'justifyContentSpaceBetween' }}>
-          <StatusCard status="Total" count={count['Total']} />
+          <StatusCard status="Total" count={count.Total} />
           <StatusCard
             status="Running"
-            count={count['Running']}
+            count={count.Running}
             counterClassName="forklift-status-migration-running"
           />
           <StatusCard
             status="Failed"
-            count={count['Failed']}
+            count={count.Failed}
             counterClassName="forklift-status-migration-failed"
           />
           <StatusCard
             status="Succeeded"
-            count={count['Succeeded']}
+            count={count.Succeeded}
             counterClassName="forklift-status-migration-succeeded"
           />
         </Flex>
@@ -78,20 +78,20 @@ export const MigrationsCard: React.FC<MigrationsCardProps> = () => {
       <CardTitle className="forklift-title">{t('Virtual Machine Migrations')}</CardTitle>
       <CardBody className="forklift-status-migration">
         <Flex justifyContent={{ default: 'justifyContentSpaceBetween' }}>
-          <StatusCard status="Total" count={vmCount['Total']} />
+          <StatusCard status="Total" count={vmCount.Total} />
           <StatusCard
             status="Running"
-            count={vmCount['Running']}
+            count={vmCount.Running}
             counterClassName="forklift-status-migration-running"
           />
           <StatusCard
             status="Failed"
-            count={vmCount['Failed']}
+            count={vmCount.Failed}
             counterClassName="forklift-status-migration-failed"
           />
           <StatusCard
             status="Succeeded"
-            count={vmCount['Succeeded']}
+            count={vmCount.Succeeded}
             counterClassName="forklift-status-migration-succeeded"
           />
         </Flex>

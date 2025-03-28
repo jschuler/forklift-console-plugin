@@ -21,7 +21,7 @@ export const VSphereEditURLModal: React.FC<EditProviderURLModalProps> = ({
   let validationHook: ValidationHookType;
 
   // VCenter of ESXi
-  const sdkEndpoint = provider?.spec?.settings?.['sdkEndpoint'] || '';
+  const sdkEndpoint = provider?.spec?.settings?.sdkEndpoint || '';
   if (sdkEndpoint === 'esxi') {
     validationHook = validateEsxiURL;
   } else {

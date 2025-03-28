@@ -27,7 +27,7 @@ export const EditProvider: React.FC<ProvidersCreateFormProps> = ({
   const { t } = useForkliftTranslation();
 
   const type = newProvider?.spec?.type || '';
-  const subType = newProvider?.spec?.settings?.['sdkEndpoint'] || '';
+  const subType = newProvider?.spec?.settings?.sdkEndpoint || '';
 
   switch (type) {
     case 'openstack':

@@ -12,7 +12,7 @@ export function esxiSecretValidator(secret: IoK8sApiCoreV1Secret): ValidationMsg
   const validateFields = ['user', 'password', 'insecureSkipVerify'];
 
   // Add ca cert validation if not insecureSkipVerify
-  const insecureSkipVerify = Base64.decode(secret?.data?.['insecureSkipVerify'] || '');
+  const insecureSkipVerify = Base64.decode(secret?.data?.insecureSkipVerify || '');
   if (insecureSkipVerify !== 'true') {
     validateFields.push('cacert');
   }

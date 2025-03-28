@@ -52,7 +52,7 @@ function convertArrayToDictionary<T>(resources: T[]): { [key: string]: T } {
   }
 
   return resources.reduce((dict, resource) => {
-    dict[resource['id']] = resource;
+    dict[resource.id] = resource;
     return dict;
   }, {} as { [key: string]: T });
 }

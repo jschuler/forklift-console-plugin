@@ -108,7 +108,7 @@ export const VSphereNetworkModal: React.FC<VSphereNetworkModalProps> = ({
   const { toggleModal } = useModal();
   const [alertMessage, setAlertMessage] = useState<ReactNode>(null);
 
-  const endpointType = provider?.spec?.settings?.['sdkEndpoint'];
+  const endpointType = provider?.spec?.settings?.sdkEndpoint;
 
   const [state, dispatch] = useReducer(reducer, { ...initialState, endpointType });
 

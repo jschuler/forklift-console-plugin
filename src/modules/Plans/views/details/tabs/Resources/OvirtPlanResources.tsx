@@ -11,13 +11,13 @@ import { AlignedDecimal } from './AlignedDecimal';
 export const OvirtPlanResources: React.FC<{ planInventory: OVirtVM[] }> = ({ planInventory }) => {
   const { t } = useForkliftTranslation();
 
-  const planInventoryRunning = planInventory?.filter((vm) => vm['status'] === 'up');
+  const planInventoryRunning = planInventory?.filter((vm) => vm.status === 'up');
 
   const totalResources = planInventory.reduce(
     (accumulator, currentVM) => {
       return {
-        cpuCount: accumulator.cpuCount + currentVM['cpuCores'],
-        memoryMB: accumulator.memoryMB + currentVM['memory'] / 2 ** 20, // B to MB
+        cpuCount: accumulator.cpuCount + currentVM.cpuCores,
+        memoryMB: accumulator.memoryMB + currentVM.memory / 2 ** 20, // B to MB
       };
     },
     { cpuCount: 0, memoryMB: 0 },
@@ -26,8 +26,8 @@ export const OvirtPlanResources: React.FC<{ planInventory: OVirtVM[] }> = ({ pla
   const totalResourcesRunning = planInventoryRunning.reduce(
     (accumulator, currentVM) => {
       return {
-        cpuCount: accumulator.cpuCount + currentVM['cpuCores'],
-        memoryMB: accumulator.memoryMB + currentVM['memory'] / 2 ** 20, // B to MB
+        cpuCount: accumulator.cpuCount + currentVM.cpuCores,
+        memoryMB: accumulator.memoryMB + currentVM.memory / 2 ** 20, // B to MB
       };
     },
     { cpuCount: 0, memoryMB: 0 },

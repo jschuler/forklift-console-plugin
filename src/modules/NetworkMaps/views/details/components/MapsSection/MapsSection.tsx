@@ -124,8 +124,8 @@ export const MapsSection: React.FC<MapsSectionProps> = ({ obj }) => {
     const payload = state?.networkMap?.spec?.map?.map((map) => {
       return (map?.source?.id === currentSourceNet?.id ||
         map.source?.type === currentSourceNet?.id) &&
-        (map.destination?.name === currentDestinationNet?.['name'] ||
-          map.destination?.type === currentDestinationNet?.['type'])
+        (map.destination?.name === currentDestinationNet?.name ||
+          map.destination?.type === currentDestinationNet?.type)
         ? nextMap
         : map;
     });
@@ -151,8 +151,8 @@ export const MapsSection: React.FC<MapsSectionProps> = ({ obj }) => {
             !(
               (map?.source?.id === currentSourceNet?.id ||
                 map.source?.type === currentSourceNet?.id) &&
-              (map.destination?.name === currentDestinationNet['name'] ||
-                map.destination?.type === currentDestinationNet['type'])
+              (map.destination?.name === currentDestinationNet.name ||
+                map.destination?.type === currentDestinationNet.type)
             ),
         ) || []),
       ],
@@ -252,8 +252,8 @@ function convertInventoryNetworkToV1beta1NetworkMapSpecMapSource(
 
   return {
     id: inventoryNetwork?.id,
-    name: inventoryNetwork['name'],
-    namespace: inventoryNetwork['namespace'],
+    name: inventoryNetwork.name,
+    namespace: inventoryNetwork.namespace,
   };
 }
 
@@ -267,7 +267,7 @@ function convertOpenShiftNetworkAttachmentDefinitionToV1beta1NetworkMapSpecMapDe
   return {
     name: networkAttachmentDefinition.name,
     namespace: networkAttachmentDefinition.namespace,
-    type: networkAttachmentDefinition['type'] || 'multus',
+    type: networkAttachmentDefinition.type || 'multus',
   };
 }
 

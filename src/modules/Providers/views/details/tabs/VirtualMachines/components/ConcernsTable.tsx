@@ -20,7 +20,7 @@ import type { VmData } from './VMCellProps';
 export const ConcernsTable: React.FC<RowProps<VmData>> = ({ resourceData }) => {
   const { t } = useForkliftTranslation();
 
-  if (!resourceData?.vm?.['concerns'] || resourceData?.vm?.['concerns']?.length < 1) {
+  if (!resourceData?.vm?.concerns || resourceData?.vm?.concerns?.length < 1) {
     return (
       <PageSection>
         <HelperText>
@@ -32,7 +32,7 @@ export const ConcernsTable: React.FC<RowProps<VmData>> = ({ resourceData }) => {
     );
   }
 
-  const groupedConcerns = groupConcernsByCategory(resourceData?.vm?.['concerns']);
+  const groupedConcerns = groupConcernsByCategory(resourceData?.vm?.concerns);
 
   return (
     <PageSection>

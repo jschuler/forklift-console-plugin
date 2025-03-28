@@ -24,7 +24,7 @@ export const PageHeadings: React.FC<PageHeadingsProps> = ({
   obj: data,
   status: status_,
 }) => {
-  const status = status_ ?? data?.['status']?.phase;
+  const status = status_ ?? data?.status?.phase;
   const groupVersionKind = data?.kind && getGroupVersionKindForResource(data);
 
   return (

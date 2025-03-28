@@ -53,8 +53,8 @@ export async function createProvider(provider: V1beta1Provider, secret: IoK8sApi
   const emptyVddkInitImage =
     provider?.metadata?.annotations?.['forklift.konveyor.io/empty-vddk-init-image'];
 
-  if (emptyVddkInitImage === 'yes' && provider?.spec?.settings?.['vddkInitImage']) {
-    provider.spec.settings['vddkInitImage'] = undefined;
+  if (emptyVddkInitImage === 'yes' && provider?.spec?.settings?.vddkInitImage) {
+    provider.spec.settings.vddkInitImage = undefined;
   }
 
   const obj = await k8sCreate({

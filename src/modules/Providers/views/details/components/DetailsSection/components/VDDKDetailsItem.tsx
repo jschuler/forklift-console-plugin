@@ -35,7 +35,7 @@ export const VDDKDetailsItem: React.FC<ProviderDetailsItemProps> = ({
     <DetailsItem
       title={t('VDDK init image')}
       content={
-        provider?.spec?.settings?.['vddkInitImage'] || (
+        provider?.spec?.settings?.vddkInitImage || (
           <Label isCompact color={'orange'}>
             <ExclamationTriangleIcon color="#F0AB00" />
             <span className="forklift-section-provider-empty-vddk-label-text">{t('Empty')}</span>

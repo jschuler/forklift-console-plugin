@@ -164,7 +164,7 @@ function getNetworkName(value: unknown): string {
     return 'Providers default';
   }
 
-  return `${value?.['namespace']}/${value?.['name']}`;
+  return `${value?.namespace}/${value?.name}`;
 }
 
 export type EditPlanTransferNetworkProps = Modify<

@@ -37,7 +37,7 @@ const SettingsCard_: FC<SettingsCardProps> = ({ obj }) => {
             title={'Max concurrent virtual machine migrations'}
             showHelpIconNextToTitle={true}
             content={
-              obj?.spec?.['controller_max_vm_inflight'] || (
+              obj?.spec?.controller_max_vm_inflight || (
                 <span className="text-muted">{'20'}</span>
               )
             }
@@ -62,7 +62,7 @@ const SettingsCard_: FC<SettingsCardProps> = ({ obj }) => {
             title={'Controller main container CPU limit'}
             showHelpIconNextToTitle={true}
             content={
-              obj?.spec?.['controller_container_limits_cpu'] || (
+              obj?.spec?.controller_container_limits_cpu || (
                 <span className="text-muted">{'500m'}</span>
               )
             }
@@ -84,7 +84,7 @@ const SettingsCard_: FC<SettingsCardProps> = ({ obj }) => {
             title={'Controller main container Memory limit'}
             showHelpIconNextToTitle={true}
             content={
-              obj?.spec?.['controller_container_limits_memory'] || (
+              obj?.spec?.controller_container_limits_memory || (
                 <span className="text-muted">{'800Mi'}</span>
               )
             }
@@ -106,7 +106,7 @@ const SettingsCard_: FC<SettingsCardProps> = ({ obj }) => {
             title={'Controller inventory container memory limit'}
             showHelpIconNextToTitle={true}
             content={
-              obj?.spec?.['inventory_container_limits_memory'] || (
+              obj?.spec?.inventory_container_limits_memory || (
                 <span className="text-muted">{'1000Mi'}</span>
               )
             }
@@ -128,7 +128,7 @@ const SettingsCard_: FC<SettingsCardProps> = ({ obj }) => {
             title={'Precopy interval (minutes)'}
             showHelpIconNextToTitle={true}
             content={
-              obj?.spec?.['controller_precopy_interval'] || (
+              obj?.spec?.controller_precopy_interval || (
                 <span className="text-muted">{'60'}</span>
               )
             }
@@ -150,7 +150,7 @@ const SettingsCard_: FC<SettingsCardProps> = ({ obj }) => {
             title={'Snapshot polling interval (seconds)'}
             showHelpIconNextToTitle={true}
             content={
-              obj?.spec?.['controller_snapshot_status_check_rate_seconds'] || (
+              obj?.spec?.controller_snapshot_status_check_rate_seconds || (
                 <span className="text-muted">{'10'}</span>
               )
             }

@@ -15,7 +15,7 @@ export function getMigrationCounts(migrations: V1beta1Migration[]): { [key: stri
   };
 
   for (const migration of migrations || []) {
-    migrationCounts['Total']++;
+    migrationCounts.Total++;
     if ('conditions' in migration.status) {
       for (const condition of migration.status.conditions) {
         if (condition.status == 'True') {

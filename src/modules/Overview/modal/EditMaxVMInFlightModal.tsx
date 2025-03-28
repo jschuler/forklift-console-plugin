@@ -25,7 +25,7 @@ export const EditMaxVMInFlightModal: React.FC<EditSettingsModalProps> = (props) 
 
   // Set default value to 20
   const resource = props.resource;
-  resource.spec['controller_max_vm_inflight'] = resource.spec['controller_max_vm_inflight'] || 20;
+  resource.spec.controller_max_vm_inflight = resource.spec.controller_max_vm_inflight || 20;
 
   return (
     <EditModal

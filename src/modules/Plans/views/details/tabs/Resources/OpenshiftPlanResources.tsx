@@ -107,7 +107,7 @@ export const OpenshiftPlanResources: React.FC<{ planInventory: OpenshiftVM[] }> 
 
 const getK8sCPU = (vm: V1VirtualMachine) => vm?.spec?.template?.spec?.domain?.cpu?.cores || '0';
 const getK8sVMMemory = (vm: V1VirtualMachine) =>
-  vm?.spec?.template?.spec?.domain?.resources.requests?.['memory'] || '0Mi';
+  vm?.spec?.template?.spec?.domain?.resources.requests?.memory || '0Mi';
 
 function k8sMemoryToBytes(memoryString) {
   const units = {
