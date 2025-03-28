@@ -31,7 +31,7 @@ export const getOpenstackProviderWebUILink = (provider: V1beta1Provider): string
     urlObj.pathname = newPath;
 
     return urlObj.toString();
-  } else {
+  } 
     return '';
-  }
+  
 };

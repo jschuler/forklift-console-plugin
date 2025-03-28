@@ -62,7 +62,7 @@ export const MapsEdit: React.FC<MapsEditProps> = ({
         </FormGroupWithHelpText>
       </Form>
     );
-  } else {
+  } 
     return (
       <DetailsItem
         title={label}
@@ -80,7 +80,7 @@ export const MapsEdit: React.FC<MapsEditProps> = ({
         crumbs={['spec', 'providers']}
       />
     );
-  }
+  
 };
 
 export type MapsEditProps = {

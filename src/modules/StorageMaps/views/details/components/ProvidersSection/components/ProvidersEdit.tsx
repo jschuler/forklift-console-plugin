@@ -61,7 +61,7 @@ export const ProvidersEdit: React.FC<ProvidersEditProps> = ({
         </FormGroupWithHelpText>
       </Form>
     );
-  } else {
+  } 
     return (
       <DetailsItem
         title={label}
@@ -79,7 +79,7 @@ export const ProvidersEdit: React.FC<ProvidersEditProps> = ({
         crumbs={['spec', 'providers']}
       />
     );
-  }
+  
 };
 
 export type ProvidersEditProps = {

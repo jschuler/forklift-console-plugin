@@ -27,12 +27,12 @@ const resolveCollisions = (tuples: [string, string][]): Record<string, string> =
         // new entry: create with suffix
         [`${label}`]: id,
       };
-    } else {
+    } 
       return {
         ...acc,
         [label]: id,
       };
-    }
+    
   }, {});
 
 export const mapSourceNetworksIdsToLabels = (

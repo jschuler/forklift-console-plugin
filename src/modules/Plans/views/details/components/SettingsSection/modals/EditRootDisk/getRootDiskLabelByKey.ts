@@ -77,8 +77,8 @@ export const getRootDiskLabelByKey = (key_: string | number): string => {
     const partitionPosition = partitionNumber ? `${partitionNumber} partition` : '';
 
     return `${diskPosition} HD${partitionPosition ? ` ${partitionPosition}` : ''} (${key})`;
-  } else {
+  } 
     // If format is unrecognized, just return the key as label
     return key;
-  }
+  
 };

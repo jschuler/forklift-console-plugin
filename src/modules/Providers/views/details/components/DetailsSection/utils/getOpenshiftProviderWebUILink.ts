@@ -31,7 +31,7 @@ export const getOpenshiftProviderWebUILink = (provider: V1beta1Provider): string
     urlObj.host = newHostName;
 
     return urlObj.toString();
-  } else {
+  } 
     return '';
-  }
+  
 };

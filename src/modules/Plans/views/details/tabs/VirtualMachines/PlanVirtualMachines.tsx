@@ -31,9 +31,9 @@ const PlanVirtualMachines_: React.FC<PlanVirtualMachinesProps> = (props) => {
     return <MigrationVirtualMachinesList {...props} />;
   } else if (canPlanReStart(plan)) {
     return <MigrationVirtualMachinesList {...props} />;
-  } else {
+  } 
     return <PlanVirtualMachinesList {...props} />;
-  }
+  
 };
 
 export const PlanVirtualMachines: React.FC<{ name: string; namespace: string }> = ({

@@ -81,13 +81,13 @@ const resolveCollisions = (tuples: [string, string][]): Record<string, string> =
         // new entry: create with suffix
         [withSuffix(label, id)]: id,
       };
-    } else {
+    } 
       // happy path
       return {
         ...acc,
         [label]: id,
       };
-    }
+    
   }, {});
 
 const withSuffix = (label: string, id: string) => `${label}  (ID: ${id}})`;
