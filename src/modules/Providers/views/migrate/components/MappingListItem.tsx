@@ -84,7 +84,7 @@ export const MappingListItem: FC<MappingListItemProps> = ({
 
   // Callback functions to handle selection in the dropdown menus
   const onSelectSource = (
-    _event: React.MouseEvent<Element, MouseEvent> | undefined,
+    _event: React.MouseEvent | undefined,
     value: string | number | undefined,
   ) => {
     replaceMapping({
@@ -98,7 +98,7 @@ export const MappingListItem: FC<MappingListItemProps> = ({
   };
 
   const onSelectDestination = (
-    _event: React.MouseEvent<Element, MouseEvent> | undefined,
+    _event: React.MouseEvent | undefined,
     value: string | number | undefined,
   ) => {
     replaceMapping({

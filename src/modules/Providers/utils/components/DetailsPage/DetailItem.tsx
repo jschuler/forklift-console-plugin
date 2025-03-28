@@ -111,7 +111,7 @@ export const DescriptionTitleWithHelp: React.FC<{
   showHelpIconNextToTitle = false,
   title,
 }) => {
-  const onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void = (event) => {
+  const onClick: (event: React.MouseEvent<HTMLButtonElement>) => void = (event) => {
     event.preventDefault();
   };
 

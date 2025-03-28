@@ -106,7 +106,7 @@ export const GroupedEnumFilter = ({
   };
 
   const onSelect = (
-    _event: ReactMouseEvent<Element, MouseEvent> | undefined,
+    _event: ReactMouseEvent | undefined,
     value: string | number | undefined,
   ) => {
     const label = value?.toString();

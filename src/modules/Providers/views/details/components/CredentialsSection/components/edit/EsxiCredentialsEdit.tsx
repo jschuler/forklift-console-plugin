@@ -101,7 +101,7 @@ export const EsxiCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, se
     dispatch({ type: 'TOGGLE_PASSWORD_HIDDEN' });
   };
 
-  const onClickEventPreventDef: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void = (
+  const onClickEventPreventDef: (event: React.MouseEvent<HTMLButtonElement>) => void = (
     event,
   ) => {
     event.preventDefault();

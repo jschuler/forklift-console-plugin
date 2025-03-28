@@ -101,7 +101,7 @@ export const OpenshiftCredentialsEdit: React.FC<EditComponentProps> = ({ onChang
     dispatch({ type: 'TOGGLE_PASSWORD_HIDDEN' });
   }
 
-  const onClickEventPreventDef: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void = (
+  const onClickEventPreventDef: (event: React.MouseEvent<HTMLButtonElement>) => void = (
     event,
   ) => {
     event.preventDefault();

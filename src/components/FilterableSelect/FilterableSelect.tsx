@@ -128,7 +128,7 @@ export const FilterableSelect: React.FunctionComponent<FilterableSelectProps> = 
    * @param {string | number | undefined} itemId The id of the selected item.
    */
   const onItemSelect = (
-    _event: React.MouseEvent<Element, MouseEvent> | undefined,
+    _event: React.MouseEvent | undefined,
     itemId: string | number | undefined,
   ) => {
     if (itemId !== undefined) {

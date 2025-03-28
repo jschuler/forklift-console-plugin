@@ -46,7 +46,7 @@ export const AttributeValueFilter = ({
   );
 
   const onSelect: (
-    event?: ReactMouseEvent<Element, MouseEvent>,
+    event?: ReactMouseEvent,
     value?: string | number,
   ) => void = (_event, value: string) => {
     setCurrentFilter(selectOptionToFilter(value));

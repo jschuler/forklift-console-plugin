@@ -100,7 +100,7 @@ export const PlanStartMigrationModal: React.FC<PlanStartMigrationModalProps> = (
     }
   }, [resource, lastMigration]);
 
-  const onClickToggleModal: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void = (
+  const onClickToggleModal: (event: React.MouseEvent<HTMLButtonElement>) => void = (
     _event,
   ) => {
     toggleModal();

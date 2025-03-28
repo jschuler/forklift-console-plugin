@@ -80,9 +80,9 @@ export type GlobalActionToolbarProps<T> = {
  */
 export type ToggleEventType =
   | Event
-  | React.KeyboardEvent<Element>
-  | React.MouseEvent<Element, MouseEvent>
-  | React.ChangeEvent<Element>;
+  | React.KeyboardEvent
+  | React.MouseEvent
+  | React.ChangeEvent;
 
 /**
  * @typedef {Object} SelectEventType
@@ -91,7 +91,7 @@ export type ToggleEventType =
  * @property {React.MouseEvent<Element, MouseEvent>} React.MouseEvent - A React-specific mouse event.
  * @property {React.ChangeEvent<Element>} React.ChangeEvent - A React-specific change event.
  */
-export type SelectEventType = React.MouseEvent<Element, MouseEvent> | React.ChangeEvent<Element>;
+export type SelectEventType = React.MouseEvent | React.ChangeEvent;
 
 /**
  * @typedef {Object} SelectValueType

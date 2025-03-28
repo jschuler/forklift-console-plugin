@@ -31,7 +31,7 @@ export type TypeaheadSelectProps = {
   /** Callback triggered on selection. */
   onSelect?: (
     _event:
-      | React.MouseEvent<Element, MouseEvent>
+      | React.MouseEvent
       | React.KeyboardEvent<HTMLInputElement>
       | undefined,
     selection: string | number,
@@ -219,7 +219,7 @@ export const TypeaheadSelect: React.FC<TypeaheadSelectProps> = ({
 
   const selectOption = (
     _event:
-      | React.MouseEvent<Element, MouseEvent>
+      | React.MouseEvent
       | React.KeyboardEvent<HTMLInputElement>
       | undefined,
     option: TypeaheadSelectOption,
@@ -231,7 +231,7 @@ export const TypeaheadSelect: React.FC<TypeaheadSelectProps> = ({
   };
 
   const handleSelect = (
-    _event: React.MouseEvent<Element, MouseEvent> | undefined,
+    _event: React.MouseEvent | undefined,
     value: string | number | undefined,
   ) => {
     if (value && value !== NO_RESULTS) {

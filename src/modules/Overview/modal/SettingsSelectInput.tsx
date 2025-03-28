@@ -87,7 +87,7 @@ export const SettingsSelectInput: FC<SettingsSelectInputProps> = ({ onChange, op
   };
 
   // Callback function to handle selection in the dropdown menu
-  const onSelect: (event?: ReactMouseEvent<Element, MouseEvent>, value?: string | number) => void =
+  const onSelect: (event?: ReactMouseEvent, value?: string | number) => void =
     useCallback(
       (_event, value: string | number) => {
         // Use the dictionary to find the key corresponding to the selected name

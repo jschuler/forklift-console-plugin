@@ -90,7 +90,7 @@ export const MappingListItem: FC<MappingListItemProps> = ({
   );
 
   const onSelectSource = (
-    _event: ReactMouseEvent<Element, MouseEvent> | undefined,
+    _event: ReactMouseEvent | undefined,
     value: string | number | undefined,
   ) => {
     replaceMapping({
@@ -104,7 +104,7 @@ export const MappingListItem: FC<MappingListItemProps> = ({
   };
 
   const onSelectDestination = (
-    _event: ReactMouseEvent<Element, MouseEvent> | undefined,
+    _event: ReactMouseEvent | undefined,
     value: string | number | undefined,
   ) => {
     replaceMapping({

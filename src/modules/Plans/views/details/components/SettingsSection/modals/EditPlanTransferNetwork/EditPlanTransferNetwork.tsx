@@ -63,7 +63,7 @@ const OpenshiftNetworksInputFactory: ({ resource }) => ModalInputComponentType =
     };
 
     const onSelect = (
-      _event: React.MouseEvent<Element, MouseEvent> | undefined,
+      _event: React.MouseEvent | undefined,
       _value: string | number | undefined,
     ) => {
       setIsOpen(false);

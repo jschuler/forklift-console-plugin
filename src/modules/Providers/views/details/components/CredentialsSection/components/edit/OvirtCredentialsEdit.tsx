@@ -107,7 +107,7 @@ export const OvirtCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, s
     dispatch({ type: 'TOGGLE_PASSWORD_HIDDEN' });
   };
 
-  const onClickEventPreventDef: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void = (
+  const onClickEventPreventDef: (event: React.MouseEvent<HTMLButtonElement>) => void = (
     event,
   ) => {
     event.preventDefault();

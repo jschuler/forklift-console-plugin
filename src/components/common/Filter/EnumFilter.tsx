@@ -145,7 +145,7 @@ export const EnumFilter = ({
   };
 
   const onSelect = (
-    _event: ReactMouseEvent<Element, MouseEvent> | undefined,
+    _event: ReactMouseEvent | undefined,
     value: string | number | undefined,
   ) => {
     hasFilter(value as string) ? deleteFilter(value as string) : addFilter(value as string);

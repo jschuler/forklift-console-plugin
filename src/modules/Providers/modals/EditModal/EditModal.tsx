@@ -115,7 +115,7 @@ export const EditModal: React.FC<EditModalProps> = ({
     }
   }, [resource, value, onConfirmHook]);
 
-  const onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void = (event) => {
+  const onClick: (event: React.MouseEvent<HTMLButtonElement>) => void = (event) => {
     event.preventDefault();
   };
 

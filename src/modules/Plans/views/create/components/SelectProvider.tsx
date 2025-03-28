@@ -40,7 +40,7 @@ export const SelectProvider: FunctionComponent<SelectProviderProps> = ({
   };
 
   const onSelect = (
-    _event: ReactMouseEvent<Element, MouseEvent> | undefined,
+    _event: ReactMouseEvent | undefined,
     value: string | number | undefined,
   ) => {
     const prevTypeFilters = filterState.typeFilters;
