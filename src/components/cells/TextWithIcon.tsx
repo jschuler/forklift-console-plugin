@@ -9,17 +9,15 @@ export type TextWithIconProps = {
   className?: string;
 };
 
-export const TextWithIcon: React.FC<TextWithIconProps> = ({ label, icon, className }) => {
-  return (
-    <Flex
-      spaceItems={{ default: 'spaceItemsXs' }}
-      display={{ default: 'inlineFlex' }}
-      flexWrap={{ default: 'nowrap' }}
-    >
-      {icon ? <FlexItem>{icon}</FlexItem> : ''}
-      <FlexItem className={className}>
-        <Linkify>{label}</Linkify>
-      </FlexItem>
-    </Flex>
-  );
-};
+export const TextWithIcon: React.FC<TextWithIconProps> = ({ className, icon, label }) => (
+  <Flex
+    spaceItems={{ default: 'spaceItemsXs' }}
+    display={{ default: 'inlineFlex' }}
+    flexWrap={{ default: 'nowrap' }}
+  >
+    {icon ? <FlexItem>{icon}</FlexItem> : ''}
+    <FlexItem className={className}>
+      <Linkify>{label}</Linkify>
+    </FlexItem>
+  </Flex>
+);

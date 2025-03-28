@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { Link } from 'react-router-dom-v5-compat';
 
 import { DropdownItem } from '@patternfly/react-core';
@@ -14,21 +14,19 @@ import { DropdownItem } from '@patternfly/react-core';
  * @returns {React.ReactElement} The rendered JSX element.
  */
 export const DropdownItemLink = ({
+  children,
+  description,
+  href,
   key,
   value,
-  href,
-  description,
-  children,
-}: DropdownItemLinkProps) => {
-  return (
-    <DropdownItem key={key} value={value}>
-      <Link to={href} className="pf-c-dropdown__menu-item pf-m-description">
-        <div className="pf-c-menu__list-item--Displays">{children}</div>
-        {description && <div className="pf-c-dropdown__menu-item-description">{description}</div>}
-      </Link>
-    </DropdownItem>
-  );
-};
+}: DropdownItemLinkProps) => (
+  <DropdownItem key={key} value={value}>
+    <Link to={href} className="pf-c-dropdown__menu-item pf-m-description">
+      <div className="pf-c-menu__list-item--Displays">{children}</div>
+      {description && <div className="pf-c-dropdown__menu-item-description">{description}</div>}
+    </Link>
+  </DropdownItem>
+);
 
 export type DropdownItemLinkProps = {
   key: string;

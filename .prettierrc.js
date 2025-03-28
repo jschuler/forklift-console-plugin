@@ -1,10 +1,10 @@
 /* eslint-env node */
 module.exports = {
+  arrowParens: 'always',
+  bracketSpacing: true,
   printWidth: 100,
-  tabWidth: 2,
   semi: true,
   singleQuote: true,
+  tabWidth: 2,
   trailingComma: 'all',
-  bracketSpacing: true,
-  arrowParens: 'always',
 };

@@ -1,4 +1,4 @@
-import React, { ComponentType } from 'react';
+import React, { type ComponentType } from 'react';
 
 import {
   Button,
@@ -21,24 +21,22 @@ import SearchIcon from '@patternfly/react-icons/dist/esm/icons/search-icon';
  * <font color="green">View component source on GitHub</font>](https://github.com/kubev2v/forklift-console-plugin/blob/main/packages/common/src/components/Page/PageStates.tsx)
  */
 export const BaseState = ({
-  title,
-  icon,
   color,
+  icon,
+  title,
 }: {
   title?: string;
   icon?: ComponentType<unknown>;
   color?: string;
-}) => {
-  return (
-    <EmptyState>
-      <EmptyStateHeader
-        titleText={title}
-        headingLevel="h4"
-        icon={icon && <EmptyStateIcon icon={icon} color={color} />}
-      />
-    </EmptyState>
-  );
-};
+}) => (
+  <EmptyState>
+    <EmptyStateHeader
+      titleText={title}
+      headingLevel="h4"
+      icon={icon && <EmptyStateIcon icon={icon} color={color} />}
+    />
+  </EmptyState>
+);
 
 export const ErrorState = ({ title }: { title: string }) => (
   <BaseState icon={ExclamationCircleIcon} color="#C9190B" title={title} />
@@ -58,29 +56,27 @@ export const NoResultsFound = ({ title }: { title: string }) => (
  */
 export const NoResultsMatchFilter = ({
   clearAllFilters,
-  title = 'No results found',
-  description = 'No results match the filter criteria. Clear all filters and try again.',
   clearAllLabel = 'Clear all filters',
+  description = 'No results match the filter criteria. Clear all filters and try again.',
+  title = 'No results found',
 }: {
   clearAllFilters: () => void;
   title?: string;
   description?: string;
   clearAllLabel?: string;
-}) => {
-  return (
-    <EmptyState>
-      <EmptyStateIcon icon={SearchIcon} />
-      <Title size="lg" headingLevel="h4">
-        {title}
-      </Title>
-      <EmptyStateBody>{description}</EmptyStateBody>
-      <EmptyStateFooter>
-        <EmptyStateActions>
-          <Button variant="link" onClick={clearAllFilters}>
-            {clearAllLabel}
-          </Button>
-        </EmptyStateActions>
-      </EmptyStateFooter>
-    </EmptyState>
-  );
-};
+}) => (
+  <EmptyState>
+    <EmptyStateIcon icon={SearchIcon} />
+    <Title size="lg" headingLevel="h4">
+      {title}
+    </Title>
+    <EmptyStateBody>{description}</EmptyStateBody>
+    <EmptyStateFooter>
+      <EmptyStateActions>
+        <Button variant="link" onClick={clearAllFilters}>
+          {clearAllLabel}
+        </Button>
+      </EmptyStateActions>
+    </EmptyStateFooter>
+  </EmptyState>
+);

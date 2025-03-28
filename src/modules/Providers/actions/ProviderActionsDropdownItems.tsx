@@ -6,7 +6,7 @@ import { ProviderModel, ProviderModelRef } from '@kubev2v/types';
 import { DropdownItem } from '@patternfly/react-core';
 
 import { DeleteModal, useModal } from '../modals';
-import { getResourceUrl, ProviderData } from '../utils';
+import { getResourceUrl, type ProviderData } from '../utils';
 
 export const ProviderActionsDropdownItems = ({ data }: ProviderActionsDropdownItemsProps) => {
   const { t } = useForkliftTranslation();
@@ -15,9 +15,9 @@ export const ProviderActionsDropdownItems = ({ data }: ProviderActionsDropdownIt
   const { provider } = data;
 
   const providerURL = getResourceUrl({
-    reference: ProviderModelRef,
     name: provider?.metadata?.name,
     namespace: provider?.metadata?.namespace,
+    reference: ProviderModelRef,
   });
 
   const onClick = () => {
@@ -56,12 +56,12 @@ export const ProviderActionsDropdownItems = ({ data }: ProviderActionsDropdownIt
     </DropdownItem>,
   ];
 
-  // excluding the EditCredentials options since not supported for OVA
+  // Excluding the EditCredentials options since not supported for OVA
   const ovaDropdownItems = dropdownItems.filter((item) => item.key !== 'EditCredentials');
 
   return provider?.spec?.type === 'ova' ? ovaDropdownItems : dropdownItems;
 };
 
-interface ProviderActionsDropdownItemsProps {
+type ProviderActionsDropdownItemsProps = {
   data: ProviderData;
-}
+};

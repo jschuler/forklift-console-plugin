@@ -1,7 +1,7 @@
 import React from 'react';
 import { ModalHOC } from 'src/modules/Providers/modals';
 
-import { V1beta1NetworkMap } from '@kubev2v/types';
+import type { V1beta1NetworkMap } from '@kubev2v/types';
 import { DescriptionList } from '@patternfly/react-core';
 
 import {
@@ -21,20 +21,18 @@ export type DetailsSectionProps = {
   obj: V1beta1NetworkMap;
 };
 
-export const DetailsSectionInternal: React.FC<DetailsSectionProps> = ({ obj }) => {
-  return (
-    <DescriptionList
-      columnModifier={{
-        default: '1Col',
-      }}
-    >
-      <NameDetailsItem resource={obj} />
+export const DetailsSectionInternal: React.FC<DetailsSectionProps> = ({ obj }) => (
+  <DescriptionList
+    columnModifier={{
+      default: '1Col',
+    }}
+  >
+    <NameDetailsItem resource={obj} />
 
-      <NamespaceDetailsItem resource={obj} />
+    <NamespaceDetailsItem resource={obj} />
 
-      <CreatedAtDetailsItem resource={obj} />
+    <CreatedAtDetailsItem resource={obj} />
 
-      <OwnerDetailsItem resource={obj} />
-    </DescriptionList>
-  );
-};
+    <OwnerDetailsItem resource={obj} />
+  </DescriptionList>
+);

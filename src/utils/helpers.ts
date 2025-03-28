@@ -1,9 +1,15 @@
-import { OpenApiJsonPath } from 'src/modules';
+import type { OpenApiJsonPath } from 'src/modules';
 
 export const safeBoolean = (value): boolean => {
-  if (typeof value === 'boolean') return value;
-  if (value === 'true') return true;
-  if (value === 'false') return false;
+  if (typeof value === 'boolean') {
+    return value;
+  }
+  if (value === 'true') {
+    return true;
+  }
+  if (value === 'false') {
+    return false;
+  }
   return value;
 };
 
@@ -11,8 +17,12 @@ export const safeBoolean = (value): boolean => {
 export const normalizePath = (obj: object, path: OpenApiJsonPath): string[] => {
   if (typeof path === 'function') {
     const resolvedPath = path(obj);
-    if (typeof resolvedPath === 'string') return resolvedPath.split('.');
-    if (Array.isArray(resolvedPath)) return resolvedPath;
+    if (typeof resolvedPath === 'string') {
+      return resolvedPath.split('.');
+    }
+    if (Array.isArray(resolvedPath)) {
+      return resolvedPath;
+    }
     throw new Error('Function-based jsonPath must return a string or string[]');
   }
 
@@ -38,7 +48,9 @@ export const setObjectValueByPath = (obj: object, path: OpenApiJsonPath, value: 
 export const unsetObjectValueByPath = (obj: object, path: OpenApiJsonPath) => {
   const keys = normalizePath(obj, path);
   const lastKey = keys.pop();
-  if (!lastKey) return;
+  if (!lastKey) {
+    return;
+  }
 
   const parent = keys.reduce((current, key) => current?.[key], obj);
 
@@ -47,5 +59,5 @@ export const unsetObjectValueByPath = (obj: object, path: OpenApiJsonPath) => {
   }
 };
 
-export const isEmpty = (value: object | Array<unknown> | undefined): boolean =>
+export const isEmpty = (value: object | unknown[] | undefined): boolean =>
   Array.isArray(value) ? value.length === 0 : Object.keys(value || {}).length === 0;

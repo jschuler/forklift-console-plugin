@@ -20,7 +20,7 @@ import {
   getPlanPhase,
   isPlanArchived,
   isPlanExecuting,
-  PlanData,
+  type PlanData,
   PlanPhase,
 } from '../utils';
 
@@ -31,9 +31,9 @@ export const PlanActionsDropdownItems = ({ data }: PlanActionsDropdownItemsProps
   const { obj: plan } = data;
 
   const planURL = getResourceUrl({
-    reference: PlanModelRef,
     name: plan?.metadata?.name,
     namespace: plan?.metadata?.namespace,
+    reference: PlanModelRef,
   });
 
   const phase = getPlanPhase(data);
@@ -47,7 +47,9 @@ export const PlanActionsDropdownItems = ({ data }: PlanActionsDropdownItemsProps
   const [isStartItemEnabled, setIsStartItemEnabled] = useState(canStart);
 
   useEffect(() => {
-    if (canStart) setIsStartItemEnabled(true);
+    if (canStart) {
+      setIsStartItemEnabled(true);
+    }
   }, [canStart]);
 
   const onClickPlanStart = () => {
@@ -129,6 +131,6 @@ export const PlanActionsDropdownItems = ({ data }: PlanActionsDropdownItemsProps
   ];
 };
 
-interface PlanActionsDropdownItemsProps {
+type PlanActionsDropdownItemsProps = {
   data: PlanData;
-}
+};

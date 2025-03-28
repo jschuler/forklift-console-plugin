@@ -3,7 +3,7 @@ import React from 'react';
 import { Button, ToolbarItem, Tooltip } from '@patternfly/react-core';
 import { ColumnsIcon } from '@patternfly/react-icons';
 
-export interface ManageColumnsToolbarItemProps {
+export type ManageColumnsToolbarItemProps = {
   children: React.ReactNode;
   /**
    * A handler for clicking the button.
@@ -17,7 +17,7 @@ export interface ManageColumnsToolbarItemProps {
    * A text describing the button.
    */
   ariaLabel?: string;
-}
+};
 
 /**
  * A Toolbar button item with columns icon, uses to show the Manage Columns dialog modal.
@@ -26,19 +26,17 @@ export interface ManageColumnsToolbarItemProps {
  * <font color="green">View component source on GitHub</font>](https://github.com/kubev2v/forklift-console-plugin/blob/main/packages/common/src/components/TableView/ManageColumnsToolbarItem.tsx)
  */
 export const ManageColumnsToolbarItem = ({
+  ariaLabel = 'Manage Columns',
   children,
   showDialog,
-  ariaLabel = 'Manage Columns',
   tooltip = 'Manage Columns',
-}: ManageColumnsToolbarItemProps) => {
-  return (
-    <ToolbarItem>
-      <Tooltip content={tooltip}>
-        <Button variant="plain" onClick={showDialog} aria-label={ariaLabel}>
-          <ColumnsIcon />
-        </Button>
-      </Tooltip>
-      {children}
-    </ToolbarItem>
-  );
-};
+}: ManageColumnsToolbarItemProps) => (
+  <ToolbarItem>
+    <Tooltip content={tooltip}>
+      <Button variant="plain" onClick={showDialog} aria-label={ariaLabel}>
+        <ColumnsIcon />
+      </Button>
+    </Tooltip>
+    {children}
+  </ToolbarItem>
+);

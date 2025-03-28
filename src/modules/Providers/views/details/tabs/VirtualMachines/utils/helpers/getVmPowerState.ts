@@ -1,4 +1,4 @@
-import {
+import type {
   OpenshiftVM,
   OpenstackVM,
   OVirtVM,
@@ -9,7 +9,9 @@ import {
 export type PowerState = 'on' | 'off' | 'unknown';
 
 export const getVmPowerState = (vm?: ProviderVirtualMachine): PowerState => {
-  if (!vm) return 'unknown';
+  if (!vm) {
+    return 'unknown';
+  }
 
   switch (vm?.providerType) {
     case 'ovirt':

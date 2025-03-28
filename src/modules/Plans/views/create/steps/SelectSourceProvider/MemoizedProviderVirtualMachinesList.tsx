@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
-import { VmData } from 'src/modules/Providers/views';
+import type { VmData } from 'src/modules/Providers/views';
 
 import { ProviderVirtualMachinesList } from '../../components/ProvidersVirtualMachinesList';
 
-export interface ProviderVirtualMachinesListProps {
+export type ProviderVirtualMachinesListProps = {
   title: string;
   name: string;
   namespace: string;
@@ -11,34 +11,31 @@ export interface ProviderVirtualMachinesListProps {
   initialSelectedIds: string[];
   showActions: boolean;
   selectedCountLabel?: (selectedIdCount: number) => string;
-}
+};
 
 export const MemoizedProviderVirtualMachinesList = memo(
   ({
-    title,
+    initialSelectedIds,
     name,
     namespace,
     onSelect,
-    initialSelectedIds,
-    showActions,
     selectedCountLabel,
-  }: ProviderVirtualMachinesListProps) => {
-    return (
-      <ProviderVirtualMachinesList
-        title={title}
-        name={name}
-        namespace={namespace}
-        onSelect={onSelect}
-        initialSelectedIds={initialSelectedIds}
-        showActions={showActions}
-        selectedCountLabel={selectedCountLabel}
-      />
-    );
-  },
-  (prevProps, nextProps) => {
+    showActions,
+    title,
+  }: ProviderVirtualMachinesListProps) => (
+    <ProviderVirtualMachinesList
+      title={title}
+      name={name}
+      namespace={namespace}
+      onSelect={onSelect}
+      initialSelectedIds={initialSelectedIds}
+      showActions={showActions}
+      selectedCountLabel={selectedCountLabel}
+    />
+  ),
+  (prevProps, nextProps) =>
     // Only re-render if selectedProviderName, selectedProviderNamespace
-    return prevProps.name === nextProps.name && prevProps.namespace === nextProps.namespace;
-  },
+    prevProps.name === nextProps.name && prevProps.namespace === nextProps.namespace,
 );
 
 MemoizedProviderVirtualMachinesList.displayName = 'MemoizedProviderVirtualMachinesList';

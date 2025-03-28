@@ -3,17 +3,17 @@ import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpTe
 import { validateOpenshiftURL } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { V1beta1Provider } from '@kubev2v/types';
+import type { V1beta1Provider } from '@kubev2v/types';
 import { Form, TextInput } from '@patternfly/react-core';
 
-export interface OpenshiftProviderCreateFormProps {
+export type OpenshiftProviderCreateFormProps = {
   provider: V1beta1Provider;
   onChange: (newValue: V1beta1Provider) => void;
-}
+};
 
 export const OpenshiftProviderFormCreate: React.FC<OpenshiftProviderCreateFormProps> = ({
-  provider,
   onChange,
+  provider,
 }) => {
   const { t } = useForkliftTranslation();
 
@@ -44,14 +44,16 @@ export const OpenshiftProviderFormCreate: React.FC<OpenshiftProviderCreateFormPr
 
   const handleChange = useCallback(
     (id, value) => {
-      if (id !== 'url') return;
+      if (id !== 'url') {
+        return;
+      }
 
       const trimmedUrl: string = value?.toString().trim();
       const validationState = validateOpenshiftURL(trimmedUrl);
 
       dispatch({
-        type: 'SET_FIELD_VALIDATED',
         payload: { field: 'url', validationState },
+        type: 'SET_FIELD_VALIDATED',
       });
 
       onChange({ ...provider, spec: { ...provider.spec, url: trimmedUrl } });
@@ -81,7 +83,9 @@ export const OpenshiftProviderFormCreate: React.FC<OpenshiftProviderCreateFormPr
           name="url"
           value={url}
           validated={state.validation.url.type}
-          onChange={(e, v) => onChangeUrl(v, e)}
+          onChange={(e, v) => {
+            onChangeUrl(v, e);
+          }}
         />
       </FormGroupWithHelpText>
     </Form>
