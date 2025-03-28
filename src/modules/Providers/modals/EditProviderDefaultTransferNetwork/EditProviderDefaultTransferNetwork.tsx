@@ -1,27 +1,27 @@
-import React, { FC, Ref, useState } from 'react';
+import React, { type FC, type Ref, useState } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
-  Modify,
-  OpenShiftNetworkAttachmentDefinition,
+  type Modify,
+  type OpenShiftNetworkAttachmentDefinition,
   ProviderModel,
-  V1beta1Provider,
+  type V1beta1Provider,
 } from '@kubev2v/types';
-import { K8sModel, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
+import { type K8sModel, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 import {
   Dropdown,
   DropdownItem,
   DropdownList,
   MenuToggle,
-  MenuToggleElement,
+  type MenuToggleElement,
 } from '@patternfly/react-core';
 
 import { useProviderInventory } from '../../hooks';
 import {
   EditModal,
-  EditModalProps,
-  ModalInputComponentType,
-  OnConfirmHookType,
+  type EditModalProps,
+  type ModalInputComponentType,
+  type OnConfirmHookType,
 } from '../EditModal';
 
 /**

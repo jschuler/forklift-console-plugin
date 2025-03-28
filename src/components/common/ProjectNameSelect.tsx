@@ -1,8 +1,8 @@
-import React, { FC, ReactNode } from 'react';
+import React, { type FC, type ReactNode } from 'react';
 import { useForkliftTranslation } from 'src/utils';
 
 import {
-  K8sResourceKind,
+  type K8sResourceKind,
   useFlag,
   useK8sWatchResource,
 } from '@openshift-console/dynamic-plugin-sdk';
@@ -10,7 +10,7 @@ import { Popover } from '@patternfly/react-core';
 import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 
 import { FormGroupWithHelpText } from './FormGroupWithHelpText/FormGroupWithHelpText';
-import { TypeaheadSelect, TypeaheadSelectOption } from './TypeaheadSelect/TypeaheadSelect';
+import { TypeaheadSelect, type TypeaheadSelectOption } from './TypeaheadSelect/TypeaheadSelect';
 
 interface ProjectNameSelectProps {
   value: string | undefined;

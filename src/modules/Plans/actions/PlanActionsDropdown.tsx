@@ -1,11 +1,11 @@
-import React, { Ref } from 'react';
+import React, { type Ref } from 'react';
 import { ModalHOC } from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { Dropdown, DropdownList, MenuToggle, MenuToggleElement } from '@patternfly/react-core';
+import { Dropdown, DropdownList, MenuToggle, type MenuToggleElement } from '@patternfly/react-core';
 import { EllipsisVIcon } from '@patternfly/react-icons';
 
-import { CellProps } from '../views/list/components';
+import { type CellProps } from '../views/list/components';
 import { PlanActionsDropdownItems } from './PlanActionsDropdownItems';
 
 import './PlanActionsDropdown.style.css';

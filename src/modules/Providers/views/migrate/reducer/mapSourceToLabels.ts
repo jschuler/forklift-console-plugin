@@ -1,5 +1,5 @@
-import { InventoryNetwork } from '../../../hooks/useNetworks';
-import { InventoryStorage } from '../../../hooks/useStorages';
+import { type InventoryNetwork } from '../../../hooks/useNetworks';
+import { type InventoryStorage } from '../../../hooks/useStorages';
 
 export const mapSourceNetworksToLabels = (
   sources: InventoryNetwork[],

@@ -20,7 +20,7 @@ import {
   getPlanPhase,
   isPlanArchived,
   isPlanExecuting,
-  PlanData,
+  type PlanData,
   PlanPhase,
 } from '../utils';
 

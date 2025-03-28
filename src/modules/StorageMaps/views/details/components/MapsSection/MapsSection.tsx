@@ -2,15 +2,15 @@ import React, { useReducer } from 'react';
 import { Suspend } from 'src/modules/Plans/views/details/components';
 import { useOpenShiftStorages, useSourceStorages } from 'src/modules/Providers/hooks/useStorages';
 import { MappingList } from 'src/modules/Providers/views/migrate/components/MappingList';
-import { Mapping } from 'src/modules/Providers/views/migrate/types';
+import { type Mapping } from 'src/modules/Providers/views/migrate/types';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
   ProviderModelGroupVersionKind,
   StorageMapModel,
-  V1beta1Provider,
-  V1beta1StorageMap,
-  V1beta1StorageMapSpecMap,
+  type V1beta1Provider,
+  type V1beta1StorageMap,
+  type V1beta1StorageMapSpecMap,
 } from '@kubev2v/types';
 import { k8sUpdate, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import {
@@ -21,7 +21,7 @@ import {
   Spinner,
 } from '@patternfly/react-core';
 
-import { mapsSectionReducer, MapsSectionState } from './state/reducer';
+import { mapsSectionReducer, type MapsSectionState } from './state/reducer';
 
 const initialState: MapsSectionState = {
   hasChanges: false,

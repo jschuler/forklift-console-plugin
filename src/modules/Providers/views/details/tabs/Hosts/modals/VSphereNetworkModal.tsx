@@ -1,12 +1,12 @@
-import React, { ReactNode, useCallback, useReducer, useState } from 'react';
+import React, { type ReactNode, useCallback, useReducer, useState } from 'react';
 import { FilterableSelect } from 'src/components';
 import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpText/FormGroupWithHelpText';
 import { AlertMessageForModals, useModal } from 'src/modules/Providers/modals';
 import { validateNoSpaces } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { SelectEventType, SelectValueType } from '@components/common/utils/types';
-import { NetworkAdapters, V1beta1Provider } from '@kubev2v/types';
+import { type SelectEventType, type SelectValueType } from '@components/common/utils/types';
+import { type NetworkAdapters, type V1beta1Provider } from '@kubev2v/types';
 import {
   Button,
   Form,
@@ -21,7 +21,7 @@ import {
 import { EyeIcon, EyeSlashIcon } from '@patternfly/react-icons';
 import { DEFAULT } from '@utils/constants';
 
-import { calculateCidrNotation, InventoryHostPair, onSaveHost } from '../utils';
+import { calculateCidrNotation, type InventoryHostPair, onSaveHost } from '../utils';
 
 import './VSphereNetworkModal.style.css';
 

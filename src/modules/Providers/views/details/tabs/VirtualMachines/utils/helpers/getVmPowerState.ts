@@ -1,9 +1,9 @@
 import {
-  OpenshiftVM,
-  OpenstackVM,
-  OVirtVM,
-  ProviderVirtualMachine,
-  VSphereVM,
+  type OpenshiftVM,
+  type OpenstackVM,
+  type OVirtVM,
+  type ProviderVirtualMachine,
+  type VSphereVM,
 } from '@kubev2v/types';
 
 export type PowerState = 'on' | 'off' | 'unknown';

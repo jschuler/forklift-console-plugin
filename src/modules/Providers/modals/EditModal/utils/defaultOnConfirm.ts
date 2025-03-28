@@ -1,6 +1,6 @@
 import { getValueByJsonPath, jsonPathToPatch } from 'src/modules/Providers/utils/helpers';
 
-import { k8sPatch, K8sResourceCommon } from '@openshift-console/dynamic-plugin-sdk';
+import { k8sPatch, type K8sResourceCommon } from '@openshift-console/dynamic-plugin-sdk';
 
 /**
  * Patches a Kubernetes resource with a new value.

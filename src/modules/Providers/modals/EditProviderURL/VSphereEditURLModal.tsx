@@ -6,8 +6,8 @@ import { ModalVariant } from '@patternfly/react-core';
 
 import { patchProviderURL } from './utils/patchProviderURL';
 import { validateEsxiURL, validateVCenterURL } from '../../utils/validators';
-import { EditModal, ValidationHookType } from '../EditModal';
-import { EditProviderURLModalProps } from './EditProviderURLModal';
+import { EditModal, type ValidationHookType } from '../EditModal';
+import { type EditProviderURLModalProps } from './EditProviderURLModal';
 
 export const VSphereEditURLModal: React.FC<EditProviderURLModalProps> = ({
   insecureSkipVerify,

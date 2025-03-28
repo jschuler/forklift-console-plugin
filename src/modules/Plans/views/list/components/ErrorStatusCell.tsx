@@ -8,7 +8,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { PlanModelRef } from '@kubev2v/types';
 import { Button, Popover, Text, TextContent, TextVariants } from '@patternfly/react-core';
 
-import { CellProps } from './CellProps';
+import { type CellProps } from './CellProps';
 import { PlanStatusIcon } from './PlanStatusIcon';
 
 export const ErrorStatusCell: React.FC<CellProps> = ({ data }) => {

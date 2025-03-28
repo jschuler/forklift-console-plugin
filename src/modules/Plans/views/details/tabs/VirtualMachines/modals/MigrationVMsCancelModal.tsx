@@ -1,9 +1,9 @@
-import React, { ReactNode, useCallback, useState } from 'react';
+import React, { type ReactNode, useCallback, useState } from 'react';
 import { useToggle } from 'src/modules/Providers/hooks';
 import { AlertMessageForModals, useModal } from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { MigrationModel, V1beta1Migration } from '@kubev2v/types';
+import { MigrationModel, type V1beta1Migration } from '@kubev2v/types';
 import { k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 import { Button, ButtonVariant, Modal, ModalVariant } from '@patternfly/react-core';
 

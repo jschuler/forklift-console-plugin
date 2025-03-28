@@ -7,7 +7,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { NetworkMapModel, NetworkMapModelRef } from '@kubev2v/types';
 import { DropdownItem } from '@patternfly/react-core';
 
-import { NetworkMapData } from '../utils';
+import { type NetworkMapData } from '../utils';
 
 export const NetworkMapActionsDropdownItems = ({ data }: NetworkMapActionsDropdownItemsProps) => {
   const { t } = useForkliftTranslation();

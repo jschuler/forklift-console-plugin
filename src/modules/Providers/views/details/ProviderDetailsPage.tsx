@@ -3,8 +3,8 @@ import { LoadingDots } from 'src/components/common/LoadingDots/LoadingDots';
 import { ErrorState } from 'src/components/common/Page/PageStates';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { ProviderModelGroupVersionKind, V1beta1Provider } from '@kubev2v/types';
-import { K8sModel, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
+import { ProviderModelGroupVersionKind, type V1beta1Provider } from '@kubev2v/types';
+import { type K8sModel, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 import { OpenshiftProviderDetailsPage } from './OpenshiftProviderDetailsPage';
 import { OpenStackProviderDetailsPage } from './OpenStackProviderDetailsPage';

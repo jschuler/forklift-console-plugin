@@ -5,7 +5,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { ProviderModelRef } from '@kubev2v/types';
 
 import { DetailsItem, getResourceUrl } from '../../../../../utils';
-import { ProviderDetailsItemProps } from './ProviderDetailsItem';
+import { type ProviderDetailsItemProps } from './ProviderDetailsItem';
 
 export const CredentialsDetailsItem: React.FC<ProviderDetailsItemProps> = ({
   helpContent,

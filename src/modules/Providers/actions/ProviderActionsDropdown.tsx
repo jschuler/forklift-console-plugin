@@ -1,4 +1,4 @@
-import React, { Ref } from 'react';
+import React, { type Ref } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
@@ -7,12 +7,12 @@ import {
   Flex,
   FlexItem,
   MenuToggle,
-  MenuToggleElement,
+  type MenuToggleElement,
 } from '@patternfly/react-core';
 import { EllipsisVIcon } from '@patternfly/react-icons';
 
 import { ModalHOC } from '../modals';
-import { CellProps } from '../views';
+import { type CellProps } from '../views';
 import { ProviderActionsDropdownItems } from './ProviderActionsDropdownItems';
 
 import './ProviderActionsDropdown.style.css';

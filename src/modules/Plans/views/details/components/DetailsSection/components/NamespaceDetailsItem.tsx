@@ -4,7 +4,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { ResourceLink } from '@openshift-console/dynamic-plugin-sdk';
 
-import { PlanDetailsItemProps } from './PlanDetailsItemProps';
+import { type PlanDetailsItemProps } from './PlanDetailsItemProps';
 
 export const NamespaceDetailsItem: React.FC<PlanDetailsItemProps> = ({
   helpContent,

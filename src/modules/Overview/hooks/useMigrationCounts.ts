@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { MigrationModelGroupVersionKind, V1beta1Migration } from '@kubev2v/types';
+import { MigrationModelGroupVersionKind, type V1beta1Migration } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 import { getMigrationCounts, getVmCounts } from '../utils';

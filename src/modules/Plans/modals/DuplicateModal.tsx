@@ -1,26 +1,26 @@
-import React, { ReactNode, useCallback, useState } from 'react';
+import React, { type ReactNode, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom-v5-compat';
 import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpText/FormGroupWithHelpText';
 import { useToggle } from 'src/modules/Providers/hooks';
 import { AlertMessageForModals, useModal } from 'src/modules/Providers/modals';
-import { Validation } from 'src/modules/Providers/utils/types';
+import { type Validation } from 'src/modules/Providers/utils/types';
 import { validateK8sName } from 'src/modules/Providers/utils/validators';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
 import {
-  K8sResourceCommon,
+  type K8sResourceCommon,
   NetworkMapModel,
   NetworkMapModelGroupVersionKind,
   PlanModel,
   PlanModelGroupVersionKind,
   StorageMapModel,
   StorageMapModelGroupVersionKind,
-  V1beta1NetworkMap,
-  V1beta1Plan,
-  V1beta1StorageMap,
+  type V1beta1NetworkMap,
+  type V1beta1Plan,
+  type V1beta1StorageMap,
 } from '@kubev2v/types';
 import { k8sCreate, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
-import { K8sModel, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
+import { type K8sModel, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { Button, Form, Modal, ModalVariant, TextInput } from '@patternfly/react-core';
 
 import { Suspend } from '../views/details/components/Suspend';

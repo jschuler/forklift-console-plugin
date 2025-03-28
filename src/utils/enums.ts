@@ -1,6 +1,6 @@
-import { ProviderType } from '@kubev2v/types';
+import { type ProviderType } from '@kubev2v/types';
 
-import { ProviderStatus } from './types';
+import { type ProviderStatus } from './types';
 
 export const PROVIDERS: Record<ProviderType, string> =
   process.env.BRAND_TYPE === 'RedHat'

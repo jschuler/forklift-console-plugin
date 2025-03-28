@@ -7,7 +7,7 @@ import { StorageMapCriticalConditions } from 'src/modules/StorageMaps/components
 import {
   StorageMapModel,
   StorageMapModelGroupVersionKind,
-  V1beta1StorageMap,
+  type V1beta1StorageMap,
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { PageSection } from '@patternfly/react-core';

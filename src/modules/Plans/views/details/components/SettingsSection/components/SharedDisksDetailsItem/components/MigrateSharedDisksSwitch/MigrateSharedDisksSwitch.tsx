@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { ModalInputComponentType } from 'src/modules/Providers/modals';
+import React, { type FC } from 'react';
+import { type ModalInputComponentType } from 'src/modules/Providers/modals';
 
 import { Switch } from '@patternfly/react-core';
 import { safeBoolean } from '@utils/helpers';

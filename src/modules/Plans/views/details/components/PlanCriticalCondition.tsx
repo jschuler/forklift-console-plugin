@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactNode } from 'react';
+import React, { type PropsWithChildren, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import Linkify from 'react-linkify';
 import { useHistory } from 'react-router';
@@ -7,7 +7,7 @@ import { getResourceUrl } from 'src/modules/Providers';
 import { ForkliftTrans } from 'src/utils';
 import { EMPTY_MSG } from 'src/utils/constants';
 
-import { PlanModelRef, V1beta1Plan, V1beta1PlanStatusConditions } from '@kubev2v/types';
+import { PlanModelRef, type V1beta1Plan, type V1beta1PlanStatusConditions } from '@kubev2v/types';
 import {
   Alert,
   AlertVariant,

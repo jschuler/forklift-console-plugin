@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
 import { Card, CardBody, CardHeader, CardTitle, Split, SplitItem } from '@patternfly/react-core';
 

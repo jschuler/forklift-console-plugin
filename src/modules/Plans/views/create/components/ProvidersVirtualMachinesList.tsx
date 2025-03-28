@@ -2,10 +2,10 @@ import React from 'react';
 import {
   ProviderVirtualMachinesListWrapper,
   useInventoryVms,
-  VmData,
+  type VmData,
 } from 'src/modules/Providers/views';
 
-import { ProviderModelGroupVersionKind, V1beta1Provider } from '@kubev2v/types';
+import { ProviderModelGroupVersionKind, type V1beta1Provider } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 export const ProviderVirtualMachinesList: React.FC<{

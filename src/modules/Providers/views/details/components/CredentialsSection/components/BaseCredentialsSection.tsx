@@ -1,9 +1,9 @@
 import React, { useReducer, useState } from 'react';
 import { AlertMessageForModals } from 'src/modules/Providers/modals';
-import { ValidationMsg } from 'src/modules/Providers/utils';
+import { type ValidationMsg } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { IoK8sApiCoreV1Secret, V1beta1Provider } from '@kubev2v/types';
+import { type IoK8sApiCoreV1Secret, type V1beta1Provider } from '@kubev2v/types';
 import { useAccessReview } from '@openshift-console/dynamic-plugin-sdk';
 import {
   Button,
@@ -18,7 +18,7 @@ import EyeSlashIcon from '@patternfly/react-icons/dist/esm/icons/eye-slash-icon'
 import Pencil from '@patternfly/react-icons/dist/esm/icons/pencil-alt-icon';
 
 import { patchSecretData } from './edit';
-import { baseCredentialsSectionReducerFactory, BaseCredentialsSectionState } from './state';
+import { baseCredentialsSectionReducerFactory, type BaseCredentialsSectionState } from './state';
 
 import './BaseCredentialsSection.style.css';
 

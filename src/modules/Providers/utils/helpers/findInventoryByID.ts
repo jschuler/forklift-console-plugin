@@ -1,4 +1,4 @@
-import { ProviderInventory, ProvidersInventoryList } from '@kubev2v/types';
+import { type ProviderInventory, type ProvidersInventoryList } from '@kubev2v/types';
 
 /**
  * Finds an inventory by its unique identifier.

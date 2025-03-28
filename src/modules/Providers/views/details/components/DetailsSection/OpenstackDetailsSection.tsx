@@ -14,7 +14,7 @@ import {
   TypeDetailsItem,
   URLDetailsItem,
 } from './components';
-import { DetailsSectionProps } from './DetailsSection';
+import { type DetailsSectionProps } from './DetailsSection';
 import { getOpenstackProviderWebUILink } from './utils';
 
 export const OpenstackDetailsSection: React.FC<DetailsSectionProps> = ({ data }) => {

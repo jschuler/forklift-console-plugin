@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom-v5-compat';
 import { SectionHeading } from 'src/components/headers/SectionHeading';
 import { Loading } from 'src/modules/Plans/views/details';
 import { useGetDeleteAndEditAccessReview, useProviderInventory } from 'src/modules/Providers/hooks';
-import { getResourceUrl, ProviderData } from 'src/modules/Providers/utils';
+import { getResourceUrl, type ProviderData } from 'src/modules/Providers/utils';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
 import {
-  ProviderInventory,
+  type ProviderInventory,
   ProviderModel,
   ProviderModelGroupVersionKind,
   ProviderModelRef,
-  V1beta1Provider,
+  type V1beta1Provider,
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { Alert, Bullseye, PageSection } from '@patternfly/react-core';

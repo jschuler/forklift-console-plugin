@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { V1beta1ForkliftController } from '@kubev2v/types';
+import { type V1beta1ForkliftController } from '@kubev2v/types';
 
 import { PodsCard } from './cards';
 

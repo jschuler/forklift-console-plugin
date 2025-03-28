@@ -1,4 +1,4 @@
-import React, { FC, Ref, useState } from 'react';
+import React, { type FC, type Ref, useState } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
@@ -11,7 +11,7 @@ import {
   Form,
   FormGroup,
   MenuToggle,
-  MenuToggleElement,
+  type MenuToggleElement,
   Select,
   SelectGroup,
   SelectList,
@@ -19,7 +19,7 @@ import {
 } from '@patternfly/react-core';
 import { MinusCircleIcon } from '@patternfly/react-icons';
 
-import { Mapping, MappingSource } from '../types';
+import { type Mapping, type MappingSource } from '../types';
 
 import '../ProvidersCreateVmMigration.style.css';
 

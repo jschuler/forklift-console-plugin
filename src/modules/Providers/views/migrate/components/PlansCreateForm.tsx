@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { FilterableSelect } from 'src/components';
 import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpText/FormGroupWithHelpText';
 import { HelpIconPopover } from 'src/components/common/HelpIconPopover/HelpIconPopover';
@@ -29,14 +29,14 @@ import {
   addStorageMapping,
   deleteNetworkMapping,
   deleteStorageMapping,
-  PageAction,
+  type PageAction,
   removeAlert,
   replaceNetworkMapping,
   replaceStorageMapping,
   setPlanTargetNamespace,
   setPlanTargetProvider,
 } from '../reducer/actions';
-import { CreateVmMigrationPageState, NetworkAlerts, StorageAlerts } from '../types';
+import { type CreateVmMigrationPageState, type NetworkAlerts, type StorageAlerts } from '../types';
 import { MappingList } from './MappingList';
 import { MappingListHeader } from './MappingListHeader';
 import { StateAlerts } from './StateAlerts';

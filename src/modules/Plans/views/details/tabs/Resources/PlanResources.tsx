@@ -1,17 +1,17 @@
 import React from 'react';
-import { useProviderInventory, UseProviderInventoryParams } from 'src/modules/Providers/hooks';
+import { useProviderInventory, type UseProviderInventoryParams } from 'src/modules/Providers/hooks';
 
 import {
-  OpenshiftVM,
-  OpenstackVM,
-  OvaVM,
-  OVirtVM,
+  type OpenshiftVM,
+  type OpenstackVM,
+  type OvaVM,
+  type OVirtVM,
   PlanModelGroupVersionKind,
   ProviderModelGroupVersionKind,
-  ProviderVirtualMachine,
-  V1beta1Plan,
-  V1beta1Provider,
-  VSphereVM,
+  type ProviderVirtualMachine,
+  type V1beta1Plan,
+  type V1beta1Provider,
+  type VSphereVM,
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { Bullseye } from '@patternfly/react-core';

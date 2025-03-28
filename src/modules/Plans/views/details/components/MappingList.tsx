@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { Button, DataList } from '@patternfly/react-core';
 import { PlusCircleIcon } from '@patternfly/react-icons';
 
-import { Mapping, MappingListItem } from './MappingListItem';
+import { type Mapping, MappingListItem } from './MappingListItem';
 
 interface MappingListProps {
   /**

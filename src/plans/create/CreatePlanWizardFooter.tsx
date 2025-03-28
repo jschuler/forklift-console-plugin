@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent } from 'react';
+import React, { type FC, type MouseEvent } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { getResourceUrl } from 'src/modules';
@@ -9,7 +9,7 @@ import {
   Button,
   ButtonVariant,
   useWizardContext,
-  WizardFooterProps,
+  type WizardFooterProps,
   WizardFooterWrapper,
 } from '@patternfly/react-core';
 import { useForkliftTranslation } from '@utils/i18n';

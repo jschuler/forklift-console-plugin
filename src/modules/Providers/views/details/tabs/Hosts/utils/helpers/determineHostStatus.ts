@@ -1,4 +1,4 @@
-import { V1beta1Host } from '@kubev2v/types';
+import { type V1beta1Host } from '@kubev2v/types';
 
 interface StatusResult {
   status: string;

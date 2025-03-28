@@ -7,7 +7,7 @@ import { ModalVariant } from '@patternfly/react-core';
 import { patchProviderURL } from './utils/patchProviderURL';
 import { validateOpenstackURL } from '../../utils/validators';
 import { EditModal } from '../EditModal';
-import { EditProviderURLModalProps } from './EditProviderURLModal';
+import { type EditProviderURLModalProps } from './EditProviderURLModal';
 
 export const OpenstackEditURLModal: React.FC<EditProviderURLModalProps> = (props) => {
   const { t } = useForkliftTranslation();

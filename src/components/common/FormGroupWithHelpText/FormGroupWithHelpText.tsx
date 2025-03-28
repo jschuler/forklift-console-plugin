@@ -2,7 +2,7 @@ import React from 'react';
 
 import {
   FormGroup,
-  FormGroupProps,
+  type FormGroupProps,
   FormHelperText,
   HelperText,
   HelperTextItem,

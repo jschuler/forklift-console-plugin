@@ -8,16 +8,16 @@ import {
   PlanModel,
   PlanModelRef,
   StorageMapModel,
-  V1beta1NetworkMap,
-  V1beta1Plan,
-  V1beta1StorageMap,
+  type V1beta1NetworkMap,
+  type V1beta1Plan,
+  type V1beta1StorageMap,
 } from '@kubev2v/types';
-import { k8sCreate, K8sModel, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
+import { k8sCreate, type K8sModel, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 
 import { setAPiError } from './reducer/actions';
 import { getObjectRef } from './reducer/helpers';
 import { getResourceUrl } from '../../utils';
-import { CreateVmMigrationPageState } from './types';
+import { type CreateVmMigrationPageState } from './types';
 
 const createStorage = (storageMap: V1beta1StorageMap) =>
   k8sCreate({

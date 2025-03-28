@@ -1,4 +1,4 @@
-import { EnumValue } from '@components/common/utils/types';
+import { type EnumValue } from '@components/common/utils/types';
 
 const labelToFilterItem = (label: string): EnumValue =>
   label !== '' ? { id: label, label } : { id: label, label: 'Undefined' };

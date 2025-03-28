@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { VmData } from 'src/modules/Providers/views';
+import { type VmData } from 'src/modules/Providers/views';
 
 import { ProviderVirtualMachinesList } from '../../components/ProvidersVirtualMachinesList';
 

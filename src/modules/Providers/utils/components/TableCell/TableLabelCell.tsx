@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
 import { Label } from '@patternfly/react-core';
 
-import { TableCell, TableCellProps } from './TableCell';
+import { TableCell, type TableCellProps } from './TableCell';
 
 /**
  * A component that displays a table cell, with an optional label.

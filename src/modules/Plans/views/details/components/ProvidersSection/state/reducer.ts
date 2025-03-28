@@ -1,6 +1,6 @@
 import { deepCopy } from 'src/utils';
 
-import { V1beta1Plan, V1beta1Provider } from '@kubev2v/types';
+import { type V1beta1Plan, type V1beta1Provider } from '@kubev2v/types';
 
 export interface ProvidersSectionState {
   plan: V1beta1Plan | null;

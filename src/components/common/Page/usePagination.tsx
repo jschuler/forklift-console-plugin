@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 
-import { PaginationSettings } from './types';
+import { type PaginationSettings } from './types';
 
 // first option in the default "per page" dropdown
 export const DEFAULT_PER_PAGE = 10;

@@ -1,13 +1,13 @@
 import React from 'react';
-import { RowProps } from 'src/components/common/TableView/types';
+import { type RowProps } from 'src/components/common/TableView/types';
 
-import { ResourceField } from '@components/common/utils/types';
+import { type ResourceField } from '@components/common/utils/types';
 import { Td, Tr } from '@patternfly/react-table';
 
 import { StorageMapActionsDropdown } from '../../actions';
-import { StorageMapData } from '../../utils';
+import { type StorageMapData } from '../../utils';
 import {
-  CellProps,
+  type CellProps,
   NamespaceCell,
   PlanCell,
   ProviderLinkCell,

@@ -1,6 +1,6 @@
-import { ResourceField } from '@components/common/utils/types';
+import { type ResourceField } from '@components/common/utils/types';
 
-import { InventoryHostPair } from '../utils';
+import { type InventoryHostPair } from '../utils';
 
 export interface HostCellProps {
   data: InventoryHostPair;

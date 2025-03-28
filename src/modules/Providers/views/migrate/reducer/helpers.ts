@@ -1,20 +1,20 @@
-import { FC } from 'react';
-import { Draft } from 'immer';
+import { type FC } from 'react';
+import { type Draft } from 'immer';
 import { DefaultRow } from 'src/components/common/TableView/DefaultRow';
-import { RowProps } from 'src/components/common/TableView/types';
+import { type RowProps } from 'src/components/common/TableView/types';
 import { withTr } from 'src/components/common/TableView/withTr';
 
-import { ResourceFieldFactory } from '@components/common/utils/types';
+import { type ResourceFieldFactory } from '@components/common/utils/types';
 import {
-  IoK8sApimachineryPkgApisMetaV1ObjectMeta,
-  OVirtNicProfile,
-  ProviderType,
-  V1beta1Plan,
-  V1beta1Provider,
+  type IoK8sApimachineryPkgApisMetaV1ObjectMeta,
+  type OVirtNicProfile,
+  type ProviderType,
+  type V1beta1Plan,
+  type V1beta1Provider,
 } from '@kubev2v/types';
 
 import { getIsTarget, validateK8sName } from '../../../utils';
-import { VmData } from '../../details';
+import { type VmData } from '../../details';
 import { openShiftVmFieldsMetadataFactory } from '../../details/tabs/VirtualMachines/OpenShiftVirtualMachinesList';
 import { OpenShiftVirtualMachinesCells } from '../../details/tabs/VirtualMachines/OpenShiftVirtualMachinesRow';
 import { openStackVmFieldsMetadataFactory } from '../../details/tabs/VirtualMachines/OpenStackVirtualMachinesList';
@@ -26,21 +26,21 @@ import { OVirtVirtualMachinesCells } from '../../details/tabs/VirtualMachines/OV
 import { vSphereVmFieldsMetadataFactory } from '../../details/tabs/VirtualMachines/VSphereVirtualMachinesList';
 import { VSphereVirtualMachinesCells } from '../../details/tabs/VirtualMachines/VSphereVirtualMachinesRow';
 import {
-  CreateVmMigrationPageState,
-  Mapping,
-  MappingSource,
+  type CreateVmMigrationPageState,
+  type Mapping,
+  type MappingSource,
   MULTIPLE_NICS_MAPPED_TO_POD_NETWORKING,
   NETWORK_MAPPING_EMPTY,
   NETWORK_MAPPING_REGENERATED,
-  NetworkAlerts,
+  type NetworkAlerts,
   OVIRT_NICS_WITH_EMPTY_PROFILE,
   STORAGE_MAPPING_EMPTY,
   STORAGE_MAPPING_REGENERATED,
-  StorageAlerts,
+  type StorageAlerts,
   UNMAPPED_NETWORKS,
   UNMAPPED_STORAGES,
 } from '../types';
-import { CreateVmMigration } from './actions';
+import { type CreateVmMigration } from './actions';
 import { calculateNetworks, calculateStorages } from './calculateMappings';
 import { hasMultiplePodNetworkMappings } from './hasMultiplePodNetworkMappings';
 

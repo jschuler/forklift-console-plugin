@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback, useEffect, useState } from 'react';
+import React, { type ReactNode, useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom-v5-compat';
 import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpText/FormGroupWithHelpText';
 import { useForkliftTranslation } from 'src/utils/i18n';
@@ -9,10 +9,10 @@ import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 import { defaultOnConfirm } from './utils/defaultOnConfirm';
 import { useToggle } from '../../hooks';
 import { getValueByJsonPath } from '../../utils/helpers';
-import { ValidationMsg } from '../../utils/validators';
+import { type ValidationMsg } from '../../utils/validators';
 import { AlertMessageForModals, ItemIsOwnedAlert } from '../components';
 import { useModal } from '../ModalHOC';
-import { EditModalProps } from './types';
+import { type EditModalProps } from './types';
 
 import './EditModal.style.css';
 

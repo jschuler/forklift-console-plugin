@@ -2,7 +2,7 @@ import React from 'react';
 
 import { NumberInput } from '@patternfly/react-core';
 
-import { SettingsSelectInputProps } from './SettingsSelectInput';
+import { type SettingsSelectInputProps } from './SettingsSelectInput';
 
 export const SettingsNumberInput: React.FC<SettingsSelectInputProps> = ({
   onChange,

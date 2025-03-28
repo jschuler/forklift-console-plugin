@@ -1,4 +1,4 @@
-import { validateK8sToken, validatePublicCert, ValidationMsg } from '../../common';
+import { validateK8sToken, validatePublicCert, type ValidationMsg } from '../../common';
 
 /**
  * Validates form input fields based on their id.

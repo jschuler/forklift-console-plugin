@@ -1,4 +1,4 @@
-import { IoK8sApiCoreV1Secret, SecretModel } from '@kubev2v/types';
+import { type IoK8sApiCoreV1Secret, SecretModel } from '@kubev2v/types';
 import { k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 
 /**

@@ -1,11 +1,11 @@
-import React, { ReactNode, useCallback, useState } from 'react';
+import React, { type ReactNode, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom-v5-compat';
 import { useToggle } from 'src/modules/Providers/hooks';
 import { AlertMessageForModals, useModal } from 'src/modules/Providers/modals';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
-import { MigrationModel, V1beta1Migration, V1beta1Plan } from '@kubev2v/types';
-import { k8sCreate, K8sModel } from '@openshift-console/dynamic-plugin-sdk';
+import { MigrationModel, type V1beta1Migration, type V1beta1Plan } from '@kubev2v/types';
+import { k8sCreate, type K8sModel } from '@openshift-console/dynamic-plugin-sdk';
 import { Button, Modal, ModalVariant } from '@patternfly/react-core';
 
 import { usePlanMigration } from '../hooks';

@@ -1,13 +1,13 @@
 import {
   ProviderModelGroupVersionKind as ProviderGVK,
-  ProviderType,
-  V1beta1Provider,
+  type ProviderType,
+  type V1beta1Provider,
 } from '@kubev2v/types';
 
 import { networkMapTemplate, planTemplate, storageMapTemplate } from '../../create/templates';
-import { toId, VmData } from '../../details';
+import { toId, type VmData } from '../../details';
 import {
-  CreateVmMigrationPageState,
+  type CreateVmMigrationPageState,
   MULTIPLE_NICS_ON_THE_SAME_NETWORK,
   OVIRT_NICS_WITH_EMPTY_PROFILE,
 } from '../types';

@@ -1,6 +1,6 @@
-import { VmFeatures } from 'src/utils/types';
+import { type VmFeatures } from 'src/utils/types';
 
-import { ProviderVirtualMachine, V1DomainSpec } from '@kubev2v/types';
+import { type ProviderVirtualMachine, type V1DomainSpec } from '@kubev2v/types';
 
 export const getOpenShiftFeatureMap = (vm: ProviderVirtualMachine): VmFeatures => {
   if (vm.providerType !== 'openshift') {

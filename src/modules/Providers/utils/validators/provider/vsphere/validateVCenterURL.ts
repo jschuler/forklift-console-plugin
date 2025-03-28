@@ -1,5 +1,5 @@
 import { safeBase64Decode } from '../../../helpers';
-import { validateIpv4, validateURL, ValidationMsg } from '../../common';
+import { validateIpv4, validateURL, type ValidationMsg } from '../../common';
 
 export const validateVCenterURL = (
   url: string | number,

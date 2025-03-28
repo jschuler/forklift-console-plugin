@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
-import { V1beta1Provider } from '@kubev2v/types';
+import { type V1beta1Provider } from '@kubev2v/types';
 import { consoleFetchJSON } from '@openshift-console/dynamic-plugin-sdk';
 
 import { getInventoryApiUrl, hasObjectChangedInGivenFields } from '../utils/helpers';

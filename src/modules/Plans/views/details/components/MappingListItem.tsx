@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent as ReactMouseEvent, Ref, useState } from 'react';
+import React, { type FC, type MouseEvent as ReactMouseEvent, type Ref, useState } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
@@ -9,7 +9,7 @@ import {
   DataListItemCells,
   DataListItemRow,
   MenuToggle,
-  MenuToggleElement,
+  type MenuToggleElement,
   Select,
   SelectGroup,
   SelectList,

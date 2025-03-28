@@ -4,10 +4,10 @@ import { useGetDeleteAndEditAccessReview, useProviderInventory } from 'src/modul
 import { PageHeadings } from 'src/modules/Providers/utils';
 
 import {
-  ProviderInventory,
+  type ProviderInventory,
   ProviderModel,
   ProviderModelGroupVersionKind,
-  V1beta1Provider,
+  type V1beta1Provider,
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { PageSection } from '@patternfly/react-core';

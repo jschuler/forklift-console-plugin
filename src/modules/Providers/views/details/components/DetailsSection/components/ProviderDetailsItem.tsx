@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
-import { V1beta1Provider } from '@kubev2v/types';
+import { type V1beta1Provider } from '@kubev2v/types';
 
 /**
  * Type for the props of the ProviderDetailsItemProps component.

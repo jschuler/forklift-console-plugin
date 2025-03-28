@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { HorizontalNav, K8sModel } from '@openshift-console/dynamic-plugin-sdk';
+import { HorizontalNav, type K8sModel } from '@openshift-console/dynamic-plugin-sdk';
 
 import { StorageMapPageHeadings } from './components/DetailsSection/components/StorageMapPageHeadings';
 import { StorageMapDetailsTab, StorageMapYAMLTab } from './tabs';

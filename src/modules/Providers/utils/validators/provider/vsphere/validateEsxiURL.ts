@@ -1,4 +1,4 @@
-import { validateURL, ValidationMsg } from '../../common';
+import { validateURL, type ValidationMsg } from '../../common';
 
 export const validateEsxiURL = (url: string | number): ValidationMsg => {
   // For a newly opened form where the field is not set yet, set the validation type to default.

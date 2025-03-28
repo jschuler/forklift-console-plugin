@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useReducer } from 'react';
+import React, { type FC, useMemo, useReducer } from 'react';
 import { useHistory } from 'react-router';
 import { getResourceUrl } from 'src/modules/Providers/utils/helpers';
 import { useCreateVmMigrationData } from 'src/modules/Providers/views/migrate';
@@ -18,7 +18,7 @@ import {
   PlanModelRef,
   ProviderModelGroupVersionKind,
   ProviderModelRef,
-  V1beta1Provider,
+  type V1beta1Provider,
 } from '@kubev2v/types';
 import { useActiveNamespace, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { PageSection, Title, Wizard, WizardStep } from '@patternfly/react-core';

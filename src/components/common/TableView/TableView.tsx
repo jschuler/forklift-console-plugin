@@ -1,10 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
 import { Bullseye } from '@patternfly/react-core';
 import { Table, Tbody, Td, Thead, Tr } from '@patternfly/react-table';
 
-import { ResourceField, UID } from '../utils';
-import { RowProps, SortType, TableViewHeaderProps } from './types';
+import { type ResourceField, UID } from '../utils';
+import { type RowProps, type SortType, type TableViewHeaderProps } from './types';
 
 /**
  * Displays provided list of entities as table.

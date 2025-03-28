@@ -4,7 +4,7 @@ import { useModal } from 'src/modules/Providers/modals';
 import { DetailsItem } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { PlanDetailsItemProps } from '../../DetailsSection';
+import { type PlanDetailsItemProps } from '../../DetailsSection';
 import { EditPlanTargetNamespace } from '../modals';
 
 export const TargetNamespaceDetailsItem: React.FC<PlanDetailsItemProps> = ({

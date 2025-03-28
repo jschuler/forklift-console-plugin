@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useMemo, useState } from 'react';
+import React, { type FC, type ReactNode, useEffect, useMemo, useState } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
@@ -22,7 +22,7 @@ import {
   defaultSupportedFilters,
   defaultValueMatchers,
 } from '../common/FilterGroup/matchers';
-import { FilterRenderer, ValueMatcher } from '../common/FilterGroup/types';
+import { type FilterRenderer, type ValueMatcher } from '../common/FilterGroup/types';
 import { useUrlFilters } from '../common/FilterGroup/useUrlFilters';
 import {
   ErrorState,
@@ -30,18 +30,18 @@ import {
   NoResultsFound,
   NoResultsMatchFilter,
 } from '../common/Page/PageStates';
-import { UserSettings } from '../common/Page/types';
+import { type UserSettings } from '../common/Page/types';
 import { useFields } from '../common/Page/useFields';
 import { DEFAULT_PER_PAGE, usePagination } from '../common/Page/usePagination';
 import { DefaultHeader } from '../common/TableView/DefaultHeader';
 import { DefaultRow } from '../common/TableView/DefaultRow';
 import { TableView } from '../common/TableView/TableView';
-import { RowProps, TableViewHeaderProps } from '../common/TableView/types';
+import { type RowProps, type TableViewHeaderProps } from '../common/TableView/types';
 import { withTr } from '../common/TableView/withTr';
-import { GlobalActionToolbarProps, ResourceField } from '../common/utils/types';
+import { type GlobalActionToolbarProps, type ResourceField } from '../common/utils/types';
 import {
   TableSortContext,
-  TableSortContextProps,
+  type TableSortContextProps,
   TableSortContextProvider,
   useTableSortContext,
 } from '../TableSortContext';

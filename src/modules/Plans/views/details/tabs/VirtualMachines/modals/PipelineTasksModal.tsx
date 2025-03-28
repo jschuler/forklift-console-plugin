@@ -1,9 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { ConsoleTimestamp } from 'src/components/ConsoleTimestamp';
 import { useModal } from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { V1beta1PlanStatusMigrationVmsPipeline } from '@kubev2v/types';
+import { type V1beta1PlanStatusMigrationVmsPipeline } from '@kubev2v/types';
 import { Modal, ModalVariant } from '@patternfly/react-core';
 import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 

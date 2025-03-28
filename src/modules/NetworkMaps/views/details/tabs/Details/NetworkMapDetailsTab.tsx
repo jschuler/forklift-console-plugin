@@ -3,7 +3,7 @@ import { SectionHeading } from 'src/components/headers/SectionHeading';
 import { Suspend } from 'src/modules/Plans/views/details/components';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { NetworkMapModelGroupVersionKind, V1beta1NetworkMap } from '@kubev2v/types';
+import { NetworkMapModelGroupVersionKind, type V1beta1NetworkMap } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { PageSection } from '@patternfly/react-core';
 

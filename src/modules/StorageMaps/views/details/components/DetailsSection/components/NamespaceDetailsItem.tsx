@@ -4,7 +4,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { ResourceLink } from '@openshift-console/dynamic-plugin-sdk';
 
-import { StorageDetailsItemProps } from './StorageDetailsItemProps';
+import { type StorageDetailsItemProps } from './StorageDetailsItemProps';
 
 export const NamespaceDetailsItem: React.FC<StorageDetailsItemProps> = ({
   helpContent,

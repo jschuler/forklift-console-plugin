@@ -4,7 +4,7 @@ import {
   getMigrationVmsCounts,
   getPlanPhase,
   getPlanProgressVariant,
-  MigrationVmsCounts,
+  type MigrationVmsCounts,
 } from 'src/modules/Plans/utils';
 import { getResourceUrl } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
@@ -21,7 +21,7 @@ import {
 } from '@patternfly/react-core';
 import { HelpIcon, VirtualMachineIcon } from '@patternfly/react-icons';
 
-import { CellProps } from './CellProps';
+import { type CellProps } from './CellProps';
 
 type PlanStatusDetailsProps = {
   counters: MigrationVmsCounts;

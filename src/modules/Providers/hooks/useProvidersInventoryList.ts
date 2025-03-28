@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 
 import {
-  ProviderInventory,
+  type ProviderInventory,
   ProviderModel,
-  ProvidersInventoryList,
-  V1beta1Provider,
+  type ProvidersInventoryList,
+  type V1beta1Provider,
 } from '@kubev2v/types';
 import { consoleFetchJSON, k8sGet, useFlag } from '@openshift-console/dynamic-plugin-sdk';
 

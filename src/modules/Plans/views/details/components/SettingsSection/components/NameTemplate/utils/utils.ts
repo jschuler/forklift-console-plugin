@@ -1,10 +1,10 @@
 import { produce } from 'immer';
-import { OnConfirmHookType } from 'src/modules/Providers';
+import { type OnConfirmHookType } from 'src/modules/Providers';
 
 import { k8sUpdate } from '@openshift-console/dynamic-plugin-sdk';
 import { setObjectValueByPath, unsetObjectValueByPath } from '@utils/helpers';
 
-import { EnhancedPlan } from '../../../utils/types';
+import { type EnhancedPlan } from '../../../utils/types';
 import { NameTemplateRadioOptions } from './constants';
 
 export const onConfirmNameTemplate: (selected: NameTemplateRadioOptions) => OnConfirmHookType =

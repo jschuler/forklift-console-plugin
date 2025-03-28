@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import { useHistory } from 'react-router';
 import { getResourceUrl } from 'src/modules/Providers/utils';
 import { useCreateVmMigrationData } from 'src/modules/Providers/views/migrate';

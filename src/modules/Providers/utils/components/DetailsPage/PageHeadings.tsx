@@ -1,13 +1,13 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { Link } from 'react-router-dom-v5-compat';
 import { getResourceUrl } from 'src/modules/Providers/utils/helpers';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
   getGroupVersionKindForResource,
-  K8sGroupVersionKind,
-  K8sModel,
-  K8sResourceCommon,
+  type K8sGroupVersionKind,
+  type K8sModel,
+  type K8sResourceCommon,
   ResourceIcon,
   ResourceStatus,
 } from '@openshift-console/dynamic-plugin-sdk';

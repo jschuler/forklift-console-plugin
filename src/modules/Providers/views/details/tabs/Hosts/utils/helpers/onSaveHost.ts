@@ -2,18 +2,18 @@ import { Base64 } from 'js-base64';
 
 import {
   HostModel,
-  IoK8sApiCoreV1Secret,
-  NetworkAdapters,
+  type IoK8sApiCoreV1Secret,
+  type NetworkAdapters,
   SecretModel,
-  V1beta1Host,
-  V1beta1Provider,
-  VSphereHost,
+  type V1beta1Host,
+  type V1beta1Provider,
+  type VSphereHost,
 } from '@kubev2v/types';
 import { k8sGet, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 
 import { createHost } from './createHost';
 import { createHostSecret } from './createHostSecret';
-import { InventoryHostPair } from './matchHostsToInventory';
+import { type InventoryHostPair } from './matchHostsToInventory';
 import { patchHostSecretOwner } from './patchHostSecretOwner';
 
 interface OnSaveHostParams {

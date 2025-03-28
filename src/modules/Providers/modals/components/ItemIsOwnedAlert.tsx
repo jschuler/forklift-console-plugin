@@ -3,7 +3,7 @@ import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
 import {
   getGroupVersionKindForResource,
-  OwnerReference,
+  type OwnerReference,
   ResourceLink,
 } from '@openshift-console/dynamic-plugin-sdk';
 import { Alert } from '@patternfly/react-core';

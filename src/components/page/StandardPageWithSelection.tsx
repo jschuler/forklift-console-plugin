@@ -1,12 +1,12 @@
-import React, { FC, useState } from 'react';
+import React, { type FC, useState } from 'react';
 
 import { Td, Th } from '@patternfly/react-table';
 
 import { DefaultHeader } from '../common/TableView/DefaultHeader';
-import { RowProps, TableViewHeaderProps } from '../common/TableView/types';
+import { type RowProps, type TableViewHeaderProps } from '../common/TableView/types';
 import { withTr } from '../common/TableView/withTr';
-import { GlobalActionToolbarProps } from '../common/utils/types';
-import StandardPage, { StandardPageProps } from './StandardPage';
+import { type GlobalActionToolbarProps } from '../common/utils/types';
+import StandardPage, { type StandardPageProps } from './StandardPage';
 
 export function withRowSelection<T>({
   canSelect,

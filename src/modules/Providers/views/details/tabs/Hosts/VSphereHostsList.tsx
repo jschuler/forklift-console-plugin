@@ -1,20 +1,20 @@
-import React, { FC, useState } from 'react';
+import React, { type FC, useState } from 'react';
 import { loadUserSettings } from 'src/components/common/Page/userSettings';
 import {
-  GlobalActionWithSelection,
+  type GlobalActionWithSelection,
   StandardPageWithSelection,
-  StandardPageWithSelectionProps,
+  type StandardPageWithSelectionProps,
 } from 'src/components/page/StandardPageWithSelection';
 import { useProviderInventory } from 'src/modules/Providers/hooks';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { ResourceFieldFactory } from '@components/common/utils/types';
-import { HostModelGroupVersionKind, V1beta1Host, VSphereHost } from '@kubev2v/types';
+import { type ResourceFieldFactory } from '@components/common/utils/types';
+import { HostModelGroupVersionKind, type V1beta1Host, type VSphereHost } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
-import { InventoryHostPair, matchHostsToInventory } from './utils/helpers';
+import { type InventoryHostPair, matchHostsToInventory } from './utils/helpers';
 import { SelectNetworkButton } from './components';
-import { ProviderHostsProps } from './ProviderHosts';
+import { type ProviderHostsProps } from './ProviderHosts';
 import { VSphereHostsCells } from './VSphereHostsRow';
 
 export const hostsFieldsMetadataFactory: ResourceFieldFactory = (t) => [

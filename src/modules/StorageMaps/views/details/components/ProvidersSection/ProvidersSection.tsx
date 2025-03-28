@@ -5,14 +5,14 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import {
   ProviderModelGroupVersionKind,
   StorageMapModel,
-  V1beta1Provider,
-  V1beta1StorageMap,
+  type V1beta1Provider,
+  type V1beta1StorageMap,
 } from '@kubev2v/types';
 import { k8sUpdate, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { Button, DescriptionList, Flex, FlexItem, Spinner } from '@patternfly/react-core';
 
 import { ProvidersEdit } from './components';
-import { providersSectionReducer, ProvidersSectionState } from './state';
+import { providersSectionReducer, type ProvidersSectionState } from './state';
 
 const initialState: ProvidersSectionState = {
   hasChanges: false,

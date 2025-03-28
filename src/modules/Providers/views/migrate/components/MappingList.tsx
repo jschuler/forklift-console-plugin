@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { Button, DataList } from '@patternfly/react-core';
 import { PlusCircleIcon } from '@patternfly/react-icons';
 
-import { Mapping, MappingSource } from '../types';
+import { type Mapping, type MappingSource } from '../types';
 import { MappingListItem } from './MappingListItem';
 
 import '../ProvidersCreateVmMigration.style.css';

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { Modify, ProviderModel, V1beta1Provider } from '@kubev2v/types';
-import { K8sModel } from '@openshift-console/dynamic-plugin-sdk';
+import { type Modify, ProviderModel, type V1beta1Provider } from '@kubev2v/types';
+import { type K8sModel } from '@openshift-console/dynamic-plugin-sdk';
 import { Alert, Checkbox, TextInput } from '@patternfly/react-core';
 
 import { VDDKHelperTextShort } from '../../utils/components/VDDKHelperText';
 import { validateVDDKImage } from '../../utils/validators';
-import { EditModal, EditModalProps } from '../EditModal';
+import { EditModal, type EditModalProps } from '../EditModal';
 import { onEmptyVddkConfirm } from './onEmptyVddkConfirm';
 import { onNoneEmptyVddkConfirm } from './onNoneEmptyVddkConfirm';
 

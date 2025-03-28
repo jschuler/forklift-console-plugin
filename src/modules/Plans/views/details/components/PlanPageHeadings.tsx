@@ -14,9 +14,9 @@ import {
   PlanModel,
   PlanModelGroupVersionKind,
   StorageMapModelGroupVersionKind,
-  V1beta1NetworkMap,
-  V1beta1Plan,
-  V1beta1StorageMap,
+  type V1beta1NetworkMap,
+  type V1beta1Plan,
+  type V1beta1StorageMap,
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { Level, List, ListItem, PageSection } from '@patternfly/react-core';

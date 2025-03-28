@@ -1,7 +1,7 @@
 import React, {
-  FC,
-  MouseEvent as ReactMouseEvent,
-  Ref,
+  type FC,
+  type MouseEvent as ReactMouseEvent,
+  type Ref,
   useCallback,
   useMemo,
   useState,
@@ -9,7 +9,7 @@ import React, {
 
 import {
   MenuToggle,
-  MenuToggleElement,
+  type MenuToggleElement,
   Select,
   SelectList,
   SelectOption,

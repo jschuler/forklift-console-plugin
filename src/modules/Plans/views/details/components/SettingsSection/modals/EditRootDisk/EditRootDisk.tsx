@@ -2,14 +2,14 @@ import React from 'react';
 import { FilterableSelect } from 'src/components/FilterableSelect/FilterableSelect';
 import {
   EditModal,
-  EditModalProps,
-  ModalInputComponentType,
-  OnConfirmHookType,
+  type EditModalProps,
+  type ModalInputComponentType,
+  type OnConfirmHookType,
 } from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { Modify, PlanModel, V1beta1Plan } from '@kubev2v/types';
-import { K8sModel, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
+import { type Modify, PlanModel, type V1beta1Plan } from '@kubev2v/types';
+import { type K8sModel, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 import { HelperText, HelperTextItem, Text } from '@patternfly/react-core';
 
 import { editRootDiskModalAlert } from './editRootDiskModalAlert';

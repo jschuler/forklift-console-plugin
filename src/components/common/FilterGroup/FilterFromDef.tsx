@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react';
 
-import { FilterTypeProps } from '../Filter';
-import { FilterDef } from '../utils';
-import { GlobalFilters } from './types';
+import { type FilterTypeProps } from '../Filter';
+import { type FilterDef } from '../utils';
+import { type GlobalFilters } from './types';
 
 interface FilterFromDefProps {
   resourceFieldId: string;

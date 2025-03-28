@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ResourceLinkProps } from '@openshift-console/dynamic-plugin-sdk';
+import { type ResourceLinkProps } from '@openshift-console/dynamic-plugin-sdk';
 
 export const ResourceLink = ({
   groupVersionKind: { group = '', kind = '', version = '' } = { kind: '', version: '' },

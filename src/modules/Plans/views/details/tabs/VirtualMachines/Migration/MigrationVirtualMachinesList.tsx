@@ -1,29 +1,29 @@
-import React, { FC, useState } from 'react';
+import React, { type FC, useState } from 'react';
 import { loadUserSettings } from 'src/components/common/Page/userSettings';
 import {
-  GlobalActionWithSelection,
+  type GlobalActionWithSelection,
   StandardPageWithSelection,
-  StandardPageWithSelectionProps,
+  type StandardPageWithSelectionProps,
 } from 'src/components/page/StandardPageWithSelection';
 import { TableSortContextProvider } from 'src/components/TableSortContext';
 import { usePlanMigration } from 'src/modules/Plans/hooks/usePlanMigration';
 import { isPlanArchived, isPlanExecuting } from 'src/modules/Plans/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { ResourceFieldFactory } from '@components/common/utils/types';
+import { type ResourceFieldFactory } from '@components/common/utils/types';
 import {
-  IoK8sApiBatchV1Job,
-  IoK8sApiCoreV1PersistentVolumeClaim,
-  IoK8sApiCoreV1Pod,
-  V1beta1DataVolume,
-  V1beta1PlanSpecVms,
-  V1beta1PlanStatusMigrationVms,
+  type IoK8sApiBatchV1Job,
+  type IoK8sApiCoreV1PersistentVolumeClaim,
+  type IoK8sApiCoreV1Pod,
+  type V1beta1DataVolume,
+  type V1beta1PlanSpecVms,
+  type V1beta1PlanStatusMigrationVms,
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { HelperText, HelperTextItem } from '@patternfly/react-core';
 
 import { MigrationVMsCancelButton, PlanVMsDeleteButton } from '../components';
-import { PlanData, VMData } from '../types';
+import { type PlanData, type VMData } from '../types';
 import { MigrationVirtualMachinesRow } from './MigrationVirtualMachinesRow';
 import { MigrationVirtualMachinesRowExtended } from './MigrationVirtualMachinesRowExtended';
 

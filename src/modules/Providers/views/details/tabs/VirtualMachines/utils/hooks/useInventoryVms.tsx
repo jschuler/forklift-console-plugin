@@ -1,10 +1,10 @@
-import { useProviderInventory, UseProviderInventoryParams } from 'src/modules/Providers/hooks';
-import { ProviderData } from 'src/modules/Providers/utils';
+import { useProviderInventory, type UseProviderInventoryParams } from 'src/modules/Providers/hooks';
+import { type ProviderData } from 'src/modules/Providers/utils';
 import { isProviderLocalOpenshift, isProviderOpenshift } from 'src/utils/resources';
 
-import { OpenshiftVM, ProviderVirtualMachine } from '@kubev2v/types';
+import { type OpenshiftVM, type ProviderVirtualMachine } from '@kubev2v/types';
 
-import { VmData } from '../../components';
+import { type VmData } from '../../components';
 
 /**
  * A hook for retrieving VMs from the inventory.

@@ -15,7 +15,7 @@ import {
   TypeDetailsItem,
   URLDetailsItem,
 } from './components';
-import { DetailsSectionProps } from './DetailsSection';
+import { type DetailsSectionProps } from './DetailsSection';
 import { getOpenshiftProviderWebUILink } from './utils';
 
 export const OpenshiftDetailsSection: React.FC<DetailsSectionProps> = ({ data }) => {

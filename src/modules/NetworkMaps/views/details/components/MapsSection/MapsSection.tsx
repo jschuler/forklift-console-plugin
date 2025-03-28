@@ -1,24 +1,24 @@
 import React, { useReducer } from 'react';
 import { Suspend } from 'src/modules/Plans/views/details/components';
 import {
-  InventoryNetwork,
+  type InventoryNetwork,
   useOpenShiftNetworks,
   useSourceNetworks,
 } from 'src/modules/Providers/hooks/useNetworks';
 import { MappingList } from 'src/modules/Providers/views/migrate/components/MappingList';
-import { Mapping } from 'src/modules/Providers/views/migrate/types';
+import { type Mapping } from 'src/modules/Providers/views/migrate/types';
 import { updateNetworkMapDestination } from 'src/modules/Providers/views/migrate/useSaveEffect';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
   NetworkMapModel,
-  OpenShiftNetworkAttachmentDefinition,
+  type OpenShiftNetworkAttachmentDefinition,
   ProviderModelGroupVersionKind,
-  V1beta1NetworkMap,
-  V1beta1NetworkMapSpecMap,
-  V1beta1NetworkMapSpecMapDestination,
-  V1beta1NetworkMapSpecMapSource,
-  V1beta1Provider,
+  type V1beta1NetworkMap,
+  type V1beta1NetworkMapSpecMap,
+  type V1beta1NetworkMapSpecMapDestination,
+  type V1beta1NetworkMapSpecMapSource,
+  type V1beta1Provider,
 } from '@kubev2v/types';
 import { k8sUpdate, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import {
@@ -29,7 +29,7 @@ import {
   Spinner,
 } from '@patternfly/react-core';
 
-import { mapsSectionReducer, MapsSectionState } from './state/reducer';
+import { mapsSectionReducer, type MapsSectionState } from './state/reducer';
 
 const initialState: MapsSectionState = {
   hasChanges: false,

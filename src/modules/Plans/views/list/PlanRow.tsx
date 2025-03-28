@@ -1,16 +1,16 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import { ConsoleTimestamp } from 'src/components';
 import { getResourceFieldValue } from 'src/components/common/FilterGroup/matchers';
-import { RowProps } from 'src/components/common/TableView/types';
+import { type RowProps } from 'src/components/common/TableView/types';
 import { TableCell } from 'src/modules/Providers/utils';
 
-import { ResourceField } from '@components/common/utils/types';
+import { type ResourceField } from '@components/common/utils/types';
 import { Td, Tr } from '@patternfly/react-table';
 
-import { PlanData } from '../../utils';
+import { type PlanData } from '../../utils';
 import {
   ActionsCell,
-  CellProps,
+  type CellProps,
   MigrationTypeCell,
   NamespaceCell,
   PlanCell,

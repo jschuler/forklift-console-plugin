@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { type FC, useState } from 'react';
 import { Loading } from 'src/components/common/Page/PageStates';
 import { calculateThumbprint, useTlsCertificate } from 'src/modules/Providers/hooks';
 import { useModal } from 'src/modules/Providers/modals';

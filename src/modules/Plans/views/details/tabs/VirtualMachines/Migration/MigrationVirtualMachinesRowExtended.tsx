@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom-v5-compat';
-import { RowProps } from 'src/components/common/TableView/types';
+import { type RowProps } from 'src/components/common/TableView/types';
 import { ConsoleTimestamp } from 'src/components/ConsoleTimestamp';
 import SectionHeading from 'src/components/headers/SectionHeading';
 import StatusIcon from 'src/components/status/StatusIcon';
@@ -9,9 +9,9 @@ import { getResourceUrl } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
-  IoK8sApiBatchV1Job,
-  IoK8sApiCoreV1Pod,
-  V1beta1PlanStatusMigrationVmsPipeline,
+  type IoK8sApiBatchV1Job,
+  type IoK8sApiCoreV1Pod,
+  type V1beta1PlanStatusMigrationVmsPipeline,
 } from '@kubev2v/types';
 import { ResourceLink } from '@openshift-console/dynamic-plugin-sdk';
 import Status from '@openshift-console/dynamic-plugin-sdk/lib/app/components/status/Status';
@@ -29,7 +29,7 @@ import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 
 import { hasTaskCompleted } from '../../../utils';
 import { PipelineTasksModal } from '../modals';
-import { VMData } from '../types';
+import { type VMData } from '../types';
 import { getIcon, getVariant } from './MigrationVirtualMachinesRow';
 
 export const MigrationVirtualMachinesRowExtended: React.FC<RowProps<VMData>> = (props) => {

@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 
-import { Alert, AlertActionCloseButton, AlertVariant } from '@patternfly/react-core';
+import { Alert, AlertActionCloseButton, type AlertVariant } from '@patternfly/react-core';
 
 export const StateAlerts: FC<{
   variant: AlertVariant;

@@ -1,12 +1,12 @@
 import React from 'react';
 import { EnumToTuple } from 'src/components/common/FilterGroup/helpers';
 
-import { ResourceFieldFactory } from '@components/common/utils/types';
-import { VSphereVM } from '@kubev2v/types';
+import { type ResourceFieldFactory } from '@components/common/utils/types';
+import { type VSphereVM } from '@kubev2v/types';
 
 import { concernFilter, VsphereHostFilter } from './utils/filters';
-import { ProviderVirtualMachinesList, VmData } from './components';
-import { ProviderVirtualMachinesProps } from './ProviderVirtualMachines';
+import { ProviderVirtualMachinesList, type VmData } from './components';
+import { type ProviderVirtualMachinesProps } from './ProviderVirtualMachines';
 import { getVmPowerState, useVSphereInventoryVms } from './utils';
 import { VSphereVirtualMachinesCells } from './VSphereVirtualMachinesRow';
 

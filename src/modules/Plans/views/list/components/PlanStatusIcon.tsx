@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlanPhase } from 'src/modules/Plans/utils';
+import { type PlanPhase } from 'src/modules/Plans/utils';
 
 import { Spinner } from '@patternfly/react-core';
 import {

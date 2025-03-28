@@ -1,4 +1,4 @@
-import { HookModel, NetworkMapModel, StorageMapModel, V1beta1Plan } from '@kubev2v/types';
+import { HookModel, NetworkMapModel, StorageMapModel, type V1beta1Plan } from '@kubev2v/types';
 import { useAccessReview } from '@openshift-console/dynamic-plugin-sdk';
 
 export const canDeleteAndPatchPlanMaps = (plan: V1beta1Plan) => {

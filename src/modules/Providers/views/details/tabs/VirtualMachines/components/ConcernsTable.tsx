@@ -1,5 +1,5 @@
 import React from 'react';
-import { RowProps } from 'src/components/common/TableView/types';
+import { type RowProps } from 'src/components/common/TableView/types';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { HelperText, HelperTextItem, Label, PageSection } from '@patternfly/react-core';
@@ -11,7 +11,7 @@ import {
   getCategoryTitle,
   groupConcernsByCategory,
 } from '../utils';
-import { VmData } from './VMCellProps';
+import { type VmData } from './VMCellProps';
 
 /**
  * React Component to display a table of concerns.

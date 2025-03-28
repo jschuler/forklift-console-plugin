@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { K8sGroupVersionKind, ResourceLink } from '@openshift-console/dynamic-plugin-sdk';
+import { type K8sGroupVersionKind, ResourceLink } from '@openshift-console/dynamic-plugin-sdk';
 
-import { TableLabelCell, TableLabelCellProps } from './TableLabelCell';
+import { TableLabelCell, type TableLabelCellProps } from './TableLabelCell';
 
 /**
  * A component that displays a resource link, with an optional label.

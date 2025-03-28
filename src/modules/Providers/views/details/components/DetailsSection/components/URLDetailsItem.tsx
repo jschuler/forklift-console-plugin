@@ -2,11 +2,11 @@ import React from 'react';
 import { EditProviderURLModal, useModal } from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { IoK8sApiCoreV1Secret } from '@kubev2v/types';
+import { type IoK8sApiCoreV1Secret } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 import { DetailsItem } from '../../../../../utils';
-import { ProviderDetailsItemProps } from './ProviderDetailsItem';
+import { type ProviderDetailsItemProps } from './ProviderDetailsItem';
 
 export const URLDetailsItem: React.FC<ProviderDetailsItemProps> = ({
   canPatch,

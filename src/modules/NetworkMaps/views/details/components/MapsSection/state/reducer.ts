@@ -1,6 +1,6 @@
 import { deepCopy } from 'src/utils';
 
-import { V1beta1NetworkMap, V1beta1NetworkMapSpecMap } from '@kubev2v/types';
+import { type V1beta1NetworkMap, type V1beta1NetworkMapSpecMap } from '@kubev2v/types';
 
 export interface MapsSectionState {
   networkMap: V1beta1NetworkMap | null;

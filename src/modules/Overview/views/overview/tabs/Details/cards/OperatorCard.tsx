@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import { ConsoleTimestamp } from 'src/components/ConsoleTimestamp';
 import { getOperatorPhase } from 'src/modules/Overview/utils/helpers/getOperatorPhase';
 import { DetailsItem } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { V1beta1ForkliftController } from '@kubev2v/types';
+import { type V1beta1ForkliftController } from '@kubev2v/types';
 import { ResourceLink } from '@openshift-console/dynamic-plugin-sdk';
 import {
   Card,

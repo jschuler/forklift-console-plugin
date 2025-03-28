@@ -1,6 +1,6 @@
 import { Namespace } from 'src/utils';
 
-import { K8sGroupVersionKind } from '@openshift-console/dynamic-plugin-sdk';
+import { type K8sGroupVersionKind } from '@openshift-console/dynamic-plugin-sdk';
 
 /**
  * Provides resource url.

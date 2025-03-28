@@ -1,20 +1,20 @@
-import React, { ReactNode, useReducer, useState } from 'react';
+import React, { type ReactNode, useReducer, useState } from 'react';
 import { universalComparator } from 'src/components/common/TableView/sort';
 import { isPlanEditable } from 'src/modules/Plans/utils';
-import { InventoryNetwork } from 'src/modules/Providers/hooks/useNetworks';
-import { InventoryStorage } from 'src/modules/Providers/hooks/useStorages';
+import { type InventoryNetwork } from 'src/modules/Providers/hooks/useNetworks';
+import { type InventoryStorage } from 'src/modules/Providers/hooks/useStorages';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
   NetworkMapModelGroupVersionKind,
-  OpenShiftNetworkAttachmentDefinition,
-  OpenShiftStorageClass,
+  type OpenShiftNetworkAttachmentDefinition,
+  type OpenShiftStorageClass,
   StorageMapModelGroupVersionKind,
-  V1beta1NetworkMap,
-  V1beta1NetworkMapSpecMap,
-  V1beta1Plan,
-  V1beta1StorageMap,
-  V1beta1StorageMapSpecMap,
+  type V1beta1NetworkMap,
+  type V1beta1NetworkMapSpecMap,
+  type V1beta1Plan,
+  type V1beta1StorageMap,
+  type V1beta1StorageMapSpecMap,
 } from '@kubev2v/types';
 import { ResourceLink } from '@openshift-console/dynamic-plugin-sdk';
 import {
@@ -33,7 +33,7 @@ import {
 } from '@patternfly/react-core';
 import Pencil from '@patternfly/react-icons/dist/esm/icons/pencil-alt-icon';
 
-import { Mapping, MappingList } from '../../components';
+import { type Mapping, MappingList } from '../../components';
 import {
   canDeleteAndPatchPlanMaps,
   hasPlanMappingsChanged,

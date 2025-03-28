@@ -3,7 +3,7 @@ import { ConsoleTimestamp } from 'src/components/ConsoleTimestamp';
 import { DetailsItem } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { NetworkDetailsItemProps } from './NetworkDetailsItemProps';
+import { type NetworkDetailsItemProps } from './NetworkDetailsItemProps';
 
 export const CreatedAtDetailsItem: React.FC<NetworkDetailsItemProps> = ({
   helpContent,

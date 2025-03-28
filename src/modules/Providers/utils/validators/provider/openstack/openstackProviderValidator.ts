@@ -1,6 +1,6 @@
-import { V1beta1Provider } from '@kubev2v/types';
+import { type V1beta1Provider } from '@kubev2v/types';
 
-import { validateK8sName, validateURL, ValidationMsg } from '../../common';
+import { validateK8sName, validateURL, type ValidationMsg } from '../../common';
 
 export function openstackProviderValidator(provider: V1beta1Provider): ValidationMsg {
   const name = provider?.metadata?.name;

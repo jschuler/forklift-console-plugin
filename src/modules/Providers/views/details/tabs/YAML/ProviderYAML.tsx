@@ -1,8 +1,8 @@
 import React from 'react';
-import { ProviderData } from 'src/modules/Providers/utils';
+import { type ProviderData } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { ProviderModelGroupVersionKind, V1beta1Provider } from '@kubev2v/types';
+import { ProviderModelGroupVersionKind, type V1beta1Provider } from '@kubev2v/types';
 import { ResourceYAMLEditor, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { Bullseye } from '@patternfly/react-core';
 

@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
-import { V1beta1StorageMap } from '@kubev2v/types';
+import { type V1beta1StorageMap } from '@kubev2v/types';
 
 export interface StorageDetailsItemProps {
   resource: V1beta1StorageMap;

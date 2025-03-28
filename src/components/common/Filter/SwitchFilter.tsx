@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Switch, ToolbarItem } from '@patternfly/react-core';
 
-import { FilterTypeProps } from './types';
+import { type FilterTypeProps } from './types';
 
 /**
  * Simple boolean filter without support for filter chips.

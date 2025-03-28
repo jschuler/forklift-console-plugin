@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
-import { TableLabelCell, TableLabelCellProps } from './TableLabelCell';
+import { TableLabelCell, type TableLabelCellProps } from './TableLabelCell';
 
 /**
  * A component that displays a table cell, with an optional icon.

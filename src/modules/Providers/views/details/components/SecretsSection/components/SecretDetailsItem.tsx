@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { V1beta1Provider } from '@kubev2v/types';
+import { type V1beta1Provider } from '@kubev2v/types';
 import { ResourceLink } from '@openshift-console/dynamic-plugin-sdk';
 
 import { DetailsItem } from '../../../../../utils';

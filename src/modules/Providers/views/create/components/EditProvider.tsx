@@ -14,7 +14,7 @@ import { OpenshiftProviderFormCreate } from './OpenshiftProviderCreateForm';
 import { OpenstackProviderCreateForm } from './OpenstackProviderCreateForm';
 import { OVAProviderCreateForm } from './OVAProviderCreateForm';
 import { OvirtProviderCreateForm } from './OvirtProviderCreateForm';
-import { ProvidersCreateFormProps } from './ProviderCreateForm';
+import { type ProvidersCreateFormProps } from './ProviderCreateForm';
 import { VCenterProviderCreateForm } from './VCenterProviderCreateForm';
 
 export const EditProvider: React.FC<ProvidersCreateFormProps> = ({

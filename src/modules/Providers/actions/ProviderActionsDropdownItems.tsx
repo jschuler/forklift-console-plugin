@@ -6,7 +6,7 @@ import { ProviderModel, ProviderModelRef } from '@kubev2v/types';
 import { DropdownItem } from '@patternfly/react-core';
 
 import { DeleteModal, useModal } from '../modals';
-import { getResourceUrl, ProviderData } from '../utils';
+import { getResourceUrl, type ProviderData } from '../utils';
 
 export const ProviderActionsDropdownItems = ({ data }: ProviderActionsDropdownItemsProps) => {
   const { t } = useForkliftTranslation();

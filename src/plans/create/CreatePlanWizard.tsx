@@ -1,7 +1,7 @@
-import React, { FC, useState } from 'react';
+import React, { type FC, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
-import { Form, Title, Wizard, WizardStep, WizardStepType } from '@patternfly/react-core';
+import { Form, Title, Wizard, WizardStep, type WizardStepType } from '@patternfly/react-core';
 import { isEmpty } from '@utils/helpers';
 import { useForkliftTranslation } from '@utils/i18n';
 

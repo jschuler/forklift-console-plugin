@@ -1,10 +1,10 @@
 import {
   NetworkMapModel,
   StorageMapModel,
-  V1beta1NetworkMap,
-  V1beta1NetworkMapSpecMap,
-  V1beta1StorageMap,
-  V1beta1StorageMapSpecMap,
+  type V1beta1NetworkMap,
+  type V1beta1NetworkMapSpecMap,
+  type V1beta1StorageMap,
+  type V1beta1StorageMapSpecMap,
 } from '@kubev2v/types';
 import { k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 

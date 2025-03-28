@@ -1,7 +1,7 @@
-import { ProviderInventory, V1beta1Provider } from '@kubev2v/types';
+import { type ProviderInventory, type V1beta1Provider } from '@kubev2v/types';
 
-import { VmData } from '../../views';
-import { ProvidersPermissionStatus } from './ProvidersPermissionStatus';
+import { type VmData } from '../../views';
+import { type ProvidersPermissionStatus } from './ProvidersPermissionStatus';
 
 export interface ProviderData {
   provider?: V1beta1Provider;

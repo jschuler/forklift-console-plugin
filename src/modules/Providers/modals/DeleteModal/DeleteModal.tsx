@@ -1,12 +1,12 @@
-import React, { ReactNode, useCallback, useState } from 'react';
+import React, { type ReactNode, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom-v5-compat';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
 import {
   k8sDelete,
-  K8sGroupVersionKind,
-  K8sModel,
-  K8sResourceCommon,
+  type K8sGroupVersionKind,
+  type K8sModel,
+  type K8sResourceCommon,
 } from '@openshift-console/dynamic-plugin-sdk';
 import { Button, Modal, ModalVariant } from '@patternfly/react-core';
 

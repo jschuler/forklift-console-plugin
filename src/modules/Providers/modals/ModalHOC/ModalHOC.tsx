@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useCallback, useContext, useMemo, useState } from 'react';
+import React, { createContext, type ReactNode, useCallback, useContext, useMemo, useState } from 'react';
 
 import { useToggle } from '../../hooks';
 

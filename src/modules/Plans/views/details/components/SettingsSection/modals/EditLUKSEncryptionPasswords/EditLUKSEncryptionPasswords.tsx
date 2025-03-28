@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { InputList, LazyTextInput } from 'src/components';
-import { EditModal, EditModalProps, ModalInputComponentType } from 'src/modules/Providers/modals';
+import { EditModal, type EditModalProps, type ModalInputComponentType } from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
-  IoK8sApiCoreV1Secret,
-  Modify,
+  type IoK8sApiCoreV1Secret,
+  type Modify,
   PlanModel,
-  V1beta1Plan,
-  V1beta1Provider,
+  type V1beta1Plan,
+  type V1beta1Provider,
 } from '@kubev2v/types';
-import { K8sModel, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
+import { type K8sModel, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 import { editLUKSModalAlert } from './editLUKSModalAlert';
 import { editLUKSModalBody } from './editLUKSModalBody';

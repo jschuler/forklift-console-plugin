@@ -2,7 +2,7 @@ import React from 'react';
 import { InventoryNotReachable } from 'src/modules/Providers/views/list/components';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { HorizontalNav, K8sModel } from '@openshift-console/dynamic-plugin-sdk';
+import { HorizontalNav, type K8sModel } from '@openshift-console/dynamic-plugin-sdk';
 import { PageSection } from '@patternfly/react-core';
 
 import OperatorStatus from './components/OperatorStatus';

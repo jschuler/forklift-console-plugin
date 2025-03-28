@@ -1,12 +1,12 @@
 import React from 'react';
-import { EditModal, ModalInputComponentType } from 'src/modules/Providers/modals';
+import { EditModal, type ModalInputComponentType } from 'src/modules/Providers/modals';
 import { defaultOnConfirmWithIntValue } from 'src/modules/Providers/modals/EditModal/utils/defaultOnConfirm';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { ForkliftControllerModel } from '@kubev2v/types';
 import { ModalVariant } from '@patternfly/react-core';
 
-import { EditSettingsModalProps } from './EditSettingsModalProps';
+import { type EditSettingsModalProps } from './EditSettingsModalProps';
 import SettingsSelectInput from './SettingsSelectInput';
 
 // Define the options

@@ -12,7 +12,7 @@ import {
   DataListItemRow,
   DragDrop,
   Draggable,
-  DraggableItemPosition,
+  type DraggableItemPosition,
   Droppable,
   Modal,
   Text,
@@ -20,7 +20,7 @@ import {
   TextVariants,
 } from '@patternfly/react-core';
 
-import { ResourceField } from '../utils';
+import { type ResourceField } from '../utils';
 
 export interface ManagedColumnsProps {
   /**

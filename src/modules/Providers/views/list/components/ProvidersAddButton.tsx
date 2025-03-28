@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import { useHistory } from 'react-router';
 import { getResourceUrl } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { ProviderModelRef } from '@kubev2v/types';
-import { Button, ButtonProps, ButtonVariant } from '@patternfly/react-core';
+import { Button, type ButtonProps, ButtonVariant } from '@patternfly/react-core';
 
 type ProvidersAddButtonProps = {
   namespace?: string;

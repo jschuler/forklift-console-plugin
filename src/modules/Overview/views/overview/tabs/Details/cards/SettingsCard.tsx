@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import {
   EditControllerCPULimitModal,
   EditControllerMemoryLimitModal,
@@ -11,7 +11,7 @@ import { ModalHOC, useModal } from 'src/modules/Providers/modals';
 import { DetailsItem } from 'src/modules/Providers/utils';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
-import { V1beta1ForkliftController } from '@kubev2v/types';
+import { type V1beta1ForkliftController } from '@kubev2v/types';
 import { Card, CardBody, CardTitle, DescriptionList, Text } from '@patternfly/react-core';
 
 type SettingsCardProps = {

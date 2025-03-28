@@ -1,9 +1,9 @@
-import React, { FormEvent, useState } from 'react';
+import React, { type FormEvent, useState } from 'react';
 
 import { DatePicker, InputGroup, ToolbarFilter } from '@patternfly/react-core';
 
 import { changeFormatToISODate, isValidDate, parseISOtoJSDate, toISODate } from '../utils';
-import { FilterTypeProps } from './types';
+import { type FilterTypeProps } from './types';
 
 /**
  * This Filter type enables selecting a single date (a day).

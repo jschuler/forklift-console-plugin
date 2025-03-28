@@ -1,18 +1,18 @@
-import React, { MouseEvent as ReactMouseEvent, Ref, useMemo, useState } from 'react';
+import React, { type MouseEvent as ReactMouseEvent, type Ref, useMemo, useState } from 'react';
 
 import {
   Badge,
   MenuToggle,
-  MenuToggleElement,
+  type MenuToggleElement,
   Select,
   SelectList,
   SelectOption,
-  ToolbarChip,
+  type ToolbarChip,
   ToolbarFilter,
 } from '@patternfly/react-core';
 
 import { localeCompare } from '../utils';
-import { FilterTypeProps } from './types';
+import { type FilterTypeProps } from './types';
 
 /**
  * One label may map to multiple enum ids due to translation or by design (i.e. "Unknown")

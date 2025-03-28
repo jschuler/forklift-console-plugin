@@ -6,15 +6,15 @@ import {
   ModalHOC,
   useModal,
 } from 'src/modules/Providers/modals';
-import { ProviderData } from 'src/modules/Providers/utils';
+import { type ProviderData } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
-  CnoConfig,
-  OpenShiftNetworkAttachmentDefinition,
+  type CnoConfig,
+  type OpenShiftNetworkAttachmentDefinition,
   ProviderModel,
   ProviderModelGroupVersionKind,
-  V1beta1Provider,
+  type V1beta1Provider,
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { Button, Label, PageSection } from '@patternfly/react-core';

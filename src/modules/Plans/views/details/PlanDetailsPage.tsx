@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { ModalHOC } from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { HorizontalNav, K8sModel } from '@openshift-console/dynamic-plugin-sdk';
+import { HorizontalNav, type K8sModel } from '@openshift-console/dynamic-plugin-sdk';
 
 import { PlanPageHeadings } from './components';
 import {

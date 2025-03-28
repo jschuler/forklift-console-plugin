@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MigrationModelGroupVersionKind, V1beta1Migration, V1beta1Plan } from '@kubev2v/types';
+import { MigrationModelGroupVersionKind, type V1beta1Migration, type V1beta1Plan } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 import { Suspend } from '../Suspend';

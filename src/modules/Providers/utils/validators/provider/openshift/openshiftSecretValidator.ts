@@ -1,9 +1,9 @@
 import { Base64 } from 'js-base64';
 
-import { IoK8sApiCoreV1Secret, V1beta1Provider } from '@kubev2v/types';
+import { type IoK8sApiCoreV1Secret, type V1beta1Provider } from '@kubev2v/types';
 
 import { validateUrlAndTokenExistence } from '../../../helpers/validateUrlAndTokenExistence';
-import { ValidationMsg } from '../../common';
+import { type ValidationMsg } from '../../common';
 import { openshiftSecretFieldValidator } from './openshiftSecretFieldValidator';
 
 export function openshiftSecretValidator(

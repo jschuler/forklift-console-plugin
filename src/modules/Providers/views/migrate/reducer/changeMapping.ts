@@ -1,4 +1,4 @@
-import { Mapping, MappingSource } from '../types';
+import { type Mapping, type MappingSource } from '../types';
 
 export const addMapping = (sources: MappingSource[], targets: string[], mappings: Mapping[]) => {
   const firstUsedByVms = sources.find(

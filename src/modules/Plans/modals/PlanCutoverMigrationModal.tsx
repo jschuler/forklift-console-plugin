@@ -1,9 +1,9 @@
-import React, { ReactNode, useCallback, useEffect, useState } from 'react';
+import React, { type ReactNode, useCallback, useEffect, useState } from 'react';
 import { useToggle } from 'src/modules/Providers/hooks';
 import { AlertMessageForModals, useModal } from 'src/modules/Providers/modals';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
-import { MigrationModel, V1beta1Migration, V1beta1Plan } from '@kubev2v/types';
+import { MigrationModel, type V1beta1Migration, type V1beta1Plan } from '@kubev2v/types';
 import { k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 import {
   Button,

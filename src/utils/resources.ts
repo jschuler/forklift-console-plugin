@@ -1,5 +1,5 @@
-import { V1beta1Provider } from '@kubev2v/types';
-import { K8sResourceCommon } from '@openshift-console/dynamic-plugin-sdk';
+import { type V1beta1Provider } from '@kubev2v/types';
+import { type K8sResourceCommon } from '@openshift-console/dynamic-plugin-sdk';
 
 /**
  * Get reference group version kind string for group version kind strings

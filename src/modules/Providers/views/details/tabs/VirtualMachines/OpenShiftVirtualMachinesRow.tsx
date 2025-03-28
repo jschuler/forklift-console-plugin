@@ -1,13 +1,13 @@
 import React from 'react';
-import { RowProps } from 'src/components/common/TableView/types';
+import { type RowProps } from 'src/components/common/TableView/types';
 import { TableCell } from 'src/modules/Providers/utils';
 
-import { ResourceField } from '@components/common/utils/types';
+import { type ResourceField } from '@components/common/utils/types';
 import { Td } from '@patternfly/react-table';
 
 import { PowerStateCellRenderer } from './components/PowerStateCellRenderer';
 import { withResourceLink } from './components/VmResourceLinkRenderer';
-import { VMCellProps, VmData, VmFeaturesCell } from './components';
+import { type VMCellProps, type VmData, VmFeaturesCell } from './components';
 import { getVmTemplate } from './utils';
 
 const toNamespace = ({ data }: VMCellProps) =>

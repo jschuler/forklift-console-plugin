@@ -1,14 +1,14 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 
 import {
   Button,
   Divider,
   MenuToggle,
-  MenuToggleElement,
+  type MenuToggleElement,
   Select,
   SelectList,
   SelectOption,
-  SelectOptionProps,
+  type SelectOptionProps,
   Text,
   TextInputGroup,
   TextInputGroupMain,

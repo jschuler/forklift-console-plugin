@@ -1,9 +1,9 @@
 import { Base64 } from 'js-base64';
 
-import { IoK8sApiCoreV1Secret } from '@kubev2v/types';
+import { type IoK8sApiCoreV1Secret } from '@kubev2v/types';
 
 import { missingKeysInSecretData } from '../../../helpers';
-import { ValidationMsg } from '../../common';
+import { type ValidationMsg } from '../../common';
 import { vcenterSecretFieldValidator } from './vcenterSecretFieldValidator';
 
 export function vcenterSecretValidator(secret: IoK8sApiCoreV1Secret): ValidationMsg {

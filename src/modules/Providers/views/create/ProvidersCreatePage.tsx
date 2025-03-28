@@ -6,7 +6,7 @@ import { Namespace } from 'src/utils/constants';
 import { useForkliftTranslation } from 'src/utils/i18n';
 import { getDefaultNamespace } from 'src/utils/namespaces';
 
-import { IoK8sApiCoreV1Secret, ProviderModelRef, V1beta1Provider } from '@kubev2v/types';
+import { type IoK8sApiCoreV1Secret, ProviderModelRef, type V1beta1Provider } from '@kubev2v/types';
 import { useActiveNamespace } from '@openshift-console/dynamic-plugin-sdk';
 import {
   Alert,
@@ -20,7 +20,7 @@ import {
 } from '@patternfly/react-core';
 
 import { useK8sWatchProviderNames, useToggle } from '../../hooks';
-import { getResourceUrl, ValidationMsg } from '../../utils';
+import { getResourceUrl, type ValidationMsg } from '../../utils';
 import { providerAndSecretValidator } from '../../utils/validators/provider/providerAndSecretValidator';
 import { ProvidersCreateForm } from './components';
 import { providerTemplate, secretTemplate } from './templates';

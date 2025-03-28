@@ -1,48 +1,48 @@
-import { Draft } from 'immer';
+import { type Draft } from 'immer';
 import { isProviderLocalOpenshift } from 'src/utils/resources';
 
-import { ProviderType } from '@kubev2v/types';
+import { type ProviderType } from '@kubev2v/types';
 
 import { getIsTarget } from '../../../utils';
 import { toId } from '../../details';
 import {
-  CreateVmMigrationPageState,
-  Mapping,
+  type CreateVmMigrationPageState,
+  type Mapping,
   MULTIPLE_NICS_ON_THE_SAME_NETWORK,
   OVIRT_NICS_WITH_EMPTY_PROFILE,
 } from '../types';
 import {
   ADD_NETWORK_MAPPING,
   ADD_STORAGE_MAPPING,
-  CreateVmMigration,
+  type CreateVmMigration,
   DEFAULT_NAMESPACE,
   DELETE_NETWORK_MAPPING,
   DELETE_STORAGE_MAPPING,
   INIT,
-  PageAction,
-  PlanAlert,
-  PlanAvailableProviders,
-  PlanAvailableSourceNetworks,
-  PlanAvailableSourceStorages,
-  PlanAvailableTargetNamespaces,
-  PlanAvailableTargetNetworks,
-  PlanAvailableTargetStorages,
-  PlanDisks,
-  PlanError,
-  PlanExistingNetMaps,
-  PlanExistingPlans,
-  PlanExistingStorageMaps,
-  PlanMapping,
-  PlanName,
-  PlanNicProfiles,
-  PlanTargetNamespace,
-  PlanTargetProvider,
+  type PageAction,
+  type PlanAlert,
+  type PlanAvailableProviders,
+  type PlanAvailableSourceNetworks,
+  type PlanAvailableSourceStorages,
+  type PlanAvailableTargetNamespaces,
+  type PlanAvailableTargetNetworks,
+  type PlanAvailableTargetStorages,
+  type PlanDisks,
+  type PlanError,
+  type PlanExistingNetMaps,
+  type PlanExistingPlans,
+  type PlanExistingStorageMaps,
+  type PlanMapping,
+  type PlanName,
+  type PlanNicProfiles,
+  type PlanTargetNamespace,
+  type PlanTargetProvider,
   POD_NETWORK,
-  ProjectName,
+  type ProjectName,
   REMOVE_ALERT,
   REPLACE_NETWORK_MAPPING,
   REPLACE_STORAGE_MAPPING,
-  SelectedVms,
+  type SelectedVms,
   SET_API_ERROR,
   SET_AVAILABLE_PROVIDERS,
   SET_AVAILABLE_SOURCE_NETWORKS,
@@ -61,11 +61,11 @@ import {
   SET_SOURCE_PROVIDER,
   SET_TARGET_NAMESPACE,
   SET_TARGET_PROVIDER,
-  SourceProvider,
+  type SourceProvider,
   START_CREATE,
 } from './actions';
 import { addMapping, deleteMapping, replaceMapping } from './changeMapping';
-import { createInitialState, InitialStateParameters } from './createInitialState';
+import { createInitialState, type InitialStateParameters } from './createInitialState';
 import { getNamespacesUsedBySelectedVms } from './getNamespacesUsedBySelectedVms';
 import { getNetworksUsedBySelectedVms } from './getNetworksUsedBySelectedVMs';
 import { getStoragesUsedBySelectedVms } from './getStoragesUsedBySelectedVMs';

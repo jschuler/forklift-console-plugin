@@ -1,5 +1,5 @@
 import { openshiftLogo, openstackLogo, redhatLogo, vmLogo } from 'src/components/images/logos';
-import { SelectableGalleryItem } from 'src/modules/Providers/utils/components/Gallery/SelectableGallery';
+import { type SelectableGalleryItem } from 'src/modules/Providers/utils/components/Gallery/SelectableGallery';
 
 export const providerCardItems: Record<string, SelectableGalleryItem> = {
   openshift: {

@@ -1,9 +1,9 @@
-import React, { MouseEvent as ReactMouseEvent, Ref, useState } from 'react';
+import React, { type MouseEvent as ReactMouseEvent, type Ref, useState } from 'react';
 
 import {
   Badge,
   MenuToggle,
-  MenuToggleElement,
+  type MenuToggleElement,
   Select,
   SelectGroup,
   SelectList,
@@ -12,7 +12,7 @@ import {
 } from '@patternfly/react-core';
 import { FilterIcon } from '@patternfly/react-icons';
 
-import { FilterTypeProps } from './types';
+import { type FilterTypeProps } from './types';
 
 /**
  * This Filter type enables selecting one or many enum values that are separated by groups.

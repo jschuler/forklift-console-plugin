@@ -1,7 +1,7 @@
 import React from 'react';
 import { TableLinkCell } from 'src/modules/Providers/utils';
 
-import { CellProps } from './CellProps';
+import { type CellProps } from './CellProps';
 
 /**
  * NamespaceCell component, used for displaying a link cell with information about the namespace.

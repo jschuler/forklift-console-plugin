@@ -1,23 +1,23 @@
 import { getDefaultNamespace } from 'src/utils/namespaces';
 
 import {
-  OpenShiftNamespace,
-  OpenShiftNetworkAttachmentDefinition,
-  OpenShiftStorageClass,
-  OpenstackVolume,
-  OVirtDisk,
-  OVirtNicProfile,
-  V1beta1NetworkMap,
-  V1beta1Plan,
-  V1beta1Provider,
-  V1beta1StorageMap,
+  type OpenShiftNamespace,
+  type OpenShiftNetworkAttachmentDefinition,
+  type OpenShiftStorageClass,
+  type OpenstackVolume,
+  type OVirtDisk,
+  type OVirtNicProfile,
+  type V1beta1NetworkMap,
+  type V1beta1Plan,
+  type V1beta1Provider,
+  type V1beta1StorageMap,
 } from '@kubev2v/types';
 
-import { InventoryNetwork } from '../../../hooks/useNetworks';
-import { InventoryStorage } from '../../../hooks/useStorages';
-import { VmData } from '../../details';
-import { Mapping, NetworkAlerts, StorageAlerts } from '../types';
-import { InitialStateParameters } from './createInitialState';
+import { type InventoryNetwork } from '../../../hooks/useNetworks';
+import { type InventoryStorage } from '../../../hooks/useStorages';
+import { type VmData } from '../../details';
+import { type Mapping, type NetworkAlerts, type StorageAlerts } from '../types';
+import { type InitialStateParameters } from './createInitialState';
 
 export const POD_NETWORK = 'Pod Networking';
 export const DEFAULT_NAMESPACE = getDefaultNamespace();

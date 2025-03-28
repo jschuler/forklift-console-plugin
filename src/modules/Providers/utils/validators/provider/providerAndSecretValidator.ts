@@ -1,6 +1,6 @@
-import { IoK8sApiCoreV1Secret, V1beta1Provider } from '@kubev2v/types';
+import { type IoK8sApiCoreV1Secret, type V1beta1Provider } from '@kubev2v/types';
 
-import { ValidationMsg } from '../common';
+import { type ValidationMsg } from '../common';
 import { providerValidator } from './providerValidator';
 import { secretValidator } from './secretValidator';
 

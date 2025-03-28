@@ -1,8 +1,8 @@
-import React, { MouseEvent as ReactMouseEvent, Ref, useState } from 'react';
+import React, { type MouseEvent as ReactMouseEvent, type Ref, useState } from 'react';
 
 import {
   MenuToggle,
-  MenuToggleElement,
+  type MenuToggleElement,
   Select,
   SelectList,
   SelectOption,
@@ -11,7 +11,7 @@ import {
 } from '@patternfly/react-core';
 
 import { FilterFromDef } from './FilterFromDef';
-import { MetaFilterProps } from './types';
+import { type MetaFilterProps } from './types';
 
 /**
  * This is an implementation of [<font>``PatternFly 4`` attribute-value filter</font>](https://www.patternfly.org/v4/demos/filters/design-guidelines/#attribute-value-filter) pattern,

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { OVirtNicProfile, V1beta1Provider } from '@kubev2v/types';
+import { type OVirtNicProfile, type V1beta1Provider } from '@kubev2v/types';
 
 import useProviderInventory from './useProviderInventory';
 

@@ -1,7 +1,7 @@
-import React, { FC, Ref, useState } from 'react';
+import React, { type FC, type Ref, useState } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { MigrationModelGroupVersionKind, V1beta1Migration } from '@kubev2v/types';
+import { MigrationModelGroupVersionKind, type V1beta1Migration } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { Chart, ChartAxis, ChartBar, ChartGroup, ChartTooltip } from '@patternfly/react-charts';
 import {
@@ -14,7 +14,7 @@ import {
   DropdownList,
   Flex,
   MenuToggle,
-  MenuToggleElement,
+  type MenuToggleElement,
 } from '@patternfly/react-core';
 import { EllipsisVIcon } from '@patternfly/react-icons';
 import chart_color_blue_200 from '@patternfly/react-tokens/dist/esm/chart_color_blue_200';
@@ -22,8 +22,8 @@ import chart_color_green_400 from '@patternfly/react-tokens/dist/esm/chart_color
 import chart_color_red_100 from '@patternfly/react-tokens/dist/esm/chart_color_red_100';
 
 import { TimeRangeOptions, TimeRangeOptionsDictionary } from '../utils/timeRangeOptions';
-import { MigrationDataPoint, toDataPoints } from '../utils/toDataPointsHelper';
-import { MigrationsCardProps } from './MigrationsCard';
+import { type MigrationDataPoint, toDataPoints } from '../utils/toDataPointsHelper';
+import { type MigrationsCardProps } from './MigrationsCard';
 
 const toStartedMigration = (m: V1beta1Migration): string => m.status.started;
 const toFinishedMigration = (m: V1beta1Migration): string => m.status.completed;

@@ -1,8 +1,8 @@
 import React, {
-  Dispatch,
-  FunctionComponent,
-  MouseEvent as ReactMouseEvent,
-  Ref,
+  type Dispatch,
+  type FunctionComponent,
+  type MouseEvent as ReactMouseEvent,
+  type Ref,
   useState,
 } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
@@ -10,7 +10,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import {
   Badge,
   MenuToggle,
-  MenuToggleElement,
+  type MenuToggleElement,
   Select,
   SelectList,
   SelectOption,
@@ -18,7 +18,7 @@ import {
 import FilterIcon from '@patternfly/react-icons/dist/esm/icons/filter-icon';
 
 import providerTypes from '../constanats/providerTypes';
-import { PlanCreatePageState } from '../states';
+import { type PlanCreatePageState } from '../states';
 
 export interface SelectProviderProps {
   filterState: PlanCreatePageState;

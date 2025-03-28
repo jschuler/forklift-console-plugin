@@ -8,7 +8,7 @@ import { Button, InputGroup, TextInput } from '@patternfly/react-core';
 import EyeIcon from '@patternfly/react-icons/dist/esm/icons/eye-icon';
 import EyeSlashIcon from '@patternfly/react-icons/dist/esm/icons/eye-slash-icon';
 
-import { EditComponentProps } from '../../BaseCredentialsSection';
+import { type EditComponentProps } from '../../BaseCredentialsSection';
 import { OpenstackSecretFieldId } from './constants';
 
 export const ApplicationCredentialNameSecretFieldsFormGroup: React.FC<EditComponentProps> = ({

@@ -1,4 +1,4 @@
-import { validateNoSpaces, validatePublicCert, ValidationMsg } from '../../common';
+import { validateNoSpaces, validatePublicCert, type ValidationMsg } from '../../common';
 
 /**
  * Validates form input fields based on their id.

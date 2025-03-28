@@ -1,7 +1,7 @@
-import React, { FC, Ref, useState } from 'react';
+import React, { type FC, type Ref, useState } from 'react';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
-import { V1beta1ForkliftController } from '@kubev2v/types';
+import { type V1beta1ForkliftController } from '@kubev2v/types';
 import {
   Card,
   CardBody,
@@ -16,7 +16,7 @@ import {
   DropdownItem,
   DropdownList,
   MenuToggle,
-  MenuToggleElement,
+  type MenuToggleElement,
 } from '@patternfly/react-core';
 import { EllipsisVIcon } from '@patternfly/react-icons';
 

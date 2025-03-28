@@ -7,7 +7,7 @@ import { PageHeadings } from 'src/modules/Providers/utils';
 import {
   NetworkMapModel,
   NetworkMapModelGroupVersionKind,
-  V1beta1NetworkMap,
+  type V1beta1NetworkMap,
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { PageSection } from '@patternfly/react-core';

@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react';
 
-import { ThSortType } from '@patternfly/react-table/dist/esm/components/Table/base/types';
+import { type ThSortType } from '@patternfly/react-table/dist/esm/components/Table/base/types';
 
 import { getResourceFieldValue } from '../FilterGroup';
-import { localeCompare, ResourceField } from '../utils';
-import { SortType } from './types';
+import { localeCompare, type ResourceField } from '../utils';
+import { type SortType } from './types';
 
 /**
  * Compares all types by converting them to string.

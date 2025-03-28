@@ -2,8 +2,8 @@ import React from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
-  K8sResourceCommon,
-  OwnerReference,
+  type K8sResourceCommon,
+  type OwnerReference,
   ResourceLink,
 } from '@openshift-console/dynamic-plugin-sdk';
 

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { Link } from 'react-router-dom-v5-compat';
 
 import { DropdownItem } from '@patternfly/react-core';

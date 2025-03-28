@@ -7,7 +7,7 @@ import { ModalVariant } from '@patternfly/react-core';
 import { patchProviderUI } from './utils/patchProviderUI';
 import { validateOvirtUILink } from '../../utils/validators';
 import { EditModal } from '../EditModal';
-import { EditProviderUIModalProps } from './EditProviderUIModal';
+import { type EditProviderUIModalProps } from './EditProviderUIModal';
 
 export const OvirtEditUIModal: React.FC<EditProviderUIModalProps> = (props) => {
   const { t } = useForkliftTranslation();

@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
 
 import {
-  OpenShiftNetworkAttachmentDefinition,
-  OpenstackNetwork,
-  OvaNetwork,
-  OVirtNetwork,
-  ProviderType,
-  V1beta1Provider,
-  VSphereNetwork,
+  type OpenShiftNetworkAttachmentDefinition,
+  type OpenstackNetwork,
+  type OvaNetwork,
+  type OVirtNetwork,
+  type ProviderType,
+  type V1beta1Provider,
+  type VSphereNetwork,
 } from '@kubev2v/types';
 
 import useProviderInventory from './useProviderInventory';

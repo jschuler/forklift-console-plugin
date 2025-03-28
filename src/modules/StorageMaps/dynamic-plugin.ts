@@ -1,10 +1,10 @@
 import { StorageMapModel, StorageMapModelGroupVersionKind } from '@kubev2v/types';
-import { EncodedExtension } from '@openshift/dynamic-plugin-sdk-webpack';
+import { type EncodedExtension } from '@openshift/dynamic-plugin-sdk-webpack';
 import {
-  ModelMetadata,
-  ResourceDetailsPage,
-  ResourceListPage,
-  ResourceNSNavItem,
+  type ModelMetadata,
+  type ResourceDetailsPage,
+  type ResourceListPage,
+  type ResourceNSNavItem,
 } from '@openshift-console/dynamic-plugin-sdk';
 import type { ConsolePluginBuildMetadata } from '@openshift-console/dynamic-plugin-sdk-webpack';
 

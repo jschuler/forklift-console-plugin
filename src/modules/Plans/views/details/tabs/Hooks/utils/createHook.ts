@@ -1,4 +1,4 @@
-import { HookModel, PlanModel, V1beta1Hook, V1beta1Plan } from '@kubev2v/types';
+import { HookModel, PlanModel, type V1beta1Hook, type V1beta1Plan } from '@kubev2v/types';
 import { k8sCreate, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 
 export const createHook = async (

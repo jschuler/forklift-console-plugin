@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { ResourceFieldFactory } from '@components/common/utils/types';
+import { type ResourceFieldFactory } from '@components/common/utils/types';
 
 import { concernFilter } from './utils/filters/concernFilter';
 import { ProviderVirtualMachinesList } from './components';
 import { OvaVirtualMachinesCells } from './OvaVirtualMachinesRow';
-import { ProviderVirtualMachinesProps } from './ProviderVirtualMachines';
+import { type ProviderVirtualMachinesProps } from './ProviderVirtualMachines';
 
 export const ovaVmFieldsMetadataFactory: ResourceFieldFactory = (t) => [
   {

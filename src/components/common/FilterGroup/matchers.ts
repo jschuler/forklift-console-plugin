@@ -8,8 +8,8 @@ import {
   GroupedEnumFilter,
   SwitchFilter,
 } from '../Filter';
-import { areSameDayInUTCZero, isInClosedRange, ResourceField } from '../utils';
-import { FilterRenderer, ValueMatcher } from './types';
+import { areSameDayInUTCZero, isInClosedRange, type ResourceField } from '../utils';
+import { type FilterRenderer, type ValueMatcher } from './types';
 
 /**
  * Get the field value of a given field id, using resourceData and resourceFields

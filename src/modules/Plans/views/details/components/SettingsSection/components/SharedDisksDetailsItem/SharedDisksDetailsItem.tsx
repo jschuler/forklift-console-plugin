@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import { isPlanEditable } from 'src/modules/Plans/utils';
 import { useModal } from 'src/modules/Providers/modals';
 import { DetailsItem } from 'src/modules/Providers/utils';
@@ -8,7 +8,7 @@ import { Label } from '@patternfly/react-core';
 
 import MigrateSharedDisksModal from './components/MigrateSharedDisksModal/MigrateSharedDisksModal';
 import { getMigrateSharedDisks } from './utils/helpers';
-import { PlanDetailsItemProps } from '../../../DetailsSection';
+import { type PlanDetailsItemProps } from '../../../DetailsSection';
 
 const SharedDisksDetailsItem: FC<PlanDetailsItemProps> = ({ canPatch, resource }) => {
   const { t } = useForkliftTranslation();

@@ -9,7 +9,7 @@ import { NetworkMapModelRef } from '@kubev2v/types';
 import { Button, Popover, Spinner, Text, TextContent, TextVariants } from '@patternfly/react-core';
 import { CheckCircleIcon, ExclamationCircleIcon } from '@patternfly/react-icons';
 
-import { CellProps } from './CellProps';
+import { type CellProps } from './CellProps';
 
 export const StatusCell: React.FC<CellProps> = ({ data, fieldId, fields }) => {
   const { t } = useForkliftTranslation();

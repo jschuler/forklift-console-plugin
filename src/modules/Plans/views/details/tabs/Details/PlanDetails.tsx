@@ -3,7 +3,7 @@ import SectionHeading from 'src/components/headers/SectionHeading';
 import { useGetDeleteAndEditAccessReview } from 'src/modules/Providers/hooks';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { PlanModel, PlanModelGroupVersionKind, V1beta1Plan } from '@kubev2v/types';
+import { PlanModel, PlanModelGroupVersionKind, type V1beta1Plan } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { PageSection } from '@patternfly/react-core';
 

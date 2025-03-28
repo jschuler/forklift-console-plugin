@@ -1,21 +1,21 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import { loadUserSettings } from 'src/components/common/Page/userSettings';
 import {
-  GlobalActionWithSelection,
+  type GlobalActionWithSelection,
   StandardPageWithSelection,
 } from 'src/components/page/StandardPageWithSelection';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { ResourceFieldFactory } from '@components/common/utils/types';
+import { type ResourceFieldFactory } from '@components/common/utils/types';
 import {
-  V1beta1PlanSpecVms,
-  V1beta1PlanStatusConditions,
-  V1beta1PlanStatusMigrationVms,
-  V1beta1Provider,
+  type V1beta1PlanSpecVms,
+  type V1beta1PlanStatusConditions,
+  type V1beta1PlanStatusMigrationVms,
+  type V1beta1Provider,
 } from '@kubev2v/types';
 
 import { PlanVMsDeleteButton } from '../components';
-import { PlanData, VMData } from '../types';
+import { type PlanData, type VMData } from '../types';
 import { PlanVirtualMachinesRow } from './PlanVirtualMachinesRow';
 
 const fieldsMetadataFactory: (isVsphere: boolean) => ResourceFieldFactory = (isVsphere) => (t) =>

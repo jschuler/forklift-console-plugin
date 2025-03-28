@@ -6,14 +6,14 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import {
   NetworkMapModel,
   ProviderModelGroupVersionKind,
-  V1beta1NetworkMap,
-  V1beta1Provider,
+  type V1beta1NetworkMap,
+  type V1beta1Provider,
 } from '@kubev2v/types';
 import { k8sUpdate, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { Button, DescriptionList, Flex, FlexItem, Spinner } from '@patternfly/react-core';
 
 import { ProvidersEdit } from './components';
-import { providersSectionReducer, ProvidersSectionState } from './state';
+import { providersSectionReducer, type ProvidersSectionState } from './state';
 
 const initialState: ProvidersSectionState = {
   hasChanges: false,

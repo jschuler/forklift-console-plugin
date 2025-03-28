@@ -1,9 +1,9 @@
 import {
   HookModelGroupVersionKind,
   PlanModelGroupVersionKind,
-  V1beta1Hook,
-  V1beta1Plan,
-  V1beta1PlanSpecVmsHooks,
+  type V1beta1Hook,
+  type V1beta1Plan,
+  type V1beta1PlanSpecVmsHooks,
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 

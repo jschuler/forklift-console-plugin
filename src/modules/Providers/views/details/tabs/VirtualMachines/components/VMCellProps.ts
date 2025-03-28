@@ -1,5 +1,5 @@
-import { ResourceField } from '@components/common/utils/types';
-import { ProviderVirtualMachine } from '@kubev2v/types';
+import { type ResourceField } from '@components/common/utils/types';
+import { type ProviderVirtualMachine } from '@kubev2v/types';
 
 export interface VmData {
   vm: ProviderVirtualMachine;

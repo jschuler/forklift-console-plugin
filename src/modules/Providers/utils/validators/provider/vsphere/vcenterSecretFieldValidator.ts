@@ -2,7 +2,7 @@ import {
   validateNoSpaces,
   validatePublicCert,
   validateUsernameAndDomain,
-  ValidationMsg,
+  type ValidationMsg,
 } from '../../common';
 
 /**

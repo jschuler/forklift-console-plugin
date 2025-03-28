@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 import { useModal } from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { Button, FileUpload, FileUploadProps, Flex, FlexItem } from '@patternfly/react-core';
+import { Button, FileUpload, type FileUploadProps, Flex, FlexItem } from '@patternfly/react-core';
 
 import { FetchCertificateModal } from './FetchCertificateModal';
 

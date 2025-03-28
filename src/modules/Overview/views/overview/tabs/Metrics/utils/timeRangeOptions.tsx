@@ -1,4 +1,4 @@
-import { DateTime } from 'luxon';
+import { type DateTime } from 'luxon';
 
 const isLast7Days = (date: DateTime) => date.diffNow('days').get('days') <= 7;
 const isLast31Days = (date: DateTime) => date.diffNow('days').get('days') <= 31;

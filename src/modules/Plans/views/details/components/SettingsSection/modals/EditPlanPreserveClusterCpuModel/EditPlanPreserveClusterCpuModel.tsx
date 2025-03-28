@@ -1,14 +1,14 @@
 import React from 'react';
 import {
   EditModal,
-  EditModalProps,
-  ModalInputComponentType,
-  OnConfirmHookType,
+  type EditModalProps,
+  type ModalInputComponentType,
+  type OnConfirmHookType,
 } from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { Modify, PlanModel, V1beta1Plan, V1beta1Provider } from '@kubev2v/types';
-import { K8sModel, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
+import { type Modify, PlanModel, type V1beta1Plan, type V1beta1Provider } from '@kubev2v/types';
+import { type K8sModel, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 import { Switch } from '@patternfly/react-core';
 
 const onConfirm: OnConfirmHookType = async ({ model, newValue, resource }) => {

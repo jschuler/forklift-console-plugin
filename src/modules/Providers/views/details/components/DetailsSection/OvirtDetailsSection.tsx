@@ -14,7 +14,7 @@ import {
   TypeDetailsItem,
   URLDetailsItem,
 } from './components';
-import { DetailsSectionProps } from './DetailsSection';
+import { type DetailsSectionProps } from './DetailsSection';
 import { getOvirtProviderWebUILink } from './utils';
 
 export const OvirtDetailsSection: React.FC<DetailsSectionProps> = ({ data }) => {

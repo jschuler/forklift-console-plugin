@@ -1,7 +1,7 @@
-import { OVirtNicProfile } from '@kubev2v/types';
+import { type OVirtNicProfile } from '@kubev2v/types';
 
-import { VmData } from '../../details';
-import { Mapping } from '../types';
+import { type VmData } from '../../details';
+import { type Mapping } from '../types';
 import { POD_NETWORK } from './actions';
 import { toNetworks } from './getNetworksUsedBySelectedVMs';
 

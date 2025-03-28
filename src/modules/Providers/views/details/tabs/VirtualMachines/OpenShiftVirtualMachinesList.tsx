@@ -1,12 +1,12 @@
 import React from 'react';
 import { EnumToTuple } from 'src/components/common/FilterGroup/helpers';
 
-import { ResourceFieldFactory } from '@components/common/utils/types';
+import { type ResourceFieldFactory } from '@components/common/utils/types';
 
 import { toVmFeatureEnum } from './utils/helpers/toVmFeatureEnum';
-import { ProviderVirtualMachinesList, VmData } from './components';
+import { ProviderVirtualMachinesList, type VmData } from './components';
 import { OpenShiftVirtualMachinesCells } from './OpenShiftVirtualMachinesRow';
-import { ProviderVirtualMachinesProps } from './ProviderVirtualMachines';
+import { type ProviderVirtualMachinesProps } from './ProviderVirtualMachines';
 import { getOpenShiftFeatureMap, getVmPowerState } from './utils';
 
 export const openShiftVmFieldsMetadataFactory: ResourceFieldFactory = (t) => [

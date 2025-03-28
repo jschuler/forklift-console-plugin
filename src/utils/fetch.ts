@@ -1,8 +1,8 @@
-import { ProviderModelGroupVersionKind, V1beta1Provider } from '@kubev2v/types';
+import { ProviderModelGroupVersionKind, type V1beta1Provider } from '@kubev2v/types';
 import {
   useK8sWatchResource,
-  WatchK8sResource,
-  WatchK8sResult,
+  type WatchK8sResource,
+  type WatchK8sResult,
 } from '@openshift-console/dynamic-plugin-sdk';
 
 export const useProviders = ({ namespace }: WatchK8sResource): WatchK8sResult<V1beta1Provider[]> =>

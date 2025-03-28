@@ -1,7 +1,7 @@
-import { IoK8sApiCoreV1Secret } from '@kubev2v/types';
+import { type IoK8sApiCoreV1Secret } from '@kubev2v/types';
 
 import { missingKeysInSecretData, safeBase64Decode } from '../../../helpers';
-import { ValidationMsg } from '../../common';
+import { type ValidationMsg } from '../../common';
 import { openstackSecretFieldValidator } from './openstackSecretFieldValidator';
 
 export function openstackSecretValidator(secret: IoK8sApiCoreV1Secret): ValidationMsg {

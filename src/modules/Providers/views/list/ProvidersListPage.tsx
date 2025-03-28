@@ -2,21 +2,21 @@ import React from 'react';
 import { EnumToTuple } from 'src/components/common/FilterGroup/helpers';
 import { loadUserSettings } from 'src/components/common/Page/userSettings';
 import StandardPage from 'src/components/page/StandardPage';
-import { ProviderData, SOURCE_ONLY_PROVIDER_TYPES } from 'src/modules/Providers/utils';
+import { type ProviderData, SOURCE_ONLY_PROVIDER_TYPES } from 'src/modules/Providers/utils';
 import { PROVIDER_STATUS, PROVIDERS } from 'src/utils/enums';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
-import { ResourceFieldFactory } from '@components/common/utils/types';
+import { type ResourceFieldFactory } from '@components/common/utils/types';
 import {
-  OpenshiftProvider,
-  OpenstackProvider,
-  OvaProvider,
-  OVirtProvider,
+  type OpenshiftProvider,
+  type OpenstackProvider,
+  type OvaProvider,
+  type OVirtProvider,
   ProviderModel,
   ProviderModelGroupVersionKind,
-  ProviderType,
-  V1beta1Provider,
-  VSphereProvider,
+  type ProviderType,
+  type V1beta1Provider,
+  type VSphereProvider,
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 

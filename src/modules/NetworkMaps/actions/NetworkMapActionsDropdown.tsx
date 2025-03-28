@@ -1,4 +1,4 @@
-import React, { FC, Ref, useState } from 'react';
+import React, { type FC, type Ref, useState } from 'react';
 import { ModalHOC } from 'src/modules/Providers/modals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
@@ -8,11 +8,11 @@ import {
   Flex,
   FlexItem,
   MenuToggle,
-  MenuToggleElement,
+  type MenuToggleElement,
 } from '@patternfly/react-core';
 import { EllipsisVIcon } from '@patternfly/react-icons';
 
-import { CellProps } from '../views/list/components';
+import { type CellProps } from '../views/list/components';
 import { NetworkMapActionsDropdownItems } from './NetworkMapActionsDropdownItems';
 
 import './NetworkMapActionsDropdown.style.css';

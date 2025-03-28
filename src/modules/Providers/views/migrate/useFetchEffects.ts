@@ -1,4 +1,4 @@
-import { Dispatch, useEffect } from 'react';
+import { type Dispatch, useEffect } from 'react';
 import { useImmerReducer } from 'use-immer';
 
 import {
@@ -6,17 +6,17 @@ import {
   PlanModelGroupVersionKind,
   ProviderModelGroupVersionKind,
   StorageMapModelGroupVersionKind,
-  V1beta1NetworkMap,
-  V1beta1Plan,
-  V1beta1Provider,
-  V1beta1StorageMap,
+  type V1beta1NetworkMap,
+  type V1beta1Plan,
+  type V1beta1Provider,
+  type V1beta1StorageMap,
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 import {
-  CreateVmMigration,
+  type CreateVmMigration,
   initState,
-  PageAction,
+  type PageAction,
   setAPiError,
   setAvailableProviders,
   setAvailableSourceNetworks,
@@ -39,8 +39,8 @@ import { useNamespaces } from '../../hooks/useNamespaces';
 import { useOpenShiftNetworks, useSourceNetworks } from '../../hooks/useNetworks';
 import { useNicProfiles } from '../../hooks/useNicProfiles';
 import { useOpenShiftStorages, useSourceStorages } from '../../hooks/useStorages';
-import { CreateVmMigrationContextType } from './ProvidersCreateVmMigrationContext';
-import { CreateVmMigrationPageState } from './types';
+import { type CreateVmMigrationContextType } from './ProvidersCreateVmMigrationContext';
+import { type CreateVmMigrationPageState } from './types';
 
 export const useFetchEffects = (
   createVmMigrationContext: CreateVmMigrationContextType,

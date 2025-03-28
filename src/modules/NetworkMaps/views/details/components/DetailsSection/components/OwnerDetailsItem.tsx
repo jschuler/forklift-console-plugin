@@ -2,7 +2,7 @@ import React from 'react';
 import { DetailsItem, OwnerReferencesItem } from 'src/modules/Providers/utils';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { NetworkDetailsItemProps } from './NetworkDetailsItemProps';
+import { type NetworkDetailsItemProps } from './NetworkDetailsItemProps';
 
 export const OwnerDetailsItem: React.FC<NetworkDetailsItemProps> = ({
   helpContent,

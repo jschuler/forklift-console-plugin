@@ -5,17 +5,17 @@ import StandardPage from 'src/components/page/StandardPage';
 import { useGetDeleteAndEditAccessReview } from 'src/modules/Providers/hooks';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import { ResourceFieldFactory } from '@components/common/utils/types';
+import { type ResourceFieldFactory } from '@components/common/utils/types';
 import {
   NetworkMapModel,
   NetworkMapModelGroupVersionKind,
-  V1beta1NetworkMap,
+  type V1beta1NetworkMap,
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 import { NetworkMapsAddButton } from '../../components';
 import NetworkMapsEmptyState from '../../components/NetworkMapsEmptyState';
-import { getNetworkMapPhase, NETWORK_MAP_STATUS, NetworkMapData } from '../../utils';
+import { getNetworkMapPhase, NETWORK_MAP_STATUS, type NetworkMapData } from '../../utils';
 import NetworkMapRow from './NetworkMapRow';
 
 import './NetworkMapsListPage.style.css';
