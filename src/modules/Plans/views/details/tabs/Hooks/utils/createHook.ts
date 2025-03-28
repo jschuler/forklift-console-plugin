@@ -12,7 +12,7 @@ export const createHook = async (
   });
 
   // update plan
-  const vms = plan.spec.vms;
+  const {vms} = plan.spec;
   const newVms = vms.map((vm) => ({
     ...vm,
     hooks: [

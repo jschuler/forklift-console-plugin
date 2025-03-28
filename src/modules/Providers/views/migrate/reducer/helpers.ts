@@ -141,7 +141,7 @@ export const recalculateStorages = (draft) => {
 export const reTestStorages = (draft) => {
   draft.alerts.storageMappings.warnings = [];
 
-  const storageMappings = draft.calculatedPerNamespace.storageMappings;
+  const {storageMappings} = draft.calculatedPerNamespace;
   if (
     storageMappings &&
     storageMappings.length > 1 &&
@@ -166,7 +166,7 @@ export const recalculateNetworks = (draft) => {
 export const reTestNetworks = (draft) => {
   draft.alerts.networkMappings.warnings = [];
 
-  const networkMappings = draft.calculatedPerNamespace.networkMappings;
+  const {networkMappings} = draft.calculatedPerNamespace;
   if (
     networkMappings &&
     networkMappings.length !== 0 &&

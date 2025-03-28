@@ -39,10 +39,10 @@ export const MigrationVirtualMachinesRowExtended: React.FC<RowProps<VMData>> = (
 
   const pipeline = props.resourceData.statusVM?.pipeline || [];
   const conditions = props.resourceData.statusVM?.conditions || [];
-  const pods = props.resourceData.pods;
-  const jobs = props.resourceData.jobs;
-  const pvcs = props.resourceData.pvcs;
-  const dvs = props.resourceData.dvs;
+  const {pods} = props.resourceData;
+  const {jobs} = props.resourceData;
+  const {pvcs} = props.resourceData;
+  const {dvs} = props.resourceData;
   const vmCreated = pipeline.find(
     (p) => p?.name === 'VirtualMachineCreation' && p?.phase === 'Completed',
   );

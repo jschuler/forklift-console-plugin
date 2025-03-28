@@ -102,7 +102,7 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
   }, [state]);
 
   const title = t('Plans wizard');
-  const initialLoading = state.flow.initialLoading;
+  const {initialLoading} = state.flow;
 
   return (
     <>
