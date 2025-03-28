@@ -303,7 +303,7 @@ export const StandardPageInner = <T,>({
     fields: fieldsMetadata,
     userSettings,
   });
-  const clearAllFilters = () => setSelectedFilters({});
+  const clearAllFilters = () => { setSelectedFilters({}); };
   const [fields, setFields] = useFields(namespace, fieldsMetadata, userSettings?.fields);
 
   const supportedMatchers = extraSupportedMatchers

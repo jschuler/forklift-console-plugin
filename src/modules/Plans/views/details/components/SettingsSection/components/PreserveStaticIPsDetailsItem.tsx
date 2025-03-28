@@ -43,12 +43,12 @@ export const PreserveStaticIPsDetailsItem: React.FC<PlanDetailsItemProps> = ({
         canPatch &&
         isPlanEditable(resource) &&
         (() =>
-          showModal(
+          { showModal(
             <EditPlanPreserveStaticIPs
               resource={resource}
               destinationProvider={destinationProvider}
             />,
-          ))
+          ); })
       }
     />
   );

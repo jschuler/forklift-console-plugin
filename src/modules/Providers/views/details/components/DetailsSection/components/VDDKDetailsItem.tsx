@@ -44,7 +44,7 @@ export const VDDKDetailsItem: React.FC<ProviderDetailsItemProps> = ({
       moreInfoLink={moreInfoLink ?? defaultMoreInfoLink}
       helpContent={helpContent ?? defaultHelpContent}
       crumbs={['Provider', 'spec', 'settings', 'vddkInitImage']}
-      onEdit={canPatch && (() => showModal(<EditProviderVDDKImage resource={provider} />))}
+      onEdit={canPatch && (() => { showModal(<EditProviderVDDKImage resource={provider} />); })}
     />
   );
 };

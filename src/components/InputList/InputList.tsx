@@ -91,7 +91,7 @@ export const InputList = <T,>({
                   <DataListCell key="primary content">
                     <InputRow
                       value={content}
-                      onChange={(newValue) => handleItemChange(id, newValue)}
+                      onChange={(newValue) => { handleItemChange(id, newValue); }}
                     />
                   </DataListCell>,
                 ]}
@@ -103,7 +103,7 @@ export const InputList = <T,>({
               >
                 <Tooltip content={removeIconContent}>
                   <Button
-                    onClick={() => handleItemDelete(id)}
+                    onClick={() => { handleItemDelete(id); }}
                     variant="plain"
                     aria-label={removeIconContent}
                     key="delete-action"

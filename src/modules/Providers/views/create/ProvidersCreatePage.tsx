@@ -269,7 +269,7 @@ export const ProvidersCreatePage: React.FC<{
           projectName={state.projectName}
           onNewProviderChange={onNewProviderChange}
           onNewSecretChange={onNewSecretChange}
-          onProjectNameChange={(value) => dispatch({ payload: value, type: 'SET_PROJECT_NAME' })}
+          onProjectNameChange={(value) => { dispatch({ payload: value, type: 'SET_PROJECT_NAME' }); }}
           providerNames={providerNames}
         />
 

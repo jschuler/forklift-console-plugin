@@ -92,7 +92,7 @@ export const SelectProvider: FunctionComponent<SelectProviderProps> = ({
         isOpen={isOpen}
         selected={filterState.typeFilters}
         onSelect={onSelect}
-        onOpenChange={(nextOpen: boolean) => setIsOpen(nextOpen)}
+        onOpenChange={(nextOpen: boolean) => { setIsOpen(nextOpen); }}
         toggle={toggle}
         shouldFocusToggleOnSelect
         shouldFocusFirstItemOnOpen={false}

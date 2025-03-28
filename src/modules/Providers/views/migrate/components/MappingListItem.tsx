@@ -126,7 +126,7 @@ export const MappingListItem: FC<MappingListItemProps> = ({
                     isOpen={isSrcOpen}
                     selected={srcSelected}
                     onSelect={onSelectSource}
-                    onOpenChange={(nextOpen: boolean) => setIsSrcOpen(nextOpen)}
+                    onOpenChange={(nextOpen: boolean) => { setIsSrcOpen(nextOpen); }}
                     toggle={srcToggle}
                     shouldFocusToggleOnSelect
                     shouldFocusFirstItemOnOpen={false}
@@ -158,7 +158,7 @@ export const MappingListItem: FC<MappingListItemProps> = ({
                     isOpen={isTrgOpen}
                     selected={trgSelected}
                     onSelect={onSelectDestination}
-                    onOpenChange={(nextOpen: boolean) => setIsTrgOpen(nextOpen)}
+                    onOpenChange={(nextOpen: boolean) => { setIsTrgOpen(nextOpen); }}
                     toggle={trgToggle}
                     shouldFocusToggleOnSelect
                     shouldFocusFirstItemOnOpen={false}

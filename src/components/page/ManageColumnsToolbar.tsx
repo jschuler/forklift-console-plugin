@@ -26,13 +26,13 @@ export const ManageColumnsToolbar = ({
   const [isOpen, setIsOpen] = useState(false);
   return (
     <ManageColumnsToolbarItem
-      showDialog={() => setIsOpen(true)}
+      showDialog={() => { setIsOpen(true); }}
       ariaLabel={t('Manage Columns')}
       tooltip={t('Manage Columns')}
     >
       <ManageColumnsModal
         showModal={isOpen}
-        onClose={() => setIsOpen(false)}
+        onClose={() => { setIsOpen(false); }}
         description={t('Selected columns will be displayed in the table.')}
         resourceFields={resourceFields}
         onChange={setColumns}

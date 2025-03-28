@@ -314,7 +314,7 @@ export const MigrationVirtualMachinesRowExtended: React.FC<RowProps<VMData>> = (
                       className="forklift-page-plan-details-vm-tasks"
                       variant="link"
                       onClick={() =>
-                        showModal(<PipelineTasksModal name={p?.name} tasks={p.tasks} />)
+                        { showModal(<PipelineTasksModal name={p?.name} tasks={p.tasks} />); }
                       }
                     >
                       <TaskIcon /> {t('{{completed}} / {{total}}', getPipelineTasks(p))}

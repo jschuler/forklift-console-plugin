@@ -113,7 +113,7 @@ export const useProviderInventory = <T>({
     fetchData();
 
     const intervalId = setInterval(fetchData, interval);
-    return () => clearInterval(intervalId);
+    return () => { clearInterval(intervalId); };
   }, [stableProvider, subPath, interval, disabled]);
 
   /**

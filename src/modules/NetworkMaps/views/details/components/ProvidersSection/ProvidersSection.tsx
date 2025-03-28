@@ -110,7 +110,7 @@ export const ProvidersSection: React.FC<ProvidersSectionProps> = ({ obj }) => {
           invalidLabel={t('The chosen provider is no longer available.')}
           mode={state.sourceProviderMode}
           helpContent="source provider"
-          setMode={() => dispatch({ payload: 'edit', type: 'SET_SOURCE_PROVIDER_MODE' })}
+          setMode={() => { dispatch({ payload: 'edit', type: 'SET_SOURCE_PROVIDER_MODE' }); }}
         />
 
         <ProvidersEdit
@@ -122,7 +122,7 @@ export const ProvidersSection: React.FC<ProvidersSectionProps> = ({ obj }) => {
           invalidLabel={t('The chosen provider is no longer available.')}
           mode={state.targetProviderMode}
           helpContent="Target provider"
-          setMode={() => dispatch({ payload: 'edit', type: 'SET_TARGET_PROVIDER_MODE' })}
+          setMode={() => { dispatch({ payload: 'edit', type: 'SET_TARGET_PROVIDER_MODE' }); }}
         />
       </DescriptionList>
     </Suspend>

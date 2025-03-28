@@ -18,7 +18,7 @@ export const CreatePlanWizard: FC = () => {
   const { formState, watch } = form;
   const formValues = watch();
 
-  const onSubmit = () => console.log('SUBMITTED: ', formValues);
+  const onSubmit = () => { console.log('SUBMITTED: ', formValues); };
 
   const getStepProps = (id: PlanWizardStepId) => ({
     id,
@@ -32,7 +32,7 @@ export const CreatePlanWizard: FC = () => {
         isVisitRequired
         title={t('Create migration plan')}
         footer={<CreatePlanWizardFooter />}
-        onStepChange={(_event, currentStep) => setCurrentStep(currentStep)}
+        onStepChange={(_event, currentStep) => { setCurrentStep(currentStep); }}
       >
         <WizardStep
           {...getStepProps(PlanWizardStepId.BasicSetUp)}

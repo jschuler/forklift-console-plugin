@@ -74,7 +74,7 @@ export const PasswordSecretFieldsFormGroup: React.FC<EditComponentProps> = ({
   ) => (value: string, event: React.FormEvent<HTMLInputElement>) => void;
 
   const onChangeFactory: onChangeFactoryType = (changedField) => (value) =>
-    handleChange(changedField, value);
+    { handleChange(changedField, value); };
 
   return (
     <>
@@ -93,7 +93,7 @@ export const PasswordSecretFieldsFormGroup: React.FC<EditComponentProps> = ({
           id={OpenstackSecretFieldId.Username}
           name={OpenstackSecretFieldId.Username}
           value={username}
-          onChange={(e, v) => onChangeFactory(OpenstackSecretFieldId.Username)(v, e)}
+          onChange={(e, v) => { onChangeFactory(OpenstackSecretFieldId.Username)(v, e); }}
           validated={state.validation.username.type}
         />
       </FormGroupWithHelpText>
@@ -114,7 +114,7 @@ export const PasswordSecretFieldsFormGroup: React.FC<EditComponentProps> = ({
             type={state.passwordHidden ? 'password' : 'text'}
             aria-label="Password input"
             value={password}
-            onChange={(e, v) => onChangeFactory(OpenstackSecretFieldId.Password)(v, e)}
+            onChange={(e, v) => { onChangeFactory(OpenstackSecretFieldId.Password)(v, e); }}
             validated={state.validation.password.type}
           />
           <Button
@@ -142,7 +142,7 @@ export const PasswordSecretFieldsFormGroup: React.FC<EditComponentProps> = ({
           id={OpenstackSecretFieldId.RegionName}
           name={OpenstackSecretFieldId.RegionName}
           value={regionName}
-          onChange={(e, v) => onChangeFactory(OpenstackSecretFieldId.RegionName)(v, e)}
+          onChange={(e, v) => { onChangeFactory(OpenstackSecretFieldId.RegionName)(v, e); }}
           validated={state.validation.regionName.type}
         />
       </FormGroupWithHelpText>
@@ -162,7 +162,7 @@ export const PasswordSecretFieldsFormGroup: React.FC<EditComponentProps> = ({
           id={OpenstackSecretFieldId.ProjectName}
           name={OpenstackSecretFieldId.ProjectName}
           value={projectName}
-          onChange={(e, v) => onChangeFactory(OpenstackSecretFieldId.ProjectName)(v, e)}
+          onChange={(e, v) => { onChangeFactory(OpenstackSecretFieldId.ProjectName)(v, e); }}
           validated={state.validation.projectName.type}
         />
       </FormGroupWithHelpText>
@@ -182,7 +182,7 @@ export const PasswordSecretFieldsFormGroup: React.FC<EditComponentProps> = ({
           id={OpenstackSecretFieldId.DomainName}
           name={OpenstackSecretFieldId.DomainName}
           value={domainName}
-          onChange={(e, v) => onChangeFactory(OpenstackSecretFieldId.DomainName)(v, e)}
+          onChange={(e, v) => { onChangeFactory(OpenstackSecretFieldId.DomainName)(v, e); }}
           validated={state.validation.domainName.type}
         />
       </FormGroupWithHelpText>

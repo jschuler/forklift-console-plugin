@@ -29,12 +29,12 @@ export const PlanVMActionsDropdownItems: FC<PlanVMActionsDropdownItemsProps> = (
         key="edit-pvc-name-template"
         isDisabled={!canEdit}
         onClick={() =>
-          showModal(
+          { showModal(
             <PVCNameTemplateModal
               resource={plan}
               jsonPath={`spec.vms.${data?.vmIndex}.pvcNameTemplate`}
             />,
-          )
+          ); }
         }
       >
         {t('Edit PVC name template')}
@@ -44,12 +44,12 @@ export const PlanVMActionsDropdownItems: FC<PlanVMActionsDropdownItemsProps> = (
         key="edit-volume-name-template"
         isDisabled={!canEdit}
         onClick={() =>
-          showModal(
+          { showModal(
             <VolumeNameTemplateModal
               resource={plan}
               jsonPath={`spec.vms.${data?.vmIndex}.volumeNameTemplate`}
             />,
-          )
+          ); }
         }
       >
         {t('Edit Volume name template')}
@@ -59,12 +59,12 @@ export const PlanVMActionsDropdownItems: FC<PlanVMActionsDropdownItemsProps> = (
         key="edit-network-name-template"
         isDisabled={!canEdit}
         onClick={() =>
-          showModal(
+          { showModal(
             <NetworkNameTemplateModal
               resource={plan}
               jsonPath={`spec.vms.${data?.vmIndex}.networkNameTemplate`}
             />,
-          )
+          ); }
         }
       >
         {t('Edit Network name template')}

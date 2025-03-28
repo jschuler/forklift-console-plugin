@@ -60,7 +60,7 @@ export const useOverviewContext = (): CreateOverviewContextType => {
         if (newState.hideWelcomeCardByContext) userSettings?.welcome?.save(true);
         else userSettings?.welcome?.clear();
 
-        return setValueSafe(produce(() => newState));
+        setValueSafe(produce(() => newState));
       },
     }),
     [data, setData],

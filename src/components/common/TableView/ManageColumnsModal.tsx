@@ -96,7 +96,7 @@ export const ManageColumnsModal = ({
   title = 'Manage Columns',
 }: ManagedColumnsProps) => {
   const [editedColumns, setEditedColumns] = useState(filterActionsAndHidden(resourceFields));
-  const restoreDefaults = () => setEditedColumns([...filterActionsAndHidden(defaultColumns)]);
+  const restoreDefaults = () => { setEditedColumns([...filterActionsAndHidden(defaultColumns)]); };
   const onDrop: (source: DraggableItemPosition, dest?: DraggableItemPosition) => boolean = (
     source: { index: number },
     dest: { index: number },
@@ -135,7 +135,7 @@ export const ManageColumnsModal = ({
     id: string,
   ) => (checked: boolean, event: React.FormEvent<HTMLInputElement>) => void;
 
-  const onChangeFactory: onChangeFactoryType = (id) => (checked) => onSelect(id, checked);
+  const onChangeFactory: onChangeFactoryType = (id) => (checked) => { onSelect(id, checked); };
 
   return (
     <Modal
@@ -187,7 +187,7 @@ export const ManageColumnsModal = ({
                             : isVisible
                         }
                         isDisabled={isIdentity}
-                        onChange={(e, v) => onChangeFactory(id)(v, e)}
+                        onChange={(e, v) => { onChangeFactory(id)(v, e); }}
                         otherControls
                       />
                     </DataListControl>

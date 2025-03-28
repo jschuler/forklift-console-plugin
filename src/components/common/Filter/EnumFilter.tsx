@@ -80,7 +80,7 @@ export const useUnique = ({
   const onUniqueFilterUpdate = useMemo(
     () =>
       (labels: string[]): void =>
-        onSelectedEnumIdsChange(labels.flatMap((label) => labelToIds[label] ?? [])),
+        { onSelectedEnumIdsChange(labels.flatMap((label) => labelToIds[label] ?? [])); },
     [onSelectedEnumIdsChange, labelToIds],
   );
 
@@ -128,7 +128,7 @@ export const EnumFilter = ({
   });
 
   const deleteFilter = (label: string | ToolbarChip): void =>
-    onUniqueFilterUpdate(selectedUniqueEnumLabels.filter((filterLabel) => filterLabel !== label));
+    { onUniqueFilterUpdate(selectedUniqueEnumLabels.filter((filterLabel) => filterLabel !== label)); };
 
   const hasFilter = (label: string): boolean =>
     !!selectedUniqueEnumLabels.find((filterLabel) => filterLabel === label);
@@ -176,8 +176,8 @@ export const EnumFilter = ({
     <ToolbarFilter
       key={filterId}
       chips={selectedUniqueEnumLabels}
-      deleteChip={(category, option) => deleteFilter(option)}
-      deleteChipGroup={() => onUniqueFilterUpdate([])}
+      deleteChip={(category, option) => { deleteFilter(option); }}
+      deleteChipGroup={() => { onUniqueFilterUpdate([]); }}
       categoryName={title}
       showToolbarItem={showFilter}
     >
@@ -187,7 +187,7 @@ export const EnumFilter = ({
         isOpen={isOpen}
         selected={selectedUniqueEnumLabels}
         onSelect={onSelect}
-        onOpenChange={(nextOpen: boolean) => setIsOpen(nextOpen)}
+        onOpenChange={(nextOpen: boolean) => { setIsOpen(nextOpen); }}
         toggle={toggle}
         shouldFocusToggleOnSelect
         shouldFocusFirstItemOnOpen={false}

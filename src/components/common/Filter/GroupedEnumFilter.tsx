@@ -187,7 +187,7 @@ export const GroupedEnumFilter = ({
           isOpen={isOpen}
           selected={supportedEnumValues.filter(({ id }) => selectedEnumIds.includes(id))}
           onSelect={onSelect}
-          onOpenChange={(nextOpen: boolean) => setIsOpen(nextOpen)}
+          onOpenChange={(nextOpen: boolean) => { setIsOpen(nextOpen); }}
           toggle={toggle}
           shouldFocusToggleOnSelect
           shouldFocusFirstItemOnOpen={false}

@@ -77,7 +77,7 @@ export const useProvidersInventoryList = ({
     fetchData();
 
     const intervalId = setInterval(fetchData, interval);
-    return () => clearInterval(intervalId);
+    return () => { clearInterval(intervalId); };
   }, [interval, namespace]);
 
   /**

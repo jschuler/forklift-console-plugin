@@ -38,7 +38,7 @@ const NetworkMapActionsKebabDropdown_: FC<NetworkMapActionsDropdownProps> = ({ d
     <Dropdown
       className={isKebab ? undefined : 'forklift-dropdown pf-c-menu-toggle'}
       isOpen={isOpen}
-      onOpenChange={(isOpen: boolean) => setIsOpen(isOpen)}
+      onOpenChange={(isOpen: boolean) => { setIsOpen(isOpen); }}
       onSelect={onSelect}
       toggle={(toggleRef: Ref<MenuToggleElement>) => (
         <MenuToggle

@@ -55,7 +55,7 @@ export const useCreateVmMigrationContextValue = (): CreateVmMigrationContextType
   return useMemo(
     () => ({
       data,
-      setData: (newState: CreateVmMigrationContextData) => setValueSafe(produce(() => newState)),
+      setData: (newState: CreateVmMigrationContextData) => { setValueSafe(produce(() => newState)); },
     }),
     [data, setData],
   );

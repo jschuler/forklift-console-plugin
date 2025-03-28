@@ -46,8 +46,8 @@ export const ProjectNameSelect: FC<ProjectNameSelectProps> = ({
         id="project-name-select"
         selectOptions={options}
         selected={value}
-        onSelect={(_, value) => onSelect(String(value))}
-        onClearSelection={() => onSelect('')}
+        onSelect={(_, value) => { onSelect(String(value)); }}
+        onClearSelection={() => { onSelect(''); }}
         isDisabled={isDisabled}
       />
     </FormGroupWithHelpText>

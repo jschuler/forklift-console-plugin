@@ -55,7 +55,7 @@ const SettingsCard_: FC<SettingsCardProps> = ({ obj }) => {
               </ForkliftTrans>
             }
             crumbs={['spec', 'controller_max_vm_inflight']}
-            onEdit={() => showModal(<EditMaxVMInFlightModal resource={obj} />)}
+            onEdit={() => { showModal(<EditMaxVMInFlightModal resource={obj} />); }}
           />
 
           <DetailsItem
@@ -77,7 +77,7 @@ const SettingsCard_: FC<SettingsCardProps> = ({ obj }) => {
               </Text>
             }
             crumbs={['spec', 'controller_container_limits_cpu']}
-            onEdit={() => showModal(<EditControllerCPULimitModal resource={obj} />)}
+            onEdit={() => { showModal(<EditControllerCPULimitModal resource={obj} />); }}
           />
 
           <DetailsItem
@@ -99,7 +99,7 @@ const SettingsCard_: FC<SettingsCardProps> = ({ obj }) => {
               </Text>
             }
             crumbs={['spec', 'controller_container_limits_memory']}
-            onEdit={() => showModal(<EditControllerMemoryLimitModal resource={obj} />)}
+            onEdit={() => { showModal(<EditControllerMemoryLimitModal resource={obj} />); }}
           />
 
           <DetailsItem
@@ -121,7 +121,7 @@ const SettingsCard_: FC<SettingsCardProps> = ({ obj }) => {
               </Text>
             }
             crumbs={['spec', 'inventory_container_limits_memory']}
-            onEdit={() => showModal(<EditInventoryMemoryLimitModal resource={obj} />)}
+            onEdit={() => { showModal(<EditInventoryMemoryLimitModal resource={obj} />); }}
           />
 
           <DetailsItem
@@ -143,7 +143,7 @@ const SettingsCard_: FC<SettingsCardProps> = ({ obj }) => {
               </Text>
             }
             crumbs={['spec', 'controller_precopy_interval']}
-            onEdit={() => showModal(<EditPreCopyIntervalModal resource={obj} />)}
+            onEdit={() => { showModal(<EditPreCopyIntervalModal resource={obj} />); }}
           />
 
           <DetailsItem
@@ -165,7 +165,7 @@ const SettingsCard_: FC<SettingsCardProps> = ({ obj }) => {
               </Text>
             }
             crumbs={['spec', 'controller_snapshot_status_check_rate_seconds']}
-            onEdit={() => showModal(<EditSnapshotPoolingIntervalModal resource={obj} />)}
+            onEdit={() => { showModal(<EditSnapshotPoolingIntervalModal resource={obj} />); }}
           />
         </DescriptionList>
       </CardBody>

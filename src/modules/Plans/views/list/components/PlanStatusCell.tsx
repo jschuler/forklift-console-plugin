@@ -80,14 +80,14 @@ export const PlanStatusCell: React.FC<CellProps> = ({ data }) => {
         icon={<StartIcon />}
         isDisabled={!isButtonEnabled}
         onClick={() =>
-          showModal(
+          { showModal(
             <PlanStartMigrationModal
               resource={plan}
               model={PlanModel}
               title={t('Start')}
               setButtonEnabledOnChange={setIsButtonEnabled}
             />,
-          )
+          ); }
         }
       >
         {t('Start')}

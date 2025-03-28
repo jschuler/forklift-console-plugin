@@ -518,10 +518,10 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
                   mappings={labeledSelectedNetworkMaps}
                   availableSources={labeledAvailableSourceNetworks}
                   availableDestinations={labeledAvailableTargetNetworks}
-                  deleteMapping={(current) => dispatch(onDeleteNetworkMapping({ ...current }))}
-                  addMapping={() => dispatch(onAddNetworkMapping())}
+                  deleteMapping={(current) => { dispatch(onDeleteNetworkMapping({ ...current })); }}
+                  addMapping={() => { dispatch(onAddNetworkMapping()); }}
                   replaceMapping={({ current, next }) =>
-                    dispatch(onReplaceNetworkMapping({ current, next }))
+                    { dispatch(onReplaceNetworkMapping({ current, next })); }
                   }
                   generalSourcesLabel={t('Other networks present on the source provider ')}
                   noSourcesLabel={t('No networks in this category')}
@@ -546,10 +546,10 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
                   mappings={labeledSelectedStorageMaps}
                   availableSources={labeledAvailableSourceStorages}
                   availableDestinations={labeledAvailableTargetStorages}
-                  deleteMapping={(current) => dispatch(onDeleteStorageMapping({ ...current }))}
-                  addMapping={() => dispatch(onAddStorageMapping())}
+                  deleteMapping={(current) => { dispatch(onDeleteStorageMapping({ ...current })); }}
+                  addMapping={() => { dispatch(onAddStorageMapping()); }}
                   replaceMapping={({ current, next }) =>
-                    dispatch(onReplaceStorageMapping({ current, next }))
+                    { dispatch(onReplaceStorageMapping({ current, next })); }
                   }
                   generalSourcesLabel={t('Other storages present on the source provider ')}
                   noSourcesLabel={t('No storages in this category')}

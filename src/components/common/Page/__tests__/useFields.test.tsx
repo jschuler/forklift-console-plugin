@@ -153,10 +153,10 @@ describe('saves fields to user settings', () => {
       ),
     );
     act(() =>
-      setFields([
+      { setFields([
         { isVisible: true, label: '', resourceFieldId: NAMESPACE },
         { isVisible: false, label: '', resourceFieldId: NAME },
-      ]),
+      ]); },
     );
     expect(saveSettings).toBeCalledWith([
       { isVisible: true, resourceFieldId: NAMESPACE },
@@ -180,10 +180,10 @@ describe('saves fields to user settings', () => {
       ),
     );
     act(() =>
-      setFields([
+      { setFields([
         { isVisible: true, label: '', resourceFieldId: NAME },
         { isVisible: true, label: '', resourceFieldId: NAMESPACE },
-      ]),
+      ]); },
     );
     expect(clearSettings).toBeCalled();
   });

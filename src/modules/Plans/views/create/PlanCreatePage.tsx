@@ -118,7 +118,7 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
           shouldFocusContent
           title={title}
           onClose={() =>
-            history.push(createPlanFromPlansList ? plansListURL : `${providerURL}/vms`)
+            { history.push(createPlanFromPlansList ? plansListURL : `${providerURL}/vms`); }
           }
           onSave={() => {
             setActiveNamespace(state.underConstruction.projectName);

@@ -193,7 +193,7 @@ export const PlansCreateForm = ({
           >
             <FormSelect
               value={plan.spec.provider?.destination?.name}
-              onChange={(e, v) => onChangeTargetProvider(v, e)}
+              onChange={(e, v) => { onChangeTargetProvider(v, e); }}
               id="targetProvider"
               isDisabled={flow.editingDone}
             >
@@ -256,7 +256,7 @@ export const PlansCreateForm = ({
                 itemId: ns?.name,
               }))}
               value={plan.spec.targetNamespace}
-              onSelect={(value) => dispatch(setPlanTargetNamespace(value as string))}
+              onSelect={(value) => { dispatch(setPlanTargetNamespace(value as string)); }}
               isDisabled={flow.editingDone}
               isScrollable
               canCreate
@@ -290,7 +290,7 @@ export const PlansCreateForm = ({
                 key,
                 ...networkMessages[key],
               }))}
-              onClose={(key) => dispatch(removeAlert(key as NetworkAlerts))}
+              onClose={(key) => { dispatch(removeAlert(key as NetworkAlerts)); }}
             />
             <StateAlerts
               variant={AlertVariant.warning}
@@ -298,14 +298,14 @@ export const PlansCreateForm = ({
                 key,
                 ...networkMessages[key],
               }))}
-              onClose={(key) => dispatch(removeAlert(key as NetworkAlerts))}
+              onClose={(key) => { dispatch(removeAlert(key as NetworkAlerts)); }}
             />
             <MappingList
-              addMapping={() => dispatch(addNetworkMapping())}
+              addMapping={() => { dispatch(addNetworkMapping()); }}
               replaceMapping={({ current, next }) =>
-                dispatch(replaceNetworkMapping({ current, next }))
+                { dispatch(replaceNetworkMapping({ current, next })); }
               }
-              deleteMapping={(current) => dispatch(deleteNetworkMapping({ ...current }))}
+              deleteMapping={(current) => { dispatch(deleteNetworkMapping({ ...current })); }}
               availableDestinations={targetNetworks}
               sources={sourceNetworks}
               mappings={networkMappings}
@@ -342,7 +342,7 @@ export const PlansCreateForm = ({
                 key,
                 ...storageMessages[key],
               }))}
-              onClose={(key) => dispatch(removeAlert(key as StorageAlerts))}
+              onClose={(key) => { dispatch(removeAlert(key as StorageAlerts)); }}
             />
             <StateAlerts
               variant={AlertVariant.warning}
@@ -350,14 +350,14 @@ export const PlansCreateForm = ({
                 key,
                 ...storageMessages[key],
               }))}
-              onClose={(key) => dispatch(removeAlert(key as StorageAlerts))}
+              onClose={(key) => { dispatch(removeAlert(key as StorageAlerts)); }}
             />
             <MappingList
-              addMapping={() => dispatch(addStorageMapping())}
+              addMapping={() => { dispatch(addStorageMapping()); }}
               replaceMapping={({ current, next }) =>
-                dispatch(replaceStorageMapping({ current, next }))
+                { dispatch(replaceStorageMapping({ current, next })); }
               }
-              deleteMapping={(current) => dispatch(deleteStorageMapping({ ...current }))}
+              deleteMapping={(current) => { dispatch(deleteStorageMapping({ ...current })); }}
               availableDestinations={targetStorages}
               sources={sourceStorages}
               mappings={storageMappings}

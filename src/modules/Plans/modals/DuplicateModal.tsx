@@ -238,7 +238,7 @@ export const DuplicateModal: React.FC<DuplicateModalProps> = ({ redirectTo, reso
                   value={newName}
                   id="name"
                   aria-describedby="name-helper"
-                  onChange={(e, v) => onChange(v, e)}
+                  onChange={(e, v) => { onChange(v, e); }}
                 />
               </FormGroupWithHelpText>
             </Form>

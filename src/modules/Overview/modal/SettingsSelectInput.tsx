@@ -110,7 +110,7 @@ export const SettingsSelectInput: FC<SettingsSelectInputProps> = ({ onChange, op
       isOpen={isOpen}
       selected={selected}
       onSelect={onSelect}
-      onOpenChange={(nextOpen: boolean) => setIsOpen(nextOpen)}
+      onOpenChange={(nextOpen: boolean) => { setIsOpen(nextOpen); }}
       toggle={toggle}
       shouldFocusToggleOnSelect
       shouldFocusFirstItemOnOpen={false}

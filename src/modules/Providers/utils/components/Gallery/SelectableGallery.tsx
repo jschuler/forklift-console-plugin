@@ -65,7 +65,7 @@ export const SelectableGallery: FC<SelectableGalleryProps> = ({
             titleLogo={item.logo}
             content={item.content}
             isSelected={id === selectedCardId}
-            onChange={(isSelected) => handleCardChange(isSelected, id)}
+            onChange={(isSelected) => { handleCardChange(isSelected, id); }}
           />
         </GalleryItem>
       ))}

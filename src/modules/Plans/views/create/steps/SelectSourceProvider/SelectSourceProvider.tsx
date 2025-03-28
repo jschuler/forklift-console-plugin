@@ -66,7 +66,7 @@ export const SelectSourceProvider: React.FC<{
             name={selectedProviderName}
             namespace={selectedProviderNamespace}
             onSelect={(selectedVms) =>
-              filterDispatch({ payload: selectedVms, type: 'UPDATE_SELECTED_VMS' })
+              { filterDispatch({ payload: selectedVms, type: 'UPDATE_SELECTED_VMS' }); }
             }
             initialSelectedIds={filterState.selectedVMs.map((vm) => vm.vm.id)}
             showActions={false}

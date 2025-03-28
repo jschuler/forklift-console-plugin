@@ -87,7 +87,7 @@ const OpenshiftNetworksInputFactory: ({ resource }) => ModalInputComponentType =
         value={0}
         key={''}
         description={'Use the providers default transfer network'}
-        onClick={() => onChange('')}
+        onClick={() => { onChange(''); }}
       >
         {'Providers default'}
       </DropdownItem>,
@@ -96,7 +96,7 @@ const OpenshiftNetworksInputFactory: ({ resource }) => ModalInputComponentType =
           value={1}
           key={getNetworkName(n)}
           description={n.namespace}
-          onClick={() => onChange(n)}
+          onClick={() => { onChange(n); }}
         >
           {n.name}
         </DropdownItem>

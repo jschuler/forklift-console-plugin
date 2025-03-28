@@ -61,7 +61,7 @@ export const ExternalManagementLinkDetailsItem: React.FC<
         onEdit={
           canPatch &&
           provider?.metadata &&
-          (() => showModal(<EditProviderUIModal resource={provider} content={webUILink} />))
+          (() => { showModal(<EditProviderUIModal resource={provider} content={webUILink} />); })
         }
       />
     </DescriptionListDescription>

@@ -126,7 +126,7 @@ export const ProvidersCreateForm: React.FC<ProvidersCreateFormProps> = ({
                   <SelectableCard
                     title={providerCardItems[newProvider?.spec?.type]?.title}
                     titleLogo={providerCardItems[newProvider?.spec?.type]?.logo}
-                    onChange={() => handleTypeChange(null)}
+                    onChange={() => { handleTypeChange(null); }}
                     isSelected
                     isCompact
                     content={
@@ -173,7 +173,7 @@ export const ProvidersCreateForm: React.FC<ProvidersCreateFormProps> = ({
                 name="name"
                 value={newProvider.metadata.name} // Use the appropriate prop value here
                 validated={state.validation.name.type}
-                onChange={(e, v) => onChange(v, e)} // Call the custom handler method
+                onChange={(e, v) => { onChange(v, e); }} // Call the custom handler method
               />
             </FormGroupWithHelpText>
           </Form>

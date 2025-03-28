@@ -43,12 +43,12 @@ export const PreserveClusterCpuModelDetailsItem: React.FC<PlanDetailsItemProps> 
         canPatch &&
         isPlanEditable(resource) &&
         (() =>
-          showModal(
+          { showModal(
             <EditPlanPreserveClusterCpuModel
               resource={resource}
               destinationProvider={destinationProvider}
             />,
-          ))
+          ); })
       }
     />
   );

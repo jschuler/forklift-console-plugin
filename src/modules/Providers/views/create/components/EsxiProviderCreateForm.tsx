@@ -165,14 +165,14 @@ export const EsxiProviderCreateForm: React.FC<EsxiProviderCreateFormProps> = ({
           label="vCenter"
           id="sdkEndpoint-vcenter"
           isChecked={!sdkEndpoint || sdkEndpoint === 'vcenter'}
-          onChange={() => handleChange('sdkEndpoint', 'vcenter')}
+          onChange={() => { handleChange('sdkEndpoint', 'vcenter'); }}
         />
         <Radio
           name="sdkEndpoint"
           label="ESXi"
           id="sdkEndpoint-esxi"
           isChecked={sdkEndpoint === 'esxi'}
-          onChange={() => handleChange('sdkEndpoint', 'esxi')}
+          onChange={() => { handleChange('sdkEndpoint', 'esxi'); }}
         />
       </FormGroupWithHelpText>
 
@@ -192,7 +192,7 @@ export const EsxiProviderCreateForm: React.FC<EsxiProviderCreateFormProps> = ({
           name="url"
           value={url}
           validated={state.validation.url.type}
-          onChange={(e, v) => onChangeUrl(v, e)}
+          onChange={(e, v) => { onChangeUrl(v, e); }}
         />
       </FormGroupWithHelpText>
 
@@ -221,7 +221,7 @@ export const EsxiProviderCreateForm: React.FC<EsxiProviderCreateFormProps> = ({
               'Skip VMware Virtual Disk Development Kit (VDDK) SDK acceleration (not recommended).',
             )}
             isChecked={emptyVddkInitImage === 'yes'}
-            onChange={(e, v) => onChangEmptyVddk(v, e)}
+            onChange={(e, v) => { onChangEmptyVddk(v, e); }}
             id="emptyVddkInitImage"
             name="emptyVddkInitImage"
           />
@@ -237,7 +237,7 @@ export const EsxiProviderCreateForm: React.FC<EsxiProviderCreateFormProps> = ({
             validated={
               emptyVddkInitImage === 'yes' ? 'default' : state.validation.vddkInitImage.type
             }
-            onChange={(e, v) => onChangeVddk(v, e)}
+            onChange={(e, v) => { onChangeVddk(v, e); }}
           />
         </div>
       </FormGroupWithHelpText>

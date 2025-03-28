@@ -27,12 +27,12 @@ const EditPassphraseFactory: (initialValue: string) => ModalInputComponentType =
     const items = initialValue && JSON.parse(initialValue);
 
     // Init component internal value
-    useEffect(() => onChange(initialValue), [initialValue]);
+    useEffect(() => { onChange(initialValue); }, [initialValue]);
 
     return (
       <InputList
         items={items}
-        onChange={(list) => onChange(JSON.stringify(list))}
+        onChange={(list) => { onChange(JSON.stringify(list)); }}
         InputRow={LazyTextInput}
         addButtonText={t('Add passphrase')}
       />

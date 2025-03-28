@@ -42,7 +42,7 @@ export const ProvidersEdit: React.FC<ProvidersEditProps> = ({
         >
           <FormSelect
             value={selectedProviderName}
-            onChange={(e, v) => onChange(v, e)}
+            onChange={(e, v) => { onChange(v, e); }}
             id="targetProvider"
             isDisabled={!hasProviders}
             validated={validated}
@@ -74,7 +74,7 @@ export const ProvidersEdit: React.FC<ProvidersEditProps> = ({
             linkTo={targetProvider !== undefined}
           />
         }
-        onEdit={hasProviders ? () => setMode('edit') : undefined}
+        onEdit={hasProviders ? () => { setMode('edit'); } : undefined}
         helpContent={helpContent}
         crumbs={['spec', 'providers']}
       />

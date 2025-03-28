@@ -70,7 +70,7 @@ describe('display currently selected filters in the URL', () => {
         fields: [{ label: NAME, resourceFieldId: NAME }],
       }),
     );
-    act(() => setSelectedFilters({ [NAME]: update }));
+    act(() => { setSelectedFilters({ [NAME]: update }); });
     expect(window.history.pushState).toBeCalledWith({}, '', pushedState);
   });
 });

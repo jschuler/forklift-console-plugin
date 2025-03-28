@@ -41,12 +41,12 @@ export const URLDetailsItem: React.FC<ProviderDetailsItemProps> = ({
         canPatch &&
         provider?.spec?.url &&
         (() =>
-          showModal(
+          { showModal(
             <EditProviderURLModal
               resource={provider}
               insecureSkipVerify={secret?.data?.insecureSkipVerify}
             />,
-          ))
+          ); })
       }
     />
   );
