@@ -12,6 +12,7 @@ import {
 } from '@patternfly/react-core';
 
 import { localeCompare } from '../utils';
+
 import { type FilterTypeProps } from './types';
 
 /**

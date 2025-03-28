@@ -4,6 +4,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { DescriptionList } from '@patternfly/react-core';
 
 import { DetailsItem } from '../../../../utils';
+
 import {
   CreatedAtDetailsItem,
   CredentialsDetailsItem,

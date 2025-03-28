@@ -1,14 +1,15 @@
 import React, { type FC } from 'react';
 import { useForkliftTranslation } from 'src/utils';
 
-import {
-  getPVCNameTemplateAllowedVariables,
-  pvcNameTemplateHelperExamples,
-} from './utils/constants';
 import { type SettingsEditModalProps } from '../../utils/types';
 import NameTemplateModalBody from '../NameTemplate/NameTemplateModal/components/NameTemplateModalBody/NameTemplateModalBody';
 import NameTemplateModalHelper from '../NameTemplate/NameTemplateModal/components/NameTemplateModalHelper/NameTemplateModalHelper';
 import NameTemplateModal from '../NameTemplate/NameTemplateModal/NameTemplateModal';
+
+import {
+  getPVCNameTemplateAllowedVariables,
+  pvcNameTemplateHelperExamples,
+} from './utils/constants';
 
 const PVCNameTemplateModal: FC<SettingsEditModalProps> = ({ jsonPath, resource, title }) => {
   const { t } = useForkliftTranslation();

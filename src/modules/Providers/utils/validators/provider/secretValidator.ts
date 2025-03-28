@@ -1,9 +1,10 @@
 import { type IoK8sApiCoreV1Secret, type V1beta1Provider } from '@kubev2v/types';
 
+import { type ValidationMsg } from '../common';
+
 import { openshiftSecretValidator } from './openshift/openshiftSecretValidator';
 import { openstackSecretValidator } from './openstack/openstackSecretValidator';
 import { ovirtSecretValidator } from './ovirt/ovirtSecretValidator';
-import { type ValidationMsg } from '../common';
 import { esxiSecretValidator, vcenterSecretValidator } from './vsphere';
 
 export type SecretSubType = 'esxi' | 'vcenter';

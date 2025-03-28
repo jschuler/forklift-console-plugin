@@ -4,6 +4,7 @@ import { MigrationModelGroupVersionKind, type V1beta1Migration, type V1beta1Plan
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 import { Suspend } from '../Suspend';
+
 import { MigrationsTable } from './components';
 
 export const MigrationsSection: React.FC<MigrationsSectionProps> = ({ obj }) => {

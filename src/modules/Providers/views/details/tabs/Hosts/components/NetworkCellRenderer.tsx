@@ -11,6 +11,7 @@ import {
 
 import { calculateCidrNotation } from '../utils';
 import { determineHostStatus } from '../utils/helpers/determineHostStatus';
+
 import { type HostCellProps } from './HostCellProps';
 
 const statusIcons = {

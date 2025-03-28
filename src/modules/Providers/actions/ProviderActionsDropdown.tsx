@@ -13,6 +13,7 @@ import { EllipsisVIcon } from '@patternfly/react-icons';
 
 import { ModalHOC } from '../modals';
 import { type CellProps } from '../views';
+
 import { ProviderActionsDropdownItems } from './ProviderActionsDropdownItems';
 
 import './ProviderActionsDropdown.style.css';

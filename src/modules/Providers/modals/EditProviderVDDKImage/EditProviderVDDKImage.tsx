@@ -8,6 +8,7 @@ import { Alert, Checkbox, TextInput } from '@patternfly/react-core';
 import { VDDKHelperTextShort } from '../../utils/components/VDDKHelperText';
 import { validateVDDKImage } from '../../utils/validators';
 import { EditModal, type EditModalProps } from '../EditModal';
+
 import { onEmptyVddkConfirm } from './onEmptyVddkConfirm';
 import { onNoneEmptyVddkConfirm } from './onNoneEmptyVddkConfirm';
 

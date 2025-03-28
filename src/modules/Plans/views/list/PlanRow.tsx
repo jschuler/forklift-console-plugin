@@ -8,6 +8,7 @@ import { type ResourceField } from '@components/common/utils/types';
 import { Td, Tr } from '@patternfly/react-table';
 
 import { type PlanData } from '../../utils';
+
 import {
   ActionsCell,
   type CellProps,

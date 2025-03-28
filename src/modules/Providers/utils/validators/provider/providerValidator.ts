@@ -1,11 +1,12 @@
 import { type IoK8sApiCoreV1Secret, type V1beta1Provider } from '@kubev2v/types';
 
+import { type ValidationMsg } from '../common';
+
 import { openshiftProviderValidator } from './openshift/openshiftProviderValidator';
 import { openstackProviderValidator } from './openstack/openstackProviderValidator';
 import { ovaProviderValidator } from './ova/ovaProviderValidator';
 import { ovirtProviderValidator } from './ovirt/ovirtProviderValidator';
 import { vsphereProviderValidator } from './vsphere/vsphereProviderValidator';
-import { type ValidationMsg } from '../common';
 import { type SecretSubType } from './secretValidator';
 
 export function providerValidator(

@@ -6,6 +6,7 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 
 import { type PlanDetailsItemProps } from '../../../DetailsSection';
 import { type EnhancedPlan } from '../../utils/types';
+
 import VolumeNameTemplateModal from './VolumeNameTemplateModal';
 
 const VolumeNameTemplateDetailsItem: FC<PlanDetailsItemProps> = ({ canPatch, resource }) => {

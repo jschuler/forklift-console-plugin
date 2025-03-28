@@ -4,6 +4,7 @@ import { type ThSortType } from '@patternfly/react-table/dist/esm/components/Tab
 
 import { getResourceFieldValue } from '../FilterGroup';
 import { localeCompare, type ResourceField } from '../utils';
+
 import { type SortType } from './types';
 
 /**

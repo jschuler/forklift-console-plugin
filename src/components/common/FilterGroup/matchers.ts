@@ -9,6 +9,7 @@ import {
   SwitchFilter,
 } from '../Filter';
 import { areSameDayInUTCZero, isInClosedRange, type ResourceField } from '../utils';
+
 import { type FilterRenderer, type ValueMatcher } from './types';
 
 /**

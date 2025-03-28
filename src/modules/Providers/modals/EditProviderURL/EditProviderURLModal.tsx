@@ -4,6 +4,7 @@ import { type Modify, type V1beta1Provider } from '@kubev2v/types';
 import { type K8sModel } from '@openshift-console/dynamic-plugin-sdk/lib/api/core-api';
 
 import { type EditModalProps } from '../EditModal';
+
 import { OpenshiftEditURLModal } from './OpenshiftEditURLModal';
 import { OpenstackEditURLModal } from './OpenstackEditURLModal';
 import { OvirtEditURLModal } from './OvirtEditURLModal';

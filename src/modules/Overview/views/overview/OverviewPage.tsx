@@ -5,10 +5,11 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { HorizontalNav, type K8sModel } from '@openshift-console/dynamic-plugin-sdk';
 import { PageSection } from '@patternfly/react-core';
 
-import OperatorStatus from './components/OperatorStatus';
-import { ShowWelcomeCardButton } from './components/ShowWelcomeCardButton';
 import { useK8sWatchForkliftController, useProvidersInventoryIsLive } from '../../hooks';
 import { getOperatorPhase } from '../../utils/helpers/getOperatorPhase';
+
+import OperatorStatus from './components/OperatorStatus';
+import { ShowWelcomeCardButton } from './components/ShowWelcomeCardButton';
 import { HeaderTitle } from './components';
 import {
   ForkliftControllerDetailsTab,

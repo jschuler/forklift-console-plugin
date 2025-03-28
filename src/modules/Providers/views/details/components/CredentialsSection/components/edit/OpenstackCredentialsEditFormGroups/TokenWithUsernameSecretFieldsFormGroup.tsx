@@ -9,6 +9,7 @@ import EyeIcon from '@patternfly/react-icons/dist/esm/icons/eye-icon';
 import EyeSlashIcon from '@patternfly/react-icons/dist/esm/icons/eye-slash-icon';
 
 import { type EditComponentProps } from '../../BaseCredentialsSection';
+
 import { OpenstackSecretFieldId } from './constants';
 
 export const TokenWithUsernameSecretFieldsFormGroup: React.FC<EditComponentProps> = ({

@@ -7,6 +7,7 @@ import { Td } from '@patternfly/react-table';
 import { ConditionsCellRenderer, type PlanVMsCellProps } from '../components';
 import { NameCellRenderer } from '../components/NameCellRenderer';
 import { type VMData } from '../types';
+
 import ActionsCell from './ActionsCell';
 
 export const PlanVirtualMachinesRow: React.FC<RowProps<VMData>> = ({

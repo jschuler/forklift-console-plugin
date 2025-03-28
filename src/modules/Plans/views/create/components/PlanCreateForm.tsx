@@ -25,8 +25,9 @@ import {
   Tooltip,
 } from '@patternfly/react-core';
 
-import { PlanNameTextField } from './PlanName/PlanNameTextField';
 import { type PlanCreatePageState } from '../states';
+
+import { PlanNameTextField } from './PlanName/PlanNameTextField';
 import { ChipsToolbarProviders } from './ChipsToolbarProviders';
 import { createProviderCardItems } from './createProviderCardItems';
 import { FiltersToolbarProviders } from './FiltersToolbarProviders';

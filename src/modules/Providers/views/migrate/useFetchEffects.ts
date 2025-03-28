@@ -13,6 +13,12 @@ import {
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
+import { useDisks } from '../../hooks/useDisks';
+import { useNamespaces } from '../../hooks/useNamespaces';
+import { useOpenShiftNetworks, useSourceNetworks } from '../../hooks/useNetworks';
+import { useNicProfiles } from '../../hooks/useNicProfiles';
+import { useOpenShiftStorages, useSourceStorages } from '../../hooks/useStorages';
+
 import {
   type CreateVmMigration,
   initState,
@@ -34,11 +40,6 @@ import {
 } from './reducer/actions';
 import { createInitialState } from './reducer/createInitialState';
 import { reducer } from './reducer/reducer';
-import { useDisks } from '../../hooks/useDisks';
-import { useNamespaces } from '../../hooks/useNamespaces';
-import { useOpenShiftNetworks, useSourceNetworks } from '../../hooks/useNetworks';
-import { useNicProfiles } from '../../hooks/useNicProfiles';
-import { useOpenShiftStorages, useSourceStorages } from '../../hooks/useStorages';
 import { type CreateVmMigrationContextType } from './ProvidersCreateVmMigrationContext';
 import { type CreateVmMigrationPageState } from './types';
 

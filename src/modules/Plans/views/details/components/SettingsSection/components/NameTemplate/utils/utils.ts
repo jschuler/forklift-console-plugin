@@ -5,6 +5,7 @@ import { k8sUpdate } from '@openshift-console/dynamic-plugin-sdk';
 import { setObjectValueByPath, unsetObjectValueByPath } from '@utils/helpers';
 
 import { type EnhancedPlan } from '../../../utils/types';
+
 import { NameTemplateRadioOptions } from './constants';
 
 export const onConfirmNameTemplate: (selected: NameTemplateRadioOptions) => OnConfirmHookType =

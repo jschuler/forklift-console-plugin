@@ -7,6 +7,7 @@ import { OffIcon, PowerOffIcon, UnknownIcon } from '@patternfly/react-icons';
 
 import { getVmPowerState } from '../utils';
 import { type PowerState } from '../utils/helpers/getVmPowerState';
+
 import { type VMCellProps } from './VMCellProps';
 
 export const PowerStateCellRenderer: React.FC<VMCellProps> = ({ data }) => {

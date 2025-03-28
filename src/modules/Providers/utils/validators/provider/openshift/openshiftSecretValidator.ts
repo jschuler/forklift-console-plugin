@@ -4,6 +4,7 @@ import { type IoK8sApiCoreV1Secret, type V1beta1Provider } from '@kubev2v/types'
 
 import { validateUrlAndTokenExistence } from '../../../helpers/validateUrlAndTokenExistence';
 import { type ValidationMsg } from '../../common';
+
 import { openshiftSecretFieldValidator } from './openshiftSecretFieldValidator';
 
 export function openshiftSecretValidator(

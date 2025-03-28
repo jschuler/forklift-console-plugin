@@ -6,6 +6,7 @@ import { Label } from '@patternfly/react-core';
 
 import { getOpenShiftFeatureMap } from '../utils';
 import { toVmFeatureEnum } from '../utils/helpers/toVmFeatureEnum';
+
 import { type VMCellProps } from './VMCellProps';
 
 export const VmFeaturesCell: React.FC<VMCellProps> = ({ data }) => {

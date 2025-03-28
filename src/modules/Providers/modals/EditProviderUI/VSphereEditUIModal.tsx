@@ -4,9 +4,10 @@ import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 import { ProviderModel } from '@kubev2v/types';
 import { ModalVariant } from '@patternfly/react-core';
 
-import { patchProviderUI } from './utils/patchProviderUI';
 import { validateVSphereUILink } from '../../utils/validators';
 import { EditModal } from '../EditModal';
+
+import { patchProviderUI } from './utils/patchProviderUI';
 import { type EditProviderUIModalProps } from './EditProviderUIModal';
 
 export const VSphereEditUIModal: React.FC<EditProviderUIModalProps> = (props) => {

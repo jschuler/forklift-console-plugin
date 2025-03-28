@@ -6,6 +6,7 @@ import { Td, Tr } from '@patternfly/react-table';
 
 import { NetworkMapActionsDropdown } from '../../actions';
 import { type NetworkMapData } from '../../utils';
+
 import {
   type CellProps,
   NamespaceCell,

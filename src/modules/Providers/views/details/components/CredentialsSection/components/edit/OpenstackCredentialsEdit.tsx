@@ -9,6 +9,7 @@ import { Divider, Form, Popover, Radio, Switch } from '@patternfly/react-core';
 import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 
 import { type EditComponentProps } from '../BaseCredentialsSection';
+
 import {
   ApplicationCredentialNameSecretFieldsFormGroup,
   ApplicationWithCredentialsIDFormGroup,

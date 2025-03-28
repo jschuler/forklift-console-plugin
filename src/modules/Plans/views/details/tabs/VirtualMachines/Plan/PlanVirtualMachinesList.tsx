@@ -16,6 +16,7 @@ import {
 
 import { PlanVMsDeleteButton } from '../components';
 import { type PlanData, type VMData } from '../types';
+
 import { PlanVirtualMachinesRow } from './PlanVirtualMachinesRow';
 
 const fieldsMetadataFactory: (isVsphere: boolean) => ResourceFieldFactory = (isVsphere) => (t) =>

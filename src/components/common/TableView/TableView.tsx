@@ -4,6 +4,7 @@ import { Bullseye } from '@patternfly/react-core';
 import { Table, Tbody, Td, Thead, Tr } from '@patternfly/react-table';
 
 import { type ResourceField, UID } from '../utils';
+
 import { type RowProps, type SortType, type TableViewHeaderProps } from './types';
 
 /**

@@ -6,6 +6,7 @@ import { Dropdown, DropdownList, MenuToggle, type MenuToggleElement } from '@pat
 import { EllipsisVIcon } from '@patternfly/react-icons';
 
 import { type CellProps } from '../views/list/components';
+
 import { PlanActionsDropdownItems } from './PlanActionsDropdownItems';
 
 import './PlanActionsDropdown.style.css';

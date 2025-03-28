@@ -8,6 +8,7 @@ import { Td, Tr } from '@patternfly/react-table';
 
 import { ProviderActionsDropdown } from '../../actions';
 import { TableEmptyCell } from '../../utils';
+
 import {
   type CellProps,
   InventoryCellFactory,

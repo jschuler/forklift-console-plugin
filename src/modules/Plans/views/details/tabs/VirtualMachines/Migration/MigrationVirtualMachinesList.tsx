@@ -24,6 +24,7 @@ import { HelperText, HelperTextItem } from '@patternfly/react-core';
 
 import { MigrationVMsCancelButton, PlanVMsDeleteButton } from '../components';
 import { type PlanData, type VMData } from '../types';
+
 import { MigrationVirtualMachinesRow } from './MigrationVirtualMachinesRow';
 import { MigrationVirtualMachinesRowExtended } from './MigrationVirtualMachinesRowExtended';
 

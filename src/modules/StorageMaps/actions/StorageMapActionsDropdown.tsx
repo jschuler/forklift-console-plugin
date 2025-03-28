@@ -13,6 +13,7 @@ import {
 import { EllipsisVIcon } from '@patternfly/react-icons';
 
 import { type CellProps } from '../views/list/components';
+
 import { StorageMapActionsDropdownItems } from './StorageMapActionsDropdownItems';
 
 import './StorageMapActionsDropdown.style.css';

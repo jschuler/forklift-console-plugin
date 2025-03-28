@@ -1,6 +1,7 @@
 import { type OVirtNicProfile } from '@kubev2v/types';
 
 import { type VmData } from '../../details';
+
 import { toNetworks } from './getNetworksUsedBySelectedVMs';
 
 /**

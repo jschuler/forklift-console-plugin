@@ -4,9 +4,10 @@ import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 import { ProviderModel } from '@kubev2v/types';
 import { ModalVariant } from '@patternfly/react-core';
 
-import { patchProviderURL } from './utils/patchProviderURL';
 import { validateEsxiURL, validateVCenterURL } from '../../utils/validators';
 import { EditModal, type ValidationHookType } from '../EditModal';
+
+import { patchProviderURL } from './utils/patchProviderURL';
 import { type EditProviderURLModalProps } from './EditProviderURLModal';
 
 export const VSphereEditURLModal: React.FC<EditProviderURLModalProps> = ({
