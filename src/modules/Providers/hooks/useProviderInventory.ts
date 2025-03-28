@@ -17,7 +17,7 @@ import { DEFAULT_FIELDS_TO_AVOID_COMPARING } from './utils';
  * @property {number} [cacheExpiryDuration] - Duration in milliseconds till the cache remains valid.
  * @param {boolean} [disabled] - Prevent query execution.
  */
-export interface UseProviderInventoryParams {
+export type UseProviderInventoryParams = {
   provider: V1beta1Provider;
   subPath?: string;
   fieldsToAvoidComparing?: string[];
@@ -33,7 +33,7 @@ export interface UseProviderInventoryParams {
  * @property {boolean} loading - Whether the inventory fetch is in progress.
  * @property {Error | null} error - The error occurred during inventory fetch.
  */
-interface UseProviderInventoryResult<T> {
+type UseProviderInventoryResult<T> = {
   inventory: T | null;
   loading: boolean;
   error: Error | null;

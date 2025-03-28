@@ -2,7 +2,7 @@ import React, { type ReactNode } from 'react';
 
 import { Card, CardBody, CardHeader, CardTitle, Split, SplitItem } from '@patternfly/react-core';
 
-interface SelectableCardProps {
+type SelectableCardProps = {
   /** The title of the card. It can be any element - a string, a React component, etc. */
   title: ReactNode;
   /** Optional: A logo or symbol to be displayed along with the title. It can be any element - a string, a React component, etc. */

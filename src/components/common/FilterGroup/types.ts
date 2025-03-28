@@ -17,7 +17,7 @@ export type FieldFilter = {
   filterDef: FilterDef;
 };
 
-export interface MetaFilterProps {
+export type MetaFilterProps = {
   /**
    * List of the selected values for the filter.
    * Field-to-filter values mapping where:
@@ -53,11 +53,11 @@ export interface MetaFilterProps {
   resolvedLanguage?: string;
 }
 
-export interface GlobalFilters {
+export type GlobalFilters = {
   [id: string]: string[];
 }
 
-export interface ValueMatcher {
+export type ValueMatcher = {
   filterType: string;
   matchValue: (value: unknown) => (filter: string) => boolean;
 }

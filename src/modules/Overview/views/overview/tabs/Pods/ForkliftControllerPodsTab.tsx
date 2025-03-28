@@ -4,7 +4,7 @@ import { type V1beta1ForkliftController } from '@kubev2v/types';
 
 import { PodsCard } from './cards';
 
-interface ForkliftControllerDetailsTabProps {
+type ForkliftControllerDetailsTabProps = {
   obj: V1beta1ForkliftController;
   ns?: string;
   name?: string;

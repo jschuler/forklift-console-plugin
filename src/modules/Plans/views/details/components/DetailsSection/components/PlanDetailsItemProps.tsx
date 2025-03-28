@@ -2,7 +2,7 @@ import { type ReactNode } from 'react';
 
 import { type V1beta1Plan, type V1beta1Provider } from '@kubev2v/types';
 
-export interface PlanDetailsItemProps {
+export type PlanDetailsItemProps = {
   resource: V1beta1Plan;
   canPatch?: boolean;
   moreInfoLink?: string;

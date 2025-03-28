@@ -49,7 +49,7 @@ const cellRenderers: Record<string, React.FC<CellProps>> = {
   ['source']: ProviderLinkCell,
 };
 
-interface RenderTdProps {
+type RenderTdProps = {
   resourceData: StorageMapData;
   resourceFieldId: string;
   resourceFields: ResourceField[];

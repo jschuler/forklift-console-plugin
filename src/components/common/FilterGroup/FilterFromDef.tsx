@@ -4,7 +4,7 @@ import { type FilterTypeProps } from '../Filter';
 import { type FilterDef } from '../utils';
 import { type GlobalFilters } from './types';
 
-interface FilterFromDefProps {
+type FilterFromDefProps = {
   resourceFieldId: string;
   label: string;
   filterDef: FilterDef;

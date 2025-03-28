@@ -33,7 +33,7 @@ import { Suspend } from '../views/details/components/Suspend';
  * @property {K8sModel} model - The model used for deletion
  * @property {string} [redirectTo] - Optional redirect URL after deletion
  */
-interface DuplicateModalProps {
+type DuplicateModalProps = {
   resource: V1beta1Plan;
   model: K8sModel;
   title?: string;

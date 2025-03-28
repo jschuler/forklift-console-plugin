@@ -3,7 +3,7 @@ import React from 'react';
 import { Popover, type PopoverProps } from '@patternfly/react-core';
 import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 
-interface HelpIconPopoverProps {
+type HelpIconPopoverProps = {
   children: React.ReactNode;
   header?: string;
   popoverProps?: Omit<PopoverProps, 'bodyContent' | 'titleContent'>;

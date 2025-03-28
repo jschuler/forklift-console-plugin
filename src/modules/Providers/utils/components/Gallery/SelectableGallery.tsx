@@ -6,7 +6,7 @@ import { SelectableCard } from './SelectableCard';
 
 import './SelectableGallery.style.css';
 
-export interface SelectableGalleryItem {
+export type SelectableGalleryItem = {
   /** The title of the item */
   title: ReactNode;
   /** The logo of the item */
@@ -15,7 +15,7 @@ export interface SelectableGalleryItem {
   content: string;
 }
 
-interface SelectableGalleryProps {
+type SelectableGalleryProps = {
   /** An object of items to be displayed in the gallery. Key is the item's id */
   items: Record<string, SelectableGalleryItem>;
   /** Handler function to be called when a card is selected */

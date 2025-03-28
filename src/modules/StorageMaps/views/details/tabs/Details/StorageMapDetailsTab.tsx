@@ -9,7 +9,7 @@ import { PageSection } from '@patternfly/react-core';
 
 import { ConditionsSection, DetailsSection, MapsSection, ProvidersSection } from '../../components';
 
-interface StorageMapDetailsTabProps {
+type StorageMapDetailsTabProps = {
   name: string;
   namespace: string;
 }

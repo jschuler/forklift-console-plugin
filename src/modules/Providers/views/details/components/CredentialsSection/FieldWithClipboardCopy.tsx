@@ -5,7 +5,7 @@ import { ClipboardCopy, Switch, TextInput, Tooltip } from '@patternfly/react-cor
 
 import { type Field } from './components/list/Fields';
 
-export interface ShowFieldWithClipboardCopyProps {
+export type ShowFieldWithClipboardCopyProps = {
   value: string;
   field?: Field;
 }

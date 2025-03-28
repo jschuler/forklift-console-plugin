@@ -4,7 +4,7 @@ import { type NetworkAdapters } from '@kubev2v/types';
 /**
  * Type to represent a pair of ProviderHost, V1beta1Host and NetworkAdapters.
  */
-export interface InventoryHostPair {
+export type InventoryHostPair = {
   inventory: VSphereHost;
   host?: V1beta1Host;
   networkAdapter?: NetworkAdapters;

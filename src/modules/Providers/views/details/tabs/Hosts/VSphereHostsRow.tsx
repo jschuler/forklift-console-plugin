@@ -58,7 +58,7 @@ const cellRenderers: Record<string, React.FC<HostCellProps>> = {
   network: NetworkCellRenderer,
 };
 
-interface RenderTdProps {
+type RenderTdProps = {
   resourceData: InventoryHostPair;
   resourceFieldId: string;
   resourceFields: ResourceField[];

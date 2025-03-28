@@ -18,7 +18,7 @@ import { getPlanPhase, PlanPhase } from '../utils';
  * @property {K8sModel} model - The model used for deletion
  * @property {string} [redirectTo] - Optional redirect URL after deletion
  */
-interface ArchiveModalProps {
+type ArchiveModalProps = {
   resource: V1beta1Plan;
   model: K8sModel;
   title?: string;

@@ -8,7 +8,7 @@ import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 import { VSphereHostsList } from './VSphereHostsList';
 
-export interface ProviderHostsProps {
+export type ProviderHostsProps = {
   obj: ProviderData;
   ns?: string;
   name?: string;

@@ -1,6 +1,6 @@
 import { type V1beta1Host } from '@kubev2v/types';
 
-interface StatusResult {
+type StatusResult = {
   status: string;
   message: string;
 }

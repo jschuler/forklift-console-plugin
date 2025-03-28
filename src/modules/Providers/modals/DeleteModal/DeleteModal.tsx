@@ -23,7 +23,7 @@ import { useModal } from '../ModalHOC';
  * @property {K8sModel} model - The model used for deletion
  * @property {string} [redirectTo] - Optional redirect URL after deletion
  */
-interface DeleteModalProps {
+type DeleteModalProps = {
   resource: K8sResourceCommon;
   model: K8sModel;
   title?: string;

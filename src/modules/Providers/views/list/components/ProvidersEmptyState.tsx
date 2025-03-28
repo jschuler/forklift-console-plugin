@@ -19,7 +19,7 @@ import {
 const HELP_LINK_HREF =
   'https://docs.redhat.com/en/documentation/migration_toolkit_for_virtualization/';
 
-interface ProvidersEmptyStateProps {
+type ProvidersEmptyStateProps = {
   AddButton: ReactNode;
   title: ReactNode;
   Icon: ComponentType;

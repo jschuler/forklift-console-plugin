@@ -129,6 +129,6 @@ export const PlanActionsDropdownItems = ({ data }: PlanActionsDropdownItemsProps
   ];
 };
 
-interface PlanActionsDropdownItemsProps {
+type PlanActionsDropdownItemsProps = {
   data: PlanData;
 }

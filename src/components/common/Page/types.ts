@@ -1,22 +1,22 @@
-export interface UserSettings {
+export type UserSettings = {
   fields?: FieldSettings;
   pagination?: PaginationSettings;
   filters?: FiltersSettings;
 }
 
-export interface FieldSettings {
+export type FieldSettings = {
   data: { resourceFieldId: string; isVisible?: boolean }[];
   save: (fields: { resourceFieldId: string; isVisible?: boolean }[]) => void;
   clear: () => void;
 }
 
-export interface PaginationSettings {
+export type PaginationSettings = {
   perPage: number;
   save: (perPage: number) => void;
   clear: () => void;
 }
 
-export interface FiltersSettings {
+export type FiltersSettings = {
   data: { [k: string]: undefined };
   save: (filters: { [k: string]: undefined }) => void;
   clear: () => void;

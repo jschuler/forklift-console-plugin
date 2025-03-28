@@ -8,7 +8,7 @@ import { consoleFetchJSON } from '@openshift-console/dynamic-plugin-sdk';
  * @typedef {Object} UseInventoryParams
  * @property {number} [interval=20000] - Time interval to fetch inventory from server, default is 20 seconds.
  */
-interface UseInventoryParams {
+type UseInventoryParams = {
   interval?: number;
 }
 
@@ -18,7 +18,7 @@ interface UseInventoryParams {
  * @property {boolean} loaded - Whether the server has returned data, indicating it is live.
  * @property {Error|null} loadError - Any error that occurred while checking server, null if no error occurred.
  */
-interface UseInventoryIsLiveResult {
+type UseInventoryIsLiveResult = {
   loaded: boolean;
   loadError: Error | null;
 }

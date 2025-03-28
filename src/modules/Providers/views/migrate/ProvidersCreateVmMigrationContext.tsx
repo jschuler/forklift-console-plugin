@@ -13,14 +13,14 @@ import { type V1beta1Provider } from '@kubev2v/types';
 
 import { type VmData } from '../details';
 
-export interface CreateVmMigrationContextData {
+export type CreateVmMigrationContextData = {
   selectedVms: VmData[];
   provider?: V1beta1Provider;
   planName?: string;
   projectName?: string;
 }
 
-export interface CreateVmMigrationContextType {
+export type CreateVmMigrationContextType = {
   data?: CreateVmMigrationContextData;
   setData?: (data: CreateVmMigrationContextData) => void;
 }

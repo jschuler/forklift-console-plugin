@@ -60,6 +60,6 @@ export const PlanActionsDropdown: React.FC<PlanActionsDropdownProps> = (props) =
   </ModalHOC>
 );
 
-export interface PlanActionsDropdownProps extends CellProps {
+export type PlanActionsDropdownProps = {
   isKebab?: boolean;
-}
+} & CellProps

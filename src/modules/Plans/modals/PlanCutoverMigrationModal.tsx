@@ -28,7 +28,7 @@ import './PlanCutoverMigrationModal.style.css';
  * @property {K8sModel} model - The model used for deletion
  * @property {string} [redirectTo] - Optional redirect URL after deletion
  */
-interface PlanCutoverMigrationModalProps {
+type PlanCutoverMigrationModalProps = {
   resource: V1beta1Plan;
   title?: string;
 }

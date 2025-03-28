@@ -15,7 +15,7 @@ import { OvaVirtualMachinesList } from './OvaVirtualMachinesList';
 import { OVirtVirtualMachinesList } from './OVirtVirtualMachinesList';
 import { VSphereVirtualMachinesList } from './VSphereVirtualMachinesList';
 
-export interface ProviderVirtualMachinesProps {
+export type ProviderVirtualMachinesProps = {
   title?: string;
   obj: ProviderData;
   loaded?: boolean;

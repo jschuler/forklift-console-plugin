@@ -23,7 +23,7 @@ import { EditProvider } from './EditProvider';
 import { EditProviderSectionHeading } from './EditProviderSectionHeading';
 import { providerCardItems } from './providerCardItems';
 
-export interface ProvidersCreateFormProps {
+export type ProvidersCreateFormProps = {
   newProvider: V1beta1Provider;
   newSecret: IoK8sApiCoreV1Secret;
   onNewProviderChange: (V1beta1Provider) => void;

@@ -6,7 +6,7 @@ import { Flex, FlexItem, Stack, StackItem } from '@patternfly/react-core';
 
 import { ConditionsCard, ControllerCard, OperatorCard, OverviewCard, SettingsCard } from './cards';
 
-interface ForkliftControllerDetailsTabProps {
+type ForkliftControllerDetailsTabProps = {
   obj: V1beta1ForkliftController;
   ns?: string;
   name?: string;

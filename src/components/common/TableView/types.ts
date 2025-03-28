@@ -1,12 +1,12 @@
 import { type ResourceField } from '../utils';
 
-export interface SortType {
+export type SortType = {
   isAsc: boolean;
   resourceFieldId: string;
   label: string;
 }
 
-export interface RowProps<T> {
+export type RowProps<T> = {
   resourceFields: ResourceField[];
   resourceData: T;
   resourceIndex: number;
@@ -17,7 +17,7 @@ export interface RowProps<T> {
   length?: number;
 }
 
-export interface TableViewHeaderProps<T> {
+export type TableViewHeaderProps<T> = {
   /**
    * List of visible columns and their properties
    */

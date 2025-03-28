@@ -10,7 +10,7 @@ export enum TimeRangeOptions {
   Last24H = 'Last24H',
 }
 
-interface TimeRangeOptionsProperties {
+type TimeRangeOptionsProperties = {
   migrationsLabelKey: string;
   vmMigrationsLabelKey: string;
   span: { days: number } | { hours: number };

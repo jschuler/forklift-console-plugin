@@ -97,7 +97,7 @@ const reduceValueFilters = (
  *
  * @template T - The type of the items being displayed in the table.
  */
-export interface StandardPageProps<T> {
+export type StandardPageProps<T> = {
   /**
    * Component displayed close to the top right corner. By convention it's usually "add" or "create" button.
    */

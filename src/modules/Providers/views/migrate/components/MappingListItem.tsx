@@ -23,7 +23,7 @@ import { type Mapping, type MappingSource } from '../types';
 
 import '../ProvidersCreateVmMigration.style.css';
 
-export interface MappingListItemProps {
+export type MappingListItemProps = {
   source: string;
   destination: string;
   destinations: string[];

@@ -1,7 +1,7 @@
 import { type ResourceField } from '@components/common/utils/types';
 import { type ProviderVirtualMachine } from '@kubev2v/types';
 
-export interface VmData {
+export type VmData = {
   vm: ProviderVirtualMachine;
   name: string;
   namespace: string;
@@ -10,7 +10,7 @@ export interface VmData {
   hostName?: string;
 }
 
-export interface VMCellProps {
+export type VMCellProps = {
   data: VmData;
   fieldId: string;
   fields: ResourceField[];

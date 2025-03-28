@@ -7,7 +7,7 @@ import {
   ExclamationTriangleIcon,
 } from '@patternfly/react-icons';
 
-interface OperatorStatusProps {
+type OperatorStatusProps = {
   status: string;
 }
 

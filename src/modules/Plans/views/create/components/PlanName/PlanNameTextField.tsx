@@ -7,7 +7,7 @@ import { TextInput } from '@patternfly/react-core';
 
 import { getInvalidHelperText } from './utils/utils';
 
-interface PlanNameTextFieldProps {
+type PlanNameTextFieldProps = {
   value: string;
   validated: Validation;
   onChange: (event: React.FormEvent<HTMLInputElement>, value: string) => void;

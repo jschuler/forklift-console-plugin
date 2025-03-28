@@ -9,7 +9,7 @@ import { PageSection } from '@patternfly/react-core';
 
 import { CredentialsSection } from '../../components';
 
-interface ProviderCredentialsProps {
+type ProviderCredentialsProps = {
   obj: ProviderData;
   ns?: string;
   name?: string;

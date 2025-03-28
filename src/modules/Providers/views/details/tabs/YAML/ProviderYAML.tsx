@@ -6,7 +6,7 @@ import { ProviderModelGroupVersionKind, type V1beta1Provider } from '@kubev2v/ty
 import { ResourceYAMLEditor, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { Bullseye } from '@patternfly/react-core';
 
-interface ProviderYAMLPageProps {
+type ProviderYAMLPageProps = {
   obj: ProviderData;
   ns?: string;
   name?: string;

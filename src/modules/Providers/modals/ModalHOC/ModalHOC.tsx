@@ -62,12 +62,12 @@ export const useModal = (): ModalContextType => {
   return context;
 };
 
-export interface ModalContextType {
+export type ModalContextType = {
   showModal: (modal: ReactNode) => void;
   toggleModal: () => void;
 }
 
-export interface ModalHOCProps {
+export type ModalHOCProps = {
   children: ReactNode;
 }
 

@@ -17,12 +17,12 @@ import {
 } from '@patternfly/react-core';
 import { MinusCircleIcon } from '@patternfly/react-icons';
 
-export interface Mapping {
+export type Mapping = {
   source: string;
   destination: string;
 }
 
-interface MappingListItemProps {
+type MappingListItemProps = {
   source: string;
   destination: string;
   sources?: string[];

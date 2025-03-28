@@ -9,7 +9,7 @@ import { MappingListItem } from './MappingListItem';
 
 import '../ProvidersCreateVmMigration.style.css';
 
-interface MappingListProps {
+type MappingListProps = {
   mappings?: Mapping[];
   sources: MappingSource[];
   availableDestinations: string[];

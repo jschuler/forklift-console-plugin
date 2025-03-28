@@ -18,7 +18,7 @@ import { ConcernsTable } from './ConcernsTable';
 import { MigrationAction } from './MigrationAction';
 import { type VmData } from './VMCellProps';
 
-export interface ProviderVirtualMachinesListProps {
+export type ProviderVirtualMachinesListProps = {
   title?: string;
   obj: ProviderData;
   ns?: string;

@@ -87,6 +87,6 @@ export const ProviderActionsDropdown: React.FC<ProviderActionsDropdownProps> = (
   </ModalHOC>
 );
 
-export interface ProviderActionsDropdownProps extends CellProps {
+export type ProviderActionsDropdownProps = {
   isKebab?: boolean;
-}
+} & CellProps

@@ -10,7 +10,7 @@ import {
   MinusCircleIcon,
 } from '@patternfly/react-icons';
 
-interface PlanStatusVmCountProps {
+type PlanStatusVmCountProps = {
   count: number;
   linkPath: string;
   status: IconComponentProps['status'] | 'canceled';

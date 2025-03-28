@@ -59,7 +59,7 @@ const cellRenderers: Partial<Record<PlanTableResourceId, FC<CellProps>>> = {
   [PlanTableResourceId.Vms]: VMsCell,
 };
 
-interface RenderTdProps {
+type RenderTdProps = {
   resourceData: PlanData;
   resourceFieldId: string;
   resourceFields: ResourceField[];

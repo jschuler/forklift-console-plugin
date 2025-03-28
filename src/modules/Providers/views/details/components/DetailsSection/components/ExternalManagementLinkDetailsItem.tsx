@@ -14,10 +14,10 @@ import { type ProviderDetailsItemProps } from './ProviderDetailsItem';
  * @property {string} [webUILinkText - A label text to be displayed as a content.
  * @property {string} [webUILink] - provider's management system external link.
  */
-export interface ExternalManagementLinkDetailsItemProps extends ProviderDetailsItemProps {
+export type ExternalManagementLinkDetailsItemProps = {
   webUILinkText?: string;
   webUILink?: string;
-}
+} & ProviderDetailsItemProps
 
 /**
  * Component for displaying the provider management system external link.

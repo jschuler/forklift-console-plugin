@@ -3,7 +3,7 @@ import { deepCopy } from 'src/utils';
 
 import { type V1beta1Hook } from '@kubev2v/types';
 
-export interface FormState {
+export type FormState = {
   preHookSet: boolean;
   postHookSet: boolean;
   preHook: V1beta1Hook;

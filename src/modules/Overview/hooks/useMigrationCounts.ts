@@ -7,7 +7,7 @@ import { getMigrationCounts, getVmCounts } from '../utils';
 
 export type MigrationCounts = { [key: string]: number };
 
-export interface MigrationCountsHookResponse {
+export type MigrationCountsHookResponse = {
   count: MigrationCounts;
   vmCount: MigrationCounts;
   loaded: boolean;

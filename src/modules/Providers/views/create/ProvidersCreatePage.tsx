@@ -28,7 +28,7 @@ import { createProvider, createProviderSecret, patchProviderSecretOwner } from '
 
 import './ProvidersCreatePage.style.css';
 
-interface ProvidersCreatePageState {
+type ProvidersCreatePageState = {
   newSecret: IoK8sApiCoreV1Secret;
   newProvider: V1beta1Provider;
   projectName: string;

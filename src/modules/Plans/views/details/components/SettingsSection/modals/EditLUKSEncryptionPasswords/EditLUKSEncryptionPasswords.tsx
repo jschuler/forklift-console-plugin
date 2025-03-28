@@ -16,7 +16,7 @@ import { editLUKSModalAlert } from './editLUKSModalAlert';
 import { editLUKSModalBody } from './editLUKSModalBody';
 import { onLUKSEncryptionPasswordsConfirm } from './onLUKSEncryptionPasswordsConfirm';
 
-interface SecretRendererProps {
+type SecretRendererProps = {
   value: string | number;
   onChange: (string) => void;
 }

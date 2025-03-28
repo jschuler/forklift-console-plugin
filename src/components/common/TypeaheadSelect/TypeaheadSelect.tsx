@@ -16,16 +16,16 @@ import {
 } from '@patternfly/react-core';
 import { TimesIcon } from '@patternfly/react-icons';
 
-export interface TypeaheadSelectOption extends Omit<SelectOptionProps, 'content' | 'isSelected'> {
+export type TypeaheadSelectOption = {
   /** Content of the select option. */
   content: string | number;
   /** Value of the select option. */
   value: string | number;
   /** Indicator for option being selected */
   isSelected?: boolean;
-}
+} & Omit<SelectOptionProps, 'content' | 'isSelected'>
 
-export interface TypeaheadSelectProps extends Omit<SelectProps, 'toggle' | 'onSelect'> {
+export type TypeaheadSelectProps = {
   /** Options of the select */
   selectOptions: TypeaheadSelectOption[];
   /** Callback triggered on selection. */
@@ -67,7 +67,7 @@ export interface TypeaheadSelectProps extends Omit<SelectProps, 'toggle' | 'onSe
   toggleWidth?: string;
   /** Additional props passed to the toggle. */
   toggleProps?: MenuToggleProps;
-}
+} & Omit<SelectProps, 'toggle' | 'onSelect'>
 
 const defaultNoOptionsFoundMessage = (filter: string) => `No results found for "${filter}"`;
 const defaultCreateOptionMessage = (newValue: string) => `Create "${newValue}"`;

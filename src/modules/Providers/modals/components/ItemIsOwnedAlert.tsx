@@ -10,7 +10,7 @@ import { Alert } from '@patternfly/react-core';
 
 import './alerts.style.css';
 
-interface ItemIsOwnedAlertProps {
+type ItemIsOwnedAlertProps = {
   owner: OwnerReference;
   namespace: string;
 }

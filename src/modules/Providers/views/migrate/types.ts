@@ -21,7 +21,7 @@ import { type InventoryStorage } from '../../hooks/useStorages';
 import { type Validation } from '../../utils';
 import { type VmData } from '../details';
 
-export interface CreateVmMigrationPageState {
+export type CreateVmMigrationPageState = {
   underConstruction: {
     plan: V1beta1Plan;
     projectName: string;
@@ -100,7 +100,7 @@ export interface CreateVmMigrationPageState {
     initialLoading: { [keys in CreateVmMigration]?: boolean };
   };
 }
-export interface MappingSource {
+export type MappingSource = {
   // read-only
   label: string;
   usedBySelectedVms: boolean;
@@ -108,7 +108,7 @@ export interface MappingSource {
   isMapped: boolean;
 }
 
-export interface Mapping {
+export type Mapping = {
   source: string;
   destination: string;
 }

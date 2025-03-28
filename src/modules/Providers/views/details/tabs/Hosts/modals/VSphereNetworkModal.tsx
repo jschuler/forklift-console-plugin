@@ -25,7 +25,7 @@ import { calculateCidrNotation, type InventoryHostPair, onSaveHost } from '../ut
 
 import './VSphereNetworkModal.style.css';
 
-export interface VSphereNetworkModalProps {
+export type VSphereNetworkModalProps = {
   provider: V1beta1Provider;
   data: InventoryHostPair[];
   selected: string[];

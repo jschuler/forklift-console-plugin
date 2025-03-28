@@ -14,7 +14,7 @@ import {
   TextVariants,
 } from '@patternfly/react-core';
 
-interface StatusCardProps {
+type StatusCardProps = {
   status: string;
   count: number | string;
   counterClassName?: string;

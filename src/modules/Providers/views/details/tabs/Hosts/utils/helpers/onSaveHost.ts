@@ -16,7 +16,7 @@ import { createHostSecret } from './createHostSecret';
 import { type InventoryHostPair } from './matchHostsToInventory';
 import { patchHostSecretOwner } from './patchHostSecretOwner';
 
-interface OnSaveHostParams {
+type OnSaveHostParams = {
   provider: V1beta1Provider;
   hostPairs: InventoryHostPair[];
   network: NetworkAdapters;

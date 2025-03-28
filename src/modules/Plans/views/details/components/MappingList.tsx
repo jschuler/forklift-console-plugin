@@ -6,7 +6,7 @@ import { PlusCircleIcon } from '@patternfly/react-icons';
 
 import { type Mapping, MappingListItem } from './MappingListItem';
 
-interface MappingListProps {
+type MappingListProps = {
   /**
    * List of existed mappings
    */

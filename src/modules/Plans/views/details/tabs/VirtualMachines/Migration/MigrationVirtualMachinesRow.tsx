@@ -154,7 +154,7 @@ const cellRenderers: Record<string, React.FC<PlanVMsCellProps>> = {
   },
 };
 
-interface RenderTdProps {
+type RenderTdProps = {
   resourceData: VMData;
   resourceFieldId: string;
   resourceFields: ResourceField[];

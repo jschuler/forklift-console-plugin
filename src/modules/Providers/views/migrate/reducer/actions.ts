@@ -82,18 +82,18 @@ export type CreateVmMigration =
   | typeof REMOVE_ALERT
   | typeof INIT;
 
-export interface PageAction<S, T> {
+export type PageAction<S, T> = {
   type: S;
   payload: T;
 }
 
 // action payload types
 
-export interface PlanName {
+export type PlanName = {
   name: string;
 }
 
-export interface ProjectName {
+export type ProjectName = {
   name: string;
 }
 
@@ -106,93 +106,93 @@ export type SelectedVms = {
   sourceProvider: V1beta1Provider;
 };
 
-export interface PlanDescription {
+export type PlanDescription = {
   description: string;
 }
 
-export interface PlanTargetProvider {
+export type PlanTargetProvider = {
   targetProviderName: string;
 }
 
-export interface PlanTargetNamespace {
+export type PlanTargetNamespace = {
   targetNamespace: string;
 }
 
-export interface PlanAvailableProviders {
+export type PlanAvailableProviders = {
   availableProviders: V1beta1Provider[];
   loading: boolean;
   error?: Error;
 }
 
-export interface PlanExistingPlans {
+export type PlanExistingPlans = {
   existingPlans: V1beta1Plan[];
   loading: boolean;
   error?: Error;
 }
 
-export interface PlanExistingNetMaps {
+export type PlanExistingNetMaps = {
   existingNetMaps: V1beta1NetworkMap[];
   loading: boolean;
   error?: Error;
 }
 
-export interface PlanExistingStorageMaps {
+export type PlanExistingStorageMaps = {
   existingStorageMaps: V1beta1StorageMap[];
   loading: boolean;
   error?: Error;
 }
 
-export interface PlanAvailableTargetNamespaces {
+export type PlanAvailableTargetNamespaces = {
   availableTargetNamespaces: OpenShiftNamespace[];
   loading: boolean;
   error?: Error;
 }
 
-export interface PlanAvailableTargetNetworks {
+export type PlanAvailableTargetNetworks = {
   availableTargetNetworks: OpenShiftNetworkAttachmentDefinition[];
   loading: boolean;
   error?: Error;
 }
 
-export interface PlanAvailableSourceNetworks {
+export type PlanAvailableSourceNetworks = {
   availableSourceNetworks: InventoryNetwork[];
   loading: boolean;
   error?: Error;
 }
 
-export interface PlanAvailableTargetStorages {
+export type PlanAvailableTargetStorages = {
   availableTargetStorages: OpenShiftStorageClass[];
   loading: boolean;
   error?: Error;
 }
 
-export interface PlanAvailableSourceStorages {
+export type PlanAvailableSourceStorages = {
   availableSourceStorages: InventoryStorage[];
   loading: boolean;
   error?: Error;
 }
 
-export interface PlanNicProfiles {
+export type PlanNicProfiles = {
   nicProfiles: OVirtNicProfile[];
   loading: boolean;
   error?: Error;
 }
 
-export interface PlanDisks {
+export type PlanDisks = {
   disks: (OVirtDisk | OpenstackVolume)[];
   loading: boolean;
   error?: Error;
 }
 
-export interface PlanError {
+export type PlanError = {
   error: Error;
 }
 
-export interface PlanAlert {
+export type PlanAlert = {
   alertKey: NetworkAlerts | StorageAlerts;
 }
 
-export interface PlanMapping {
+export type PlanMapping = {
   current: Mapping;
   next: Mapping;
 }

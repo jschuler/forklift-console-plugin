@@ -6,7 +6,7 @@ import { InfoCircleIcon } from '@patternfly/react-icons';
 import { TextWithIcon } from './TextWithIcon';
 import { categoryIcons } from './utils';
 
-export interface StatusCellProps {
+export type StatusCellProps = {
   label: string;
   conditions: { type?: string; message?: string; category?: string; status?: string }[];
   icon: React.ReactNode;

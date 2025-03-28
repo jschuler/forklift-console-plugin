@@ -68,7 +68,7 @@ export function TableView<T>({
   );
 }
 
-interface TableViewProps<T> {
+type TableViewProps<T> = {
   /**
    * List of visible columns and their properties
    */

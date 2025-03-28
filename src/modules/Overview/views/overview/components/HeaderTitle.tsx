@@ -3,7 +3,7 @@ import React, { type FC, type ReactNode } from 'react';
 import { ResourceStatus } from '@openshift-console/dynamic-plugin-sdk';
 import { Split, SplitItem } from '@patternfly/react-core';
 
-interface HeaderTitleProps {
+type HeaderTitleProps = {
   title: ReactNode;
   status?: ReactNode;
   badge?: React.ReactNode;

@@ -28,7 +28,7 @@ export const TableCell: React.FC<TableCellProps> = ({ children, isWrap = false }
   );
 };
 
-export interface TableCellProps {
+export type TableCellProps = {
   children?: ReactNode;
   isWrap?: boolean;
 }

@@ -39,7 +39,7 @@ const cellRenderers: Record<string, React.FC<PlanVMsCellProps>> = {
   name: NameCellRenderer,
 };
 
-interface RenderTdProps {
+type RenderTdProps = {
   resourceData: VMData;
   resourceFieldId: string;
   resourceFields: ResourceField[];

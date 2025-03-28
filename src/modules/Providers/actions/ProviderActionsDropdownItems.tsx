@@ -62,6 +62,6 @@ export const ProviderActionsDropdownItems = ({ data }: ProviderActionsDropdownIt
   return provider?.spec?.type === 'ova' ? ovaDropdownItems : dropdownItems;
 };
 
-interface ProviderActionsDropdownItemsProps {
+type ProviderActionsDropdownItemsProps = {
   data: ProviderData;
 }

@@ -1,12 +1,12 @@
 import type React from 'react';
 
 import { type SelectOptionObject } from '@patternfly/react-core/deprecated';
-export interface EnumGroup {
+export type EnumGroup = {
   groupId: string;
   label: string;
 }
 
-export interface EnumValue {
+export type EnumValue = {
   id: string;
   groupId?: string;
   label: string;
@@ -21,7 +21,7 @@ export enum FilterDefType {
   Slider = 'slider',
 }
 
-export interface FilterDef {
+export type FilterDef = {
   type: string;
   placeholderLabel?: string;
   values?: EnumValue[];
@@ -40,7 +40,7 @@ export interface FilterDef {
 
 type OpenApiJsonPath = string | ((resourceData: unknown) => unknown);
 
-export interface ResourceField {
+export type ResourceField = {
   resourceFieldId: string | null;
   jsonPath?: OpenApiJsonPath;
   label: string | null;
@@ -64,7 +64,7 @@ export type ResourceFieldFactory = { (t: (string) => string): ResourceField[] };
 export const K8sConditionStatusValues = ['True', 'False', 'Unknown'] as const;
 export type K8sConditionStatus = (typeof K8sConditionStatusValues)[number];
 
-export interface GlobalActionToolbarProps<T> {
+export type GlobalActionToolbarProps<T> = {
   // data currently visible on the screen (i.e. adjusted by paging and filtering)
   dataOnScreen: T[];
 }

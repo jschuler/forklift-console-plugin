@@ -24,7 +24,7 @@ import {
   SecretsSection,
 } from '../../components';
 
-interface ProviderDetailsProps {
+type ProviderDetailsProps = {
   obj: ProviderData;
   ns?: string;
   name?: string;

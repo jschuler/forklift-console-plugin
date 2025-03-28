@@ -1,6 +1,6 @@
 import { type VmData } from 'src/modules/Providers/views';
 
-export interface PlanCreatePageState {
+export type PlanCreatePageState = {
   nameFilter: string;
   typeFilters: string[];
   selectedProviderUID: string;
@@ -20,22 +20,22 @@ export const SELECT_PROVIDER = 'SELECT_PROVIDER';
 export const UPDATE_SELECTED_VMS = 'UPDATE_SELECTED_VMS';
 
 // Refine the action type to include specific payloads
-interface SetNameFilterAction {
+type SetNameFilterAction = {
   type: typeof SET_NAME_FILTER;
   payload: string;
 }
 
-interface UpdateTypeFiltersAction {
+type UpdateTypeFiltersAction = {
   type: typeof UPDATE_TYPE_FILTERS;
   payload: string[];
 }
 
-interface SelectProviderAction {
+type SelectProviderAction = {
   type: typeof SELECT_PROVIDER;
   payload: string;
 }
 
-interface UpdateSelectedVMsAction {
+type UpdateSelectedVMsAction = {
   type: typeof UPDATE_SELECTED_VMS;
   payload: VmData[];
 }

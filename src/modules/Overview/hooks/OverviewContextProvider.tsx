@@ -11,11 +11,11 @@ import { produce } from 'immer';
 
 import { loadUserSettings } from '../utils/helpers/OverviewUserSettings';
 
-export interface CreateOverviewContextData {
+export type CreateOverviewContextData = {
   hideWelcomeCardByContext: boolean;
 }
 
-export interface CreateOverviewContextType {
+export type CreateOverviewContextType = {
   data?: CreateOverviewContextData;
   setData: (data: CreateOverviewContextData) => void;
 }

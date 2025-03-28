@@ -58,7 +58,7 @@ const onConfirm: OnConfirmHookType = async ({ model, newValue: value, resource }
   return obj;
 };
 
-interface DropdownRendererProps {
+type DropdownRendererProps = {
   value: string | number;
   onChange: (string) => void;
 }

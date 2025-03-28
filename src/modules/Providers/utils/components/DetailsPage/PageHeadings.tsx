@@ -56,7 +56,7 @@ export const PageHeadings: React.FC<PageHeadingsProps> = ({
   );
 };
 
-export interface PageHeadingsProps {
+export type PageHeadingsProps = {
   model: K8sModel;
   namespace?: string;
   obj?: K8sResourceCommon;

@@ -217,7 +217,7 @@ const PlansListPage: React.FC<{
   );
 };
 
-interface EmptyStateProps {
+type EmptyStateProps = {
   namespace: string;
 }
 

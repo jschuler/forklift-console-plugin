@@ -6,7 +6,7 @@ import { ResourceLink } from '@openshift-console/dynamic-plugin-sdk';
 
 import { DetailsItem } from '../../../../../utils';
 
-export interface SecretDetailsItemProps {
+export type SecretDetailsItemProps = {
   resource: V1beta1Provider;
   moreInfoLink?: string;
   helpContent?: ReactNode;

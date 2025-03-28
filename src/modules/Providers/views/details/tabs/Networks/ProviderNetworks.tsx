@@ -20,7 +20,7 @@ import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { Button, Label, PageSection } from '@patternfly/react-core';
 import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 
-interface ProviderNetworksProps {
+type ProviderNetworksProps = {
   obj: ProviderData;
   ns?: string;
   name?: string;

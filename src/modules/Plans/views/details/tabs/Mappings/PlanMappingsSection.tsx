@@ -56,7 +56,7 @@ import {
  * @property {V1beta1NetworkMapSpecMap[]} updatedNetwork - The new version of the Plan Network Maps being edited.
  * @property {V1beta1StorageMapSpecMap[]} updatedStorage - The new version of the Plan Storage Maps being edited.
  */
-interface PlanMappingsSectionState {
+type PlanMappingsSectionState = {
   edit: boolean;
   dataChanged: boolean;
   alertMessage: ReactNode;

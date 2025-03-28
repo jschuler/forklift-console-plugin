@@ -83,7 +83,7 @@ const cellRenderers: Record<string, React.FC<CellProps>> = {
   ['vmCount']: VirtualMachinesCell,
 };
 
-interface RenderTdProps {
+type RenderTdProps = {
   resourceData: ProviderData;
   resourceFieldId: string;
   resourceFields: ResourceField[];

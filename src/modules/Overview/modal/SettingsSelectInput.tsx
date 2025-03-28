@@ -21,7 +21,7 @@ import {
  * @property {number | string} name
  * @property {string} description
  */
-interface Option {
+type Option = {
   key: number | string;
   name: number | string;
   description: string;
@@ -33,7 +33,7 @@ interface Option {
  * @property {(value: string) => void} onChange - Function to call when the value changes
  * @property {Option[]} options - The options to present to the user
  */
-export interface SettingsSelectInputProps {
+export type SettingsSelectInputProps = {
   value: number | string;
   onChange: (value: number | string) => void;
   options?: Option[];

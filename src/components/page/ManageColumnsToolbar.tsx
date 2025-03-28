@@ -5,7 +5,7 @@ import { ManageColumnsModal } from '../common/TableView/ManageColumnsModal';
 import { ManageColumnsToolbarItem } from '../common/TableView/ManageColumnsToolbarItem';
 import { type ResourceField } from '../common/utils/types';
 
-export interface ManageColumnsToolbarProps {
+export type ManageColumnsToolbarProps = {
   /** Read only. State maintained by parent component. */
   resourceFields: ResourceField[];
   /** Read only. The defaults used for initialization.*/

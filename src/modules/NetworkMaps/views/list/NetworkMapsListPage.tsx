@@ -158,7 +158,7 @@ const NetworkMapsListPage: React.FC<{
   );
 };
 
-interface EmptyStateProps {
+type EmptyStateProps = {
   AddButton: JSX.Element;
   namespace?: string;
 }

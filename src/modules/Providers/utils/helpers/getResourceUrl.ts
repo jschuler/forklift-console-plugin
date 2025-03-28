@@ -25,7 +25,7 @@ export const getResourceUrl = ({
   return `/k8s/${resourcePath}/${reference_}${name_}`;
 };
 
-interface GetResourceUrlProps {
+type GetResourceUrlProps = {
   reference?: string;
   groupVersionKind?: K8sGroupVersionKind;
   namespaced?: boolean;

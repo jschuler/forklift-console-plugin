@@ -31,7 +31,7 @@ const onConfirm: OnConfirmHookType = async ({ model, newValue, resource }) => {
   return obj;
 };
 
-interface SwitchRendererProps {
+type SwitchRendererProps = {
   value: string | number;
   onChange: (string) => void;
 }

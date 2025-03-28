@@ -10,7 +10,7 @@ import { type ProvidersPermissionStatus } from '../utils';
  * @property {string} [name] - The name of the specific instance of the model, if any.
  * @property {string} [namespace] - The namespace in which to review access permissions.
  */
-interface K8sModelAccessReviewParams {
+type K8sModelAccessReviewParams = {
   model: K8sModel;
   name?: string;
   namespace?: string;

@@ -51,9 +51,9 @@ export const TableLabelCell: React.FC<TableLabelCellProps> = ({
 };
 
 type Colors = 'blue' | 'cyan' | 'green' | 'orange' | 'purple' | 'red' | 'grey';
-export interface TableLabelCellProps extends TableCellProps {
+export type TableLabelCellProps = {
   hasLabel?: boolean;
   label?: ReactNode | ReactNode[];
   labelColor?: Colors | Colors[];
   isWrap?: boolean;
-}
+} & TableCellProps

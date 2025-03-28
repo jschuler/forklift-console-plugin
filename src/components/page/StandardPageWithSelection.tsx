@@ -75,7 +75,7 @@ export function withHeaderSelection<T>({
   return Enhanced;
 }
 
-export interface IdBasedSelectionProps<T> {
+export type IdBasedSelectionProps<T> = {
   /**
    * @returns string that can be used as an unique identifier
    */
@@ -222,14 +222,14 @@ export function withIdBasedSelection<T>({
  *
  * @template T - The type of the items being displayed in the table.
  */
-export interface StandardPageWithSelectionProps<T> extends StandardPageProps<T> {
+export type StandardPageWithSelectionProps<T> = {
   toId?: (item: T) => string;
   canSelect?: (item: T) => boolean;
   onSelect?: (selectedIds: string[]) => void;
   selectedIds?: string[];
   onExpand?: (expandedIds: string[]) => void;
   expandedIds?: string[];
-}
+} & StandardPageProps<T>
 
 /**
  * Renders a standard page with selection capabilities.

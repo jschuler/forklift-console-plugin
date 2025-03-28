@@ -22,12 +22,12 @@ import { baseCredentialsSectionReducerFactory, type BaseCredentialsSectionState 
 
 import './BaseCredentialsSection.style.css';
 
-export interface ListComponentProps {
+export type ListComponentProps = {
   secret: IoK8sApiCoreV1Secret;
   reveal: boolean;
 }
 
-export interface EditComponentProps {
+export type EditComponentProps = {
   secret: IoK8sApiCoreV1Secret;
   onChange: (newValue: IoK8sApiCoreV1Secret) => void;
 }

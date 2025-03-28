@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { TextInput } from '@patternfly/react-core';
 
-interface LazyTextInputProps {
+type LazyTextInputProps = {
   value: string;
   onChange: (value: string) => void;
   type?:

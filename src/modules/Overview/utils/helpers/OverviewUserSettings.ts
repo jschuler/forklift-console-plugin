@@ -4,11 +4,11 @@ import {
   saveToLocalStorage,
 } from '@components/common/utils/localStorage';
 
-export interface OverviewUserSettings {
+export type OverviewUserSettings = {
   welcome?: WelcomeSettings;
 }
 
-interface WelcomeSettings {
+type WelcomeSettings = {
   hideWelcome: boolean;
   save: (showWelcome: boolean) => void;
   clear: () => void;

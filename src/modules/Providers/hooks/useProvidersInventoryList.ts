@@ -19,7 +19,7 @@ const INVENTORY_TYPES: string[] = ['openshift', 'openstack', 'ovirt', 'vsphere',
  * @property {string} namespace - namespace for fetching inventory's providers data for. Used only for users with limited namespaces privileges.
  * @property {number} interval - Polling interval in milliseconds.
  */
-interface UseInventoryParams {
+type UseInventoryParams = {
   namespace?: string;
   interval?: number; // Polling interval in milliseconds
 }
@@ -31,7 +31,7 @@ interface UseInventoryParams {
  * @property {boolean} loading - Indicates whether the inventory data is currently being fetched.
  * @property {Error | null} error - Any error that occurred when fetching the inventory data, or null if no errors.
  */
-interface UseInventoryResult {
+type UseInventoryResult = {
   inventory: ProvidersInventoryList | null;
   loading: boolean;
   error: Error | null;

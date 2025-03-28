@@ -14,7 +14,7 @@ import { type IoK8sApiCoreV1Secret } from '@kubev2v/types';
  * @property {boolean} dataIsValid - Determines whether the new secret's data is valid.
  * @property {ReactNode} alertMessage - The message to display when a validation error occurs.
  */
-export interface BaseCredentialsSectionState {
+export type BaseCredentialsSectionState = {
   reveal: boolean;
   edit: boolean;
   newSecret: IoK8sApiCoreV1Secret;

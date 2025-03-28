@@ -12,7 +12,7 @@ import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 import { FormGroupWithHelpText } from './FormGroupWithHelpText/FormGroupWithHelpText';
 import { TypeaheadSelect, type TypeaheadSelectOption } from './TypeaheadSelect/TypeaheadSelect';
 
-interface ProjectNameSelectProps {
+type ProjectNameSelectProps = {
   value: string | undefined;
   options: TypeaheadSelectOption[];
   onSelect: (value: string) => void;

@@ -6,7 +6,7 @@ import { type EnumGroup, type EnumValue } from '../utils';
  * @see PrimaryFilters
  * @see AttributeValueFilter
  */
-export interface FilterTypeProps {
+export type FilterTypeProps = {
   filterId: string;
   /**
    * Filter apply handler. Implementation of filter values is filter specific.
@@ -49,6 +49,6 @@ export interface FilterTypeProps {
   hasMultipleResources?: boolean;
 }
 
-export interface InlineFilter {
+export type InlineFilter = {
   hasInlineFilter?: boolean;
 }
