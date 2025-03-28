@@ -13,11 +13,11 @@ export const defaultOnConfirm = async ({ jsonPath, model, newValue: value, resou
       {
         op,
         path: jsonPathToPatch(jsonPath),
-        value: value,
+        value,
       },
     ],
-    model: model,
-    resource: resource,
+    model,
+    resource,
   });
 };
 

@@ -126,7 +126,7 @@ export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps>
             ...provider?.spec,
             settings: {
               ...provider?.spec?.settings,
-              sdkEndpoint: sdkEndpoint,
+              sdkEndpoint,
             },
           },
         });

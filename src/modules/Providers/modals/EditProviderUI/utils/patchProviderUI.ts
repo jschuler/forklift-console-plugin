@@ -29,8 +29,8 @@ export const patchProviderUI: OnConfirmHookType = async ({ model, newValue: valu
         value: newAnnotations,
       },
     ],
-    model: model,
-    resource: resource,
+    model,
+    resource,
   });
 
   return obj;

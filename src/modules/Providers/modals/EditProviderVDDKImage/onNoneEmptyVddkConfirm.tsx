@@ -39,8 +39,8 @@ export const onNoneEmptyVddkConfirm: OnConfirmHookType = async ({
         value: Object.keys(settings).length === 0 ? undefined : settings,
       },
     ],
-    model: model,
-    resource: resource,
+    model,
+    resource,
   });
 
   // Patch annotations
@@ -60,8 +60,8 @@ export const onNoneEmptyVddkConfirm: OnConfirmHookType = async ({
         value: Object.keys(annotations).length === 0 ? undefined : annotations,
       },
     ],
-    model: model,
-    resource: resource,
+    model,
+    resource,
   });
 
   return obj;

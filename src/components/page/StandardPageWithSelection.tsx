@@ -169,7 +169,7 @@ export function withIdBasedSelection<T>({
     const RowMapper = withTr(
       withRowSelection({
         canSelect,
-        CellMapper: CellMapper,
+        CellMapper,
         isExpanded,
         isSelected,
         toggleExpandFor,

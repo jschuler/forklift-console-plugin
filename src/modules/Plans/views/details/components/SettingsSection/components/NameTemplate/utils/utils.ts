@@ -23,7 +23,7 @@ export const onConfirmNameTemplate: (selected: NameTemplateRadioOptions) => OnCo
 
     const updatedPlan = await k8sUpdate({
       data: updatedPlanDraft,
-      model: model,
+      model,
     });
 
     return updatedPlan;

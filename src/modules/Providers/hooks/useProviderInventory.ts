@@ -149,7 +149,7 @@ export const useProviderInventory = <T>({
    */
   function updateInventoryIfChanged(newInventory: T, fieldsToAvoidComparing: string[]): void {
     const needReRender = hasObjectChangedInGivenFields({
-      fieldsToAvoidComparing: fieldsToAvoidComparing,
+      fieldsToAvoidComparing,
       newObject: newInventory,
       oldObject: oldDataRef.current?.inventory,
     });

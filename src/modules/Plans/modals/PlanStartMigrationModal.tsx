@@ -68,21 +68,21 @@ export const PlanStartMigrationModal: React.FC<PlanStartMigrationModalProps> = (
         kind: 'Migration',
         metadata: {
           generateName: `${name}-`,
-          namespace: namespace,
+          namespace,
           ownerReferences: [
             {
               apiVersion: 'forklift.konveyor.io/v1beta1',
               kind: 'Plan',
-              name: name,
-              uid: uid,
+              name,
+              uid,
             },
           ],
         },
         spec: {
           plan: {
-            name: name,
-            namespace: namespace,
-            uid: uid,
+            name,
+            namespace,
+            uid,
           },
         },
       };

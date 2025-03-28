@@ -281,8 +281,8 @@ async function patchOwner(
         ],
       },
     ],
-    model: model,
-    resource: resource,
+    model,
+    resource,
   });
 
   return patchedSecret;

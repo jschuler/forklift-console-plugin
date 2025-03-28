@@ -24,7 +24,7 @@ export const onConfirmMigrateSharedDisks: OnConfirmHookType = async ({
 
   const updatedPlan = await k8sUpdate({
     data: updatedPlanDraft,
-    model: model,
+    model,
   });
 
   return updatedPlan;

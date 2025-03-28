@@ -24,7 +24,7 @@ export const MigrationVMsCancelModal: React.FC<MigrationVMsCancelModalProps> = (
   const [isLoading, toggleIsLoading] = useToggle();
 
   const vms = migration?.spec?.cancel || [];
-  selected.forEach((id) => vms.push({ id: id }));
+  selected.forEach((id) => vms.push({ id }));
 
   const handleSave = useCallback(async () => {
     toggleIsLoading();

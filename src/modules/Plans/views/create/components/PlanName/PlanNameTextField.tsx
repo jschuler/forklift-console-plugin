@@ -32,7 +32,7 @@ export const PlanNameTextField: React.FC<PlanNameTextFieldProps> = ({
       fieldId="planName"
       {...(isUpdated && {
         helperTextInvalid: getInvalidHelperText(validated, value),
-        validated: validated,
+        validated,
       })}
     >
       <TextInput

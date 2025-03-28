@@ -44,7 +44,7 @@ export const PlanResources: React.FC<{ name: string; namespace: string }> = ({
 
   const inventoryOptions: UseProviderInventoryParams = {
     disabled: !loaded || loadError || !providerLoaded || providerLodeError,
-    provider: provider,
+    provider,
     subPath: 'vms?detail=4',
   };
 

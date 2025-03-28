@@ -67,8 +67,8 @@ export const CredentialsSection_: React.FC<{
 
   const [secret, loaded, loadError] = useK8sWatchResource<IoK8sApiCoreV1Secret>({
     groupVersionKind: { kind: 'Secret', version: 'v1' },
-    name: name,
-    namespace: namespace,
+    name,
+    namespace,
     namespaced: true,
   });
 

@@ -96,10 +96,10 @@ export const VSphereHostsList: FC<ProviderHostsProps> = ({ obj }) => {
     CellMapper: VSphereHostsCells,
     dataSource: [hostsData || [], !loading, error],
     fieldsMetadata: hostsFieldsMetadataFactory(t),
-    namespace: namespace,
+    namespace,
     page: 1,
     title: t('Hosts'),
-    userSettings: userSettings,
+    userSettings,
   };
 
   const extendedProps: PageWithSelectionProps = permissions?.canPatch
@@ -108,7 +108,7 @@ export const VSphereHostsList: FC<ProviderHostsProps> = ({ obj }) => {
         canSelect: (item: InventoryHostPair) => item?.inventory?.networkAdapters?.length > 0,
         GlobalActionToolbarItems: actions,
         onSelect: setSelectedIds,
-        selectedIds: selectedIds,
+        selectedIds,
         toId: (item: InventoryHostPair) => item.inventory.id,
       }
     : props;

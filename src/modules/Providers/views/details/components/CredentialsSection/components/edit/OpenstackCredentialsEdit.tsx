@@ -73,7 +73,7 @@ export const OpenstackCredentialsEdit: React.FC<EditComponentProps> = ({ onChang
   }
 
   const initialState = {
-    authenticationType: authenticationType,
+    authenticationType,
     validation: {
       cacert: openstackSecretFieldValidator('cacert', cacert),
       insecureSkipVerify: openstackSecretFieldValidator('insecureSkipVerify', insecureSkipVerify),

@@ -51,7 +51,7 @@ export const patchProviderURL: OnConfirmHookType = async ({ model, newValue: val
         value: value.toString().trim(),
       },
     ],
-    model: model,
+    model,
     resource: provider,
   });
 

@@ -21,7 +21,7 @@ export const ProvidersAddButton: FC<ProvidersAddButtonProps> = ({
   const history = useHistory();
 
   const providersListURL = getResourceUrl({
-    namespace: namespace,
+    namespace,
     namespaced: namespace !== undefined,
     reference: ProviderModelRef,
   });

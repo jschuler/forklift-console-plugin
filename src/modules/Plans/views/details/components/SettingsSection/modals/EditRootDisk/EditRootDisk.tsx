@@ -34,8 +34,8 @@ const onConfirm: OnConfirmHookType = async ({ model, newValue, resource }) => {
         value: newVMs || undefined,
       },
     ],
-    model: model,
-    resource: resource,
+    model,
+    resource,
   });
 
   return obj;

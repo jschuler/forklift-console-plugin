@@ -403,7 +403,7 @@ export const setNicProfiles = (
   nicProfilesLoading?: boolean,
   nicProfilesError?: Error,
 ): PageAction<CreateVmMigration, PlanNicProfiles> => ({
-  payload: { error: nicProfilesError, loading: nicProfilesLoading, nicProfiles: nicProfiles },
+  payload: { error: nicProfilesError, loading: nicProfilesLoading, nicProfiles },
   type: 'SET_NICK_PROFILES',
 });
 

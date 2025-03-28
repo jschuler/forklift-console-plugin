@@ -112,7 +112,7 @@ export const EsxiProviderCreateForm: React.FC<EsxiProviderCreateFormProps> = ({
             ...provider?.spec,
             settings: {
               ...(provider?.spec?.settings as object),
-              sdkEndpoint: sdkEndpoint,
+              sdkEndpoint,
             },
           },
         });

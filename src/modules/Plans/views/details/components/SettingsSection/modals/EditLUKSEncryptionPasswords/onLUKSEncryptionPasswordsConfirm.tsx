@@ -89,8 +89,8 @@ export const onLUKSEncryptionPasswordsConfirm: OnConfirmHookType = async ({
         value: newVMs || undefined,
       },
     ],
-    model: model,
-    resource: resource,
+    model,
+    resource,
   });
 
   return obj;

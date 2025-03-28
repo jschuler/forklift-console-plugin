@@ -91,7 +91,7 @@ export const ProvidersCreatePage: React.FC<{
           ...state,
           apiError: null,
           newSecret: value,
-          validationError: validationError,
+          validationError,
         };
       }
       case 'SET_NEW_PROVIDER': {
@@ -117,7 +117,7 @@ export const ProvidersCreatePage: React.FC<{
           apiError: null,
           newProvider: value,
           newSecret: updatedSecret,
-          validationError: validationError,
+          validationError,
         };
       }
       case 'SET_PROJECT_NAME': {
@@ -232,7 +232,7 @@ export const ProvidersCreatePage: React.FC<{
   }
 
   const providersListURL = getResourceUrl({
-    namespace: namespace,
+    namespace,
     reference: ProviderModelRef,
   });
 

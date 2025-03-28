@@ -2,7 +2,7 @@
 module.exports = {
   createOldCatalogs: false,
   defaultNamespace: 'plugin__forklift-console-plugin',
-  defaultValue: function (_local, _namespace, key) {
+  defaultValue (_local, _namespace, key) {
     // The `useKeysAsDefaultValues` option is deprecated in favor of `defaultValue` option function arguments.
     // The `key` is used to set default value.
     return key;

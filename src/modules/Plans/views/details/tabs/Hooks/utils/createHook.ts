@@ -22,7 +22,7 @@ export const createHook = async (
           name: hook.metadata.name,
           namespace: hook.metadata.namespace,
         },
-        step: step,
+        step,
       },
     ],
   }));

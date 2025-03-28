@@ -42,7 +42,7 @@ export async function createProviderSecret(
     data: { ...cleanedData, url: encodedURL },
     metadata: {
       ...secret?.metadata,
-      generateName: generateName,
+      generateName,
       labels: {
         ...secret?.metadata?.labels,
         createdForProviderType: provider?.spec?.type,

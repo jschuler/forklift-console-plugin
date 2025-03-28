@@ -14,7 +14,7 @@ export const NetworkMapsAddButton: React.FC<{ namespace: string; dataTestId?: st
   const history = useHistory();
 
   const NetworkMapsListURL = getResourceUrl({
-    namespace: namespace,
+    namespace,
     namespaced: namespace !== undefined,
     reference: NetworkMapModelRef,
   });

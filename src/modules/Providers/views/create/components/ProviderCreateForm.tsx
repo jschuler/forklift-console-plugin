@@ -97,7 +97,7 @@ export const ProvidersCreateForm: React.FC<ProvidersCreateFormProps> = ({
       });
     }
 
-    onNewProviderChange({ ...newProvider, spec: { ...newProvider?.spec, type: type } });
+    onNewProviderChange({ ...newProvider, spec: { ...newProvider?.spec, type } });
   };
 
   const onChange: (value: string, event: React.FormEvent<HTMLInputElement>) => void = (value) => {

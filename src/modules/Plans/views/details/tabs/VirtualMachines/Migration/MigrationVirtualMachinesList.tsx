@@ -286,13 +286,13 @@ export const MigrationVirtualMachinesList: FC<{ obj: PlanData }> = ({ obj }) => 
     namespace: '',
     page: 1,
     title: t('Virtual Machines'),
-    userSettings: userSettings,
+    userSettings,
   };
 
   const extendedProps = {
     ...props,
     canSelect: (item: VMData) => canSelectWhenExecuting(item) || canSelectWhenNotExecuting(item),
-    expandedIds: expandedIds,
+    expandedIds,
     GlobalActionToolbarItems: actions,
     onExpand: setExpandedIds,
     onSelect: () => undefined,

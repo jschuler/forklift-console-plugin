@@ -143,7 +143,7 @@ async function processHostSecretPair(
       },
       spec: {
         id: inventory.id,
-        ipAddress: ipAddress,
+        ipAddress,
         provider: {
           name: provider.metadata.name,
           namespace: provider.metadata.namespace,

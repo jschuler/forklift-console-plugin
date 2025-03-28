@@ -14,7 +14,7 @@ export const StorageMapsAddButton: React.FC<{ namespace: string; dataTestId?: st
   const history = useHistory();
 
   const StorageMapsListURL = getResourceUrl({
-    namespace: namespace,
+    namespace,
     namespaced: namespace !== undefined,
     reference: StorageMapModelRef,
   });
