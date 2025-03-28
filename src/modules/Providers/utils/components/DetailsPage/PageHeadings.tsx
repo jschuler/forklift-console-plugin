@@ -110,8 +110,8 @@ const breadcrumbsForModel = (t, model: K8sModel, namespace: string) => {
 
   return [
     {
-      name: `${model.labelPlural}`,
-      path: `${getResourceUrl({ groupVersionKind, namespace })}`,
+      name: model.labelPlural,
+      path: getResourceUrl({ groupVersionKind, namespace }),
     },
     {
       name: t('{{name}} Details', { name: model.label }),

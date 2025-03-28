@@ -14,7 +14,7 @@ const resolveCollisions = (tuples: [string, string][]): Record<string, string> =
     if (acc[label] === id) {
       //already included - no collisions
       return acc;
-    } else if (acc[`${label}`] === id) {
+    } else if (acc[label] === id) {
       //already included with suffix - there was a collision before
       return acc;
     } else if (acc[label]) {
@@ -23,9 +23,9 @@ const resolveCollisions = (tuples: [string, string][]): Record<string, string> =
         // remove (filter out) existing label from keys list
         ...Object.fromEntries(Object.entries(acc).filter(([key]) => key !== label)),
         // existing entry: add suffix with ID
-        [`${label}`]: acc[label],
+        [label]: acc[label],
         // new entry: create with suffix
-        [`${label}`]: id,
+        [label]: id,
       };
     } 
       return {

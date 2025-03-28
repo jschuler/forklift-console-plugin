@@ -62,7 +62,7 @@ export const VSphereInventorySection: React.FC<InventoryProps> = ({ data }) => {
           title={item.title}
           content={value}
           helpContent={item.helpContent}
-          crumbs={['Inventory', 'providers', `${provider.spec.type}`, '[UID]', key]}
+          crumbs={['Inventory', 'providers', provider.spec.type, '[UID]', key]}
         />,
       );
     }

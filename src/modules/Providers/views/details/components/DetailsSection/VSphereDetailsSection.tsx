@@ -37,7 +37,7 @@ export const VSphereDetailsSection: React.FC<DetailsSectionProps> = ({ data }) =
         title={t('Product')}
         content={data.inventory?.product || <span className="text-muted">{t('Empty')}</span>}
         helpContent={t(`VMware only: vSphere product name.`)}
-        crumbs={['Inventory', 'providers', `${provider.spec.type}`, '[UID]']}
+        crumbs={['Inventory', 'providers', provider.spec.type, '[UID]']}
       />
 
       <NameDetailsItem resource={provider} />
