@@ -145,9 +145,7 @@ export type StandardPageProps<T> = {
    * Filter types that will be used.
    * Default are: EnumFilter and FreetextFilter
    */
-  extraSupportedFilters?: {
-    [type: string]: FilterRenderer;
-  };
+  extraSupportedFilters?: Record<string, FilterRenderer>;
 
   /**
    * Extract value from fields and compare to selected filter.

@@ -4,7 +4,7 @@ import type { OpenstackVolume, OVirtDisk, ProviderType, V1beta1Provider } from '
 
 import useProviderInventory from './useProviderInventory';
 
-const subPath: { [keys in Partial<ProviderType>]?: string } = {
+const subPath: Partial<Record<Partial<ProviderType>, string>> = {
   openstack: '/volumes?detail=1',
   ovirt: '/disks?detail=1',
 };

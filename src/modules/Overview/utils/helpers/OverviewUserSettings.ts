@@ -24,7 +24,7 @@ const parseOrClean = (key) => {
   return {};
 };
 
-const saveRestOrRemoveKey = (key: string, { rest }: { [k: string]: { [n: string]: unknown } }) => {
+const saveRestOrRemoveKey = (key: string, { rest }: Record<string, Record<string, unknown>>) => {
   if (!Object.keys(rest).length) {
     removeFromLocalStorage(key);
   } else {

@@ -278,7 +278,7 @@ export const validateNetworkMapping = ({
   errors: NetworkAlerts[];
   mappings: Mapping[];
   selectedVms: VmData[];
-  sourceNetworkLabelToId: { [label: string]: string };
+  sourceNetworkLabelToId: Record<string, string>;
   nicProfiles?: OVirtNicProfile[];
 }): [boolean, NetworkAlerts][] => [
   [sources.some((src) => src.usedBySelectedVms && !src.isMapped), UNMAPPED_NETWORKS],
@@ -338,5 +338,5 @@ export const executeStorageMappingValidation = (draft: Draft<CreateVmMigrationPa
   );
 };
 
-export const isDone = (initialLoading: { [key in CreateVmMigration]?: boolean }) =>
+export const isDone = (initialLoading: Partial<Record<CreateVmMigration, boolean>>) =>
   Object.values(initialLoading).every((value) => value);

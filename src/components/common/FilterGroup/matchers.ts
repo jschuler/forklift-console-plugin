@@ -60,7 +60,7 @@ export const createMatcher =
     resourceFields,
     selectedFilters,
   }: {
-    selectedFilters: { [id: string]: string[] };
+    selectedFilters: Record<string, string[]>;
     filterType: string;
     matchValue: (value: unknown) => (filterValue: string) => boolean;
     resourceFields: ResourceField[];
@@ -157,7 +157,7 @@ export const defaultSupportedFilters: Record<string, FilterRenderer> = {
  */
 export const createMetaMatcher =
   (
-    selectedFilters: { [id: string]: string[] },
+    selectedFilters: Record<string, string[]>,
     resourceFields: ResourceField[],
     valueMatchers: ValueMatcher[] = defaultValueMatchers,
   ) =>

@@ -44,18 +44,14 @@ export type MetaFilterProps = {
    * The supported filter types that will be included in this filter group
    * (e.g. EnumFilter, FreetextFilter, GroupedEnumFilter, SwitchFilter)
    */
-  supportedFilterTypes: {
-    [type: string]: FilterRenderer;
-  };
+  supportedFilterTypes: Record<string, FilterRenderer>;
   /**
    * Language to be used for locale sensitive sorting/filtering. Defaults to 'en'.
    */
   resolvedLanguage?: string;
 }
 
-export type GlobalFilters = {
-  [id: string]: string[];
-}
+export type GlobalFilters = Record<string, string[]>
 
 export type ValueMatcher = {
   filterType: string;

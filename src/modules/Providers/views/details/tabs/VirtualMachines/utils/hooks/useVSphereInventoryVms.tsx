@@ -15,7 +15,7 @@ export const useVSphereInventoryVms = (
   { provider }: ProviderData,
   providerLoaded: boolean,
   providerLoadError: unknown,
-): [{ [key: string]: ProviderHost }, { [key: string]: VSphereResource }] => {
+): [Record<string, ProviderHost>, Record<string, VSphereResource>] => {
   const validProvider = providerLoaded && !providerLoadError && provider;
 
   const hostsInventoryOptions: UseProviderInventoryParams = {
@@ -46,7 +46,7 @@ export const useVSphereInventoryVms = (
  * @param {T[]} resources - The array of Resource objects to convert.
  * @returns {{ [key: string]: T }} - A dictionary with resource IDs as keys and Resource objects as values.
  */
-function convertArrayToDictionary<T>(resources: T[]): { [key: string]: T } {
+function convertArrayToDictionary<T>(resources: T[]): Record<string, T> {
   if (!resources || !Array.isArray(resources)) {
     return undefined;
   }
@@ -54,5 +54,5 @@ function convertArrayToDictionary<T>(resources: T[]): { [key: string]: T } {
   return resources.reduce((dict, resource) => {
     dict[resource.id] = resource;
     return dict;
-  }, {} as { [key: string]: T });
+  }, {} as Record<string, T>);
 }

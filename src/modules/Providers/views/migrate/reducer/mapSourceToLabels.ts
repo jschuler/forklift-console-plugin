@@ -3,7 +3,7 @@ import type { InventoryStorage } from '../../../hooks/useStorages';
 
 export const mapSourceNetworksToLabels = (
   sources: InventoryNetwork[],
-): { [label: string]: string } => {
+): Record<string, string> => {
   const tuples: [string, string][] = sources
     .map((net): [string, string] => {
       switch (net.providerType) {
@@ -34,7 +34,7 @@ export const mapSourceNetworksToLabels = (
 
 export const mapSourceStoragesToLabels = (
   sources: InventoryStorage[],
-): { [label: string]: string } => {
+): Record<string, string> => {
   const tuples: [string, string][] = sources
     .map((storage): [string, string] => {
       switch (storage.providerType) {
@@ -63,7 +63,7 @@ export const mapSourceStoragesToLabels = (
   return labelToId;
 };
 
-const resolveCollisions = (tuples: [string, string][]): { [key: string]: string } =>
+const resolveCollisions = (tuples: [string, string][]): Record<string, string> =>
   tuples.reduce((acc, [label, id]) => {
     if (acc[label] === id) {
       //already included - no collisions

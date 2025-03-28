@@ -13,7 +13,7 @@ import type { VMCellProps } from './VMCellProps';
 export const PowerStateCellRenderer: React.FC<VMCellProps> = ({ data }) => {
   const { t } = useForkliftTranslation();
   const powerState = getVmPowerState(data?.vm);
-  const states: { [key in PowerState]: [JSX.Element, string, string] } = {
+  const states: Record<PowerState, [JSX.Element, string, string]> = {
     off: [<OffIcon color="red" key="off" />, t('Powered off'), t('Off')],
     on: [<PowerOffIcon color="green" key="on" />, t('Powered on'), t('On')],
     unknown: [<UnknownIcon key="unknown" />, t('Unknown power state'), t('Unknown')],

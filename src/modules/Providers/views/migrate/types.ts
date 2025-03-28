@@ -65,10 +65,10 @@ export type CreateVmMigrationPageState = {
   calculatedOnce: {
     // calculated on start (exception:for ovirt/openstack we need to fetch disks)
     storageIdsUsedBySelectedVms: string[];
-    sourceStorageLabelToId: { [label: string]: string };
+    sourceStorageLabelToId: Record<string, string>;
     // calculated on start (exception:for ovirt we need to fetch nic profiles)
     networkIdsUsedBySelectedVms: string[];
-    sourceNetworkLabelToId: { [label: string]: string };
+    sourceNetworkLabelToId: Record<string, string>;
     // calculated on start
     vmFieldsFactory: [ResourceFieldFactory, FC<RowProps<VmData>>];
     // for OpenShift source providers
@@ -98,7 +98,7 @@ export type CreateVmMigrationPageState = {
   flow: {
     editingDone: boolean;
     apiError?: Error;
-    initialLoading: { [keys in CreateVmMigration]?: boolean };
+    initialLoading: Partial<Record<CreateVmMigration, boolean>>;
   };
 }
 export type MappingSource = {

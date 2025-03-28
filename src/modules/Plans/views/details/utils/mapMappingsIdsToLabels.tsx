@@ -9,7 +9,7 @@ import type {
 
 import { POD_NETWORK } from './constants';
 
-const resolveCollisions = (tuples: [string, string][]): { [key: string]: string } =>
+const resolveCollisions = (tuples: [string, string][]): Record<string, string> =>
   tuples.reduce((acc, [label, id]) => {
     if (acc[label] === id) {
       //already included - no collisions
@@ -37,7 +37,7 @@ const resolveCollisions = (tuples: [string, string][]): { [key: string]: string 
 
 export const mapSourceNetworksIdsToLabels = (
   sources: InventoryNetwork[],
-): { [label: string]: string } => {
+): Record<string, string> => {
   const tuples: [string, string][] = sources
     .map((net): [string, string] => {
       switch (net.providerType) {
@@ -68,7 +68,7 @@ export const mapSourceNetworksIdsToLabels = (
 
 export const mapSourceStoragesIdsToLabels = (
   sources: InventoryStorage[],
-): { [label: string]: string } => {
+): Record<string, string> => {
   const tuples: [string, string][] = sources
     .map((storage): [string, string] => {
       switch (storage.providerType) {
@@ -101,7 +101,7 @@ export const mapSourceStoragesIdsToLabels = (
 export const mapTargetNetworksIdsToLabels = (
   targets: OpenShiftNetworkAttachmentDefinition[],
   plan: V1beta1Plan,
-): { [label: string]: string } => {
+): Record<string, string> => {
   const tuples: [string, string][] = targets
     .filter(({ namespace }) => namespace === plan.spec.targetNamespace || namespace === 'default')
     .map((net) => [net.uid, `${net.namespace}/${net.name}`]);
@@ -114,7 +114,7 @@ export const mapTargetNetworksIdsToLabels = (
 export const mapTargetStoragesLabelsToIds = (
   targets: OpenShiftStorageClass[],
   plan: V1beta1Plan,
-): { [label: string]: string } => {
+): Record<string, string> => {
   const tuples: [string, string][] = targets
     .filter(({ namespace }) => namespace === plan.spec.targetNamespace || !namespace)
     .map((storage): [string, string] => [storage.name, storage.uid]);

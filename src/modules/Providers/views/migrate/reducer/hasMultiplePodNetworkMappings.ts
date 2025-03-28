@@ -13,7 +13,7 @@ import { toNetworks } from './getNetworksUsedBySelectedVMs';
 export const hasMultiplePodNetworkMappings = (
   mappings: Mapping[],
   selectedVMs: VmData[],
-  sourceNetworkLabelToId: { [label: string]: string },
+  sourceNetworkLabelToId: Record<string, string>,
   nicProfiles?: OVirtNicProfile[],
 ) => {
   const netIdsMappedToPodNet = new Set(

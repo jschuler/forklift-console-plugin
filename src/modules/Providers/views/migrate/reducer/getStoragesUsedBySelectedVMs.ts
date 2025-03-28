@@ -6,9 +6,7 @@ import type { VmData } from '../../details';
 
 // based on packages legacy/src/Plans/components/Wizard/helpers.tsx
 export const getStoragesUsedBySelectedVms = (
-  sourceStorageLabelToId: Draft<{
-    [label: string]: string;
-  }>,
+  sourceStorageLabelToId: Draft<Record<string, string>>,
   selectedVMs: VmData[],
   disks: (OVirtDisk | OpenstackVolume)[],
 ): string[] => {

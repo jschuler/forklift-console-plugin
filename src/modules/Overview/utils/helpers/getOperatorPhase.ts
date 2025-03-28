@@ -18,7 +18,7 @@ export function getOperatorPhase(obj: V1beta1ForkliftController): {
   const validTypes = ['Successful', 'Failure', 'Running'];
 
   // Prepare an empty map to store found condition types and their associated messages
-  const foundConditions: { [key: string]: string } = {};
+  const foundConditions: Record<string, string> = {};
 
   // Check if conditions exist in status
   if ('conditions' in status) {

@@ -90,12 +90,10 @@ import {
 } from './helpers';
 import { mapSourceNetworksToLabels, mapSourceStoragesToLabels } from './mapSourceToLabels';
 
-const handlers: {
-  [name: string]: (
+const handlers: Record<string, (
     draft: Draft<CreateVmMigrationPageState>,
     action: PageAction<CreateVmMigration, unknown>,
-  ) => CreateVmMigrationPageState | void;
-} = {
+  ) => CreateVmMigrationPageState | void> = {
   [ADD_NETWORK_MAPPING](draft) {
     const { calculatedPerNamespace: cpn } = draft;
     const { mappings, sources } = addMapping(

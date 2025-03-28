@@ -44,7 +44,7 @@ import { StateAlerts } from './StateAlerts';
 
 const buildNetworkMessages = (
   t: (key: string) => string,
-): { [key in NetworkAlerts]: { title: string; body: string; blocker?: boolean } } => ({
+): Record<NetworkAlerts, { title: string; body: string; blocker?: boolean }> => ({
   MULTIPLE_NICS_MAPPED_TO_POD_NETWORKING: {
     blocker: true,
     body: t('VM(s) with more than one interface mapped to Pod Networking were detected.'),
@@ -81,7 +81,7 @@ const buildNetworkMessages = (
 });
 const buildStorageMessages = (
   t: (key: string) => string,
-): { [key in StorageAlerts]: { title: string; body: string; blocker?: boolean } } => ({
+): Record<StorageAlerts, { title: string; body: string; blocker?: boolean }> => ({
   STORAGE_MAP_NAME_REGENERATED: {
     body: t('New name was generated for the Storage Map due to naming conflict.'),
     title: t('Storage Map name re-generated'),

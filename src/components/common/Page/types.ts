@@ -17,7 +17,7 @@ export type PaginationSettings = {
 }
 
 export type FiltersSettings = {
-  data: { [k: string]: undefined };
-  save: (filters: { [k: string]: undefined }) => void;
+  data: Record<string, undefined>;
+  save: (filters: Record<string, undefined>) => void;
   clear: () => void;
 }

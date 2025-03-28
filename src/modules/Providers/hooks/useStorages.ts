@@ -24,7 +24,7 @@ const glanceStorage: InventoryStorage = {
   selfLink: '',
 };
 
-const subPath: { [keys in ProviderType]: string } = {
+const subPath: Record<ProviderType, string> = {
   openshift: '/storageclasses?detail=1',
   openstack: '/volumetypes',
   ova: '/storages?detail=1',

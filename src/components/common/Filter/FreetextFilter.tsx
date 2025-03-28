@@ -28,9 +28,7 @@ export const FreetextFilter = ({
   const onTextInput: (
     event: React.SyntheticEvent<HTMLButtonElement>,
     value: string,
-    attrValueMap: {
-      [key: string]: string;
-    },
+    attrValueMap: Record<string, string>,
   ) => void = () => {
     const lowerCaseInputValue = inputValue?.toLowerCase();
     if (!lowerCaseInputValue || selectedFilters.includes(lowerCaseInputValue)) {

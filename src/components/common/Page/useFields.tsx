@@ -45,7 +45,7 @@ export const useFields = (
   } = userSettings || {};
 
   const [fields, setFields] = useState<ResourceField[]>(() => {
-    const supportedIds: { [id: string]: ResourceField } = defaultFields.reduce(
+    const supportedIds: Record<string, ResourceField> = defaultFields.reduce(
       (acc, it) => ({ ...acc, [it.resourceFieldId]: it }),
       {},
     );
