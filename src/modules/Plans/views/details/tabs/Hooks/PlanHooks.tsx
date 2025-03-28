@@ -69,7 +69,7 @@ export const PlanHooks: React.FC<{ name: string; namespace: string }> = ({ name,
     else if (!state.hasChanges)
       updateButtonDisabledMsg = t('Button is disabled until a change is detected.');
 
-    return t('Click the update hooks button to save your changes.') + ' ' + updateButtonDisabledMsg;
+    return `${t('Click the update hooks button to save your changes.')} ${updateButtonDisabledMsg}`;
   };
 
   const HooksTabAction = (

@@ -27,7 +27,7 @@ export const getOpenshiftProviderWebUILink = (provider: V1beta1Provider): string
 
   // Replace the host prefix of 'api.' with 'console-openshift-console.apps.'
   if (urlObj.host.startsWith('api.')) {
-    const newHostName = 'console-openshift-console.apps.' + urlObj.host.slice(4);
+    const newHostName = `console-openshift-console.apps.${urlObj.host.slice(4)}`;
     urlObj.host = newHostName;
 
     return urlObj.toString();

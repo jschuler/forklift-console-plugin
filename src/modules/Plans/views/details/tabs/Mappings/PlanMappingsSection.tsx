@@ -272,15 +272,12 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
         (obj.providerType === 'ovirt' && ovirtFindObj(obj, next.source)) ||
         (obj.providerType === 'vsphere' && vsphereFindObj(obj, next.source)) ||
         (obj.providerType === 'openstack' && openstackFindObj(obj, next.source)) ||
-        (obj.providerType === 'openshift' &&
-          openshiftFindObj(obj as OpenShiftNetworkAttachmentDefinition, next.source)) ||
+        (obj.providerType === 'openshift' && openshiftFindObj(obj, next.source)) ||
         (obj.providerType === 'ova' && ovaFindObj(obj, next.source)),
     );
 
     const nextTargetIndex = targetNetworks.findIndex(
-      (obj) =>
-        obj.providerType === 'openshift' &&
-        openshiftFindObj(obj as OpenShiftNetworkAttachmentDefinition, next.destination),
+      (obj) => obj.providerType === 'openshift' && openshiftFindObj(obj, next.destination),
     );
     const newState = [...state.updatedNetwork];
 
@@ -313,8 +310,7 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
         (obj.providerType === 'ovirt' && ovirtFindObj(obj, next.source)) ||
         (obj.providerType === 'vsphere' && vsphereFindObj(obj, next.source)) ||
         (obj.providerType === 'openstack' && openstackFindObj(obj, next.source)) ||
-        (obj.providerType === 'openshift' &&
-          openshiftFindObj(obj as OpenShiftStorageClass, next.source)),
+        (obj.providerType === 'openshift' && openshiftFindObj(obj, next.source)),
     );
 
     const nextTargetIndex = targetStorages.findIndex(
@@ -364,7 +360,6 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
       });
 
       setIsLoading(false);
-      return;
     }
   }
 

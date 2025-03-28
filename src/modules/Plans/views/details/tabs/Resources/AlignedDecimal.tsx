@@ -24,7 +24,7 @@ export const AlignedDecimal: React.FC<AlignedDecimalProps> = ({
   const { t } = useForkliftTranslation();
 
   const [integerPart, fractionalPart] = value.toFixed(fractionalPrecision).split('.');
-  const formattedFractionalPart = fractionalPrecision === 0 ? ' ' : '.' + fractionalPart;
+  const formattedFractionalPart = fractionalPrecision === 0 ? ' ' : `.${fractionalPart}`;
 
   return (
     <div>

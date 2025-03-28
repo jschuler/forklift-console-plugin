@@ -19,7 +19,7 @@ export const deleteHook = async (
     };
   });
 
-  return await k8sPatch({
+  return k8sPatch({
     data: [{ op: 'replace', path: '/spec/vms', value: newVms }],
     model: PlanModel,
     path: '',

@@ -8,7 +8,7 @@ import { k8sPatch, type K8sResourceCommon } from '@openshift-console/dynamic-plu
 export const defaultOnConfirm = async ({ jsonPath, model, newValue: value, resource }) => {
   const op = getValueByJsonPath(resource, jsonPath) ? 'replace' : 'add';
 
-  return await k8sPatch<K8sResourceCommon>({
+  return k8sPatch<K8sResourceCommon>({
     data: [
       {
         op,
@@ -29,5 +29,5 @@ export const defaultOnConfirmWithIntValue = async ({ jsonPath, model, newValue, 
   const intValue = parseInt(newValue.toString(), 10);
 
   // Call the original method with the converted value
-  return await defaultOnConfirm({ jsonPath, model, newValue: intValue, resource });
+  return defaultOnConfirm({ jsonPath, model, newValue: intValue, resource });
 };

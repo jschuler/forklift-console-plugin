@@ -208,13 +208,10 @@ export type MapsSectionProps = {
 };
 
 function storageNameToIDReference(array: { id?: string; name?: string }[]): Record<string, string> {
-  return array.reduce(
-    (accumulator, current) => {
-      if (current?.id && current?.name) {
-        accumulator[current.name] = current.id;
-      }
-      return accumulator;
-    },
-    {} as Record<string, string>,
-  );
+  return array.reduce<Record<string, string>>((accumulator, current) => {
+    if (current?.id && current?.name) {
+      accumulator[current.name] = current.id;
+    }
+    return accumulator;
+  }, {});
 }

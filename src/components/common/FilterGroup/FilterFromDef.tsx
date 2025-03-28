@@ -10,7 +10,7 @@ type FilterFromDefProps = {
   label: string;
   filterDef: FilterDef;
   selectedFilters: GlobalFilters;
-  onFilterUpdate(filters: GlobalFilters): void;
+  onFilterUpdate: (filters: GlobalFilters) => void;
   FilterType: (props: FilterTypeProps) => JSX.Element;
   showFilter?: boolean;
   resolvedLanguage: string;

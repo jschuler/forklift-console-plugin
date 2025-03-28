@@ -13,7 +13,7 @@ const PlanWarningCondition: React.FC<{
   const { t } = useTranslation();
   return (
     <Alert
-      title={t('The plan migration might not work as expected') + ' - ' + type}
+      title={`${t('The plan migration might not work as expected')} - ${type}`}
       variant={AlertVariant.warning}
     >
       <TextContent className="forklift-providers-list-header__alert">

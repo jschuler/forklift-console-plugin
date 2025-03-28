@@ -7,16 +7,14 @@ import {
   CardBody,
   CardHeader,
   CardTitle,
-  Split,
-  SplitItem,
-  Text,
-} from '@patternfly/react-core';
-import {
   Dropdown,
   DropdownItem,
   DropdownList,
   MenuToggle,
   type MenuToggleElement,
+  Split,
+  SplitItem,
+  Text,
 } from '@patternfly/react-core';
 import { EllipsisVIcon } from '@patternfly/react-icons';
 

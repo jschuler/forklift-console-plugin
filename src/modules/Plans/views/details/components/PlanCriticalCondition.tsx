@@ -67,7 +67,7 @@ const PlanCriticalCondition: React.FC<PlanCriticalConditionProps> = ({
 
   return (
     <Alert
-      title={t('The plan is not ready') + ' - ' + type}
+      title={`${t('The plan is not ready')} - ${type}`}
       variant={AlertVariant.danger}
       isExpandable={
         type === PlanConditionType.VMNetworksNotMapped ||

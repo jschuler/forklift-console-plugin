@@ -20,13 +20,13 @@ import { setAPiError } from './reducer/actions';
 import { getObjectRef } from './reducer/helpers';
 import type { CreateVmMigrationPageState } from './types';
 
-const createStorage = (storageMap: V1beta1StorageMap) =>
+const createStorage = async (storageMap: V1beta1StorageMap) =>
   k8sCreate({
     data: storageMap,
     model: StorageMapModel,
   });
 
-const createNetwork = (netMap: V1beta1NetworkMap) => {
+const createNetwork = async (netMap: V1beta1NetworkMap) => {
   return k8sCreate({
     data: updateNetworkMapDestination(netMap),
     model: NetworkMapModel,
@@ -52,7 +52,7 @@ const addOwnerRef = async (model: K8sModel, resource, ownerReferences) => {
     namespace: undefined,
   }));
 
-  return await k8sPatch({
+  return k8sPatch({
     data: [
       {
         op: 'add',
@@ -85,7 +85,7 @@ export const useSaveEffect = (state: CreateVmMigrationPageState, dispatch) => {
     }
 
     Promise.all([createStorage(storageMap), createNetwork(netMap)])
-      .then(([storageMap, netMap]) =>
+      .then(async ([storageMap, netMap]) =>
         createPlan(
           produce(plan, (draft) => {
             draft.spec.map.network = getObjectRef(netMap);
@@ -95,7 +95,7 @@ export const useSaveEffect = (state: CreateVmMigrationPageState, dispatch) => {
           storageMap,
         ),
       )
-      .then(([ownerReferences, netMap, storageMap]) =>
+      .then(async ([ownerReferences, netMap, storageMap]) =>
         Promise.all([
           addOwnerRef(StorageMapModel, storageMap, ownerReferences),
           addOwnerRef(NetworkMapModel, netMap, ownerReferences),

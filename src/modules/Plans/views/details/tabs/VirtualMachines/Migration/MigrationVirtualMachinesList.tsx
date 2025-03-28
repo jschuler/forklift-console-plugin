@@ -123,7 +123,7 @@ const fieldsMetadataFactory: ResourceFieldFactory = (t) => [
     jsonPath: (obj: VMData) => {
       const diskTransfer = obj.statusVM?.pipeline.find((p) => p.name === 'DiskTransfer');
 
-      return diskTransfer && diskTransfer?.progress?.total
+      return diskTransfer?.progress?.total
         ? diskTransfer?.progress?.completed / diskTransfer?.progress?.total
         : 0;
     },
@@ -135,7 +135,7 @@ const fieldsMetadataFactory: ResourceFieldFactory = (t) => [
     jsonPath: (obj: VMData) => {
       const diskTransfer = obj.statusVM?.pipeline.find((p) => p.name === 'DiskTransfer');
 
-      return diskTransfer && diskTransfer?.progress?.total
+      return diskTransfer?.progress?.total
         ? diskTransfer?.progress?.completed / diskTransfer?.progress?.total
         : 0;
     },

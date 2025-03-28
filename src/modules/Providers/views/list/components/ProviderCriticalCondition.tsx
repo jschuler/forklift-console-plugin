@@ -11,7 +11,7 @@ export const ProviderCriticalCondition: React.FC<{ type: string; message: string
 }) => {
   const { t } = useTranslation();
   return (
-    <Alert title={t('The provider is not ready') + ' - ' + type} variant="danger">
+    <Alert title={`${t('The provider is not ready')} - ${type}`} variant="danger">
       <TextContent className="forklift-providers-list-header__alert">
         <Text component={TextVariants.p}>
           <Linkify>{message || EMPTY_MSG}</Linkify>

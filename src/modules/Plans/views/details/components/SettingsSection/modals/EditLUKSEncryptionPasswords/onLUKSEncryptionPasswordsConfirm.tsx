@@ -20,7 +20,7 @@ export const onLUKSEncryptionPasswordsConfirm: OnConfirmHookType = async ({
   const newData = createIndexedBase64Object(newValue as string);
 
   // Init an empty secret
-  let secret: IoK8sApiCoreV1Secret = undefined;
+  let secret: IoK8sApiCoreV1Secret;
 
   // If secret exist and we have no new data
   if (secretName && !newData) {

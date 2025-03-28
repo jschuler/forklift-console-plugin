@@ -1,5 +1,4 @@
-import type { V1beta1Host, V1beta1Provider, VSphereHost } from '@kubev2v/types';
-import type { NetworkAdapters } from '@kubev2v/types';
+import type { NetworkAdapters, V1beta1Host, V1beta1Provider, VSphereHost } from '@kubev2v/types';
 
 /**
  * Type to represent a pair of ProviderHost, V1beta1Host and NetworkAdapters.

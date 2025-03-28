@@ -30,11 +30,11 @@ export type ManagedColumnsProps = {
   /**
    * A callback for when the ``close`` button is clicked.
    */
-  onClose(): void;
+  onClose: () => void;
   /**
    * A callback for when the ``Save`` button is clicked. A setter to modify state in the parent
    */
-  onChange(columns: ResourceField[]): void;
+  onChange: (columns: ResourceField[]) => void;
   /**
    * The list of fields to manage by the modal. This is the state maintained by parent component. Read only.
    */

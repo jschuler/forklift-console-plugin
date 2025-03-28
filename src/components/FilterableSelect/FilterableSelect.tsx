@@ -56,7 +56,7 @@ export const FilterableSelect: React.FunctionComponent<FilterableSelectProps> = 
   isPlain = false,
   isScrollable = false,
   noResultFoundLabel = 'No results found',
-  onSelect: onSelect,
+  onSelect,
   placeholder = 'Select item',
   selectOptions: initialSelectOptions,
   value,

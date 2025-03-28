@@ -53,7 +53,7 @@ export const PipelineTasksModal: React.FC<PipelineTasksModalProps> = ({ name, ta
 };
 
 const getTaskProgress = (task): ReactNode => {
-  if (!task || !task?.progress) {
+  if (!task?.progress) {
     return '- / -';
   }
 

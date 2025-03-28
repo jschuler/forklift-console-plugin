@@ -234,7 +234,7 @@ const countTasks = (diskTransfer: V1beta1PlanStatusMigrationVmsPipeline) => {
 };
 
 const getTransferProgress = (diskTransfer) => {
-  if (!diskTransfer || !diskTransfer.progress) {
+  if (!diskTransfer?.progress) {
     return { completed: '-', total: '-' };
   }
 

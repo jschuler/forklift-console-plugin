@@ -70,8 +70,7 @@ export const createMatcher =
       .filter(({ filter }) => filter?.type === filterType)
       .filter(
         ({ filter, resourceFieldId }) =>
-          (selectedFilters[resourceFieldId] && selectedFilters[resourceFieldId]?.length) ||
-          filter?.defaultValues,
+          selectedFilters[resourceFieldId]?.length || filter?.defaultValues,
       )
       .map(({ filter, resourceFieldId }) => ({
         filters: selectedFilters[resourceFieldId]?.length

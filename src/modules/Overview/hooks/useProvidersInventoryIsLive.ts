@@ -40,7 +40,7 @@ export const useProvidersInventoryIsLive = ({
       try {
         await consoleFetchJSON(getInventoryApiUrl(`providers`));
 
-        if ('' !== oldErrorRef.current?.error) {
+        if (oldErrorRef.current?.error !== '') {
           oldErrorRef.current = { error: '' };
           setLoadError(null);
           setLoaded(true);

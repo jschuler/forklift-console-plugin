@@ -65,6 +65,4 @@ function validateHooks(plan: V1beta1Plan): string {
   if (!sameHooks) {
     return 'the plan is configured with different hooks for different virtual machines';
   }
-
-  return;
 }

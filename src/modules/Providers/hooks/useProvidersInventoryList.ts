@@ -124,7 +124,7 @@ export const useProvidersInventoryList = ({
 
     const allPromises = Promise.all(
       readyProviders.map(async (provider) => {
-        return await consoleFetchJSON(getInventoryApiUrl(inventoryProviderURL(provider)));
+        return consoleFetchJSON(getInventoryApiUrl(inventoryProviderURL(provider)));
       }),
     )
       .then((newInventoryProviders) => {

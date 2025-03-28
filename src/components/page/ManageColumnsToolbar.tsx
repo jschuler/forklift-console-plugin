@@ -11,7 +11,7 @@ export type ManageColumnsToolbarProps = {
   /** Read only. The defaults used for initialization.*/
   defaultColumns: ResourceField[];
   /** Setter to modify state in the parent.*/
-  setColumns(resourceFields: ResourceField[]): void;
+  setColumns: (resourceFields: ResourceField[]) => void;
 };
 
 /**

@@ -62,7 +62,7 @@ export const useTlsCertificate = (url: string) => {
     consoleFetch(getServicesApiUrl(`tls-certificate?URL=${url}`), {
       method: 'GET',
     })
-      .then((response: Response) => response.text())
+      .then(async (response: Response) => response.text())
       .then((certificate) => {
         setCertificate(certificate);
       })

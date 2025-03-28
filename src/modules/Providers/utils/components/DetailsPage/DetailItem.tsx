@@ -54,7 +54,7 @@ export const DetailsItem: React.FC<DetailsItemProps> = ({
       <DescriptionListDescription>
         {contents?.map((value: ReactNode, index) => (
           <ContentField
-            key={'content-field-' + index}
+            key={`content-field-${index}`}
             content={value}
             onEdit={onEdits ? (onEdits[index] as () => void) : null}
             canEdit={canEdit}

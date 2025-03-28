@@ -38,7 +38,7 @@ export type MetaFilterProps = {
    * Implementation of filter values is filter specific.
    * @param values list of selected filter values
    */
-  onFilterUpdate(filters: GlobalFilters): void;
+  onFilterUpdate: (filters: GlobalFilters) => void;
 
   /**
    * The supported filter types that will be included in this filter group

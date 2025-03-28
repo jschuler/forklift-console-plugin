@@ -62,7 +62,7 @@ const reduceValueFilters = (
   extraFilters: ValueMatcher[],
   defaultFilters: ValueMatcher[],
 ): ValueMatcher[] => {
-  const filters = [...extraFilters, ...defaultFilters].reduce((acc, filter) => {
+  const filters = [...extraFilters, ...defaultFilters].reduce<ValueMatcher[]>((acc, filter) => {
     const accFilterTypes = acc.map((matcher) => matcher.filterType);
     const filterTypeFound = accFilterTypes.includes(filter.filterType);
 
@@ -71,7 +71,7 @@ const reduceValueFilters = (
     }
 
     return acc;
-  }, [] as ValueMatcher[]);
+  }, []);
 
   return filters;
 };

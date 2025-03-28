@@ -19,8 +19,12 @@ import {
   type V1beta1Plan,
   type V1beta1StorageMap,
 } from '@kubev2v/types';
-import { k8sCreate, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
-import { type K8sModel, useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
+import {
+  k8sCreate,
+  type K8sModel,
+  k8sPatch,
+  useK8sWatchResource,
+} from '@openshift-console/dynamic-plugin-sdk';
 import { Button, Form, Modal, ModalVariant, TextInput } from '@patternfly/react-core';
 
 import { Suspend } from '../views/details/components/Suspend';
