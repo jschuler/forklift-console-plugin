@@ -73,10 +73,10 @@ export const setTargetProvider = (
   } = draft;
 
   if (plan.spec.provider.destination) {
-    // case: changing already chosen provider
-    // reset props that depend on the target provider
+    // Case: changing already chosen provider
+    // Reset props that depend on the target provider
     plan.spec.targetNamespace = undefined;
-    // temporarily assume no namespace is OK - the validation will continue when new namespaces are loaded
+    // Temporarily assume no namespace is OK - the validation will continue when new namespaces are loaded
     validation.targetNamespace = 'default';
     existingResources.targetNamespaces = [];
     existingResources.targetNetworks = [];
@@ -84,7 +84,7 @@ export const setTargetProvider = (
     draft.calculatedPerNamespace = initCalculatedPerNamespaceSlice();
   }
 
-  // there might be no target provider in the namespace
+  // There might be no target provider in the namespace
   const resolvedTarget = resolveTargetProvider(targetProviderName, availableProviders);
   validation.targetProvider = resolvedTarget ? 'success' : 'error';
   plan.spec.provider.destination = resolvedTarget && getObjectRef(resolvedTarget);
@@ -192,8 +192,8 @@ export const initCalculatedPerNamespaceSlice =
 export const resolveTargetProvider = (name: string, availableProviders: V1beta1Provider[]) =>
   availableProviders.filter(getIsTarget).find((p) => p?.metadata?.name === name);
 
-// based on the method used in legacy/src/common/helpers
-// and mocks/src/definitions/utils
+// Based on the method used in legacy/src/common/helpers
+// And mocks/src/definitions/utils
 export const getObjectRef = (
   {
     apiVersion,

@@ -27,31 +27,31 @@ export const TimeRangeOptionsDictionary: {
   Last24H: {
     bucket: { hour: 4 },
     filter: isLast24H,
-    // t('Migrations (last 24 hours)')
+    // T('Migrations (last 24 hours)')
     migrationsLabelKey: 'Migrations (last 24 hours)',
     span: { hours: 24 },
     unit: 'hour',
-    // t('Virtual Machine Migrations (last 24 hours)')
+    // T('Virtual Machine Migrations (last 24 hours)')
     vmMigrationsLabelKey: 'Virtual Machine Migrations (last 24 hours)',
   },
   Last31Days: {
     bucket: { day: 4 },
     filter: isLast31Days,
-    // t('Migrations (last 31 days)')
+    // T('Migrations (last 31 days)')
     migrationsLabelKey: 'Migrations (last 31 days)',
     span: { days: 31 },
     unit: 'day',
-    // t('Virtual Machine Migrations (last 31 days)')
+    // T('Virtual Machine Migrations (last 31 days)')
     vmMigrationsLabelKey: 'Virtual Machine Migrations (last 31 days)',
   },
   Last7Days: {
     bucket: { day: 1 },
     filter: isLast7Days,
-    // t('Migrations (last 7 days)')
+    // T('Migrations (last 7 days)')
     migrationsLabelKey: 'Migrations (last 7 days)',
     span: { days: 7 },
     unit: 'day',
-    // t('Virtual Machine Migrations (last 7 days)')
+    // T('Virtual Machine Migrations (last 7 days)')
     vmMigrationsLabelKey: 'Virtual Machine Migrations (last 7 days)',
   },
 };

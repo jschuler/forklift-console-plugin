@@ -168,7 +168,7 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
 
   // Handle user clicking "cancel"
   function onCancel() {
-    // clear changes and return to view mode
+    // Clear changes and return to view mode
     setIsAddNetworkMapAvailable(true);
     setIsAddStorageMapAvailable(true);
     dispatch({ type: 'SET_CANCEL' });
@@ -350,7 +350,7 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
       planNetworkMaps.spec.map = [...state.updatedNetwork];
       planStorageMaps.spec.map = [...state.updatedStorage];
 
-      // clear changes and return to view mode
+      // Clear changes and return to view mode
       dispatch({ type: 'SET_CANCEL' });
       dispatch({ type: 'TOGGLE_EDIT' });
 

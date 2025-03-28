@@ -53,7 +53,7 @@ export const useFetchEffects = (
     selectedVms,
   } = createVmMigrationContext?.data || {};
 
-  // error state - the page was entered directly without choosing the VMs
+  // Error state - the page was entered directly without choosing the VMs
   const emptyContext = !selectedVms?.length || !sourceProvider;
   const namespace = sourceProvider?.metadata?.namespace ?? '';
 

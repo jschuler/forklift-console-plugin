@@ -23,7 +23,7 @@ import type { InitialStateParameters } from './createInitialState';
 export const POD_NETWORK = 'Pod Networking';
 export const DEFAULT_NAMESPACE = getDefaultNamespace();
 
-// action type names
+// Action type names
 export const SET_NAME = 'SET_NAME';
 export const SET_PROJECT_NAME = 'SET_PROJECT_NAME';
 export const SET_SOURCE_PROVIDER = 'SET_SOURCE_PROVIDER';
@@ -88,7 +88,7 @@ export type PageAction<S, T> = {
   payload: T;
 }
 
-// action payload types
+// Action payload types
 
 export type PlanName = {
   name: string;
@@ -198,7 +198,7 @@ export type PlanMapping = {
   next: Mapping;
 }
 
-// action creators
+// Action creators
 
 export const setPlanTargetProvider = (
   targetProviderName: string,

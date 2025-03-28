@@ -74,7 +74,7 @@ export const EditLUKSEncryptionPasswords: React.FC<EditLUKSEncryptionPasswordsPr
   return (
     <EditModal
       {...props}
-      jsonPath={() => null} // we can't get the keys from the plan
+      jsonPath={() => null} // We can't get the keys from the plan
       title={props?.title || t('Disk decryption passphrases')}
       label={props?.label || t('Passphrases for LUKS encrypted devices')}
       model={PlanModel}

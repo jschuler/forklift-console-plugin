@@ -21,10 +21,10 @@ const createTimeBuckets = (selectedTimeRange: TimeRangeOptions) =>
   Interval.fromDateTimes(
     DateTime.now()
       .minus(TimeRangeOptionsDictionary[selectedTimeRange].span)
-      // adjust the time window granularity i.e.
-      // assume 24h window and current time 14:30
-      // event that happened at 14:10 on the previous day is older then 24h when calculated with minute-precision
-      // but should be included with hour-precision (as we show on the chart)
+      // Adjust the time window granularity i.e.
+      // Assume 24h window and current time 14:30
+      // Event that happened at 14:10 on the previous day is older then 24h when calculated with minute-precision
+      // But should be included with hour-precision (as we show on the chart)
       .startOf(TimeRangeOptionsDictionary[selectedTimeRange].unit),
     DateTime.now().endOf(TimeRangeOptionsDictionary[selectedTimeRange].unit),
   )

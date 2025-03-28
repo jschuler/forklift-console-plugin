@@ -32,7 +32,7 @@ export type TableViewHeaderProps<T> = {
    */
   setActiveSort: (sort: SortType) => void;
   /**
-   * currently visible items on the screen, for handling bulk selection ("select all" checkbox).
+   * Currently visible items on the screen, for handling bulk selection ("select all" checkbox).
    */
   dataOnScreen?: T[];
 }

@@ -173,7 +173,7 @@ export type StandardPageProps<T> = {
   pagination?: number | 'on' | 'off';
 
   /**
-   * page number
+   * Page number
    */
   page: number;
 
@@ -193,7 +193,7 @@ export type StandardPageProps<T> = {
   GlobalActionToolbarItems?: FC<GlobalActionToolbarProps<T>>[];
 
   /**
-   * className
+   * ClassName
    */
   className?: string;
 
@@ -208,7 +208,7 @@ export type StandardPageProps<T> = {
   canSelect?: (item: T) => boolean;
 
   /**
-   * onSelect is called when selection changes
+   * OnSelect is called when selection changes
    */
   onSelect?: (selectedIds: string[]) => void;
 
@@ -218,7 +218,7 @@ export type StandardPageProps<T> = {
   selectedIds?: string[];
 
   /**
-   * onExpand is called when expand changes
+   * OnExpand is called when expand changes
    */
   onExpand?: (expandedIds: string[]) => void;
 

@@ -17,7 +17,7 @@ export const concernFilter = (t: (string) => string) => ({
             .flatMap((item) => item.vm.concerns)
             .map((concern) => concern.label),
         ),
-      ) // at this point the list contains unique strings that can be used as ID
+      ) // At this point the list contains unique strings that can be used as ID
         .map((label: string): EnumValue => ({ groupId: 'label', id: label, label })),
     ],
   }),

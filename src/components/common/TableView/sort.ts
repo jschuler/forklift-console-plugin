@@ -60,13 +60,13 @@ export const useSort = (
   fields: ResourceField[],
   resolvedLanguage = 'en',
 ): [SortType, (sort: SortType) => void, (a, b) => number] => {
-  // by default sort by the first identity column (if any)
+  // By default sort by the first identity column (if any)
   const [firstField] = [...fields].sort(
     (a, b) => Number(Boolean(b.isIdentity)) - Number(Boolean(a.isIdentity)),
   );
 
   const [activeSort, setActiveSort] = useState<SortType>({
-    // when no other order is define, default to ascending order
+    // When no other order is define, default to ascending order
     isAsc: true,
     label: firstField?.label,
     resourceFieldId: firstField?.resourceFieldId,

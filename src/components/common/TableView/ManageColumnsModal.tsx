@@ -126,7 +126,7 @@ export const ManageColumnsModal = ({
     );
   };
   const onSave = () => {
-    // assume that action resourceFields are always at the end
+    // Assume that action resourceFields are always at the end
     onChange([...editedColumns, ...resourceFields.filter((col) => col.isAction || col.isHidden)]);
     onClose();
   };
@@ -181,7 +181,7 @@ export const ManageColumnsModal = ({
                         aria-labelledby={`draggable-${id}`}
                         name={id}
                         checked={
-                          // visibility for identity resourceFields (namespace) is governed by parent component
+                          // Visibility for identity resourceFields (namespace) is governed by parent component
                           isIdentity
                             ? resourceFields.find((c) => c.resourceFieldId === id)?.isVisible
                             : isVisible

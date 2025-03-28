@@ -11,7 +11,7 @@ export const createHook = async (
     model: HookModel,
   });
 
-  // update plan
+  // Update plan
   const {vms} = plan.spec;
   const newVms = vms.map((vm) => ({
     ...vm,

@@ -25,11 +25,11 @@ const toField = ({ isVisible, resourceFieldId }) => ({ isVisible, resourceFieldI
 const sanitizeFields = (fields: unknown): { resourceFieldId: string; isVisible?: boolean }[] =>
   Array.isArray(fields)
     ? fields
-        // array should contain objects
+        // Array should contain objects
         .filter((it) => it && typeof it === 'object')
-        // cherry-pick desired props
+        // Cherry-pick desired props
         .map(toField)
-        // verify that ID is string
+        // Verify that ID is string
         .filter(({ resourceFieldId }) => resourceFieldId && typeof resourceFieldId === 'string')
     : [];
 

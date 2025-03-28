@@ -11,7 +11,7 @@ export function openstackSecretValidator(secret: IoK8sApiCoreV1Secret): Validati
   let requiredFields = [];
   let validateFields = [];
 
-  // guess authenticationType based on authType and username
+  // Guess authenticationType based on authType and username
   switch (authType) {
     case 'password':
       requiredFields = ['username', 'password', 'regionName', 'projectName', 'domainName'];

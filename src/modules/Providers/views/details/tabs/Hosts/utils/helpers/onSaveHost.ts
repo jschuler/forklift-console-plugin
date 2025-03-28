@@ -38,7 +38,7 @@ export const onSaveHost = async ({
   provider,
   user,
 }: OnSaveHostParams) => {
-  // user and password can be undefined for ESXi provider
+  // User and password can be undefined for ESXi provider
   // Base64.encode will not handle undefined values
   const encodedUser = user ? Base64.encode(user) : undefined;
   const encodedPassword = password ? Base64.encode(password) : undefined;

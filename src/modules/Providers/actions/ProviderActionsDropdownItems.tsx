@@ -56,7 +56,7 @@ export const ProviderActionsDropdownItems = ({ data }: ProviderActionsDropdownIt
     </DropdownItem>,
   ];
 
-  // excluding the EditCredentials options since not supported for OVA
+  // Excluding the EditCredentials options since not supported for OVA
   const ovaDropdownItems = dropdownItems.filter((item) => item.key !== 'EditCredentials');
 
   return provider?.spec?.type === 'ova' ? ovaDropdownItems : dropdownItems;

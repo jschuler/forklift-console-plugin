@@ -29,8 +29,8 @@ export type FilterDef = {
   primary?: boolean;
   standalone?: boolean;
   groups?: EnumGroup[];
-  // override default behavior if there are no filters provided by the user
-  // by default missing/empty filters result in positive match (vacuous truth)
+  // Override default behavior if there are no filters provided by the user
+  // By default missing/empty filters result in positive match (vacuous truth)
   defaultValues?: string[];
   helperText?: string | React.ReactNode;
   dynamicFilter?: (items: unknown[]) => Partial<FilterDef>;
@@ -44,15 +44,15 @@ export type ResourceField = {
   resourceFieldId: string | null;
   jsonPath?: OpenApiJsonPath;
   label: string | null;
-  // visibility status, can change in time
+  // Visibility status, can change in time
   isVisible?: boolean;
   isIdentity?: boolean;
   isAction?: boolean;
-  // if true then the field should be never visible in the UI
+  // If true then the field should be never visible in the UI
   isHidden?: boolean;
   sortable?: boolean;
   filter?: FilterDef;
-  // if true then the field filters state should persist between sessions
+  // If true then the field filters state should persist between sessions
   isPersistent?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   compareFn?: (a: any, b: any, locale: string) => number;
@@ -65,7 +65,7 @@ export const K8sConditionStatusValues = ['True', 'False', 'Unknown'] as const;
 export type K8sConditionStatus = (typeof K8sConditionStatusValues)[number];
 
 export type GlobalActionToolbarProps<T> = {
-  // data currently visible on the screen (i.e. adjusted by paging and filtering)
+  // Data currently visible on the screen (i.e. adjusted by paging and filtering)
   dataOnScreen: T[];
 }
 

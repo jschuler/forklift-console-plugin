@@ -33,7 +33,7 @@ export const patchProviderURL: OnConfirmHookType = async ({ model, newValue: val
   await k8sPatch({
     data: [
       {
-        op: providerOp, // assume secret and provider has the same url
+        op: providerOp, // Assume secret and provider has the same url
         path: '/data/url',
         value: Base64.encode(value.toString().trim()),
       },

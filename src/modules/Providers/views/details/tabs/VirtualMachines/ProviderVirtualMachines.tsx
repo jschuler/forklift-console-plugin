@@ -86,7 +86,7 @@ export const ProviderVirtualMachinesListWrapper: React.FC<ProviderVirtualMachine
     case 'ova':
       return <OvaVirtualMachinesList {...props} />;
     default:
-      // unsupported provider or loading errors will be handled by parent page
+      // Unsupported provider or loading errors will be handled by parent page
       return <></>;
   }
 };

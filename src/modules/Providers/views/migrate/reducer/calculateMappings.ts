@@ -87,7 +87,7 @@ export const calculateStorages = (
     !initialLoading[SET_AVAILABLE_TARGET_STORAGES] ||
     !initialLoading[SET_DISKS]
   ) {
-    // wait for all resources
+    // Wait for all resources
     return {
       sourceStorages,
       storageMappings,

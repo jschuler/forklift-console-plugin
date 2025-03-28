@@ -11,7 +11,7 @@ export const extensions: EncodedExtension[] = [
       },
       id: 'hooks',
       model: HookModelGroupVersionKind,
-      // t('plugin__forklift-console-plugin~Hooks for virtualization')
+      // T('plugin__forklift-console-plugin~Hooks for virtualization')
       name: '%plugin__forklift-console-plugin~Hooks for virtualization%',
       perspective: 'admin',
       section: 'migration',

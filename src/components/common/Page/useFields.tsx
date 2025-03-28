@@ -50,22 +50,22 @@ export const useFields = (
       {},
     );
     const savedIds = new Set(fieldsFromSettings.map(({ resourceFieldId }) => resourceFieldId));
-    // used to detect duplicates
+    // Used to detect duplicates
     const idsToBeVisited = new Set(savedIds);
 
     const stateFields = [
-      // put fields saved via user settings (if any)
+      // Put fields saved via user settings (if any)
       ...fieldsFromSettings
-        // ignore duplicates:ID is removed from the helper map on the first visit
+        // Ignore duplicates:ID is removed from the helper map on the first visit
         .filter((it) => idsToBeVisited.delete(it.resourceFieldId))
-        // ignore unsupported fields
+        // Ignore unsupported fields
         .filter(({ resourceFieldId }) => supportedIds[resourceFieldId])
         .map(({ isVisible, resourceFieldId }) => ({
           ...supportedIds[resourceFieldId],
-          // keep the invariant that identity resourceFields are always visible
+          // Keep the invariant that identity resourceFields are always visible
           isVisible: isVisible || supportedIds[resourceFieldId].isIdentity,
         })),
-      // put all remaining fields (all fields if there are no settings)
+      // Put all remaining fields (all fields if there are no settings)
       ...defaultFields
         .filter(({ resourceFieldId }) => !savedIds.has(resourceFieldId))
         .map((it) => ({ ...it })),
@@ -88,7 +88,7 @@ export const useFields = (
     () => (fields: ResourceField[]) => {
       setFields(fields);
       if (sameOrderAndVisibility(fields, defaultFields)) {
-        // don't store settings if equal to default settings
+        // Don't store settings if equal to default settings
         clearSettings();
       } else {
         saveFieldsInSettings(

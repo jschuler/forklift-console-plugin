@@ -101,7 +101,7 @@ const handlers: Record<string, (
       cpn.targetNetworks,
       cpn.networkMappings,
     );
-    // triggered by the user
+    // Triggered by the user
     if (sources && mappings) {
       cpn.sourceNetworks = sources;
       cpn.networkMappings = mappings;
@@ -117,7 +117,7 @@ const handlers: Record<string, (
       cpn.targetStorages,
       cpn.storageMappings,
     );
-    // triggered by the user
+    // Triggered by the user
     if (sources && mappings) {
       cpn.sourceStorages = sources;
       cpn.storageMappings = mappings;
@@ -128,7 +128,7 @@ const handlers: Record<string, (
   },
   [DELETE_NETWORK_MAPPING](draft, { payload: { source } }: PageAction<CreateVmMigration, Mapping>) {
     const { calculatedPerNamespace: cpn } = draft;
-    // triggered by the user
+    // Triggered by the user
     const currentSource = cpn.sourceNetworks.find(
       ({ isMapped, label }) => label === source && isMapped,
     );
@@ -147,7 +147,7 @@ const handlers: Record<string, (
   },
   [DELETE_STORAGE_MAPPING](draft, { payload: { source } }: PageAction<CreateVmMigration, Mapping>) {
     const { calculatedPerNamespace: cpn } = draft;
-    // triggered by the user
+    // Triggered by the user
     const { mappings, sources } = deleteMapping(cpn.sourceStorages, source, cpn.storageMappings);
 
     if (sources && mappings) {
@@ -200,7 +200,7 @@ const handlers: Record<string, (
     { payload: { current, next } }: PageAction<CreateVmMigration, PlanMapping>,
   ) {
     const { calculatedPerNamespace: cpn } = draft;
-    // triggered by the user
+    // Triggered by the user
     const { mappings, sources } = replaceMapping(
       cpn.sourceNetworks,
       current,
@@ -223,7 +223,7 @@ const handlers: Record<string, (
     { payload: { current, next } }: PageAction<CreateVmMigration, PlanMapping>,
   ) {
     const { calculatedPerNamespace: cpn } = draft;
-    // triggered by the user
+    // Triggered by the user
     const { mappings, sources } = replaceMapping(
       cpn.sourceStorages,
       current,
@@ -242,7 +242,7 @@ const handlers: Record<string, (
     reTestStorages(draft);
   },
   [SET_API_ERROR]({ flow }, { payload: { error } }: PageAction<CreateVmMigration, PlanError>) {
-    // triggered by the API callback (on failure)
+    // Triggered by the API callback (on failure)
     flow.apiError = error;
     flow.editingDone = false;
   },
@@ -261,13 +261,13 @@ const handlers: Record<string, (
       .filter(getIsTarget)
       .find((p) => p?.metadata?.name === plan.spec.provider.destination?.name);
     if (!resolvedDestination && !oldTarget) {
-      // case: no provider set (yet)
-      // it's possible that there is no host provider in the namespace (empty will trigger error)
+      // Case: no provider set (yet)
+      // It's possible that there is no host provider in the namespace (empty will trigger error)
       const firstHostProvider = availableProviders.find((p) => isProviderLocalOpenshift(p));
       setTargetProvider(draft, firstHostProvider?.metadata?.name, availableProviders);
     } else if (!resolvedDestination) {
-      // case: provider got removed in the meantime
-      // notify the user by setting an empty provider (will trigger error)
+      // Case: provider got removed in the meantime
+      // Notify the user by setting an empty provider (will trigger error)
       setTargetProvider(draft, undefined, availableProviders);
     }
   },
@@ -290,7 +290,7 @@ const handlers: Record<string, (
       payload: { availableSourceStorages },
     }: PageAction<CreateVmMigration, PlanAvailableSourceStorages>,
   ) {
-    // triggered from useEffect on any data change
+    // Triggered from useEffect on any data change
     draft.existingResources.sourceStorages = availableSourceStorages;
 
     draft.calculatedOnce.sourceStorageLabelToId =
@@ -304,7 +304,7 @@ const handlers: Record<string, (
       payload: { availableTargetNamespaces },
     }: PageAction<CreateVmMigration, PlanAvailableTargetNamespaces>,
   ) {
-    // triggered from useEffect on any data change
+    // Triggered from useEffect on any data change
     const {
       calculatedOnce: { namespacesUsedBySelectedVms },
       existingResources,
@@ -336,13 +336,13 @@ const handlers: Record<string, (
     }
 
     const targetNamespace =
-      // use the selected project name
+      // Use the selected project name
       draft.underConstruction?.projectName ||
       (availableTargetNamespaces.find(
         (n) => n.name === DEFAULT_NAMESPACE && !alreadyInUse(DEFAULT_NAMESPACE),
       ) &&
         DEFAULT_NAMESPACE) ||
-      // use the first from the list (if exists)
+      // Use the first from the list (if exists)
       availableTargetNamespaces.find((n) => !alreadyInUse(n.name))?.name;
 
     setTargetNamespace(draft, targetNamespace);
@@ -354,7 +354,7 @@ const handlers: Record<string, (
       payload: { availableTargetNetworks },
     }: PageAction<CreateVmMigration, PlanAvailableTargetNetworks>,
   ) {
-    // triggered from useEffect on any data change
+    // Triggered from useEffect on any data change
     draft.existingResources.targetNetworks = availableTargetNetworks;
     recalculateNetworks(draft);
   },
@@ -364,13 +364,13 @@ const handlers: Record<string, (
       payload: { availableTargetStorages },
     }: PageAction<CreateVmMigration, PlanAvailableTargetStorages>,
   ) {
-    // triggered from useEffect on any data change
+    // Triggered from useEffect on any data change
     draft.existingResources.targetStorages = availableTargetStorages;
 
     recalculateStorages(draft);
   },
   [SET_DISKS](draft, { payload: { disks } }: PageAction<CreateVmMigration, PlanDisks>) {
-    // triggered from useEffect on any data change
+    // Triggered from useEffect on any data change
     const {
       calculatedOnce,
       existingResources,
@@ -389,21 +389,21 @@ const handlers: Record<string, (
     { existingResources },
     { payload: { existingNetMaps } }: PageAction<CreateVmMigration, PlanExistingNetMaps>,
   ) {
-    // triggered from useEffect on any data change
+    // Triggered from useEffect on any data change
     existingResources.netMaps = existingNetMaps;
   },
   [SET_EXISTING_PLANS](
     draft,
     { payload: { existingPlans } }: PageAction<CreateVmMigration, PlanExistingPlans>,
   ) {
-    // triggered from useEffect on any data change
+    // Triggered from useEffect on any data change
     draft.existingResources.plans = existingPlans;
   },
   [SET_EXISTING_STORAGE_MAPS](
     { existingResources },
     { payload: { existingStorageMaps } }: PageAction<CreateVmMigration, PlanExistingStorageMaps>,
   ) {
-    // triggered from useEffect on any data change
+    // Triggered from useEffect on any data change
     existingResources.storageMaps = existingStorageMaps;
   },
   [SET_NAME](draft, { payload: { name } }: PageAction<CreateVmMigration, PlanName>) {
@@ -502,7 +502,7 @@ const handlers: Record<string, (
       existingResources,
       underConstruction: { plan },
     } = draft;
-    // avoid side effects if no real change
+    // Avoid side effects if no real change
     if (plan.spec.provider?.destination?.name !== targetProviderName) {
       setTargetProvider(draft, targetProviderName, existingResources.providers);
     }
@@ -514,7 +514,7 @@ const handlers: Record<string, (
     receivedAsParams: { sourceProvider },
     underConstruction: { netMap, plan, projectName, storageMap },
   }) {
-    // triggered by the user
+    // Triggered by the user
     flow.editingDone = true;
 
     netMap.metadata.namespace = projectName;
@@ -568,8 +568,8 @@ const handlers: Record<string, (
 
 const actionsAllowedAfterEditingIsDone: CreateVmMigration[] = [SET_API_ERROR];
 
-// action with data required on page start
-// skip SET_EXISTING_* actions as they only add extra validation
+// Action with data required on page start
+// Skip SET_EXISTING_* actions as they only add extra validation
 const actionsTrackedForInitialLoading: CreateVmMigration[] = [
   SET_AVAILABLE_PROVIDERS,
   SET_AVAILABLE_SOURCE_NETWORKS,

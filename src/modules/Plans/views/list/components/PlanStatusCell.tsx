@@ -69,7 +69,7 @@ export const PlanStatusCell: React.FC<CellProps> = ({ data }) => {
   });
 
   // All VM count links point to the same place for now,
-  // but will be updated to target only affected VMs in the future.
+  // But will be updated to target only affected VMs in the future.
   // Could possibly use a querystring to dictate a table filter for the list of VMs.
   const vmCountLinkPath = `${planURL}/vms`;
 

@@ -11,7 +11,7 @@ export const OvirtHostFiler = (t: (string) => string) => {
   return {
     dynamicFilter: (items: { vm: { host: string } }[]) => ({
       values: [
-        ...Array.from(new Set(items.map((item) => item.vm.host))) // at this point the list contains unique strings that can be used as ID
+        ...Array.from(new Set(items.map((item) => item.vm.host))) // At this point the list contains unique strings that can be used as ID
           .map(labelToFilterItem),
       ],
     }),

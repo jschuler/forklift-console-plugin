@@ -22,7 +22,7 @@ type SelectableGalleryProps = {
   onChange: (selectedCardId: string | null) => void;
   /** A function to sort the items. Default is alphabetic sort on item titles. */
   sortFunction?: (a: [string, SelectableGalleryItem], b: [string, SelectableGalleryItem]) => number;
-  /** initial selected value */
+  /** Initial selected value */
   selectedID?: string;
 }
 

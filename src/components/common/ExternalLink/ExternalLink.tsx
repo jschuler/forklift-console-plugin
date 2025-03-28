@@ -38,7 +38,7 @@ type ExternalLinkProps = {
   href: string;
 
   /**
-   * text to be displayed.
+   * Text to be displayed.
    */
   text?: string;
 
@@ -53,7 +53,7 @@ type ExternalLinkProps = {
   isInline?: boolean;
 
   /**
-   * hide or display the external link icon
+   * Hide or display the external link icon
    */
   hideIcon?: boolean;
 };

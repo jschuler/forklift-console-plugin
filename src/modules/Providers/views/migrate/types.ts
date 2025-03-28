@@ -48,7 +48,7 @@ export type CreateVmMigrationPageState = {
       warnings: StorageAlerts[];
     };
   };
-  // data fetched from k8s or inventory
+  // Data fetched from k8s or inventory
   existingResources: {
     providers: V1beta1Provider[];
     plans: V1beta1Plan[];
@@ -63,26 +63,26 @@ export type CreateVmMigrationPageState = {
     storageMaps: V1beta1StorageMap[];
   };
   calculatedOnce: {
-    // calculated on start (exception:for ovirt/openstack we need to fetch disks)
+    // Calculated on start (exception:for ovirt/openstack we need to fetch disks)
     storageIdsUsedBySelectedVms: string[];
     sourceStorageLabelToId: Record<string, string>;
-    // calculated on start (exception:for ovirt we need to fetch nic profiles)
+    // Calculated on start (exception:for ovirt we need to fetch nic profiles)
     networkIdsUsedBySelectedVms: string[];
     sourceNetworkLabelToId: Record<string, string>;
-    // calculated on start
+    // Calculated on start
     vmFieldsFactory: [ResourceFieldFactory, FC<RowProps<VmData>>];
-    // for OpenShift source providers
+    // For OpenShift source providers
     namespacesUsedBySelectedVms: string[];
   };
-  // re-calculated on every target namespace change
+  // Re-calculated on every target namespace change
   calculatedPerNamespace: {
-    // read-only
+    // Read-only
     targetStorages: string[];
-    // read-only, human-readable
+    // Read-only, human-readable
     targetNetworks: string[];
     sourceNetworks: MappingSource[];
     sourceStorages: MappingSource[];
-    // mutated, both source and destination human-readable
+    // Mutated, both source and destination human-readable
     networkMappings: Mapping[];
     storageMappings: Mapping[];
   };
@@ -91,7 +91,7 @@ export type CreateVmMigrationPageState = {
     sourceProvider: V1beta1Provider;
     namespace: string;
   };
-  // placeholder for helper data
+  // Placeholder for helper data
   workArea: {
     targetProvider: V1beta1Provider;
   };
@@ -102,10 +102,10 @@ export type CreateVmMigrationPageState = {
   };
 }
 export type MappingSource = {
-  // read-only
+  // Read-only
   label: string;
   usedBySelectedVms: boolean;
-  // mutated via UI
+  // Mutated via UI
   isMapped: boolean;
 }
 

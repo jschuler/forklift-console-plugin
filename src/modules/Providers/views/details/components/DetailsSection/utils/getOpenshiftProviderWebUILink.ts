@@ -22,10 +22,10 @@ export const getOpenshiftProviderWebUILink = (provider: V1beta1Provider): string
   }
   const urlObj = new URL(url);
 
-  // remove the port
+  // Remove the port
   urlObj.port = '';
 
-  // replace the host prefix of 'api.' with 'console-openshift-console.apps.'
+  // Replace the host prefix of 'api.' with 'console-openshift-console.apps.'
   if (urlObj.host.startsWith('api.')) {
     const newHostName = 'console-openshift-console.apps.' + urlObj.host.slice(4);
     urlObj.host = newHostName;

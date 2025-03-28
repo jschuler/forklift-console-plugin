@@ -58,7 +58,7 @@ const renderTd = ({ resourceData, resourceFieldId, resourceFields }: RenderTdPro
   const inventoryCells = ['networkCount', 'storageCount', 'vmCount', 'hostCount'];
 
   // If the current cell is an inventory cell and there's no inventory data,
-  // don't render the cell
+  // Don't render the cell
   if (inventoryCells.includes(fieldId) && !hasInventory) {
     return <TableEmptyCell />;
   }

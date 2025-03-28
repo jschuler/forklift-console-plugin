@@ -29,7 +29,7 @@ export async function patchSecretData(secret: IoK8sApiCoreV1Secret, clean?: bool
   });
 }
 
-// when patching a secret with new data, first remove all other fields
+// When patching a secret with new data, first remove all other fields
 const EmptyOpenstackCredentials = {
   applicationCredentialID: undefined,
   applicationCredentialName: undefined,

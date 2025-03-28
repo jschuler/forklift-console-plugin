@@ -133,7 +133,7 @@ export const useProvidersInventoryList = ({
         return newInventory;
       })
       .catch(() => {
-        //   throw error;
+        //   Throw error;
         return null;
       });
 

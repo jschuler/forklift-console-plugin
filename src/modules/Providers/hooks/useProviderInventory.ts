@@ -72,7 +72,7 @@ export const useProviderInventory = <T>({
   const oldDataRef = useRef(null);
   const oldErrorRef = useRef(null);
 
-  // we only use type and uid in this context
+  // We only use type and uid in this context
   const stableProvider = useMemo(() => provider, [provider?.spec?.type, provider?.metadata?.uid]);
 
   // Fetch data from API

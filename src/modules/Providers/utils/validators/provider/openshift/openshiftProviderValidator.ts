@@ -18,7 +18,7 @@ export function openshiftProviderValidator(
   const validation: ValidationMsg = validateUrlAndTokenExistence(url, token);
   if (validation) return validation;
 
-  // validate fields
+  // Validate fields
   if (url !== '' && !validateURL(url)) {
     return { msg: 'Invalid URL', type: 'error' };
   }

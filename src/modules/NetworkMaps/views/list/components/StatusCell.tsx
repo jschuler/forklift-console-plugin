@@ -80,10 +80,10 @@ const statusIcons = {
 };
 
 const phaseLabels = {
-  // t('Critical')
+  // T('Critical')
   Critical: 'Critical',
-  // t('Not Ready')
+  // T('Not Ready')
   'Not Ready': 'Not Ready',
-  // t('Ready')
+  // T('Ready')
   Ready: 'Ready',
 };

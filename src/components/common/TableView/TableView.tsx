@@ -80,7 +80,7 @@ type TableViewProps<T> = {
   entities: T[];
   'aria-label': string;
   /**
-   * resourceData[uidFieldId] is used to uniquely identify a row. Defaults to UID column.
+   * ResourceData[uidFieldId] is used to uniquely identify a row. Defaults to UID column.
    */
   uidFieldId?: string;
   /**
@@ -122,7 +122,7 @@ type TableViewProps<T> = {
   canSelect?: (item: T) => boolean;
 
   /**
-   * onSelect is called when selection changes
+   * OnSelect is called when selection changes
    */
   onSelect?: (selectedIds: string[]) => void;
 
@@ -132,7 +132,7 @@ type TableViewProps<T> = {
   selectedIds?: string[];
 
   /**
-   * onExpand is called when expand changes
+   * OnExpand is called when expand changes
    */
   onExpand?: (expandedIds: string[]) => void;
 

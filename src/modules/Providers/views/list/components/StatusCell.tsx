@@ -95,12 +95,12 @@ const statusIcons = {
 };
 
 const phaseLabels = {
-  // t('Connection Failed')
+  // T('Connection Failed')
   ConnectionFailed: 'Connection Failed',
-  // t('Ready')
+  // T('Ready')
   Ready: 'Ready',
-  // t('Staging')
+  // T('Staging')
   Staging: 'Staging',
-  // t('Validation Failed')
+  // T('Validation Failed')
   ValidationFailed: 'Validation Failed',
 };

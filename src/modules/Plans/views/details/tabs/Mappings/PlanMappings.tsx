@@ -149,7 +149,7 @@ const PlanMappingsInitSection: React.FC<PlanMappingsInitSectionProps> = (props) 
     );
 
   // Warn when missing inventory data, missing inventory will make
-  // some editing options missing.
+  // Some editing options missing.
   const alerts = [];
 
   if (targetStorages.length == 0) {

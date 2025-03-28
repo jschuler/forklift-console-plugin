@@ -355,7 +355,7 @@ const getJobPhase = (job: IoK8sApiBatchV1Job) => {
 const getPipelineTasks = (pipeline: V1beta1PlanStatusMigrationVmsPipeline) => {
   const tasks = pipeline?.tasks || [];
 
-  // search for all completed tasks (either tasks that completed successfully or ones that aren't finished but their pipeline step is).
+  // Search for all completed tasks (either tasks that completed successfully or ones that aren't finished but their pipeline step is).
   const tasksCompleted = tasks.filter((c) => hasTaskCompleted(c.phase, c.progress, pipeline));
 
   return { completed: tasksCompleted.length, name: pipeline.name, total: tasks.length };

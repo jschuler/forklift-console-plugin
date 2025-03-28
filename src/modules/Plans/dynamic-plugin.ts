@@ -26,7 +26,7 @@ export const extensions: EncodedExtension[] = [
       id: 'plans',
       insertAfter: 'providers',
       model: PlanModelGroupVersionKind,
-      // t('plugin__forklift-console-plugin~Plans for virtualization')
+      // T('plugin__forklift-console-plugin~Plans for virtualization')
       name: '%plugin__forklift-console-plugin~Plans for virtualization%',
       perspective: 'admin',
       section: 'migration',

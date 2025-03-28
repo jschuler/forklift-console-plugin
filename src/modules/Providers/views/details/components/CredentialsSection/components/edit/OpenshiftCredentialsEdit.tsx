@@ -86,7 +86,7 @@ export const OpenshiftCredentialsEdit: React.FC<EditComponentProps> = ({ onChang
       const validationState = openshiftSecretFieldValidator(id, value);
       dispatch({ payload: { field: id, validationState }, type: 'SET_FIELD_VALIDATED' });
 
-      // don't trim fields that allow spaces
+      // Don't trim fields that allow spaces
       const encodedValue = ['cacert'].includes(id)
         ? Base64.encode(value || '')
         : Base64.encode(value?.trim() || '');

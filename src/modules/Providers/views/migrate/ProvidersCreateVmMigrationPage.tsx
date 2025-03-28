@@ -14,9 +14,9 @@ const ProvidersCreateVmMigrationPage: React.FC<{
   emptyContext: boolean;
 }> = ({ dispatch, emptyContext, state }) => {
   if (emptyContext) {
-    // display empty node and wait for redirect triggered from useEffect
-    // the redirect should be triggered right after the first render()
-    // so any "empty page" would only "blink"
+    // Display empty node and wait for redirect triggered from useEffect
+    // The redirect should be triggered right after the first render()
+    // So any "empty page" would only "blink"
     return <></>;
   }
 

@@ -87,7 +87,7 @@ export const EsxiCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, se
       const validationState = esxiSecretFieldValidator(id, value);
       dispatch({ payload: { field: id, validationState }, type: 'SET_FIELD_VALIDATED' });
 
-      // don't trim fields that allow spaces
+      // Don't trim fields that allow spaces
       const encodedValue = ['cacert'].includes(id)
         ? Base64.encode(value || '')
         : Base64.encode(value?.trim() || '');

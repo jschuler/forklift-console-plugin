@@ -34,7 +34,7 @@ export type FilterTypeProps = {
    */
   supportedValues?: EnumValue[];
   /**
-   * groups for supported values (if exists or required by a specific filter)
+   * Groups for supported values (if exists or required by a specific filter)
    */
   supportedGroups: EnumGroup[];
   /**

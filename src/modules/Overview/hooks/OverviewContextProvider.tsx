@@ -30,7 +30,7 @@ export const CreateOverviewContextProvider = CreateOverviewContext.Provider;
  * Provides value for the context via useValueHook extension point
  */
 export const useOverviewContext = (): CreateOverviewContextType => {
-  // use the same approach as useSafetyFirst() hook
+  // Use the same approach as useSafetyFirst() hook
   // https://github.com/openshift/console/blob/9d4a9b0a01b2de64b308f8423a325f1fae5f8726/frontend/packages/console-dynamic-plugin-sdk/src/app/components/safety-first.tsx#L10
   const userSettings = loadUserSettings({ userSettingsKeySuffix: 'Overview' });
   const hideWelcomeCardInitState = userSettings?.welcome?.hideWelcome;

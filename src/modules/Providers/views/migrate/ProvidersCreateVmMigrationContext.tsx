@@ -36,7 +36,7 @@ export const CreateVmMigrationProvider = CreateVmMigrationContext.Provider;
 export const useCreateVmMigrationContextValue = (): CreateVmMigrationContextType => {
   const [data, setData] = useState<CreateVmMigrationContextData>();
 
-  // use the same approach as useSafetyFirst() hook
+  // Use the same approach as useSafetyFirst() hook
   // https://github.com/openshift/console/blob/9d4a9b0a01b2de64b308f8423a325f1fae5f8726/frontend/packages/console-dynamic-plugin-sdk/src/app/components/safety-first.tsx#L10
   const mounted = useRef(true);
   useEffect(

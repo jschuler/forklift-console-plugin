@@ -100,7 +100,7 @@ export const MapsSection: React.FC<MapsSectionProps> = ({ obj }) => {
     const nextDestinationStorage = destinationStorages.find((n) => n.name == next.destination);
     const nextSourceStorage = sourceStorages?.find((n) => n?.name === next.source);
 
-    // sanity check, names may not be valid
+    // Sanity check, names may not be valid
     if (!nextSourceStorage || !nextDestinationStorage) {
       return;
     }

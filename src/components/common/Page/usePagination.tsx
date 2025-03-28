@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 
 import type { PaginationSettings } from './types';
 
-// first option in the default "per page" dropdown
+// First option in the default "per page" dropdown
 export const DEFAULT_PER_PAGE = 10;
 
 export type PaginationHookProps = {

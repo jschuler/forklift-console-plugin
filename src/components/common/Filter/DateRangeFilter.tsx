@@ -68,7 +68,7 @@ export const DateRangeFilter = ({
     value: string,
     date?: Date,
   ) => void = (_event, value) => {
-    //see DateFilter onDateChange
+    //See DateFilter onDateChange
     if (value?.length === 10 && isValidDate(value)) {
       setFrom(parseISOtoJSDate(value));
       setTo(undefined);
@@ -80,7 +80,7 @@ export const DateRangeFilter = ({
     value: string,
     date?: Date,
   ) => void = (_event, value) => {
-    //see DateFilter onDateChange
+    //See DateFilter onDateChange
     if (value?.length === 10 && isValidDate(value)) {
       const newTo = parseISOtoJSDate(value);
       setTo(newTo);
@@ -108,9 +108,9 @@ export const DateRangeFilter = ({
           onChange={onFromDateChange}
           aria-label="Interval start"
           placeholder={placeholderLabel}
-          // disable error text (no space in toolbar scenario)
+          // Disable error text (no space in toolbar scenario)
           invalidFormatText={''}
-          // default value ("parent") creates collision with sticky table header
+          // Default value ("parent") creates collision with sticky table header
           appendTo={document.body}
           popoverProps={{
             footerContent: helperText,
@@ -120,7 +120,7 @@ export const DateRangeFilter = ({
           value={toISODate(to)}
           onChange={onToDateChange}
           isDisabled={!isValidJSDate(from)}
-          // disable error text (no space in toolbar scenario)
+          // Disable error text (no space in toolbar scenario)
           invalidFormatText={''}
           rangeStart={from}
           aria-label="Interval end"

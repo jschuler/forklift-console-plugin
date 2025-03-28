@@ -62,7 +62,7 @@ describe('compareWith compareFn factory', () => {
       compareWith(
         { isAsc: true, label: NAME, resourceFieldId: NAME },
         'en',
-        (a, b) => a.localeCompare(b), // no numeric
+        (a, b) => a.localeCompare(b), // No numeric
         [
           {
             label: NAME,

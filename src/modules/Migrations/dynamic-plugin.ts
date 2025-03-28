@@ -12,7 +12,7 @@ export const extensions: EncodedExtension[] = [
       id: 'migrations',
       insertAfter: 'forklift-utilities-separator',
       model: MigrationModelGroupVersionKind,
-      // t('plugin__forklift-console-plugin~Migrations for virtualization')
+      // T('plugin__forklift-console-plugin~Migrations for virtualization')
       name: '%plugin__forklift-console-plugin~Migrations for virtualization%',
       perspective: 'admin',
       section: 'migration',

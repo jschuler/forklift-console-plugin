@@ -41,7 +41,7 @@ const ProviderDetailsPageInternal: React.FC<{
   error: unknown;
 }> = ({ error, loaded, name, namespace, type }) => {
   const { t } = useForkliftTranslation();
-  // status checked in the order used in the Console's StatusBox component
+  // Status checked in the order used in the Console's StatusBox component
   if (error) {
     return <LoadError error={error} />;
   }

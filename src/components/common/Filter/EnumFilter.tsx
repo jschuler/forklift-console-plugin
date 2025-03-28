@@ -43,14 +43,14 @@ export const useUnique = ({
     () =>
       supportedEnumValues.map((it) => ({
         id: it.id,
-        // fallback to ID
+        // Fallback to ID
         label: it.label ?? it.id,
       })),
 
     [supportedEnumValues],
   );
 
-  // group filters with the same label
+  // Group filters with the same label
   const labelToIds = useMemo(
     () =>
       translatedEnums.reduce((acc, { id, label }) => {
@@ -60,7 +60,7 @@ export const useUnique = ({
     [translatedEnums],
   );
 
-  // for easy reverse lookup
+  // For easy reverse lookup
   const idToLabel = useMemo(
     () =>
       translatedEnums.reduce((acc, { id, label }) => {

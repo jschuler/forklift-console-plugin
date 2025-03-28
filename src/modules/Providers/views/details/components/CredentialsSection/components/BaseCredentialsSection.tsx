@@ -74,30 +74,30 @@ export const BaseCredentialsSection: React.FC<BaseCredentialsSectionProps> = ({
     return <span className="text-muted">{t('No credentials found.')}</span>;
   }
 
-  // toggle between view and edit mode
+  // Toggle between view and edit mode
   function toggleEdit() {
     dispatch({ type: 'TOGGLE_EDIT' });
   }
 
-  // toggle secrets visible and hidden in view mode
+  // Toggle secrets visible and hidden in view mode
   function toggleReveal() {
     dispatch({ type: 'TOGGLE_REVEAL' });
   }
 
-  // mark data as unchanged, i.e. current staged secret data is equal to saved secret data
+  // Mark data as unchanged, i.e. current staged secret data is equal to saved secret data
   function resetDataChanged() {
     dispatch({ type: 'RESET_DATA_CHANGED' });
   }
 
   // Handle user edits
   function onNewSecretChange(newValue: IoK8sApiCoreV1Secret) {
-    // update staged secret with new value
+    // Update staged secret with new value
     dispatch({ payload: newValue, type: 'SET_NEW_SECRET' });
   }
 
   // Handle user clicking "cancel"
   function onCancel() {
-    // clear changes and return to view mode
+    // Clear changes and return to view mode
     dispatch({ payload: secret, type: 'SET_NEW_SECRET' });
     toggleEdit();
   }
@@ -108,7 +108,7 @@ export const BaseCredentialsSection: React.FC<BaseCredentialsSectionProps> = ({
 
     try {
       // Patch provider secret, set clean to `true` to remove old values from the secret
-      // if successful reset data change
+      // If successful reset data change
       await patchSecretData(state.newSecret, true);
       resetDataChanged();
 

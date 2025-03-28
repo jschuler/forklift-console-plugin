@@ -89,7 +89,7 @@ export const ProvidersCreateForm: React.FC<ProvidersCreateFormProps> = ({
   };
 
   const handleTypeChange = (type: ProviderType) => {
-    // default auth type for openstack (if not defined)
+    // Default auth type for openstack (if not defined)
     if (type === 'openstack' && !newSecret?.data?.authType) {
       onNewSecretChange({
         ...newSecret,

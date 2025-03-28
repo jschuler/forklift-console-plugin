@@ -4,7 +4,7 @@ import type { OpenstackVolume, OVirtDisk } from '@kubev2v/types';
 
 import type { VmData } from '../../details';
 
-// based on packages legacy/src/Plans/components/Wizard/helpers.tsx
+// Based on packages legacy/src/Plans/components/Wizard/helpers.tsx
 export const getStoragesUsedBySelectedVms = (
   sourceStorageLabelToId: Draft<Record<string, string>>,
   selectedVMs: VmData[],

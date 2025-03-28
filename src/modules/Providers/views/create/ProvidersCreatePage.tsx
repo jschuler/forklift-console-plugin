@@ -152,13 +152,13 @@ export const ProvidersCreatePage: React.FC<{
 
   // Handle user edits
   function onNewSecretChange(newValue: IoK8sApiCoreV1Secret) {
-    // update staged secret with new value
+    // Update staged secret with new value
     dispatch({ payload: newValue, type: 'SET_NEW_SECRET' });
   }
 
   // Handle user edits
   function onNewProviderChange(newValue: V1beta1Provider) {
-    // update staged provider with new value
+    // Update staged provider with new value
     dispatch({ payload: newValue, type: 'SET_NEW_PROVIDER' });
   }
 
@@ -169,11 +169,11 @@ export const ProvidersCreatePage: React.FC<{
 
     toggleIsLoading();
 
-    // try to generate a secret with data
+    // Try to generate a secret with data
     //
-    // add generateName using provider name as prefix
-    // add createdForProviderType label
-    // add url
+    // Add generateName using provider name as prefix
+    // Add createdForProviderType label
+    // Add url
     try {
       secret = await createProviderSecret(state.newProvider, state.newSecret);
     } catch (err) {
@@ -186,8 +186,8 @@ export const ProvidersCreatePage: React.FC<{
       return;
     }
 
-    // try to create a provider with secret
-    // add spec.secret
+    // Try to create a provider with secret
+    // Add spec.secret
     try {
       provider = await createProvider(
         {
@@ -208,7 +208,7 @@ export const ProvidersCreatePage: React.FC<{
       return;
     }
 
-    // set secret ownership using provider uid
+    // Set secret ownership using provider uid
     try {
       await patchProviderSecretOwner(provider, secret);
     } catch (err) {
@@ -221,7 +221,7 @@ export const ProvidersCreatePage: React.FC<{
       return;
     }
 
-    // go to providers derails page
+    // Go to providers derails page
     const providerURL = getResourceUrl({
       name: provider.metadata.name,
       namespace: provider.metadata.namespace,

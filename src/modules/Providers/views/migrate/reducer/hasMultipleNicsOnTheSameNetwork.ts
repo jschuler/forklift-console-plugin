@@ -17,6 +17,6 @@ export const hasMultipleNicsOnTheSameNetwork = (
 ): boolean =>
   selectedVms
     .map(({ vm }) => toNetworks(vm, nicProfiles))
-    // filter out invalid networks
+    // Filter out invalid networks
     .map((networks) => networks.filter(Boolean))
     .some((networks) => networks.length !== new Set(networks).size);

@@ -48,7 +48,7 @@ export const OpenstackCredentialsEdit: React.FC<EditComponentProps> = ({ onChang
     | 'applicationCredentialIdSecretFields'
     | 'applicationCredentialNameSecretFields';
 
-  // guess initial authenticationType based on authType and username
+  // Guess initial authenticationType based on authType and username
   switch (authType) {
     case 'password':
       authenticationType = 'passwordSecretFields';
@@ -108,7 +108,7 @@ export const OpenstackCredentialsEdit: React.FC<EditComponentProps> = ({ onChang
       const validationState = openstackSecretFieldValidator(id, value);
       dispatch({ payload: { field: id, validationState }, type: 'SET_FIELD_VALIDATED' });
 
-      // don't trim fields that allow spaces
+      // Don't trim fields that allow spaces
       const encodedValue = ['cacert'].includes(id)
         ? Base64.encode(value || '')
         : Base64.encode(value?.trim() || '');
@@ -131,7 +131,7 @@ export const OpenstackCredentialsEdit: React.FC<EditComponentProps> = ({ onChang
           break;
         case 'tokenWithUserIDSecretFields':
         case 'tokenWithUsernameSecretFields':
-          // on change also clean userID and username
+          // On change also clean userID and username
           onChange({
             ...secret,
             data: {
@@ -144,7 +144,7 @@ export const OpenstackCredentialsEdit: React.FC<EditComponentProps> = ({ onChang
           break;
         case 'applicationCredentialIdSecretFields':
         case 'applicationCredentialNameSecretFields':
-          // on change also clean userID and username
+          // On change also clean userID and username
           onChange({
             ...secret,
             data: {

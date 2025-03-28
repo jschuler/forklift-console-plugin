@@ -22,18 +22,18 @@ export const onLUKSEncryptionPasswordsConfirm: OnConfirmHookType = async ({
   // Init an empty secret
   let secret: IoK8sApiCoreV1Secret = undefined;
 
-  // if secret exist and we have no new data
+  // If secret exist and we have no new data
   if (secretName && !newData) {
-    // delete secret
+    // Delete secret
     await k8sDelete({
       model: SecretModel,
       resource: { metadata: { name: secretName, namespace: secretNamespace } },
     });
   }
 
-  // if secret exist and we have new data
+  // If secret exist and we have new data
   if (secretName && newData) {
-    // edit secret
+    // Edit secret
     secret = await k8sPatch({
       data: [
         {
@@ -47,9 +47,9 @@ export const onLUKSEncryptionPasswordsConfirm: OnConfirmHookType = async ({
     });
   }
 
-  // if no secret
+  // If no secret
   if (!secretName && newData) {
-    // create secret
+    // Create secret
     const newSecret: IoK8sApiCoreV1Secret = {
       data: newData,
       metadata: {
@@ -73,7 +73,7 @@ export const onLUKSEncryptionPasswordsConfirm: OnConfirmHookType = async ({
     });
   }
 
-  // update plan vms
+  // Update plan vms
   const resourceValue = plan?.spec?.vms;
   const op = resourceValue ? 'replace' : 'add';
   const newVMs = resourceValue.map((vm) => ({

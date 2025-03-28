@@ -33,7 +33,7 @@ export const extensions: EncodedExtension[] = [
       href: '/mtv/settings',
       id: 'forkliftSettings',
       insertAfter: 'importSeparator',
-      // t('plugin__forklift-console-plugin~Overview')
+      // T('plugin__forklift-console-plugin~Overview')
       name: '%plugin__forklift-console-plugin~Overview%',
       namespaced: true,
       perspective: 'admin',

@@ -64,12 +64,12 @@ export const FilterableSelect: React.FunctionComponent<FilterableSelectProps> = 
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedItem, setSelectedItem] = React.useState<string>(value);
   /**
-   * inputValue: The current value displayed in the input field.
+   * InputValue: The current value displayed in the input field.
    * This is the value the user types in.
    */
   const [inputValue, setInputValue] = React.useState<string>(value);
   /**
-   * filterValue: The value used to filter the options.
+   * FilterValue: The value used to filter the options.
    * This is typically synchronized with inputValue, but they can be different if needed.
    */
   const [filterValue, setFilterValue] = React.useState<string>('');

@@ -8,7 +8,7 @@ export const deleteHook = async (
 ) => {
   await k8sDelete({ model: HookModel, resource: hook });
 
-  // update plan
+  // Update plan
   const {vms} = plan.spec;
   const newVms = vms.map((vm) => {
     const newHooks = vm?.hooks?.filter((h) => h.step !== step) || [];

@@ -28,7 +28,7 @@ export const extensions: EncodedExtension[] = [
       id: 'providers-ng',
       insertAfter: ['forkliftSettings', 'importSeparator'],
       model: ProviderModelGroupVersionKind,
-      // t('plugin__forklift-console-plugin~Providers for virtualization')
+      // T('plugin__forklift-console-plugin~Providers for virtualization')
       name: '%plugin__forklift-console-plugin~Providers for virtualization%',
       perspective: 'admin',
       section: 'migration',

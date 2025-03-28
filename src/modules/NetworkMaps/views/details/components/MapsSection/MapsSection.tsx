@@ -108,7 +108,7 @@ export const MapsSection: React.FC<MapsSectionProps> = ({ obj }) => {
     );
     const nextSourceNet = sourceNetworks.find((n) => n?.name === next.source);
 
-    // sanity check, names may not be valid
+    // Sanity check, names may not be valid
     if (!nextSourceNet) {
       return;
     }

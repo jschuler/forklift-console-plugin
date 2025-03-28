@@ -46,7 +46,7 @@ export const GroupedEnumFilter = ({
 }: FilterTypeProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // simplify lookup
+  // Simplify lookup
   const id2enum = Object.fromEntries(
     supportedEnumValues.map(({ id, ...rest }) => [id, { id, ...rest }]),
   );
@@ -154,7 +154,7 @@ export const GroupedEnumFilter = ({
   return (
     <>
       {/**
-       * use nested ToolbarFilter trick borrowed from the Openshift Console filter-toolbar:
+       * Use nested ToolbarFilter trick borrowed from the Openshift Console filter-toolbar:
        * 1. one Select belongs to multiple ToolbarFilters.
        * 2. each ToolbarFilter provides a different chip category
        * 3. a chip category maps to group within the Select */}
@@ -167,7 +167,7 @@ export const GroupedEnumFilter = ({
               .filter((enumVal) => enumVal.groupId === groupId)
               .map(({ id, label }) => ({ key: id, node: label }))}
             deleteChip={(category, option) => {
-              // values are one enum so id is enough to identify (category is not needed)
+              // Values are one enum so id is enough to identify (category is not needed)
               const id = typeof option === 'string' ? option : option.key;
               deleteFilter(id);
             }}
