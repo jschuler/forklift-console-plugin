@@ -27,7 +27,7 @@ export interface ExternalManagementLinkDetailsItemProps extends ProviderDetailsI
  */
 export const ExternalManagementLinkDetailsItem: React.FC<
   ExternalManagementLinkDetailsItemProps
-> = ({ resource: provider, moreInfoLink, helpContent, canPatch, webUILinkText, webUILink }) => {
+> = ({ canPatch, helpContent, moreInfoLink, resource: provider, webUILink, webUILinkText }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();
 

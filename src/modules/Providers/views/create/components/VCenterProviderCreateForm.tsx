@@ -19,9 +19,9 @@ export interface VCenterProviderCreateFormProps {
 }
 
 export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps> = ({
+  onChange,
   provider,
   secret,
-  onChange,
 }) => {
   const { t } = useForkliftTranslation();
 
@@ -41,11 +41,11 @@ export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps>
   // When certificate changes, re-validate the URL
   useEffect(() => {
     dispatch({
-      type: 'SET_FIELD_VALIDATED',
       payload: {
         field: 'url',
         validationState: validateVCenterURL(url, secret?.data?.insecureSkipVerify),
       },
+      type: 'SET_FIELD_VALIDATED',
     });
   }, [secret]);
 
@@ -74,8 +74,8 @@ export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps>
         const validationState = validateVDDKImage(undefined);
 
         dispatch({
-          type: 'SET_FIELD_VALIDATED',
           payload: { field: 'vddkInitImage', validationState },
+          type: 'SET_FIELD_VALIDATED',
         });
 
         onChange({
@@ -101,8 +101,8 @@ export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps>
         const validationState = validateVDDKImage(trimmedValue);
 
         dispatch({
-          type: 'SET_FIELD_VALIDATED',
           payload: { field: 'vddkInitImage', validationState },
+          type: 'SET_FIELD_VALIDATED',
         });
 
         onChange({
@@ -136,7 +136,7 @@ export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps>
         // Validate URL - VCenter of ESXi
         const validationState = validateVCenterURL(trimmedValue, secret?.data?.insecureSkipVerify);
 
-        dispatch({ type: 'SET_FIELD_VALIDATED', payload: { field: 'url', validationState } });
+        dispatch({ payload: { field: 'url', validationState }, type: 'SET_FIELD_VALIDATED' });
 
         onChange({ ...provider, spec: { ...provider.spec, url: trimmedValue } });
       }

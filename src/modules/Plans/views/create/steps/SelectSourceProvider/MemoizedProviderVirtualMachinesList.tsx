@@ -15,13 +15,13 @@ export interface ProviderVirtualMachinesListProps {
 
 export const MemoizedProviderVirtualMachinesList = memo(
   ({
-    title,
+    initialSelectedIds,
     name,
     namespace,
     onSelect,
-    initialSelectedIds,
-    showActions,
     selectedCountLabel,
+    showActions,
+    title,
   }: ProviderVirtualMachinesListProps) => {
     return (
       <ProviderVirtualMachinesList

@@ -10,10 +10,10 @@ import { PlanDetailsItemProps } from '../../DetailsSection';
 import { EditPlanPreserveStaticIPs } from '../modals/EditPlanPreserveStaticIPs';
 
 export const PreserveStaticIPsDetailsItem: React.FC<PlanDetailsItemProps> = ({
-  resource,
   canPatch,
-  helpContent,
   destinationProvider,
+  helpContent,
+  resource,
 }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();

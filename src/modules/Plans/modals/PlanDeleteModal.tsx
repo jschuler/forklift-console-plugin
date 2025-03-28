@@ -33,10 +33,10 @@ interface PlanDeleteModalProps {
  * @returns {React.Element} The DeleteModal component
  */
 export const PlanDeleteModal: React.FC<PlanDeleteModalProps> = ({
-  title,
-  resource,
   model,
   redirectTo,
+  resource,
+  title,
 }) => {
   const { t } = useForkliftTranslation();
   const { toggleModal } = useModal();
@@ -49,8 +49,8 @@ export const PlanDeleteModal: React.FC<PlanDeleteModalProps> = ({
   const owner = resource?.metadata?.ownerReferences?.[0];
   const groupVersionKind: K8sGroupVersionKind = {
     group: model.apiGroup,
-    version: model.apiVersion,
     kind: model.kind,
+    version: model.apiVersion,
   };
 
   const onDelete = useCallback(async () => {

@@ -17,11 +17,11 @@ import { FilterTypeProps } from './types';
  */
 export const FreetextFilter = ({
   filterId,
-  selectedFilters,
   onFilterUpdate,
-  title,
-  showFilter = true,
   placeholderLabel,
+  selectedFilters,
+  showFilter = true,
+  title,
 }: FilterTypeProps) => {
   const [inputValue, setInputValue] = useState('');
 

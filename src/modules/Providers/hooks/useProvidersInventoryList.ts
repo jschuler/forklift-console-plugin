@@ -50,8 +50,8 @@ interface UseInventoryResult {
  * @returns {UseInventoryResult} result - Contains the inventory data, the loading state, and the error state.
  */
 export const useProvidersInventoryList = ({
-  namespace = null,
   interval = 20000,
+  namespace = null,
 }: UseInventoryParams): UseInventoryResult => {
   const [inventory, setInventory] = useState<ProvidersInventoryList | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -105,9 +105,9 @@ export const useProvidersInventoryList = ({
     const newInventory: ProvidersInventoryList = {
       openshift: [],
       openstack: [],
+      ova: [],
       ovirt: [],
       vsphere: [],
-      ova: [],
     };
 
     const providers = await k8sGetProviders(namespace);
@@ -203,9 +203,9 @@ export const useProvidersInventoryList = ({
         if (
           !newItem ||
           hasObjectChangedInGivenFields({
-            oldObject: oldItem,
-            newObject: newItem,
             fieldsToAvoidComparing,
+            newObject: newItem,
+            oldObject: oldItem,
           })
         ) {
           needReRender = true;
@@ -221,7 +221,7 @@ export const useProvidersInventoryList = ({
     }
   }
 
-  return { inventory, loading, error };
+  return { error, inventory, loading };
 };
 
 export default useProvidersInventoryList;

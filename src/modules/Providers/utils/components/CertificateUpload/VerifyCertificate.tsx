@@ -23,7 +23,7 @@ export const VerifyCertificate: FC<{
   hasThumbprintChanged: boolean;
   isTrusted: boolean;
   setIsTrusted: (flag: boolean) => void;
-}> = ({ thumbprint, issuer, validTo, isTrusted, setIsTrusted, hasThumbprintChanged }) => {
+}> = ({ hasThumbprintChanged, issuer, isTrusted, setIsTrusted, thumbprint, validTo }) => {
   const { t } = useForkliftTranslation();
 
   const onChange: (checked: boolean, event: React.FormEvent<HTMLInputElement>) => void = (

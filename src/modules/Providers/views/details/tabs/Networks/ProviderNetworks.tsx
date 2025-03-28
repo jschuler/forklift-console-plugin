@@ -32,7 +32,7 @@ const ProviderNetworks_: React.FC<ProviderNetworksProps> = ({ obj }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();
 
-  const { provider, permissions } = obj;
+  const { permissions, provider } = obj;
 
   const { inventory: networks } = useProviderInventory<OpenShiftNetworkAttachmentDefinition[]>({
     provider,
@@ -42,10 +42,10 @@ const ProviderNetworks_: React.FC<ProviderNetworksProps> = ({ obj }) => {
   const defaultNetwork =
     provider?.metadata?.annotations?.['forklift.konveyor.io/defaultTransferNetwork'];
   const networkData = networks?.map((net) => ({
+    config: JSON.parse(net?.object?.spec?.config || '{}') as CnoConfig,
+    isDefault: `${net.namespace}/${net.name}` === defaultNetwork,
     name: net.name,
     namespace: net.namespace,
-    isDefault: `${net.namespace}/${net.name}` === defaultNetwork,
-    config: JSON.parse(net?.object?.spec?.config || '{}') as CnoConfig,
   }));
   const onClick = () => {
     showModal(<EditProviderDefaultTransferNetwork resource={provider} />);
@@ -118,14 +118,14 @@ export const ProviderNetworksWrapper: React.FC<{ name: string; namespace: string
 }) => {
   const [provider, providerLoaded, providerLoadError] = useK8sWatchResource<V1beta1Provider>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   const permissions = useGetDeleteAndEditAccessReview({ model: ProviderModel, namespace });
 
-  const data = { provider, permissions };
+  const data = { permissions, provider };
 
   return <ProviderNetworks obj={data} loaded={providerLoaded} loadError={providerLoadError} />;
 };

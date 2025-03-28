@@ -26,9 +26,9 @@ interface StatusCardProps {
  * @returns JSX.Element
  */
 const StatusCard: React.FC<StatusCardProps> = ({
-  status,
   count,
   counterClassName,
+  status,
 }: StatusCardProps) => (
   <FlexItem>
     <Text component={TextVariants.h1} className={counterClassName}>

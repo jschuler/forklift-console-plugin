@@ -10,10 +10,10 @@ import { PlanDetailsItemProps } from '../../DetailsSection';
 import { EditPlanWarm } from '../modals';
 
 export const WarmDetailsItem: React.FC<PlanDetailsItemProps> = ({
-  resource,
   canPatch,
-  helpContent,
   destinationProvider,
+  helpContent,
+  resource,
 }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();

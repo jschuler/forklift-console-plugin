@@ -14,9 +14,9 @@ import { OnConfirmHookType } from '../EditModal';
  * @returns {Promise<Object>} - The modified resource.
  */
 export const onNoneEmptyVddkConfirm: OnConfirmHookType = async ({
-  resource,
   model,
   newValue: value,
+  resource,
 }) => {
   const provider = resource as V1beta1Provider;
   const vddkInitImage: string = value as string;
@@ -32,8 +32,6 @@ export const onNoneEmptyVddkConfirm: OnConfirmHookType = async ({
   op = provider?.spec?.settings ? 'replace' : 'add';
 
   await k8sPatch({
-    model: model,
-    resource: resource,
     data: [
       {
         op,
@@ -41,6 +39,8 @@ export const onNoneEmptyVddkConfirm: OnConfirmHookType = async ({
         value: Object.keys(settings).length === 0 ? undefined : settings,
       },
     ],
+    model: model,
+    resource: resource,
   });
 
   // Patch annotations
@@ -53,8 +53,6 @@ export const onNoneEmptyVddkConfirm: OnConfirmHookType = async ({
   op = provider?.spec?.settings ? 'replace' : 'add';
 
   const obj = await k8sPatch({
-    model: model,
-    resource: resource,
     data: [
       {
         op,
@@ -62,6 +60,8 @@ export const onNoneEmptyVddkConfirm: OnConfirmHookType = async ({
         value: Object.keys(annotations).length === 0 ? undefined : annotations,
       },
     ],
+    model: model,
+    resource: resource,
   });
 
   return obj;

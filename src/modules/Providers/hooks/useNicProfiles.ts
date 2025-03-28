@@ -10,13 +10,13 @@ import useProviderInventory from './useProviderInventory';
 export const useNicProfiles = (provider: V1beta1Provider): [OVirtNicProfile[], boolean, Error] => {
   const isOVirt = provider?.spec?.type === 'ovirt';
   const {
+    error,
     inventory: nicProfiles,
     loading,
-    error,
   } = useProviderInventory<OVirtNicProfile[]>({
+    disabled: !provider || !isOVirt,
     provider,
     subPath: '/nicprofiles?detail=1',
-    disabled: !provider || !isOVirt,
   });
 
   const stable = useMemo(() => {

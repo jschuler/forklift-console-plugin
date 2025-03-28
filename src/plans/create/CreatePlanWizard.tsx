@@ -22,8 +22,8 @@ export const CreatePlanWizard: FC = () => {
 
   const getStepProps = (id: PlanWizardStepId) => ({
     id,
-    name: planStepNames[id],
     isDisabled: currentStep?.index < planStepOrder[id] && !isEmpty(formState?.errors),
+    name: planStepNames[id],
   });
 
   return (

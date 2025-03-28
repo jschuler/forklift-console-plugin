@@ -36,16 +36,16 @@ interface MappingListItemProps {
 }
 
 export const MappingListItem: FC<MappingListItemProps> = ({
-  source,
+  deleteMapping,
   destination,
-  sources,
   destinations,
   generalSourcesLabel,
-  noSourcesLabel,
   index,
-  replaceMapping,
-  deleteMapping,
   isEditable,
+  noSourcesLabel,
+  replaceMapping,
+  source,
+  sources,
 }) => {
   const { t } = useForkliftTranslation();
   const [isSrcOpen, setIsSrcOpen] = useState(false);
@@ -54,7 +54,7 @@ export const MappingListItem: FC<MappingListItemProps> = ({
   const [trgSelected, setTrgSelected] = useState<string>(destination);
 
   const onClick = () => {
-    deleteMapping({ source, destination });
+    deleteMapping({ destination, source });
   };
 
   const onSrcToggleClick = () => {
@@ -94,8 +94,8 @@ export const MappingListItem: FC<MappingListItemProps> = ({
     value: string | number | undefined,
   ) => {
     replaceMapping({
-      current: { source, destination },
-      next: { source: value as string, destination },
+      current: { destination, source },
+      next: { destination, source: value as string },
     });
 
     // Toggle the dropdown menu open state
@@ -108,8 +108,8 @@ export const MappingListItem: FC<MappingListItemProps> = ({
     value: string | number | undefined,
   ) => {
     replaceMapping({
-      current: { source, destination },
-      next: { source, destination: value as string },
+      current: { destination, source },
+      next: { destination: value as string, source },
     });
 
     // Toggle the dropdown menu open state

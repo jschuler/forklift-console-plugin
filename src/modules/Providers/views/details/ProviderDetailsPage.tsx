@@ -17,9 +17,9 @@ import './ProviderDetailsPage.style.css';
 export const ProviderDetailsPage: React.FC<ProviderDetailsPageProps> = ({ name, namespace }) => {
   const [provider, loaded, error] = useK8sWatchResource<V1beta1Provider>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
   return (
     <ProviderDetailsPage_
@@ -39,7 +39,7 @@ const ProviderDetailsPageInternal: React.FC<{
   type: string;
   loaded: boolean;
   error: unknown;
-}> = ({ type, name, namespace, error, loaded }) => {
+}> = ({ error, loaded, name, namespace, type }) => {
   const { t } = useForkliftTranslation();
   // status checked in the order used in the Console's StatusBox component
   if (error) {

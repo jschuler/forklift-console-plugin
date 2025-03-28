@@ -33,8 +33,8 @@ interface SelectableGalleryProps {
 export const SelectableGallery: FC<SelectableGalleryProps> = ({
   items,
   onChange,
-  sortFunction,
   selectedID,
+  sortFunction,
 }) => {
   // State to manage the selected card's id
   const [selectedCardId, setSelectedCardId] = React.useState<string | null>(selectedID);

@@ -29,28 +29,28 @@ export const PlanResources: React.FC<{ name: string; namespace: string }> = ({
 }) => {
   const [plan, loaded, loadError] = useK8sWatchResource<V1beta1Plan>({
     groupVersionKind: PlanModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   const [provider, providerLoaded, providerLodeError] = useK8sWatchResource<V1beta1Provider>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     name: plan?.spec?.provider?.source?.name,
     namespace: plan?.spec?.provider?.source?.namespace,
+    namespaced: true,
   });
 
   const inventoryOptions: UseProviderInventoryParams = {
+    disabled: !loaded || loadError || !providerLoaded || providerLodeError,
     provider: provider,
     subPath: 'vms?detail=4',
-    disabled: !loaded || loadError || !providerLoaded || providerLodeError,
   };
 
   const {
+    error: inventoryLoadError,
     inventory: inventoryVms,
     loading: inventoryLoading,
-    error: inventoryLoadError,
   } = useProviderInventory<ProviderVirtualMachine[]>(inventoryOptions);
 
   const planVmIds: string[] = [];

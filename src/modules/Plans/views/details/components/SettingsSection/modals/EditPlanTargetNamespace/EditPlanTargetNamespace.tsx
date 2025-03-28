@@ -19,15 +19,13 @@ import {
 import { K8sModel, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 import { Text } from '@patternfly/react-core';
 
-const onConfirm: OnConfirmHookType = async ({ resource, model, newValue }) => {
+const onConfirm: OnConfirmHookType = async ({ model, newValue, resource }) => {
   const plan = resource as V1beta1Plan;
 
   const targetNamespace = plan?.spec?.targetNamespace;
   const op = targetNamespace ? 'replace' : 'add';
 
   const obj = await k8sPatch({
-    model: model,
-    resource: resource,
     data: [
       {
         op,
@@ -35,6 +33,8 @@ const onConfirm: OnConfirmHookType = async ({ resource, model, newValue }) => {
         value: newValue || undefined,
       },
     ],
+    model: model,
+    resource: resource,
   });
 
   return obj;
@@ -50,7 +50,7 @@ const OpenshiftNamespaceInputFactory: ({ resource }) => ModalInputComponentType 
 }) => {
   const provider = resource as V1beta1Provider;
 
-  const DropdownRenderer: React.FC<DropdownRendererProps> = ({ value, onChange }) => {
+  const DropdownRenderer: React.FC<DropdownRendererProps> = ({ onChange, value }) => {
     const { t } = useForkliftTranslation();
 
     const { inventory: namespaces } = useProviderInventory<OpenShiftNetworkAttachmentDefinition[]>({
@@ -61,8 +61,8 @@ const OpenshiftNamespaceInputFactory: ({ resource }) => ModalInputComponentType 
     const options: string[] = (namespaces || []).map((n) => n?.object?.metadata?.name);
 
     const dropdownItems = (options || []).map((n) => ({
-      itemId: n,
       children: <Text>{n}</Text>,
+      itemId: n,
     }));
 
     return (

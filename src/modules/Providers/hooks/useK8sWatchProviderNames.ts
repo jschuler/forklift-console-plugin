@@ -21,9 +21,9 @@ export const useK8sWatchProviderNames = ({ namespace }): K8sProvidersWatchResult
 
   const [providers, providersLoaded, providersLoadError] = useK8sWatchResource<V1beta1Provider[]>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     isList: true,
     namespace,
+    namespaced: true,
   });
 
   useEffect(() => {

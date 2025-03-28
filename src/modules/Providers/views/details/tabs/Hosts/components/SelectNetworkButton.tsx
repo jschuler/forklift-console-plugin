@@ -30,7 +30,7 @@ export const SelectNetworkButton: FC<{
   selectedIds: string[];
   provider: V1beta1Provider;
   hostsData: InventoryHostPair[];
-}> = ({ selectedIds, provider, hostsData }) => {
+}> = ({ hostsData, provider, selectedIds }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();
   const onClick = () => {

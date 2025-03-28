@@ -3,10 +3,10 @@ import { FieldFilter } from './types';
 
 export const toFieldFilter =
   (data?: unknown[]): ((field: ResourceField) => FieldFilter) =>
-  ({ resourceFieldId, label, filter }: ResourceField): FieldFilter => ({
-    resourceFieldId,
-    label,
+  ({ filter, label, resourceFieldId }: ResourceField): FieldFilter => ({
     filterDef: { ...filter, ...filter?.dynamicFilter?.(data ?? []) },
+    label,
+    resourceFieldId,
   });
 
 export const EnumToTuple = (i18nEnum: { [k: string]: string }) =>

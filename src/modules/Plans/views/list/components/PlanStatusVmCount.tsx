@@ -19,8 +19,8 @@ interface PlanStatusVmCountProps {
 
 export const PlanStatusVmCount: React.FC<PlanStatusVmCountProps> = ({
   count,
-  status,
   linkPath,
+  status,
   tooltipLabel,
 }) => {
   const { t } = useForkliftTranslation();

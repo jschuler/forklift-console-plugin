@@ -9,12 +9,12 @@ import { NetworkIcon } from '@patternfly/react-icons';
 import { CellProps } from './CellProps';
 
 export const OpenshiftNetworkCell: React.FC<CellProps> = ({ data, fieldId, fields }: CellProps) => {
-  const { provider, inventory } = data;
+  const { inventory, provider } = data;
   const value = getResourceFieldValue({ ...provider, inventory }, fieldId, fields);
   const providerURL = getResourceUrl({
-    reference: ProviderModelRef,
     name: provider?.metadata?.name,
     namespace: provider?.metadata?.namespace,
+    reference: ProviderModelRef,
   });
 
   if (value === undefined) {

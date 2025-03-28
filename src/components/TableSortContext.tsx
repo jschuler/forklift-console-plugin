@@ -11,9 +11,9 @@ export type TableSortContextProps = {
 };
 
 const defaultTableSortContext = {
-  activeSort: { isAsc: true, resourceFieldId: undefined, label: '' },
-  setActiveSort: () => undefined,
+  activeSort: { isAsc: true, label: '', resourceFieldId: undefined },
   compareFn: () => undefined,
+  setActiveSort: () => undefined,
 };
 
 export const TableSortContext = createContext<TableSortContextProps>(defaultTableSortContext);
@@ -23,13 +23,13 @@ type TableSortContextProviderProps = PropsWithChildren & {
 };
 
 export const TableSortContextProvider: FC<TableSortContextProviderProps> = ({
-  fields,
   children,
+  fields,
 }) => {
   const [activeSort, setActiveSort, compareFn] = useSort(fields);
 
   return (
-    <TableSortContext.Provider value={{ activeSort, setActiveSort, compareFn }}>
+    <TableSortContext.Provider value={{ activeSort, compareFn, setActiveSort }}>
       {children}
     </TableSortContext.Provider>
   );

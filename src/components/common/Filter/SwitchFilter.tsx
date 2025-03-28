@@ -16,9 +16,9 @@ import { FilterTypeProps } from './types';
  * <font color="green">View component source on GitHub</font>](https://github.com/kubev2v/forklift-console-plugin/blob/main/packages/common/src/components/Filter/SwitchFilter.tsx)
  */
 export const SwitchFilter = ({
-  selectedFilters,
   onFilterUpdate,
   placeholderLabel,
+  selectedFilters,
 }: FilterTypeProps) => {
   const onChange: (checked: boolean, event: React.FormEvent<HTMLInputElement>) => void = (
     checked,

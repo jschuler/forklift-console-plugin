@@ -33,10 +33,10 @@ interface PlanStartMigrationModalProps {
  * @returns {React.Element} The DeleteModal component
  */
 export const PlanStartMigrationModal: React.FC<PlanStartMigrationModalProps> = ({
-  title,
-  resource,
   redirectTo,
+  resource,
   setButtonEnabledOnChange,
+  title,
 }) => {
   const { t } = useForkliftTranslation();
   const { toggleModal } = useModal();
@@ -87,7 +87,7 @@ export const PlanStartMigrationModal: React.FC<PlanStartMigrationModalProps> = (
         },
       };
 
-      await k8sCreate({ model: MigrationModel, data: migration });
+      await k8sCreate({ data: migration, model: MigrationModel });
       if (redirectTo) {
         navigate(redirectTo);
       }

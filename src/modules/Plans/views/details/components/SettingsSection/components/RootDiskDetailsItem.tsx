@@ -13,9 +13,9 @@ import { getRootDiskLabelByKey } from '../modals/EditRootDisk';
 import { EditRootDisk } from '../modals/EditRootDisk/EditRootDisk';
 
 export const RootDiskDetailsItem: React.FC<PlanDetailsItemProps> = ({
-  resource,
   canPatch,
   helpContent,
+  resource,
 }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();

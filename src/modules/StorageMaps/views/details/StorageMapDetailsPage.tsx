@@ -16,14 +16,14 @@ const StorageMapDetailsPageInternal: React.FC<{
 
   const pages = [
     {
+      component: () => <StorageMapDetailsTab name={name} namespace={namespace} />,
       href: '',
       name: t('Details'),
-      component: () => <StorageMapDetailsTab name={name} namespace={namespace} />,
     },
     {
+      component: () => <StorageMapYAMLTab name={name} namespace={namespace} />,
       href: 'yaml',
       name: t('YAML'),
-      component: () => <StorageMapYAMLTab name={name} namespace={namespace} />,
     },
   ];
 

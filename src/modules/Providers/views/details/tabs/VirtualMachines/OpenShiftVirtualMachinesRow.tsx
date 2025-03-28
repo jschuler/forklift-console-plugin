@@ -14,19 +14,19 @@ const toNamespace = ({ data }: VMCellProps) =>
   (data.vm.providerType === 'openshift' && data.vm.object?.metadata?.namespace) || '';
 
 const cellRenderers: Record<string, React.FC<VMCellProps>> = {
+  features: VmFeaturesCell,
   name: withResourceLink({
+    toGVK: () => ({ group: 'kubevirt.io', kind: 'VirtualMachine', version: 'v1' }),
     toName: ({ data }) => data.name,
     toNamespace,
-    toGVK: () => ({ kind: 'VirtualMachine', version: 'v1', group: 'kubevirt.io' }),
   }),
   possibly_remote_namespace: withResourceLink({
+    toGVK: () => ({ group: '', kind: 'Namespace', version: 'v1' }),
     toName: toNamespace,
-    toGVK: () => ({ kind: 'Namespace', version: 'v1', group: '' }),
     toNamespace: () => '',
   }),
   status: PowerStateCellRenderer,
   template: ({ data }) => <TableCell>{getVmTemplate(data?.vm)}</TableCell>,
-  features: VmFeaturesCell,
 };
 
 const renderTd = ({ resourceData, resourceFieldId, resourceFields }: RenderTdProps) => {
@@ -47,8 +47,8 @@ interface RenderTdProps {
 }
 
 export const OpenShiftVirtualMachinesCells: React.FC<RowProps<VmData>> = ({
-  resourceFields,
   resourceData,
+  resourceFields,
 }) => {
   return (
     <>

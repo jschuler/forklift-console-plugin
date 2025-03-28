@@ -12,8 +12,8 @@ export interface OvirtProviderCreateFormProps {
 }
 
 export const OvirtProviderCreateForm: React.FC<OvirtProviderCreateFormProps> = ({
-  provider,
   onChange,
+  provider,
 }) => {
   const { t } = useForkliftTranslation();
 
@@ -50,8 +50,8 @@ export const OvirtProviderCreateForm: React.FC<OvirtProviderCreateFormProps> = (
       const validationState = validateOvirtURL(trimmedValue);
 
       dispatch({
-        type: 'SET_FIELD_VALIDATED',
         payload: { field: 'url', validationState },
+        type: 'SET_FIELD_VALIDATED',
       });
 
       onChange({ ...provider, spec: { ...provider.spec, url: trimmedValue } });

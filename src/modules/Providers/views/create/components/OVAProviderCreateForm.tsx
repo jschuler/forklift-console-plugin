@@ -12,8 +12,8 @@ export interface OVAProviderCreateFormProps {
 }
 
 export const OVAProviderCreateForm: React.FC<OVAProviderCreateFormProps> = ({
-  provider,
   onChange,
+  provider,
 }) => {
   const { t } = useForkliftTranslation();
 
@@ -49,7 +49,7 @@ export const OVAProviderCreateForm: React.FC<OVAProviderCreateFormProps> = ({
       if (id === 'url') {
         const validationState = validateOvaNfsPath(trimmedValue);
 
-        dispatch({ type: 'SET_FIELD_VALIDATED', payload: { field: id, validationState } });
+        dispatch({ payload: { field: id, validationState }, type: 'SET_FIELD_VALIDATED' });
 
         onChange({ ...provider, spec: { ...provider.spec, url: trimmedValue } });
       }

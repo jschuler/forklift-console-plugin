@@ -4,26 +4,26 @@ import { ModelMetadata, ResourceNSNavItem } from '@openshift-console/dynamic-plu
 
 export const extensions: EncodedExtension[] = [
   {
-    type: 'console.navigation/resource-ns',
     properties: {
-      id: 'hooks',
-      perspective: 'admin',
-      section: 'migration',
-      // t('plugin__forklift-console-plugin~Hooks for virtualization')
-      name: '%plugin__forklift-console-plugin~Hooks for virtualization%',
-      model: HookModelGroupVersionKind,
       dataAttributes: {
         'data-quickstart-id': 'qs-nav-hooks',
         'data-testid': 'hooks-nav-item',
       },
+      id: 'hooks',
+      model: HookModelGroupVersionKind,
+      // t('plugin__forklift-console-plugin~Hooks for virtualization')
+      name: '%plugin__forklift-console-plugin~Hooks for virtualization%',
+      perspective: 'admin',
+      section: 'migration',
     },
+    type: 'console.navigation/resource-ns',
   } as EncodedExtension<ResourceNSNavItem>,
 
   {
-    type: 'console.model-metadata',
     properties: {
       model: HookModelGroupVersionKind,
       ...HookModel,
     },
+    type: 'console.model-metadata',
   } as EncodedExtension<ModelMetadata>,
 ];

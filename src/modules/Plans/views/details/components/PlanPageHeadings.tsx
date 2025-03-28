@@ -32,23 +32,23 @@ export const PlanPageHeadings: React.FC<{ name: string; namespace: string }> = (
 
   const [plan, planLoaded, planError] = useK8sWatchResource<V1beta1Plan>({
     groupVersionKind: PlanModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   const [netMaps, netMapsLoaded, netMapsError] = useK8sWatchResource<V1beta1NetworkMap[]>({
     groupVersionKind: NetworkMapModelGroupVersionKind,
-    namespaced: true,
     isList: true,
     namespace,
+    namespaced: true,
   });
 
   const [storageMaps] = useK8sWatchResource<V1beta1StorageMap[]>({
     groupVersionKind: StorageMapModelGroupVersionKind,
-    namespaced: true,
     isList: true,
     namespace: plan?.metadata?.namespace,
+    namespaced: true,
   });
 
   const permissions = useGetDeleteAndEditAccessReview({

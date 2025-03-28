@@ -17,8 +17,8 @@ export interface EsxiProviderCreateFormProps {
 }
 
 export const EsxiProviderCreateForm: React.FC<EsxiProviderCreateFormProps> = ({
-  provider,
   onChange,
+  provider,
 }) => {
   const { t } = useForkliftTranslation();
 
@@ -60,8 +60,8 @@ export const EsxiProviderCreateForm: React.FC<EsxiProviderCreateFormProps> = ({
         const validationState = validateVDDKImage(undefined);
 
         dispatch({
-          type: 'SET_FIELD_VALIDATED',
           payload: { field: 'vddkInitImage', validationState },
+          type: 'SET_FIELD_VALIDATED',
         });
 
         onChange({
@@ -87,8 +87,8 @@ export const EsxiProviderCreateForm: React.FC<EsxiProviderCreateFormProps> = ({
         const validationState = validateVDDKImage(trimmedValue);
 
         dispatch({
-          type: 'SET_FIELD_VALIDATED',
           payload: { field: 'vddkInitImage', validationState },
+          type: 'SET_FIELD_VALIDATED',
         });
 
         onChange({
@@ -122,7 +122,7 @@ export const EsxiProviderCreateForm: React.FC<EsxiProviderCreateFormProps> = ({
         // Validate URL - VCenter of ESXi
         const validationState = validateEsxiURL(trimmedValue);
 
-        dispatch({ type: 'SET_FIELD_VALIDATED', payload: { field: 'url', validationState } });
+        dispatch({ payload: { field: 'url', validationState }, type: 'SET_FIELD_VALIDATED' });
 
         onChange({ ...provider, spec: { ...provider.spec, url: trimmedValue } });
       }

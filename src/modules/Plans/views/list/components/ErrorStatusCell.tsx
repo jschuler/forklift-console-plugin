@@ -19,9 +19,9 @@ export const ErrorStatusCell: React.FC<CellProps> = ({ data }) => {
   const phaseLabel: string = phase;
 
   const planURL = getResourceUrl({
-    reference: PlanModelRef,
     name: plan?.metadata?.name,
     namespace: plan?.metadata?.namespace,
+    reference: PlanModelRef,
   });
 
   // Find the error message from the status conditions

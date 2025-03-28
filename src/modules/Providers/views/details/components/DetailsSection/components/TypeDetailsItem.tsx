@@ -9,9 +9,9 @@ import { DetailsItem } from '../../../../../utils';
 import { ProviderDetailsItemProps } from './ProviderDetailsItem';
 
 export const TypeDetailsItem: React.FC<ProviderDetailsItemProps> = ({
-  resource: provider,
-  moreInfoLink,
   helpContent,
+  moreInfoLink,
+  resource: provider,
 }) => {
   const { t } = useForkliftTranslation();
 

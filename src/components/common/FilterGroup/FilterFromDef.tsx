@@ -16,14 +16,14 @@ interface FilterFromDefProps {
 }
 
 export const FilterFromDef = ({
-  resourceFieldId,
-  label,
   filterDef: def,
-  selectedFilters,
   FilterType,
+  label,
   onFilterUpdate,
-  showFilter = true,
   resolvedLanguage,
+  resourceFieldId,
+  selectedFilters,
+  showFilter = true,
 }: FilterFromDefProps) => {
   const [filterId, setFilterId] = useState(resourceFieldId);
 

@@ -18,9 +18,9 @@ export interface ManageColumnsToolbarProps {
  * Toggles a modal dialog for managing resourceFields visibility and order.
  */
 export const ManageColumnsToolbar = ({
+  defaultColumns,
   resourceFields,
   setColumns,
-  defaultColumns,
 }: ManageColumnsToolbarProps) => {
   const { t } = useForkliftTranslation();
   const [isOpen, setIsOpen] = useState(false);

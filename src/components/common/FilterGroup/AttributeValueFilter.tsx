@@ -23,11 +23,11 @@ import { MetaFilterProps } from './types';
  * @see FilterTypeProps
  */
 export const AttributeValueFilter = ({
-  selectedFilters = {},
-  onFilterUpdate,
   fieldFilters,
-  supportedFilterTypes,
+  onFilterUpdate,
   resolvedLanguage = 'en',
+  selectedFilters = {},
+  supportedFilterTypes,
 }: MetaFilterProps) => {
   const [currentFilter, setCurrentFilter] = useState(fieldFilters?.[0]);
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +54,7 @@ export const AttributeValueFilter = ({
   };
 
   const renderOptions = () => {
-    return fieldFilters.map(({ resourceFieldId, label }) => (
+    return fieldFilters.map(({ label, resourceFieldId }) => (
       <SelectOption key={resourceFieldId} value={label}>
         {label}
       </SelectOption>
@@ -84,18 +84,18 @@ export const AttributeValueFilter = ({
         </Select>
       </ToolbarItem>
 
-      {fieldFilters.map(({ resourceFieldId, label, filterDef }) => (
+      {fieldFilters.map(({ filterDef, label, resourceFieldId }) => (
         <FilterFromDef
           key={resourceFieldId}
           {...{
-            resourceFieldId,
-            label,
             filterDef,
-            onFilterUpdate,
-            selectedFilters,
             FilterType: supportedFilterTypes[filterDef.type],
-            showFilter: currentFilter?.resourceFieldId === resourceFieldId,
+            label,
+            onFilterUpdate,
             resolvedLanguage,
+            resourceFieldId,
+            selectedFilters,
+            showFilter: currentFilter?.resourceFieldId === resourceFieldId,
           }}
         />
       ))}

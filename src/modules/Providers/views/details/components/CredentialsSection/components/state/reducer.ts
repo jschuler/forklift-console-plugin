@@ -49,10 +49,10 @@ export function baseCredentialsSectionReducerFactory(secret, validator) {
 
         return {
           ...state,
+          alertMessage: null,
           dataChanged,
           dataError: validationError,
           newSecret: action.payload,
-          alertMessage: null,
         };
       }
       case 'SET_ALERT_MESSAGE':

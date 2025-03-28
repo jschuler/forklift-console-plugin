@@ -12,10 +12,10 @@ export const getOpenShiftFeatureMap = (vm: ProviderVirtualMachine): VmFeatures =
   }
 
   return {
-    numa: !!domain.cpu?.numa,
+    dedicatedCpu: !!domain?.cpu?.dedicatedCpuPlacement,
     gpusHostDevices: !!domain.devices?.gpus?.length || !!domain?.devices?.hostDevices?.length,
+    numa: !!domain.cpu?.numa,
     persistentTpmEfi:
       !!domain?.devices?.tpm?.persistent || domain?.firmware?.bootloader?.efi?.persistent,
-    dedicatedCpu: !!domain?.cpu?.dedicatedCpuPlacement,
   };
 };

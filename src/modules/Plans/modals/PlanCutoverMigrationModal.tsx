@@ -40,8 +40,8 @@ interface PlanCutoverMigrationModalProps {
  * @returns {React.Element} The DeleteModal component
  */
 export const PlanCutoverMigrationModal: React.FC<PlanCutoverMigrationModalProps> = ({
-  title,
   resource,
+  title,
 }) => {
   const { t } = useForkliftTranslation();
   const { toggleModal } = useModal();
@@ -197,8 +197,6 @@ async function patchMigrationCutover(migration: V1beta1Migration, cutover: strin
   const op = migration?.spec?.cutover ? 'replace' : 'add';
 
   await k8sPatch({
-    model: MigrationModel,
-    resource: migration,
     data: [
       {
         op,
@@ -206,5 +204,7 @@ async function patchMigrationCutover(migration: V1beta1Migration, cutover: strin
         value: cutover,
       },
     ],
+    model: MigrationModel,
+    resource: migration,
   });
 }

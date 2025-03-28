@@ -6,9 +6,9 @@ export const StateAlerts: FC<{
   variant: AlertVariant;
   messages: { key: string; title: string; body: string; blocker?: boolean }[];
   onClose?: (key: string) => void;
-}> = ({ variant, messages, onClose }) => (
+}> = ({ messages, onClose, variant }) => (
   <>
-    {messages.map(({ key, title, body, blocker }) => (
+    {messages.map(({ blocker, body, key, title }) => (
       <Alert
         key={key}
         isInline

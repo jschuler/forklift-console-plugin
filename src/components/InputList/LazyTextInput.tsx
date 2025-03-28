@@ -30,10 +30,10 @@ interface LazyTextInputProps {
  * @returns {React.ReactElement} The rendered input component.
  */
 export const LazyTextInput: React.FunctionComponent<LazyTextInputProps> = ({
-  value: propValue,
+  ariaLabel = '',
   onChange,
   type = 'text',
-  ariaLabel = '',
+  value: propValue,
 }) => {
   const [value, setValue] = useState(propValue);
 

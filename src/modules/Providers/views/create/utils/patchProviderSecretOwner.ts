@@ -31,8 +31,6 @@ export async function patchProviderSecretOwner(
   const op = secret?.metadata?.ownerReferences ? 'replace' : 'add';
 
   await k8sPatch({
-    model: SecretModel,
-    resource: secret,
     data: [
       {
         op,
@@ -47,5 +45,7 @@ export async function patchProviderSecretOwner(
         ],
       },
     ],
+    model: SecretModel,
+    resource: secret,
   });
 }

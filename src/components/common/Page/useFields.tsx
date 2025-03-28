@@ -38,9 +38,9 @@ export const useFields = (
   userSettings?: FieldSettings,
 ): [ResourceField[], React.Dispatch<React.SetStateAction<ResourceField[]>>] => {
   const {
+    clear: clearSettings = () => undefined,
     data: fieldsFromSettings = [],
     save: saveFieldsInSettings = () => undefined,
-    clear: clearSettings = () => undefined,
   } = userSettings || {};
 
   const [fields, setFields] = useState<ResourceField[]>(() => {
@@ -59,7 +59,7 @@ export const useFields = (
         .filter((it) => idsToBeVisited.delete(it.resourceFieldId))
         // ignore unsupported fields
         .filter(({ resourceFieldId }) => supportedIds[resourceFieldId])
-        .map(({ resourceFieldId, isVisible }) => ({
+        .map(({ isVisible, resourceFieldId }) => ({
           ...supportedIds[resourceFieldId],
           // keep the invariant that identity resourceFields are always visible
           isVisible: isVisible || supportedIds[resourceFieldId].isIdentity,
@@ -75,7 +75,7 @@ export const useFields = (
 
   const namespaceAwareFields: ResourceField[] = useMemo(
     () =>
-      fields.map(({ resourceFieldId, isVisible = false, ...rest }) => ({
+      fields.map(({ isVisible = false, resourceFieldId, ...rest }) => ({
         resourceFieldId,
         ...rest,
         isVisible: resourceFieldId === NAMESPACE ? !currentNamespace : isVisible,
@@ -91,7 +91,7 @@ export const useFields = (
         clearSettings();
       } else {
         saveFieldsInSettings(
-          fields.map(({ resourceFieldId, isVisible }) => ({ resourceFieldId, isVisible })),
+          fields.map(({ isVisible, resourceFieldId }) => ({ isVisible, resourceFieldId })),
         );
       }
     },

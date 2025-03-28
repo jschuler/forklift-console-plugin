@@ -15,9 +15,9 @@ export const ProviderActionsDropdownItems = ({ data }: ProviderActionsDropdownIt
   const { provider } = data;
 
   const providerURL = getResourceUrl({
-    reference: ProviderModelRef,
     name: provider?.metadata?.name,
     namespace: provider?.metadata?.namespace,
+    reference: ProviderModelRef,
   });
 
   const onClick = () => {

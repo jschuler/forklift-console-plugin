@@ -36,7 +36,7 @@ interface DeleteModalProps {
  * @param {DeleteModalProps} props - Props for DeleteModal
  * @returns {React.Element} The DeleteModal component
  */
-export const DeleteModal: React.FC<DeleteModalProps> = ({ title, resource, model, redirectTo }) => {
+export const DeleteModal: React.FC<DeleteModalProps> = ({ model, redirectTo, resource, title }) => {
   const { t } = useForkliftTranslation();
   const { toggleModal } = useModal();
   const [isLoading, toggleIsLoading] = useToggle();
@@ -48,8 +48,8 @@ export const DeleteModal: React.FC<DeleteModalProps> = ({ title, resource, model
   const owner = resource?.metadata?.ownerReferences?.[0];
   const groupVersionKind: K8sGroupVersionKind = {
     group: model.apiGroup,
-    version: model.apiVersion,
     kind: model.kind,
+    version: model.apiVersion,
   };
 
   const onDelete = useCallback(async () => {

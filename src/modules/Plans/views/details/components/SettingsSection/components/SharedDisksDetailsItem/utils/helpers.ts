@@ -12,9 +12,9 @@ export const getMigrateSharedDisks = (resource: V1beta1Plan): boolean => {
 };
 
 export const onConfirmMigrateSharedDisks: OnConfirmHookType = async ({
-  resource,
   model,
   newValue,
+  resource,
 }) => {
   const plan = resource as EnhancedPlan;
 
@@ -23,8 +23,8 @@ export const onConfirmMigrateSharedDisks: OnConfirmHookType = async ({
   });
 
   const updatedPlan = await k8sUpdate({
-    model: model,
     data: updatedPlanDraft,
+    model: model,
   });
 
   return updatedPlan;

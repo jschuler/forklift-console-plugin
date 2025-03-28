@@ -20,7 +20,7 @@ import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 
 import { EditComponentProps } from '../BaseCredentialsSection';
 
-export const EsxiCredentialsEdit: React.FC<EditComponentProps> = ({ secret, onChange }) => {
+export const EsxiCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, secret }) => {
   const { t } = useForkliftTranslation();
 
   const user = safeBase64Decode(secret?.data?.user);
@@ -56,10 +56,10 @@ export const EsxiCredentialsEdit: React.FC<EditComponentProps> = ({ secret, onCh
   const initialState = {
     passwordHidden: true,
     validation: {
-      user: esxiSecretFieldValidator('user', user),
-      password: esxiSecretFieldValidator('password', password),
-      insecureSkipVerify: esxiSecretFieldValidator('insecureSkipVerify', insecureSkipVerify),
       cacert: esxiSecretFieldValidator('cacert', cacert),
+      insecureSkipVerify: esxiSecretFieldValidator('insecureSkipVerify', insecureSkipVerify),
+      password: esxiSecretFieldValidator('password', password),
+      user: esxiSecretFieldValidator('user', user),
     },
   };
 
@@ -85,7 +85,7 @@ export const EsxiCredentialsEdit: React.FC<EditComponentProps> = ({ secret, onCh
   const handleChange = useCallback(
     (id, value) => {
       const validationState = esxiSecretFieldValidator(id, value);
-      dispatch({ type: 'SET_FIELD_VALIDATED', payload: { field: id, validationState } });
+      dispatch({ payload: { field: id, validationState }, type: 'SET_FIELD_VALIDATED' });
 
       // don't trim fields that allow spaces
       const encodedValue = ['cacert'].includes(id)

@@ -13,9 +13,9 @@ export interface SecretDetailsItemProps {
 }
 
 export const SecretDetailsItem: React.FC<SecretDetailsItemProps> = ({
-  resource: provider,
-  moreInfoLink,
   helpContent,
+  moreInfoLink,
+  resource: provider,
 }) => {
   const { t } = useForkliftTranslation();
 
@@ -30,7 +30,7 @@ export const SecretDetailsItem: React.FC<SecretDetailsItemProps> = ({
       content={
         provider?.spec?.secret.name ? (
           <ResourceLink
-            groupVersionKind={{ version: 'v1', kind: 'Secret' }}
+            groupVersionKind={{ kind: 'Secret', version: 'v1' }}
             name={provider?.spec?.secret.name}
             namespace={provider?.spec?.secret.namespace}
           />

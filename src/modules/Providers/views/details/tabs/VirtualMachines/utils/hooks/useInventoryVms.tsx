@@ -23,27 +23,27 @@ export const useInventoryVms = (
   const validProvider = providerLoaded && !providerLoadError && provider;
 
   const inventoryOptions: UseProviderInventoryParams = {
+    interval: 180000,
     provider: validProvider,
     subPath: 'vms?detail=4',
-    interval: 180000,
   };
 
   const {
+    error,
     inventory: vms,
     loading,
-    error,
   } = useProviderInventory<ProviderVirtualMachine[]>(inventoryOptions);
 
   const vmData: VmData[] =
     !loading && !error && Array.isArray(vms)
       ? vms.map((vm) => ({
+          isProviderLocalOpenshift: isProviderLocalOpenshift(validProvider),
+          name: vm.name,
+          namespace: isProviderOpenshift(validProvider) ? (vm as OpenshiftVM).namespace : undefined,
           vm: {
             ...vm,
             providerType: provider?.spec?.type,
           } as ProviderVirtualMachine,
-          name: vm.name,
-          namespace: isProviderOpenshift(validProvider) ? (vm as OpenshiftVM).namespace : undefined,
-          isProviderLocalOpenshift: isProviderLocalOpenshift(validProvider),
         }))
       : [];
 

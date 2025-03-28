@@ -19,7 +19,7 @@ import { getOpenstackProviderWebUILink } from './utils';
 
 export const OpenstackDetailsSection: React.FC<DetailsSectionProps> = ({ data }) => {
   const { t } = useForkliftTranslation();
-  const { provider, permissions } = data;
+  const { permissions, provider } = data;
   const webUILink = getOpenstackProviderWebUILink(provider);
 
   return (

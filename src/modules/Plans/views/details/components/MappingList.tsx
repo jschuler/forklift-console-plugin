@@ -35,23 +35,23 @@ interface MappingListProps {
 }
 
 export const MappingList: FC<MappingListProps> = ({
-  mappings,
-  availableSources,
-  availableDestinations,
-  replaceMapping,
-  deleteMapping,
   addMapping,
+  availableDestinations,
+  availableSources,
+  deleteMapping,
   generalSourcesLabel,
-  noSourcesLabel,
   isDisabled = false,
   isEditable = true,
+  mappings,
+  noSourcesLabel,
+  replaceMapping,
 }) => {
   const { t } = useForkliftTranslation();
 
   return (
     <>
       <DataList isCompact aria-label="">
-        {mappings?.map(({ source, destination }, index) => (
+        {mappings?.map(({ destination, source }, index) => (
           <MappingListItem
             source={source}
             destination={destination}

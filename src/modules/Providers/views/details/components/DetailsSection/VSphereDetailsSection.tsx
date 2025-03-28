@@ -21,7 +21,7 @@ import { getVSphereProviderWebUILink } from './utils';
 export const VSphereDetailsSection: React.FC<DetailsSectionProps> = ({ data }) => {
   const { t } = useForkliftTranslation();
 
-  const { provider, permissions } = data;
+  const { permissions, provider } = data;
   const webUILink = getVSphereProviderWebUILink(provider);
 
   return (

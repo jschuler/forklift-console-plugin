@@ -9,9 +9,9 @@ import { MigrationsTable } from './components';
 export const MigrationsSection: React.FC<MigrationsSectionProps> = ({ obj }) => {
   const [migrations, loaded, loadError] = useK8sWatchResource<V1beta1Migration[]>({
     groupVersionKind: MigrationModelGroupVersionKind,
-    namespaced: true,
     isList: true,
     namespace: obj?.metadata?.namespace,
+    namespaced: true,
   });
 
   const ownedMigrations = migrations.filter(

@@ -5,9 +5,9 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { PlanDetailsItemProps } from './PlanDetailsItemProps';
 
 export const OwnerDetailsItem: React.FC<PlanDetailsItemProps> = ({
-  resource,
-  moreInfoLink,
   helpContent,
+  moreInfoLink,
+  resource,
 }) => {
   const { t } = useForkliftTranslation();
 

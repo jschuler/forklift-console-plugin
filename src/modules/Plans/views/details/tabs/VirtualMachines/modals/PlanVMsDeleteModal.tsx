@@ -29,10 +29,10 @@ export const PlanVMsDeleteModal: React.FC<PlanVMsDeleteModalProps> = ({ plan, se
       const op = plan?.spec?.vms ? 'replace' : 'add';
 
       await k8sPatch({
-        model: PlanModel,
-        resource: plan,
-        path: '',
         data: [{ op, path: '/spec/vms', value: vms }],
+        model: PlanModel,
+        path: '',
+        resource: plan,
       });
 
       toggleModal();

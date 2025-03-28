@@ -25,8 +25,8 @@ export function mapsSectionReducer(state: MapsSectionState, action: MapsAction):
       return { ...state, updating: action.payload };
     case 'INIT':
       return {
-        StorageMap: deepCopy(action.payload),
         hasChanges: false,
+        StorageMap: deepCopy(action.payload),
         updating: false,
       };
     default:

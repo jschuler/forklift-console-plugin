@@ -25,14 +25,14 @@ type PlanCriticalConditionProps = PropsWithChildren & {
 };
 
 const PlanCriticalCondition: React.FC<PlanCriticalConditionProps> = ({
-  plan,
-  condition,
   children,
+  condition,
+  plan,
 }) => {
   const { t } = useTranslation();
   const history = useHistory();
 
-  const { type, message: conditionMessage } = condition;
+  const { message: conditionMessage, type } = condition;
   let troubleshootMessage: ReactNode = t(
     'To troubleshoot, check the Forklift controller pod logs.',
   );
@@ -43,9 +43,9 @@ const PlanCriticalCondition: React.FC<PlanCriticalConditionProps> = ({
     type === PlanConditionType.VMMultiplePodNetworkMappings
   ) {
     const planURL = getResourceUrl({
-      reference: PlanModelRef,
       name: plan?.metadata?.name,
       namespace: plan?.metadata?.namespace,
+      reference: PlanModelRef,
     });
 
     troubleshootMessage = (

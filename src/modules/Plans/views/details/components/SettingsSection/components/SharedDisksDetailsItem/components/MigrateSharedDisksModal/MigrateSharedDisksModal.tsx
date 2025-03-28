@@ -8,7 +8,7 @@ import { SettingsEditModalProps } from '../../../../utils/types';
 import { onConfirmMigrateSharedDisks } from '../../utils/helpers';
 import MigrateSharedDisksSwitchFactory from '../MigrateSharedDisksSwitch/MigrateSharedDisksSwitch';
 
-const MigrateSharedDisksModal: FC<SettingsEditModalProps> = ({ resource, jsonPath, title }) => {
+const MigrateSharedDisksModal: FC<SettingsEditModalProps> = ({ jsonPath, resource, title }) => {
   const ModalBody = (
     <ForkliftTrans>
       <p>

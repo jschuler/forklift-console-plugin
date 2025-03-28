@@ -12,8 +12,8 @@ import { EditComponentProps } from '../../BaseCredentialsSection';
 import { OpenstackSecretFieldId } from './constants';
 
 export const ApplicationWithCredentialsIDFormGroup: React.FC<EditComponentProps> = ({
-  secret,
   onChange,
+  secret,
 }) => {
   const { t } = useForkliftTranslation();
 
@@ -33,8 +33,8 @@ export const ApplicationWithCredentialsIDFormGroup: React.FC<EditComponentProps>
         OpenstackSecretFieldId.ApplicationCredentialSecret,
         applicationCredentialSecret,
       ),
-      regionName: openstackSecretFieldValidator(OpenstackSecretFieldId.RegionName, regionName),
       projectName: openstackSecretFieldValidator(OpenstackSecretFieldId.ProjectName, projectName),
+      regionName: openstackSecretFieldValidator(OpenstackSecretFieldId.RegionName, regionName),
     },
   };
 
@@ -61,7 +61,7 @@ export const ApplicationWithCredentialsIDFormGroup: React.FC<EditComponentProps>
   const handleChange = useCallback(
     (id, value) => {
       const validationState = openstackSecretFieldValidator(id, value);
-      dispatch({ type: 'SET_FIELD_VALIDATED', payload: { field: id, validationState } });
+      dispatch({ payload: { field: id, validationState }, type: 'SET_FIELD_VALIDATED' });
 
       const encodedValue = Base64.encode(value?.trim() || '');
       onChange({ ...secret, data: { ...secret.data, [id]: encodedValue } });

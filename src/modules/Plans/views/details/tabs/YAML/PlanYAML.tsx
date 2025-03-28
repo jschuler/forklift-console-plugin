@@ -11,9 +11,9 @@ export const PlanYAML: React.FC<{ name: string; namespace: string }> = ({ name, 
 
   const [plan, loaded, loadError] = useK8sWatchResource<V1beta1Plan>({
     groupVersionKind: PlanModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   return (

@@ -45,7 +45,7 @@ export interface SettingsSelectInputProps {
  * @param {ModalInputComponentProps} props - Properties passed to the component
  * @returns {JSX.Element}
  */
-export const SettingsSelectInput: FC<SettingsSelectInputProps> = ({ value, onChange, options }) => {
+export const SettingsSelectInput: FC<SettingsSelectInputProps> = ({ onChange, options, value }) => {
   // State to keep track of the dropdown menu open/closed state
   const [isOpen, setIsOpen] = useState(false);
 

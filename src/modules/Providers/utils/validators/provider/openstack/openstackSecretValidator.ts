@@ -75,13 +75,13 @@ export function openstackSecretValidator(secret: IoK8sApiCoreV1Secret): Validati
       }
       break;
     default:
-      return { type: 'error', msg: 'invalid authType' };
+      return { msg: 'invalid authType', type: 'error' };
   }
 
   const missingRequiredFields = missingKeysInSecretData(secret, requiredFields);
 
   if (missingRequiredFields.length > 0) {
-    return { type: 'error', msg: `missing required fields [${missingRequiredFields.join(', ')}]` };
+    return { msg: `missing required fields [${missingRequiredFields.join(', ')}]`, type: 'error' };
   }
 
   // Add ca cert validation if not insecureSkipVerify

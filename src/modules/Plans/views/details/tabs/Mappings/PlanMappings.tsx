@@ -33,9 +33,9 @@ export const PlanMappings: React.FC<{ name: string; namespace: string }> = ({
 
   const [plan, loaded, loadError] = useK8sWatchResource<V1beta1Plan>({
     groupVersionKind: PlanModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   return (
@@ -57,9 +57,9 @@ const PlanMappingsInitSection: React.FC<PlanMappingsInitSectionProps> = (props) 
   // Retrieve all k8s Providers
   const [providers, providersLoaded, providersLoadError] = useK8sWatchResource<V1beta1Provider[]>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     isList: true,
     namespace: plan?.metadata?.namespace,
+    namespaced: true,
   });
 
   // Retrieve all k8s Network Mappings
@@ -67,9 +67,9 @@ const PlanMappingsInitSection: React.FC<PlanMappingsInitSectionProps> = (props) 
     V1beta1NetworkMap[]
   >({
     groupVersionKind: NetworkMapModelGroupVersionKind,
-    namespaced: true,
     isList: true,
     namespace: plan?.metadata?.namespace,
+    namespaced: true,
   });
 
   // Retrieve all k8s Storage Mappings
@@ -77,9 +77,9 @@ const PlanMappingsInitSection: React.FC<PlanMappingsInitSectionProps> = (props) 
     V1beta1StorageMap[]
   >({
     groupVersionKind: StorageMapModelGroupVersionKind,
-    namespaced: true,
     isList: true,
     namespace: plan?.metadata?.namespace,
+    namespaced: true,
   });
 
   const planNetworkMaps = networkMaps

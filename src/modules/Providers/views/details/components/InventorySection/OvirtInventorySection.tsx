@@ -8,36 +8,36 @@ import { InventoryProps } from './InventorySection';
 
 export const OvirtInventorySection: React.FC<InventoryProps> = ({ data }) => {
   const { t } = useForkliftTranslation();
-  const { provider, inventory } = data;
+  const { inventory, provider } = data;
 
   if (!provider || !inventory) {
     return <span className="text-muted">{t('No inventory data available.')}</span>;
   }
 
   const inventoryItems = {
-    vmCount: {
-      title: t('Virtual machines'),
-      helpContent: t('Number of virtual machines in cluster'),
-    },
-    networkCount: {
-      title: t('Network interfaces'),
-      helpContent: t('Number of network interfaces in provider cluster'),
+    clusterCount: {
+      helpContent: t('Number of cluster in provider'),
+      title: t('Clusters'),
     },
     datacenterCount: {
-      title: t('Data centers'),
       helpContent: t('Number of data centers in provider'),
-    },
-    storageDomainCount: {
-      title: t('Storage domains'),
-      helpContent: t('Number of storage domains in provider'),
-    },
-    clusterCount: {
-      title: t('Clusters'),
-      helpContent: t('Number of cluster in provider'),
+      title: t('Data centers'),
     },
     hostCount: {
-      title: t('Hosts'),
       helpContent: t('Number of hosts in provider clusters'),
+      title: t('Hosts'),
+    },
+    networkCount: {
+      helpContent: t('Number of network interfaces in provider cluster'),
+      title: t('Network interfaces'),
+    },
+    storageDomainCount: {
+      helpContent: t('Number of storage domains in provider'),
+      title: t('Storage domains'),
+    },
+    vmCount: {
+      helpContent: t('Number of virtual machines in cluster'),
+      title: t('Virtual machines'),
     },
   };
 
@@ -64,8 +64,8 @@ export const OvirtInventorySection: React.FC<InventoryProps> = ({ data }) => {
       isHorizontal
       horizontalTermWidthModifier={{
         default: '12ch',
-        sm: '15ch',
         md: '20ch',
+        sm: '15ch',
       }}
       columnModifier={{
         default: '2Col',

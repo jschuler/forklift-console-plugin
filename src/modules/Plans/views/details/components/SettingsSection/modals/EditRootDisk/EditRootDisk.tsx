@@ -16,7 +16,7 @@ import { editRootDiskModalAlert } from './editRootDiskModalAlert';
 import { editRootDiskModalBody } from './editRootDiskModalBody';
 import { diskOptions, getRootDiskLabelByKey } from './getRootDiskLabelByKey';
 
-const onConfirm: OnConfirmHookType = async ({ resource, model, newValue }) => {
+const onConfirm: OnConfirmHookType = async ({ model, newValue, resource }) => {
   const plan = resource as V1beta1Plan;
 
   const resourceValue = plan?.spec?.vms;
@@ -27,8 +27,6 @@ const onConfirm: OnConfirmHookType = async ({ resource, model, newValue }) => {
   }));
 
   const obj = await k8sPatch({
-    model: model,
-    resource: resource,
     data: [
       {
         op,
@@ -36,6 +34,8 @@ const onConfirm: OnConfirmHookType = async ({ resource, model, newValue }) => {
         value: newVMs || undefined,
       },
     ],
+    model: model,
+    resource: resource,
   });
 
   return obj;
@@ -47,12 +47,11 @@ interface DropdownRendererProps {
 }
 
 const RootDiskInputFactory: () => ModalInputComponentType = () => {
-  const DropdownRenderer: React.FC<DropdownRendererProps> = ({ value, onChange }) => {
+  const DropdownRenderer: React.FC<DropdownRendererProps> = ({ onChange, value }) => {
     const { t } = useForkliftTranslation();
     const options = diskOptions(t);
 
     const dropdownItems = options.map((option) => ({
-      itemId: option.key,
       children: (
         <>
           <Text>{getRootDiskLabelByKey(option.key)}</Text>
@@ -63,6 +62,7 @@ const RootDiskInputFactory: () => ModalInputComponentType = () => {
           )}
         </>
       ),
+      itemId: option.key,
     }));
 
     return (

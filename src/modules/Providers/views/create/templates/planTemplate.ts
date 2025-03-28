@@ -12,8 +12,8 @@ export const planTemplate: V1beta1Plan = {
       network: undefined,
       storage: undefined,
     },
-    targetNamespace: '',
     provider: undefined,
+    targetNamespace: '',
     vms: [],
   },
 };

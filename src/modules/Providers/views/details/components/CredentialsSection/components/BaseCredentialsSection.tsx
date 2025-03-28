@@ -40,29 +40,29 @@ export type BaseCredentialsSectionProps = {
 };
 
 export const BaseCredentialsSection: React.FC<BaseCredentialsSectionProps> = ({
+  EditComponent,
+  ListComponent,
   secret,
   validator,
-  ListComponent,
-  EditComponent,
 }) => {
   const { t } = useForkliftTranslation();
   const [isLoading, setIsLoading] = useState(false);
 
   const [canPatch] = useAccessReview({
     group: '',
+    name: secret.metadata.name,
+    namespace: secret.metadata.namespace,
     resource: 'secrets',
     verb: 'patch',
-    namespace: secret.metadata.namespace,
-    name: secret.metadata.name,
   });
 
   const initialState: BaseCredentialsSectionState = {
-    reveal: false,
-    edit: false,
-    newSecret: secret,
+    alertMessage: null,
     dataChanged: false,
     dataError: { type: 'default' },
-    alertMessage: null,
+    edit: false,
+    newSecret: secret,
+    reveal: false,
   };
 
   const [state, dispatch] = useReducer(
@@ -92,13 +92,13 @@ export const BaseCredentialsSection: React.FC<BaseCredentialsSectionProps> = ({
   // Handle user edits
   function onNewSecretChange(newValue: IoK8sApiCoreV1Secret) {
     // update staged secret with new value
-    dispatch({ type: 'SET_NEW_SECRET', payload: newValue });
+    dispatch({ payload: newValue, type: 'SET_NEW_SECRET' });
   }
 
   // Handle user clicking "cancel"
   function onCancel() {
     // clear changes and return to view mode
-    dispatch({ type: 'SET_NEW_SECRET', payload: secret });
+    dispatch({ payload: secret, type: 'SET_NEW_SECRET' });
     toggleEdit();
   }
 
@@ -116,10 +116,10 @@ export const BaseCredentialsSection: React.FC<BaseCredentialsSectionProps> = ({
       toggleEdit();
     } catch (err) {
       dispatch({
-        type: 'SET_ALERT_MESSAGE',
         payload: (
           <AlertMessageForModals title={t('Error')} message={err.message || err.toString()} />
         ),
+        type: 'SET_ALERT_MESSAGE',
       });
 
       setIsLoading(false);

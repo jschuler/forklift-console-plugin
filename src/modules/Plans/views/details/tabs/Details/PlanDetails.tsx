@@ -21,9 +21,9 @@ export const PlanDetails: React.FC<{ name: string; namespace: string }> = ({ nam
 
   const [plan, loaded, loadError] = useK8sWatchResource<V1beta1Plan>({
     groupVersionKind: PlanModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   const permissions = useGetDeleteAndEditAccessReview({

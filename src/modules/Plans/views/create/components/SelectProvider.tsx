@@ -29,8 +29,8 @@ export interface SelectProviderProps {
 }
 
 export const SelectProvider: FunctionComponent<SelectProviderProps> = ({
-  filterState,
   filterDispatch,
+  filterState,
 }) => {
   const { t } = useForkliftTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +49,7 @@ export const SelectProvider: FunctionComponent<SelectProviderProps> = ({
       ? prevTypeFilters.filter((item: string) => item !== value)
       : [...prevTypeFilters, value as string];
 
-    filterDispatch({ type: 'UPDATE_TYPE_FILTERS', payload: typeFilters });
+    filterDispatch({ payload: typeFilters, type: 'UPDATE_TYPE_FILTERS' });
   };
 
   const toggle = (toggleRef: Ref<MenuToggleElement>) => (

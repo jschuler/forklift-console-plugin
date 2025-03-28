@@ -18,9 +18,9 @@ interface ProviderCredentialsProps {
 }
 
 export const ProviderCredentials: React.FC<ProviderCredentialsProps> = ({
-  obj,
   loaded,
   loadError,
+  obj,
 }) => {
   const { t } = useForkliftTranslation();
 
@@ -40,9 +40,9 @@ export const ProviderCredentialsWrapper: React.FC<{ name: string; namespace: str
 }) => {
   const [provider, providerLoaded, providerLoadError] = useK8sWatchResource<V1beta1Provider>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   const data = { provider };

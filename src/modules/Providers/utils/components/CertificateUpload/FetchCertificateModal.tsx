@@ -12,11 +12,11 @@ export const FetchCertificateModal: FC<{
   url: string;
   existingCert: string;
   handleSave: (cert: string) => void;
-}> = ({ existingCert, url, handleSave }) => {
+}> = ({ existingCert, handleSave, url }) => {
   const { toggleModal } = useModal();
   const { t } = useForkliftTranslation();
   const [isTrusted, setIsTrusted] = useState(false);
-  const { loading, fetchError, certError, thumbprint, issuer, validTo, certificate } =
+  const { certError, certificate, fetchError, issuer, loading, thumbprint, validTo } =
     useTlsCertificate(url);
   const success = !loading && !fetchError && !certError;
   const hasThumbprintChanged =
@@ -65,7 +65,7 @@ export const FetchCertificateModal: FC<{
 
       {success && (
         <VerifyCertificate
-          {...{ thumbprint, issuer, validTo, isTrusted, setIsTrusted, hasThumbprintChanged }}
+          {...{ hasThumbprintChanged, issuer, isTrusted, setIsTrusted, thumbprint, validTo }}
         />
       )}
     </Modal>

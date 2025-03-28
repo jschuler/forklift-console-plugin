@@ -51,7 +51,7 @@ export const PlanStatusCell: React.FC<CellProps> = ({ data }) => {
   const vmPipelineTasks = lastMigration?.status?.vms?.reduce(
     (acc: VmPipelineTask[], migrationVm) => {
       migrationVm.pipeline.forEach((pipelineStep) => {
-        acc.push({ vmName: migrationVm.name, task: pipelineStep.name, status: pipelineStep.phase });
+        acc.push({ status: pipelineStep.phase, task: pipelineStep.name, vmName: migrationVm.name });
       });
 
       return acc;
@@ -63,9 +63,9 @@ export const PlanStatusCell: React.FC<CellProps> = ({ data }) => {
   const isPlanLoading =
     !isWaitingForCutover && (phase === PlanPhase.Running || phase === PlanPhase.Archiving);
   const planURL = getResourceUrl({
-    reference: PlanModelRef,
     name: plan?.metadata?.name,
     namespace: plan?.metadata?.namespace,
+    reference: PlanModelRef,
   });
 
   // All VM count links point to the same place for now,

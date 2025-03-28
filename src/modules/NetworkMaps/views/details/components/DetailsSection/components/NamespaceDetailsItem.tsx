@@ -7,9 +7,9 @@ import { ResourceLink } from '@openshift-console/dynamic-plugin-sdk';
 import { NetworkDetailsItemProps } from './NetworkDetailsItemProps';
 
 export const NamespaceDetailsItem: React.FC<NetworkDetailsItemProps> = ({
-  resource,
-  moreInfoLink,
   helpContent,
+  moreInfoLink,
+  resource,
 }) => {
   const { t } = useForkliftTranslation();
 
@@ -27,7 +27,7 @@ export const NamespaceDetailsItem: React.FC<NetworkDetailsItemProps> = ({
       title={t('Namespace')}
       content={
         <ResourceLink
-          groupVersionKind={{ version: 'v1', kind: 'Namespace' }}
+          groupVersionKind={{ kind: 'Namespace', version: 'v1' }}
           name={resource?.metadata?.namespace}
           namespace={resource?.metadata?.namespace}
         />

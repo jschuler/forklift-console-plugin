@@ -18,7 +18,7 @@ export function vcenterSecretValidator(secret: IoK8sApiCoreV1Secret): Validation
 
   const missingRequiredFields = missingKeysInSecretData(secret, requiredFields);
   if (missingRequiredFields.length > 0) {
-    return { type: 'error', msg: `missing required fields [${missingRequiredFields.join(', ')}]` };
+    return { msg: `missing required fields [${missingRequiredFields.join(', ')}]`, type: 'error' };
   }
 
   for (const id of validateFields) {

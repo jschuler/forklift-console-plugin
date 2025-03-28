@@ -39,20 +39,20 @@ import './EditModal.style.css';
  * @returns {ReactElement} Returns a `Modal` React Element that renders the modal.
  */
 export const EditModal: React.FC<EditModalProps> = ({
-  title,
   body,
-  label,
-  headerContent,
   bodyContent,
-  resource,
-  jsonPath,
-  model,
-  InputComponent,
+  headerContent,
   helperText,
-  variant,
-  redirectTo,
+  InputComponent,
+  jsonPath,
+  label,
+  model,
   onConfirmHook = defaultOnConfirm,
+  redirectTo,
+  resource,
+  title,
   validationHook,
+  variant,
 }) => {
   const { t } = useForkliftTranslation();
   const { toggleModal } = useModal();
@@ -98,7 +98,7 @@ export const EditModal: React.FC<EditModalProps> = ({
     toggleIsLoading();
 
     try {
-      await onConfirmHook({ resource, jsonPath, model, newValue: value });
+      await onConfirmHook({ jsonPath, model, newValue: value, resource });
 
       if (redirectTo) {
         navigate(redirectTo);

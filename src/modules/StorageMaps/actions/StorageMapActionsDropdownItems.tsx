@@ -16,9 +16,9 @@ export const StorageMapActionsDropdownItems = ({ data }: StorageMapActionsDropdo
   const { obj: StorageMap } = data;
 
   const StorageMapURL = getResourceUrl({
-    reference: StorageMapModelRef,
     name: StorageMap?.metadata?.name,
     namespace: StorageMap?.metadata?.namespace,
+    reference: StorageMapModelRef,
   });
 
   const onClick = () => {

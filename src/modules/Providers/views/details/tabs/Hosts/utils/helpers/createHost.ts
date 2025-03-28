@@ -9,8 +9,8 @@ import { k8sCreate } from '@openshift-console/dynamic-plugin-sdk';
  */
 export async function createHost(newHostData: V1beta1Host) {
   const createdHost = await k8sCreate({
-    model: HostModel,
     data: newHostData,
+    model: HostModel,
   });
 
   return createdHost;

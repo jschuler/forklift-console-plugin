@@ -24,8 +24,6 @@ export async function patchPlanMappingsData(
   updatedStorage: V1beta1StorageMapSpecMap[],
 ) {
   await k8sPatch({
-    model: NetworkMapModel,
-    resource: planNetworkMaps,
     data: [
       {
         op: 'replace',
@@ -33,11 +31,11 @@ export async function patchPlanMappingsData(
         value: updateNetworkMapSpecMapDestination(updatedNetwork),
       },
     ],
+    model: NetworkMapModel,
+    resource: planNetworkMaps,
   });
 
   await k8sPatch({
-    model: StorageMapModel,
-    resource: planStorageMaps,
     data: [
       {
         op: 'replace',
@@ -45,6 +43,8 @@ export async function patchPlanMappingsData(
         value: updatedStorage,
       },
     ],
+    model: StorageMapModel,
+    resource: planStorageMaps,
   });
 }
 

@@ -14,9 +14,9 @@ interface ForkliftControllerYAMLTabProps {
 }
 
 export const ForkliftControllerYAMLTab: React.FC<ForkliftControllerYAMLTabProps> = ({
-  obj,
   loaded,
   loadError,
+  obj,
 }) => {
   const { t } = useForkliftTranslation();
   return (

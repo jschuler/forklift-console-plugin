@@ -17,8 +17,6 @@ export async function patchSecretData(secret: IoK8sApiCoreV1Secret, clean?: bool
   const sanitizedData = cleanObject(secret.data);
 
   await k8sPatch({
-    model: SecretModel,
-    resource: secret,
     data: [
       {
         op,
@@ -26,23 +24,25 @@ export async function patchSecretData(secret: IoK8sApiCoreV1Secret, clean?: bool
         value: clean ? { ...EmptyOpenstackCredentials, ...sanitizedData } : sanitizedData,
       },
     ],
+    model: SecretModel,
+    resource: secret,
   });
 }
 
 // when patching a secret with new data, first remove all other fields
 const EmptyOpenstackCredentials = {
+  applicationCredentialID: undefined,
+  applicationCredentialName: undefined,
+  applicationCredentialSecret: undefined,
   authType: undefined,
-  username: undefined,
-  password: undefined,
-  regionName: undefined,
-  projectName: undefined,
   domainName: undefined,
+  password: undefined,
+  projectID: undefined,
+  projectName: undefined,
+  regionName: undefined,
   token: undefined,
   userID: undefined,
-  projectID: undefined,
-  applicationCredentialID: undefined,
-  applicationCredentialSecret: undefined,
-  applicationCredentialName: undefined,
+  username: undefined,
 };
 
 function cleanObject(obj) {

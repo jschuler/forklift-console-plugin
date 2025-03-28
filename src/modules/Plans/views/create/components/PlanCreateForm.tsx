@@ -49,12 +49,12 @@ export type PlanCreateFormProps = {
  * It allows users to select a source provider from a gallery of available providers.
  */
 export const PlanCreateForm: React.FC<PlanCreateFormProps> = ({
-  providers,
-  filterState,
-  state,
-  projectName,
-  filterDispatch,
   dispatch,
+  filterDispatch,
+  filterState,
+  projectName,
+  providers,
+  state,
 }) => {
   const { t } = useForkliftTranslation();
   const { data, setData } = useCreateVmMigrationData();
@@ -70,7 +70,7 @@ export const PlanCreateForm: React.FC<PlanCreateFormProps> = ({
   const selectedProviderCardItem = providerCardItems[selectedProviderId];
 
   const onProviderChange = useCallback((id: string) => {
-    filterDispatch({ type: 'SELECT_PROVIDER', payload: id || '' });
+    filterDispatch({ payload: id || '', type: 'SELECT_PROVIDER' });
   }, []);
 
   return (

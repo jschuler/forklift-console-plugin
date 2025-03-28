@@ -42,7 +42,7 @@ const hideFromViewDropdownOption = (onHide: () => void, t) => {
       )}
       onClick={onHide}
       data-testid="hide"
-      style={{ whiteSpace: 'pre-wrap', width: 280, fontWeight: 'bold' }}
+      style={{ fontWeight: 'bold', whiteSpace: 'pre-wrap', width: 280 }}
     >
       {t('Hide from view')}
     </DropdownItem>

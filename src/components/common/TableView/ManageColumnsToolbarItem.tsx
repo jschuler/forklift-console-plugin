@@ -26,9 +26,9 @@ export interface ManageColumnsToolbarItemProps {
  * <font color="green">View component source on GitHub</font>](https://github.com/kubev2v/forklift-console-plugin/blob/main/packages/common/src/components/TableView/ManageColumnsToolbarItem.tsx)
  */
 export const ManageColumnsToolbarItem = ({
+  ariaLabel = 'Manage Columns',
   children,
   showDialog,
-  ariaLabel = 'Manage Columns',
   tooltip = 'Manage Columns',
 }: ManageColumnsToolbarItemProps) => {
   return (

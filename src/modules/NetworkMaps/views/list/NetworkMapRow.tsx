@@ -16,8 +16,8 @@ import {
 } from './components';
 
 export const ProviderRow: React.FC<RowProps<NetworkMapData>> = ({
-  resourceFields,
   resourceData,
+  resourceFields,
 }) => {
   return (
     <Tr>
@@ -40,13 +40,13 @@ const renderTd = ({ resourceData, resourceFieldId, resourceFields }: RenderTdPro
 };
 
 const cellRenderers: Record<string, React.FC<CellProps>> = {
+  ['actions']: (props) => NetworkMapActionsDropdown({ isKebab: true, ...props }),
+  ['destination']: ProviderLinkCell,
   ['name']: NetworkMapLinkCell,
   ['namespace']: NamespaceCell,
   ['owner']: PlanCell,
   ['phase']: StatusCell,
-  ['destination']: ProviderLinkCell,
   ['source']: ProviderLinkCell,
-  ['actions']: (props) => NetworkMapActionsDropdown({ isKebab: true, ...props }),
 };
 
 interface RenderTdProps {

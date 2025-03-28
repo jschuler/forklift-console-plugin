@@ -6,7 +6,7 @@ export const VMsActionButton: FC<{
   children: ReactNode;
   onClick: () => void;
   disabledReason?: string;
-}> = ({ children, onClick, disabledReason }) => {
+}> = ({ children, disabledReason, onClick }) => {
   const button = (
     <Button
       variant={ButtonVariant.secondary}

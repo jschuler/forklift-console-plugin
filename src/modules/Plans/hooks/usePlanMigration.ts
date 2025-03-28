@@ -5,9 +5,9 @@ export const usePlanMigration = (plan: V1beta1Plan): WatchK8sResult<V1beta1Migra
   const [migrations, migrationLoaded, migrationLoadError] = useK8sWatchResource<V1beta1Migration[]>(
     {
       groupVersionKind: MigrationModelGroupVersionKind,
-      namespaced: true,
       isList: true,
       namespace: plan?.metadata?.namespace,
+      namespaced: true,
     },
   );
 

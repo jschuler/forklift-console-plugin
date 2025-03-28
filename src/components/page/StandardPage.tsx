@@ -268,31 +268,31 @@ export interface StandardPageProps<T> {
  * />
  */
 export const StandardPageInner = <T,>({
-  namespace,
-  dataSource: [flatData, loaded, error],
-  RowMapper = DefaultRow<T>,
-  CellMapper,
-  title,
+  activeSort,
   addButton,
-  fieldsMetadata,
-  extraSupportedFilters,
+  alerts,
+  CellMapper,
+  className,
+  compareFn,
   customNoResultsFound,
   customNoResultsMatchFilter,
-  pagination = DEFAULT_PER_PAGE,
-  page: initialPage,
-  userSettings,
-  extraSupportedMatchers,
-  HeaderMapper = DefaultHeader<T>,
-  GlobalActionToolbarItems = [],
-  alerts,
-  toId,
+  dataSource: [flatData, loaded, error],
   expandedIds,
-  className,
-  selectedIds,
+  extraSupportedFilters,
+  extraSupportedMatchers,
+  fieldsMetadata,
+  GlobalActionToolbarItems = [],
+  HeaderMapper = DefaultHeader<T>,
+  namespace,
+  page: initialPage,
+  pagination = DEFAULT_PER_PAGE,
+  RowMapper = DefaultRow<T>,
   selectedCountLabel,
-  activeSort,
+  selectedIds,
   setActiveSort,
-  compareFn,
+  title,
+  toId,
+  userSettings,
 }: StandardPageProps<T> & TableSortContextProps) => {
   const { t } = useForkliftTranslation();
   const [sortedData, setSortedData] = useState([]);
@@ -447,7 +447,7 @@ export const StandardPageInner = <T,>({
         </Toolbar>
         <TableView<T>
           entities={showPagination ? pageData : filteredData}
-          visibleColumns={fields.filter(({ isVisible, isHidden }) => isVisible && !isHidden)}
+          visibleColumns={fields.filter(({ isHidden, isVisible }) => isVisible && !isHidden)}
           aria-label={title}
           Row={CellMapper ? withTr(CellMapper) : RowMapper}
           Header={HeaderMapper}
@@ -492,7 +492,7 @@ export const StandardPageInner = <T,>({
 };
 
 const StandardPage = <T,>(pageProps: StandardPageProps<T>) => {
-  const { activeSort, setActiveSort, compareFn } = useTableSortContext();
+  const { activeSort, compareFn, setActiveSort } = useTableSortContext();
 
   if (activeSort.resourceFieldId) {
     return (

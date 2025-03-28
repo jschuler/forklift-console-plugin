@@ -28,15 +28,15 @@ import { ensureArray } from '../../helpers';
  * @param {DetailsItemProps} props - The props of the details item.
  */
 export const DetailsItem: React.FC<DetailsItemProps> = ({
-  title,
+  canEdit,
+  content,
+  crumbs,
   helpContent,
-  showHelpIconNextToTitle,
   moreInfoLabel,
   moreInfoLink,
-  crumbs,
-  content,
   onEdit,
-  canEdit,
+  showHelpIconNextToTitle,
+  title,
 }) => {
   const contents = ensureArray(content);
   const onEdits = ensureArray(onEdit);
@@ -77,7 +77,7 @@ export const DisplayTitle: React.FC<{
   moreInfoLabel?: string;
   moreInfoLink?: string;
   crumbs?: string[];
-}> = ({ title, helpContent, showHelpIconNextToTitle, moreInfoLabel, moreInfoLink, crumbs }) =>
+}> = ({ crumbs, helpContent, moreInfoLabel, moreInfoLink, showHelpIconNextToTitle, title }) =>
   helpContent ? (
     <DescriptionTitleWithHelp
       title={title}
@@ -104,12 +104,12 @@ export const DescriptionTitleWithHelp: React.FC<{
   moreInfoLink?: string;
   crumbs?: string[];
 }> = ({
-  title,
-  helpContent,
-  showHelpIconNextToTitle = false,
   crumbs,
+  helpContent,
   moreInfoLabel = 'More info:',
   moreInfoLink,
+  showHelpIconNextToTitle = false,
+  title,
 }) => {
   const onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void = (event) => {
     event.preventDefault();
@@ -180,7 +180,7 @@ export const ContentField: React.FC<{
   content: ReactNode;
   onEdit: () => void;
   canEdit?: boolean;
-}> = ({ content, onEdit, canEdit = true }) =>
+}> = ({ canEdit = true, content, onEdit }) =>
   canEdit && onEdit ? (
     <DescriptionListDescription>
       <Flex alignItems={{ default: 'alignItemsCenter' }}>

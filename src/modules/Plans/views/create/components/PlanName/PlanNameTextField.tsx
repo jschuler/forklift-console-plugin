@@ -16,11 +16,11 @@ interface PlanNameTextFieldProps {
 }
 
 export const PlanNameTextField: React.FC<PlanNameTextFieldProps> = ({
-  value,
-  validated,
   isDisabled,
   isRequired,
   onChange,
+  validated,
+  value,
 }) => {
   const { t } = useForkliftTranslation();
   const [isUpdated, setIsUpdated] = React.useState(false);
@@ -31,8 +31,8 @@ export const PlanNameTextField: React.FC<PlanNameTextFieldProps> = ({
       isRequired={isRequired}
       fieldId="planName"
       {...(isUpdated && {
-        validated: validated,
         helperTextInvalid: getInvalidHelperText(validated, value),
+        validated: validated,
       })}
     >
       <TextInput

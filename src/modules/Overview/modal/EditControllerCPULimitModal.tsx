@@ -10,10 +10,10 @@ import SettingsSelectInput from './SettingsSelectInput';
 
 // Define the options
 const options = [
-  { key: '200m', name: '200m', description: 'Low CPU limit' },
-  { key: '500m', name: '500m', description: 'Moderate CPU limit' },
-  { key: '2000m', name: '2000m', description: 'High CPU limit' },
-  { key: '8000m', name: '8000m', description: 'Very high CPU limit' },
+  { description: 'Low CPU limit', key: '200m', name: '200m' },
+  { description: 'Moderate CPU limit', key: '500m', name: '500m' },
+  { description: 'High CPU limit', key: '2000m', name: '2000m' },
+  { description: 'Very high CPU limit', key: '8000m', name: '8000m' },
 ];
 
 /**

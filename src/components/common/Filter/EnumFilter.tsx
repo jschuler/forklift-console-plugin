@@ -21,10 +21,10 @@ import { FilterTypeProps } from './types';
  * @returns { uniqueEnumLabels, onUniqueFilterUpdate, selectedUniqueEnumLabels };
  */
 export const useUnique = ({
-  supportedEnumValues,
   onSelectedEnumIdsChange,
-  selectedEnumIds,
   resolvedLanguage = 'en',
+  selectedEnumIds,
+  supportedEnumValues,
 }: {
   supportedEnumValues: {
     id: string;
@@ -41,9 +41,9 @@ export const useUnique = ({
   const translatedEnums = useMemo(
     () =>
       supportedEnumValues.map((it) => ({
+        id: it.id,
         // fallback to ID
         label: it.label ?? it.id,
-        id: it.id,
       })),
 
     [supportedEnumValues],
@@ -52,7 +52,7 @@ export const useUnique = ({
   // group filters with the same label
   const labelToIds = useMemo(
     () =>
-      translatedEnums.reduce((acc, { label, id }) => {
+      translatedEnums.reduce((acc, { id, label }) => {
         acc[label] = [...(acc?.[label] ?? []), id];
         return acc;
       }, {}),
@@ -62,7 +62,7 @@ export const useUnique = ({
   // for easy reverse lookup
   const idToLabel = useMemo(
     () =>
-      translatedEnums.reduce((acc, { label, id }) => {
+      translatedEnums.reduce((acc, { id, label }) => {
         acc[id] = label;
         return acc;
       }, {}),
@@ -89,7 +89,7 @@ export const useUnique = ({
     [selectedEnumIds, idToLabel],
   );
 
-  return { uniqueEnumLabels, onUniqueFilterUpdate, selectedUniqueEnumLabels };
+  return { onUniqueFilterUpdate, selectedUniqueEnumLabels, uniqueEnumLabels };
 };
 
 /**
@@ -110,21 +110,21 @@ export const useUnique = ({
  * <font color="green">View component source on GitHub</font>](https://github.com/kubev2v/forklift-console-plugin/blob/main/packages/common/src/components/Filter/EnumFilter.tsx)
  */
 export const EnumFilter = ({
-  selectedFilters: selectedEnumIds = [],
+  filterId,
   onFilterUpdate: onSelectedEnumIdsChange,
+  placeholderLabel,
+  resolvedLanguage,
+  selectedFilters: selectedEnumIds = [],
+  showFilter = true,
   supportedValues: supportedEnumValues = [],
   title,
-  placeholderLabel,
-  filterId,
-  showFilter = true,
-  resolvedLanguage,
 }: FilterTypeProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { uniqueEnumLabels, onUniqueFilterUpdate, selectedUniqueEnumLabels } = useUnique({
-    supportedEnumValues,
+  const { onUniqueFilterUpdate, selectedUniqueEnumLabels, uniqueEnumLabels } = useUnique({
     onSelectedEnumIdsChange,
-    selectedEnumIds,
     resolvedLanguage,
+    selectedEnumIds,
+    supportedEnumValues,
   });
 
   const deleteFilter = (label: string | ToolbarChip): void =>

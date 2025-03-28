@@ -27,18 +27,18 @@ interface RenderTdProps {
 }
 
 const cellRenderers: Record<string, React.FC<VMCellProps>> = {
-  name: VMNameCellRenderer,
-  concerns: VMConcernsCellRenderer,
-  host: ({ data }) => <TableCell>{(data?.vm as OVirtVM)?.host}</TableCell>,
   cluster: ({ data }) => <TableCell>{(data?.vm as OVirtVM)?.cluster}</TableCell>,
+  concerns: VMConcernsCellRenderer,
+  description: ({ data }) => <TableCell>{(data?.vm as OVirtVM)?.description}</TableCell>,
+  host: ({ data }) => <TableCell>{(data?.vm as OVirtVM)?.host}</TableCell>,
+  name: VMNameCellRenderer,
   path: ({ data }) => <TableCell>{(data?.vm as OVirtVM)?.path}</TableCell>,
   status: PowerStateCellRenderer,
-  description: ({ data }) => <TableCell>{(data?.vm as OVirtVM)?.description}</TableCell>,
 };
 
 export const OVirtVirtualMachinesCells: React.FC<RowProps<VmData>> = ({
-  resourceFields,
   resourceData,
+  resourceFields,
 }) => {
   return (
     <>

@@ -16,10 +16,10 @@ export const ControllerCard: FC<ControllerCardProps> = ({ obj }) => {
   const { t } = useForkliftTranslation();
 
   const [pods, loaded, loadError] = useK8sWatchResource<IoK8sApiCoreV1Pod[]>({
-    kind: 'Pod',
-    namespaced: true,
     isList: true,
+    kind: 'Pod',
     namespace: obj?.metadata?.namespace,
+    namespaced: true,
     selector: { matchLabels: { app: 'forklift' } },
   });
 

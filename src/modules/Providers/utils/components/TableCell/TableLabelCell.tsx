@@ -12,8 +12,8 @@ import { TableCell, TableCellProps } from './TableCell';
  */
 export const TableLabelCell: React.FC<TableLabelCellProps> = ({
   children,
-  isWrap = false,
   hasLabel = false,
+  isWrap = false,
   label,
   labelColor = 'grey',
 }) => {

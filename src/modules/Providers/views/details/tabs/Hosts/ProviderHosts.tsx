@@ -39,14 +39,14 @@ export const ProviderHostsWrapper: React.FC<{ name: string; namespace: string }>
 }) => {
   const [provider, providerLoaded, providerLoadError] = useK8sWatchResource<V1beta1Provider>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   const permissions = useGetDeleteAndEditAccessReview({ model: ProviderModel, namespace });
 
-  const data = { provider, permissions };
+  const data = { permissions, provider };
 
   return <ProviderHosts obj={data} loaded={providerLoaded} loadError={providerLoadError} />;
 };

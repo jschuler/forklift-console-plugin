@@ -7,11 +7,11 @@ export function ovaProviderValidator(provider: V1beta1Provider): ValidationMsg {
   const url = provider?.spec?.url || '';
 
   if (!validateK8sName(name)) {
-    return { type: 'error', msg: 'invalid kubernetes resource name' };
+    return { msg: 'invalid kubernetes resource name', type: 'error' };
   }
 
   if (!validateNFSMount(url)) {
-    return { type: 'error', msg: 'invalid OVA mount endpoint' };
+    return { msg: 'invalid OVA mount endpoint', type: 'error' };
   }
 
   return { type: 'default' };

@@ -14,9 +14,9 @@ export const NameCellRenderer: React.FC<HostCellProps> = ({ data }) => {
   const hostURL =
     host &&
     getResourceUrl({
-      reference: HostModelRef,
       name: host?.metadata?.name,
       namespace: host?.metadata?.namespace,
+      reference: HostModelRef,
     });
 
   return (

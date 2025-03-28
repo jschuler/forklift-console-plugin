@@ -32,9 +32,9 @@ interface ProviderDetailsProps {
   loadError?: unknown;
 }
 
-export const ProviderDetails: React.FC<ProviderDetailsProps> = ({ obj, loaded, loadError }) => {
+export const ProviderDetails: React.FC<ProviderDetailsProps> = ({ loaded, loadError, obj }) => {
   const { t } = useForkliftTranslation();
-  const { provider, inventory } = obj;
+  const { inventory, provider } = obj;
 
   if (!loaded || loadError || !provider?.metadata?.name) {
     return (
@@ -45,9 +45,9 @@ export const ProviderDetails: React.FC<ProviderDetailsProps> = ({ obj, loaded, l
   }
 
   const providerURL = getResourceUrl({
-    reference: ProviderModelRef,
     name: provider?.metadata?.name,
     namespace: provider?.metadata?.namespace,
+    reference: ProviderModelRef,
   });
 
   return (
@@ -100,15 +100,15 @@ export const ProviderDetailsWrapper: React.FC<{ name: string; namespace: string 
 }) => {
   const [provider, providerLoaded, providerLoadError] = useK8sWatchResource<V1beta1Provider>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   const { inventory } = useProviderInventory<ProviderInventory>({ provider });
   const permissions = useGetDeleteAndEditAccessReview({ model: ProviderModel, namespace });
 
-  const data = { provider, inventory, permissions };
+  const data = { inventory, permissions, provider };
 
   return <ProviderDetails obj={data} loaded={providerLoaded} loadError={providerLoadError} />;
 };

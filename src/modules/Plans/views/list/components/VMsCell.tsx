@@ -15,9 +15,9 @@ export const VMsCell: React.FC<CellProps> = ({ data }) => {
   const specVms = plan?.spec?.vms;
 
   const planURL = getResourceUrl({
-    reference: PlanModelRef,
     name: plan?.metadata?.name,
     namespace: plan?.metadata?.namespace,
+    reference: PlanModelRef,
   });
 
   return (

@@ -31,7 +31,7 @@ interface ArchiveModalProps {
  * @param {ArchiveModalProps} props - Props for DeleteModal
  * @returns {React.Element} The DeleteModal component
  */
-export const ArchiveModal: React.FC<ArchiveModalProps> = ({ title, resource, redirectTo }) => {
+export const ArchiveModal: React.FC<ArchiveModalProps> = ({ redirectTo, resource, title }) => {
   const { t } = useForkliftTranslation();
   const { toggleModal } = useModal();
   const [isLoading, toggleIsLoading] = useToggle();
@@ -47,10 +47,10 @@ export const ArchiveModal: React.FC<ArchiveModalProps> = ({ title, resource, red
       const op = resource?.spec?.archived ? 'replace' : 'add';
 
       await k8sPatch({
-        model: PlanModel,
-        resource,
-        path: '',
         data: [{ op, path: '/spec/archived', value: true }],
+        model: PlanModel,
+        path: '',
+        resource,
       });
 
       if (redirectTo) {

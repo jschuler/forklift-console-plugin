@@ -22,8 +22,8 @@ export const OwnerReferencesItem: React.FC<OwnerReferencesProps> = ({ resource }
       key={o.uid}
       groupVersionKind={{
         group: o.apiVersion.split('/')[0],
-        version: o.apiVersion.split('/')[1],
         kind: o.kind,
+        version: o.apiVersion.split('/')[1],
       }}
       name={o.name}
       namespace={resource.metadata.namespace}

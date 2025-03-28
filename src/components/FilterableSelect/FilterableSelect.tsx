@@ -50,16 +50,16 @@ export interface FilterableSelectProps {
  * @returns {JSX.Element} The rendered FilterableSelect component.
  */
 export const FilterableSelect: React.FunctionComponent<FilterableSelectProps> = ({
-  selectOptions: initialSelectOptions,
-  value,
-  onSelect: onSelect,
   canCreate,
-  placeholder = 'Select item',
-  noResultFoundLabel = 'No results found',
   createNewOptionLabel = 'Create new option:',
   isDisabled = false,
   isPlain = false,
   isScrollable = false,
+  noResultFoundLabel = 'No results found',
+  onSelect: onSelect,
+  placeholder = 'Select item',
+  selectOptions: initialSelectOptions,
+  value,
 }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedItem, setSelectedItem] = React.useState<string>(value);
@@ -107,7 +107,7 @@ export const FilterableSelect: React.FunctionComponent<FilterableSelectProps> = 
 
       // When no options are found after filtering, display 'No results found'
       if (!newSelectOptions.length) {
-        newSelectOptions = [{ isDisabled: true, children: noResultFoundLabel }];
+        newSelectOptions = [{ children: noResultFoundLabel, isDisabled: true }];
       }
     }
 

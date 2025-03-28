@@ -34,16 +34,16 @@ export type SettingsSectionProps = {
 export const SettingsSectionInternal: React.FC<SettingsSectionProps> = ({ obj, permissions }) => {
   const [sourceProvider] = useK8sWatchResource<V1beta1Provider>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     name: obj?.spec?.provider?.source?.name,
     namespace: obj?.spec?.provider?.source?.namespace,
+    namespaced: true,
   });
 
   const [destinationProvider] = useK8sWatchResource<V1beta1Provider>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     name: obj?.spec?.provider?.destination?.name,
     namespace: obj?.spec?.provider?.destination?.namespace,
+    namespaced: true,
   });
 
   const isVsphere = sourceProvider?.spec?.type === 'vsphere';

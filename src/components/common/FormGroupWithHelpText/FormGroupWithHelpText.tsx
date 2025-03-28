@@ -46,15 +46,15 @@ const validatedToVariant = (validated) =>
  * <font color="green">View component source on GitHub</font>](https://github.com/kubev2v/forklift-console-plugin/blob/main/packages/common/src/components/FormGroupWithHelpText/FormGroupWithHelpText.tsx)
  */
 export const FormGroupWithHelpText: React.FC<FormGroupWithHelpTextProps> = ({
-  label,
-  isRequired,
-  fieldId,
-  labelIcon,
-  role,
   children,
-  validated,
+  fieldId,
   helperText,
   helperTextInvalid,
+  isRequired,
+  label,
+  labelIcon,
+  role,
+  validated,
 }) => {
   const helperTextMsg = validated === 'error' && helperTextInvalid ? helperTextInvalid : helperText;
   const variant = validatedToVariant(validated);

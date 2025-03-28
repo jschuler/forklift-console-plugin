@@ -24,40 +24,40 @@ interface K8sModelAccessReviewParams {
 export const useGetDeleteAndEditAccessReview: UseAccessReviewFn = ({ model, name, namespace }) => {
   const [canCreate, loadingCreate] = useAccessReview({
     group: model.apiGroup,
+    namespace,
     resource: model.plural,
     verb: 'create',
-    namespace,
   });
 
   const [canPatch, loadingPatch] = useAccessReview({
     group: model.apiGroup,
-    resource: model.plural,
-    verb: 'patch',
     name,
     namespace,
+    resource: model.plural,
+    verb: 'patch',
   });
 
   const [canDelete, loadingDelete] = useAccessReview({
     group: model.apiGroup,
-    resource: model.plural,
-    verb: 'delete',
     name,
     namespace,
+    resource: model.plural,
+    verb: 'delete',
   });
 
   const [canGet, loadingGet] = useAccessReview({
     group: model.apiGroup,
-    resource: model.plural,
-    verb: 'get',
     name,
     namespace,
+    resource: model.plural,
+    verb: 'get',
   });
 
   return {
     canCreate,
-    canPatch,
     canDelete,
     canGet,
+    canPatch,
     loading: loadingCreate || loadingPatch || loadingDelete || loadingGet,
   };
 };

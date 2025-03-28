@@ -9,9 +9,9 @@ export interface PlanCreatePageState {
 
 export const planCreatePageInitialState: PlanCreatePageState = {
   nameFilter: '',
-  typeFilters: [],
   selectedProviderUID: '',
   selectedVMs: [],
+  typeFilters: [],
 };
 
 export const SET_NAME_FILTER = 'SET_NAME_FILTER';
@@ -54,7 +54,7 @@ export function planCreatePageReducer(
     case SET_NAME_FILTER:
       return { ...state, nameFilter: action.payload, selectedProviderUID: '', selectedVMs: [] };
     case UPDATE_TYPE_FILTERS:
-      return { ...state, typeFilters: action.payload, selectedProviderUID: '', selectedVMs: [] };
+      return { ...state, selectedProviderUID: '', selectedVMs: [], typeFilters: action.payload };
     case SELECT_PROVIDER:
       return { ...state, selectedProviderUID: action.payload, selectedVMs: [] };
     case UPDATE_SELECTED_VMS:

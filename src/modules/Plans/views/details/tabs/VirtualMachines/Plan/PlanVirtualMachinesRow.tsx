@@ -10,8 +10,8 @@ import { VMData } from '../types';
 import ActionsCell from './ActionsCell';
 
 export const PlanVirtualMachinesRow: React.FC<RowProps<VMData>> = ({
-  resourceFields,
   resourceData,
+  resourceFields,
 }) => {
   return (
     <>
@@ -34,9 +34,9 @@ const renderTd = ({ resourceData, resourceFieldId, resourceFields }: RenderTdPro
 };
 
 const cellRenderers: Record<string, React.FC<PlanVMsCellProps>> = {
-  name: NameCellRenderer,
-  conditions: ConditionsCellRenderer,
   actions: ActionsCell,
+  conditions: ConditionsCellRenderer,
+  name: NameCellRenderer,
 };
 
 interface RenderTdProps {

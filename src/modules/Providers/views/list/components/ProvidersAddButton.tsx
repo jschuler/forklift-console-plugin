@@ -13,17 +13,17 @@ type ProvidersAddButtonProps = {
 };
 
 export const ProvidersAddButton: FC<ProvidersAddButtonProps> = ({
-  namespace,
-  dataTestId,
   buttonProps,
+  dataTestId,
+  namespace,
 }) => {
   const { t } = useForkliftTranslation();
   const history = useHistory();
 
   const providersListURL = getResourceUrl({
-    reference: ProviderModelRef,
     namespace: namespace,
     namespaced: namespace !== undefined,
+    reference: ProviderModelRef,
   });
 
   const onClick = () => {

@@ -11,14 +11,12 @@ import { Modify, PlanModel, V1beta1Plan, V1beta1Provider } from '@kubev2v/types'
 import { K8sModel, k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
 import { Switch } from '@patternfly/react-core';
 
-const onConfirm: OnConfirmHookType = async ({ resource, model, newValue }) => {
+const onConfirm: OnConfirmHookType = async ({ model, newValue, resource }) => {
   const plan = resource as V1beta1Plan;
   const resourceValue = plan?.spec?.preserveStaticIPs;
   const op = resourceValue ? 'replace' : 'add';
 
   const obj = await k8sPatch({
-    model: model,
-    resource: resource,
     data: [
       {
         op,
@@ -26,6 +24,8 @@ const onConfirm: OnConfirmHookType = async ({ resource, model, newValue }) => {
         value: newValue === 'true' || undefined,
       },
     ],
+    model: model,
+    resource: resource,
   });
 
   return obj;
@@ -39,7 +39,7 @@ interface SwitchRendererProps {
 const PreserveStaticIPsInputFactory: () => ModalInputComponentType = () => {
   const { t } = useForkliftTranslation();
 
-  const SwitchRenderer: React.FC<SwitchRendererProps> = ({ value, onChange }) => {
+  const SwitchRenderer: React.FC<SwitchRendererProps> = ({ onChange, value }) => {
     const onChangeInternal: (checked: boolean, event: React.FormEvent<HTMLInputElement>) => void = (
       checked,
     ) => {

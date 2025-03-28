@@ -9,7 +9,7 @@ const PlanWarningCondition: React.FC<{
   type: string;
   message: string;
   suggestion: ReactNode;
-}> = ({ type, message, suggestion }) => {
+}> = ({ message, suggestion, type }) => {
   const { t } = useTranslation();
   return (
     <Alert

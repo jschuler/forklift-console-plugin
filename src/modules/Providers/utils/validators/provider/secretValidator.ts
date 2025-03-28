@@ -37,7 +37,7 @@ export function secretValidator(
       validationError = { type: 'default' };
       break;
     default:
-      validationError = { type: 'error', msg: 'bad provider type' };
+      validationError = { msg: 'bad provider type', type: 'error' };
   }
 
   return validationError;

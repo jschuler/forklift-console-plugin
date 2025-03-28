@@ -54,10 +54,10 @@ export function providersSectionReducer(
       return { ...state, updating: action.payload };
     case 'INIT':
       return {
-        networkMap: deepCopy(action.payload),
-        targetProviderMode: 'view',
-        sourceProviderMode: 'view',
         hasChanges: false,
+        networkMap: deepCopy(action.payload),
+        sourceProviderMode: 'view',
+        targetProviderMode: 'view',
         updating: false,
       };
     default:

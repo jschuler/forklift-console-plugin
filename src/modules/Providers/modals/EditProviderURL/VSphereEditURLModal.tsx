@@ -10,10 +10,10 @@ import { EditModal, ValidationHookType } from '../EditModal';
 import { EditProviderURLModalProps } from './EditProviderURLModal';
 
 export const VSphereEditURLModal: React.FC<EditProviderURLModalProps> = ({
-  title,
+  insecureSkipVerify,
   label,
   resource: provider,
-  insecureSkipVerify,
+  title,
   ...props
 }) => {
   const { t } = useForkliftTranslation();

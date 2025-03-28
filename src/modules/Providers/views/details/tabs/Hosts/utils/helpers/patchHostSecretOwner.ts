@@ -13,8 +13,6 @@ export async function patchHostSecretOwner(
   ownerRef: { name: string; uid: string },
 ) {
   const patchedSecret = await k8sPatch({
-    model: SecretModel,
-    resource: secret,
     data: [
       {
         op: 'replace',
@@ -29,6 +27,8 @@ export async function patchHostSecretOwner(
         ],
       },
     ],
+    model: SecretModel,
+    resource: secret,
   });
 
   return patchedSecret;

@@ -7,14 +7,14 @@ import { ResourceLink } from '@openshift-console/dynamic-plugin-sdk';
 import { Form, FormSelect, FormSelectOption } from '@patternfly/react-core';
 
 export const MapsEdit: React.FC<MapsEditProps> = ({
+  helpContent,
+  invalidLabel,
+  label,
+  mode,
+  onChange,
+  placeHolderLabel,
   providers,
   selectedProviderName,
-  onChange,
-  label,
-  placeHolderLabel,
-  invalidLabel,
-  helpContent,
-  mode,
 }) => {
   const [isEdit, setEdit] = useState(mode === 'edit');
 
@@ -26,7 +26,7 @@ export const MapsEdit: React.FC<MapsEditProps> = ({
     />
   );
 
-  const targetProvider = fineProvider({ providers, name: selectedProviderName });
+  const targetProvider = fineProvider({ name: selectedProviderName, providers });
 
   const validated = targetProvider !== undefined ? 'success' : 'error';
   const hasProviders = providers?.length > 0;
@@ -99,5 +99,5 @@ type FindProviderFunction = (args: {
   name: string;
 }) => V1beta1Provider;
 
-const fineProvider: FindProviderFunction = ({ providers, name }) =>
+const fineProvider: FindProviderFunction = ({ name, providers }) =>
   providers.find((p) => p.metadata.name === name);

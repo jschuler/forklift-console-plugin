@@ -35,9 +35,9 @@ export const ProviderVirtualMachines: React.FC<{ name: string; namespace: string
 
   const [provider, providerLoaded, providerLoadError] = useK8sWatchResource<V1beta1Provider>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   const [vmData, vmDataLoading] = useInventoryVms({ provider }, providerLoaded, providerLoadError);

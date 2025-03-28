@@ -15,8 +15,8 @@ import {
 } from './components';
 
 export const VSphereHostsCells: React.FC<RowProps<InventoryHostPair>> = ({
-  resourceFields,
   resourceData,
+  resourceFields,
 }) => {
   return (
     <>
@@ -51,11 +51,11 @@ const renderTd = ({ resourceData, resourceFieldId, resourceFields }: RenderTdPro
 };
 
 const cellRenderers: Record<string, React.FC<HostCellProps>> = {
-  name: NameCellRenderer,
   id: IDCellRenderer,
-  network: NetworkCellRenderer,
   linkSpeed: LinkSpeedCellRenderer,
   mtu: MTUCellRenderer,
+  name: NameCellRenderer,
+  network: NetworkCellRenderer,
 };
 
 interface RenderTdProps {

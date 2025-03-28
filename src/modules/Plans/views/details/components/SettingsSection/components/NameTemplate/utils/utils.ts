@@ -9,7 +9,7 @@ import { NameTemplateRadioOptions } from './constants';
 
 export const onConfirmNameTemplate: (selected: NameTemplateRadioOptions) => OnConfirmHookType =
   (selected) =>
-  async ({ resource, model, newValue, jsonPath }) => {
+  async ({ jsonPath, model, newValue, resource }) => {
     const plan = resource as EnhancedPlan;
 
     const updatedPlanDraft = produce(plan, (draft) => {
@@ -21,8 +21,8 @@ export const onConfirmNameTemplate: (selected: NameTemplateRadioOptions) => OnCo
     });
 
     const updatedPlan = await k8sUpdate({
-      model: model,
       data: updatedPlanDraft,
+      model: model,
     });
 
     return updatedPlan;

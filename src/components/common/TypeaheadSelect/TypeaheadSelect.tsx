@@ -75,23 +75,23 @@ const defaultFilterFunction = (filterValue: string, options: TypeaheadSelectOpti
   options.filter((o) => String(o.content).toLowerCase().includes(filterValue.toLowerCase()));
 
 export const TypeaheadSelect: React.FC<TypeaheadSelectProps> = ({
-  innerRef,
-  selectOptions,
-  onSelect,
-  onToggle,
-  onInputChange,
-  filterFunction = defaultFilterFunction,
-  onClearSelection,
   allowClear,
-  placeholder = 'Select an option',
-  noOptionsAvailableMessage = 'No options are available',
-  noOptionsFoundMessage = defaultNoOptionsFoundMessage,
+  createOptionMessage = defaultCreateOptionMessage,
+  filterFunction = defaultFilterFunction,
+  innerRef,
   isCreatable = false,
   isCreateOptionOnTop = false,
-  createOptionMessage = defaultCreateOptionMessage,
   isDisabled,
-  toggleWidth,
+  noOptionsAvailableMessage = 'No options are available',
+  noOptionsFoundMessage = defaultNoOptionsFoundMessage,
+  onClearSelection,
+  onInputChange,
+  onSelect,
+  onToggle,
+  placeholder = 'Select an option',
+  selectOptions,
   toggleProps,
+  toggleWidth,
   ...props
 }: TypeaheadSelectProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -136,11 +136,11 @@ export const TypeaheadSelect: React.FC<TypeaheadSelectProps> = ({
       if (!newSelectOptions.length) {
         newSelectOptions = [
           {
-            isAriaDisabled: true,
             content:
               typeof noOptionsFoundMessage === 'string'
                 ? noOptionsFoundMessage
                 : noOptionsFoundMessage(filterValue),
+            isAriaDisabled: true,
             value: NO_RESULTS,
           },
         ];
@@ -151,8 +151,8 @@ export const TypeaheadSelect: React.FC<TypeaheadSelectProps> = ({
     if (!newSelectOptions.length) {
       newSelectOptions = [
         {
-          isAriaDisabled: true,
           content: noOptionsAvailableMessage,
+          isAriaDisabled: true,
           value: NO_RESULTS,
         },
       ];
@@ -239,7 +239,7 @@ export const TypeaheadSelect: React.FC<TypeaheadSelectProps> = ({
       if (optionToSelect) {
         selectOption(_event, optionToSelect);
       } else if (isCreatable) {
-        selectOption(_event, { value, content: value });
+        selectOption(_event, { content: value, value });
       }
     }
   };

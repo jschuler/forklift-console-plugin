@@ -9,14 +9,14 @@ const labelToFilterItem = (label: string): EnumValue =>
  */
 export const VsphereHostFilter = (t: (string) => string) => {
   return {
-    type: 'host',
-    primary: true,
-    placeholderLabel: t('Host'),
     dynamicFilter: (items: { hostName: string }[]) => ({
       values: [
         ...Array.from(new Set(items.map((item) => item.hostName))) // at this point the list contains unique strings that can be used as ID
           .map(labelToFilterItem),
       ],
     }),
+    placeholderLabel: t('Host'),
+    primary: true,
+    type: 'host',
   };
 };

@@ -15,9 +15,9 @@ export const PodsTable: React.FC<PodsTableProps> = ({ pods, showOwner }) => {
 
   const getPodLogsLink = (pod: IoK8sApiCoreV1Pod) =>
     getResourceUrl({
-      reference: 'pods',
-      namespace: pod.metadata.namespace,
       name: pod.metadata.name,
+      namespace: pod.metadata.namespace,
+      reference: 'pods',
     });
 
   if (!pods) {

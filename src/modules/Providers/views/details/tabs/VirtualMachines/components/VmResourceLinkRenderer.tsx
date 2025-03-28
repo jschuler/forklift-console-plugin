@@ -6,9 +6,9 @@ import { K8sGroupVersionKind, ResourceLink } from '@openshift-console/dynamic-pl
 import { VMCellProps } from './VMCellProps';
 
 export const withResourceLink = ({
+  toGVK,
   toName,
   toNamespace,
-  toGVK,
 }: {
   toName: (props: VMCellProps) => string;
   toNamespace: (props: VMCellProps) => string;

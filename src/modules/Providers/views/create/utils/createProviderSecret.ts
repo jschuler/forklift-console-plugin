@@ -39,6 +39,7 @@ export async function createProviderSecret(
 
   const newSecret: IoK8sApiCoreV1Secret = {
     ...secret,
+    data: { ...cleanedData, url: encodedURL },
     metadata: {
       ...secret?.metadata,
       generateName: generateName,
@@ -48,12 +49,11 @@ export async function createProviderSecret(
         createdForResourceType: 'providers',
       },
     },
-    data: { ...cleanedData, url: encodedURL },
   };
 
   const obj = await k8sCreate({
-    model: SecretModel,
     data: newSecret,
+    model: SecretModel,
   });
 
   return obj;

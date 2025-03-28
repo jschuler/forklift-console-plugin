@@ -13,7 +13,7 @@ type NameTemplateModalBodyProps = {
   allowedVariables: string[];
 };
 
-const NameTemplateModalBody: FC<NameTemplateModalBodyProps> = ({ bodyText, allowedVariables }) => {
+const NameTemplateModalBody: FC<NameTemplateModalBodyProps> = ({ allowedVariables, bodyText }) => {
   const { t } = useForkliftTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   return (

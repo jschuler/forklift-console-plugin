@@ -14,7 +14,7 @@ interface ProviderYAMLPageProps {
   loadError?: unknown;
 }
 
-export const ProviderYAMLPage: React.FC<ProviderYAMLPageProps> = ({ obj, loaded, loadError }) => {
+export const ProviderYAMLPage: React.FC<ProviderYAMLPageProps> = ({ loaded, loadError, obj }) => {
   const { t } = useForkliftTranslation();
   const { provider } = obj;
 
@@ -47,9 +47,9 @@ export const ProviderYAMLPageWrapper: React.FC<{ name: string; namespace: string
 }) => {
   const [provider, providerLoaded, providerLoadError] = useK8sWatchResource<V1beta1Provider>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   const data = { provider };

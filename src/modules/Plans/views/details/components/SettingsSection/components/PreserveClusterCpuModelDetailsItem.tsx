@@ -10,10 +10,10 @@ import { PlanDetailsItemProps } from '../../DetailsSection';
 import { EditPlanPreserveClusterCpuModel } from '../modals';
 
 export const PreserveClusterCpuModelDetailsItem: React.FC<PlanDetailsItemProps> = ({
-  resource,
   canPatch,
-  helpContent,
   destinationProvider,
+  helpContent,
+  resource,
 }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();

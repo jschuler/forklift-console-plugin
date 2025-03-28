@@ -9,16 +9,16 @@ import { extensions as storageMapExtensions } from './src/modules/StorageMaps/dy
 
 const extensions: EncodedExtension[] = [
   {
-    type: 'console.navigation/section',
     properties: {
-      id: 'migration',
-      name: '%plugin__kubevirt-plugin~Migration%',
-      insertAfter: ['virtualization', 'workloads'],
       dataAttributes: {
         'data-quickstart-id': 'qs-nav-sec-migration',
         'data-testid': 'migration-nav-item',
       },
+      id: 'migration',
+      insertAfter: ['virtualization', 'workloads'],
+      name: '%plugin__kubevirt-plugin~Migration%',
     },
+    type: 'console.navigation/section',
   } as EncodedExtension<NavSection>,
 
   ...overviewExtensions,

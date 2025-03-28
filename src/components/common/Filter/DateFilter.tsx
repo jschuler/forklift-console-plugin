@@ -16,12 +16,12 @@ import { FilterTypeProps } from './types';
  * <font color="green">View component source on GitHub</font>](https://github.com/kubev2v/forklift-console-plugin/blob/main/packages/common/src/components/Filter/DateFilter.tsx)
  */
 export const DateFilter = ({
-  selectedFilters = [],
-  onFilterUpdate,
-  title,
   filterId,
+  onFilterUpdate,
   placeholderLabel,
+  selectedFilters = [],
   showFilter = true,
+  title,
 }: FilterTypeProps) => {
   const validFilters = selectedFilters?.map(changeFormatToISODate)?.filter(Boolean) ?? [];
 

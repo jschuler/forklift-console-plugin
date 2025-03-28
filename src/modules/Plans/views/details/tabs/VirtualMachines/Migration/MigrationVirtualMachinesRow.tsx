@@ -15,8 +15,8 @@ import { NameCellRenderer } from '../components/NameCellRenderer';
 import { VMData } from '../types';
 
 export const MigrationVirtualMachinesRow: React.FC<RowProps<VMData>> = ({
-  resourceFields,
   resourceData,
+  resourceFields,
 }) => {
   return (
     <>
@@ -39,36 +39,12 @@ const renderTd = ({ resourceData, resourceFieldId, resourceFields }: RenderTdPro
 };
 
 const cellRenderers: Record<string, React.FC<PlanVMsCellProps>> = {
-  name: NameCellRenderer,
-  migrationStarted: (props: PlanVMsCellProps) => {
-    const value = getResourceFieldValue(props.data, props.fieldId, props.fields);
-    return <ConsoleTimestamp timestamp={value} />;
-  },
-  migrationCompleted: (props: PlanVMsCellProps) => {
-    const value = getResourceFieldValue(props.data, props.fieldId, props.fields);
-    return <ConsoleTimestamp timestamp={value} />;
-  },
-  transfer: (props: PlanVMsCellProps) => {
-    const diskTransfer = props.data.statusVM?.pipeline.find((p) =>
-      p?.name?.startsWith('DiskTransfer'),
-    );
-    const annotations: { unit: string } = diskTransfer?.annotations as undefined;
-    const { completed, total } = getTransferProgress(diskTransfer);
-
-    return annotations?.unit ? (
-      <>
-        {completed} / {total} {annotations?.unit || '-'}
-      </>
-    ) : (
-      <>-</>
-    );
-  },
   diskCounter: (props: PlanVMsCellProps) => {
     const diskTransfer = props.data.statusVM?.pipeline.find((p) =>
       p?.name?.startsWith('DiskTransfer'),
     );
 
-    const { totalTasks, completedTasks } = countTasks(diskTransfer);
+    const { completedTasks, totalTasks } = countTasks(diskTransfer);
 
     return totalTasks ? (
       <>
@@ -78,6 +54,15 @@ const cellRenderers: Record<string, React.FC<PlanVMsCellProps>> = {
       <>-</>
     );
   },
+  migrationCompleted: (props: PlanVMsCellProps) => {
+    const value = getResourceFieldValue(props.data, props.fieldId, props.fields);
+    return <ConsoleTimestamp timestamp={value} />;
+  },
+  migrationStarted: (props: PlanVMsCellProps) => {
+    const value = getResourceFieldValue(props.data, props.fieldId, props.fields);
+    return <ConsoleTimestamp timestamp={value} />;
+  },
+  name: NameCellRenderer,
   status: (props: PlanVMsCellProps) => {
     const pipeline = props.data.statusVM?.pipeline || [];
     let lastRunningItem: V1beta1PlanStatusMigrationVmsPipeline;
@@ -152,6 +137,21 @@ const cellRenderers: Record<string, React.FC<PlanVMsCellProps>> = {
       </Popover>
     );
   },
+  transfer: (props: PlanVMsCellProps) => {
+    const diskTransfer = props.data.statusVM?.pipeline.find((p) =>
+      p?.name?.startsWith('DiskTransfer'),
+    );
+    const annotations: { unit: string } = diskTransfer?.annotations as undefined;
+    const { completed, total } = getTransferProgress(diskTransfer);
+
+    return annotations?.unit ? (
+      <>
+        {completed} / {total} {annotations?.unit || '-'}
+      </>
+    ) : (
+      <>-</>
+    );
+  },
 };
 
 interface RenderTdProps {
@@ -220,7 +220,7 @@ export const getIcon: GetIconType = (p) => {
 
 const countTasks = (diskTransfer: V1beta1PlanStatusMigrationVmsPipeline) => {
   if (!diskTransfer || !Array.isArray(diskTransfer?.tasks)) {
-    return { totalTasks: 0, completedTasks: 0 };
+    return { completedTasks: 0, totalTasks: 0 };
   }
 
   const totalTasks = diskTransfer.tasks.length;
@@ -230,7 +230,7 @@ const countTasks = (diskTransfer: V1beta1PlanStatusMigrationVmsPipeline) => {
     hasTaskCompleted(task.phase, task.progress, diskTransfer),
   ).length;
 
-  return { totalTasks, completedTasks };
+  return { completedTasks, totalTasks };
 };
 
 const getTransferProgress = (diskTransfer) => {

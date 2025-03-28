@@ -58,12 +58,12 @@ interface UseProviderInventoryResult<T> {
  * @template T Type of the inventory data
  */
 export const useProviderInventory = <T>({
-  provider,
-  subPath = '',
+  disabled = false,
+  fetchTimeout,
   fieldsToAvoidComparing = DEFAULT_FIELDS_TO_AVOID_COMPARING,
   interval = 20000,
-  fetchTimeout,
-  disabled = false,
+  provider,
+  subPath = '',
 }: UseProviderInventoryParams): UseProviderInventoryResult<T> => {
   const [inventory, setInventory] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -148,9 +148,9 @@ export const useProviderInventory = <T>({
    */
   function updateInventoryIfChanged(newInventory: T, fieldsToAvoidComparing: string[]): void {
     const needReRender = hasObjectChangedInGivenFields({
-      oldObject: oldDataRef.current?.inventory,
-      newObject: newInventory,
       fieldsToAvoidComparing: fieldsToAvoidComparing,
+      newObject: newInventory,
+      oldObject: oldDataRef.current?.inventory,
     });
 
     if (needReRender) {
@@ -160,8 +160,8 @@ export const useProviderInventory = <T>({
   }
 
   return disabled
-    ? { inventory: null, loading: false, error: null }
-    : { inventory, loading, error };
+    ? { error: null, inventory: null, loading: false }
+    : { error, inventory, loading };
 };
 
 export default useProviderInventory;

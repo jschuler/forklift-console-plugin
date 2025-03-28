@@ -36,10 +36,10 @@ export interface ProvidersCreateFormProps {
 export const ProvidersCreateForm: React.FC<ProvidersCreateFormProps> = ({
   newProvider,
   newSecret,
-  projectName,
   onNewProviderChange,
   onNewSecretChange,
   onProjectNameChange,
+  projectName,
   providerNames = [],
 }) => {
   const { t } = useForkliftTranslation();
@@ -47,7 +47,7 @@ export const ProvidersCreateForm: React.FC<ProvidersCreateFormProps> = ({
 
   const initialState = {
     validation: {
-      name: { type: 'default', msg: 'Unique Kubernetes resource name identifier.' },
+      name: { msg: 'Unique Kubernetes resource name identifier.', type: 'default' },
     },
   };
 
@@ -65,21 +65,21 @@ export const ProvidersCreateForm: React.FC<ProvidersCreateFormProps> = ({
     let validation: ValidationMsg;
 
     if (trimmedValue === '') {
-      validation = { type: 'error', msg: 'Required, unique Kubernetes resource name identifier.' };
+      validation = { msg: 'Required, unique Kubernetes resource name identifier.', type: 'error' };
     } else if (providerNames.includes(trimmedValue))
       validation = {
-        type: 'error',
         msg: `A provider named ${trimmedValue} already exists in the system`,
+        type: 'error',
       };
     else if (!validateK8sName(trimmedValue)) {
-      validation = { type: 'error', msg: 'Invalid kubernetes resource name' };
+      validation = { msg: 'Invalid kubernetes resource name', type: 'error' };
     } else {
-      validation = { type: 'success', msg: 'Unique Kubernetes resource name identifier.' };
+      validation = { msg: 'Unique Kubernetes resource name identifier.', type: 'success' };
     }
 
     dispatch({
-      type: 'SET_VALIDATION',
       payload: { name: validation },
+      type: 'SET_VALIDATION',
     });
 
     onNewProviderChange({

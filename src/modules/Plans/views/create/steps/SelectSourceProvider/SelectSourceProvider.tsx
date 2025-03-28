@@ -19,13 +19,13 @@ export const SelectSourceProvider: React.FC<{
   dispatch: React.Dispatch<PageAction<CreateVmMigration, unknown>>;
   filterDispatch: React.Dispatch<PlanCreatePageActionTypes>;
 }> = ({
+  dispatch,
+  filterDispatch,
   filterState,
+  projectName,
   providers,
   selectedProvider,
   state,
-  projectName,
-  dispatch,
-  filterDispatch,
 }) => {
   const { t } = useForkliftTranslation();
 
@@ -66,7 +66,7 @@ export const SelectSourceProvider: React.FC<{
             name={selectedProviderName}
             namespace={selectedProviderNamespace}
             onSelect={(selectedVms) =>
-              filterDispatch({ type: 'UPDATE_SELECTED_VMS', payload: selectedVms })
+              filterDispatch({ payload: selectedVms, type: 'UPDATE_SELECTED_VMS' })
             }
             initialSelectedIds={filterState.selectedVMs.map((vm) => vm.vm.id)}
             showActions={false}

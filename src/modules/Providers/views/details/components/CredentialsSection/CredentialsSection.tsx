@@ -62,14 +62,14 @@ export const CredentialsSection_: React.FC<{
   namespace: string;
   type: string;
   subType: SecretSubType;
-}> = ({ name, namespace, type, subType }) => {
+}> = ({ name, namespace, subType, type }) => {
   const { t } = useForkliftTranslation();
 
   const [secret, loaded, loadError] = useK8sWatchResource<IoK8sApiCoreV1Secret>({
-    groupVersionKind: { version: 'v1', kind: 'Secret' },
-    namespaced: true,
-    namespace: namespace,
+    groupVersionKind: { kind: 'Secret', version: 'v1' },
     name: name,
+    namespace: namespace,
+    namespaced: true,
   });
 
   // Checking if provider data matches secret data

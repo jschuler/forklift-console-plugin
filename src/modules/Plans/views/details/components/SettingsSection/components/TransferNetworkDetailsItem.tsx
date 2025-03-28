@@ -10,10 +10,10 @@ import { PlanDetailsItemProps } from '../../DetailsSection';
 import { EditPlanTransferNetwork } from '../modals/EditPlanTransferNetwork';
 
 export const TransferNetworkDetailsItem: React.FC<PlanDetailsItemProps> = ({
-  resource,
   canPatch,
-  helpContent,
   destinationProvider,
+  helpContent,
+  resource,
 }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();

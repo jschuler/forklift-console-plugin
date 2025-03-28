@@ -40,5 +40,5 @@ export function getOperatorPhase(obj: V1beta1ForkliftController): {
     }
   }
 
-  return { phase, message };
+  return { message, phase };
 }

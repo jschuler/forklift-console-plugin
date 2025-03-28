@@ -31,13 +31,13 @@ import { FilterTypeProps } from './types';
  * <font color="green">View component source on GitHub</font>](https://github.com/kubev2v/forklift-console-plugin/blob/main/packages/common/src/components/Filter/DateRangeFilter.tsx)
  */
 export const DateRangeFilter = ({
-  selectedFilters = [],
-  onFilterUpdate,
-  title,
   filterId,
-  placeholderLabel,
-  showFilter = true,
   helperText,
+  onFilterUpdate,
+  placeholderLabel,
+  selectedFilters = [],
+  showFilter = true,
+  title,
 }: FilterTypeProps) => {
   const validFilters = selectedFilters?.filter(isValidInterval) ?? [];
 

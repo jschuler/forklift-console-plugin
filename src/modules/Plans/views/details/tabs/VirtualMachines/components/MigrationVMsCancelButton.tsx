@@ -11,7 +11,7 @@ import { VMsActionButton } from './VMsActionButton';
 export const MigrationVMsCancelButton: FC<{
   selectedIds: string[];
   migration: V1beta1Migration;
-}> = ({ selectedIds, migration }) => {
+}> = ({ migration, selectedIds }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();
   const onClick = () => {

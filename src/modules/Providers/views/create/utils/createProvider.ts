@@ -58,8 +58,8 @@ export async function createProvider(provider: V1beta1Provider, secret: IoK8sApi
   }
 
   const obj = await k8sCreate({
-    model: ProviderModel,
     data: newProvider,
+    model: ProviderModel,
   });
 
   return obj;

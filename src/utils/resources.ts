@@ -20,7 +20,7 @@ export const groupVersionKindForObj = (obj: K8sResourceCommon) => {
   }
 
   const [group, version] = obj.apiVersion.split('/');
-  return { group, version, kind: obj.kind };
+  return { group, kind: obj.kind, version };
 };
 
 /**
@@ -29,7 +29,7 @@ export const groupVersionKindForObj = (obj: K8sResourceCommon) => {
  */
 export const groupVersionKindForReference = (reference: string) => {
   const [group, version, kind] = reference.split('~');
-  return { group, version, kind };
+  return { group, kind, version };
 };
 
 /**
@@ -37,7 +37,7 @@ export const groupVersionKindForReference = (reference: string) => {
  * @param  {K8sResourceCommon} obj
  */
 export const referenceForObj = (obj: K8sResourceCommon) => {
-  const { group, version, kind } = groupVersionKindForObj(obj);
+  const { group, kind, version } = groupVersionKindForObj(obj);
   return referenceFor(group, version, kind);
 };
 

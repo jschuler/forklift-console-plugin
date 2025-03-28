@@ -12,8 +12,8 @@ export async function createHostSecret(secret: IoK8sApiCoreV1Secret) {
   const cleanedSecret = { ...secret, data: secretData };
 
   const createdSecret = await k8sCreate({
-    model: SecretModel,
     data: cleanedSecret,
+    model: SecretModel,
   });
 
   return createdSecret;

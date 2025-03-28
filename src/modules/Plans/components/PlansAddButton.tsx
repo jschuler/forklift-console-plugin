@@ -13,16 +13,16 @@ type PlansAddButtonProps = {
   dataTestId?: string;
 };
 
-export const PlansAddButton: FC<PlansAddButtonProps> = ({ namespace, dataTestId }) => {
+export const PlansAddButton: FC<PlansAddButtonProps> = ({ dataTestId, namespace }) => {
   const { t } = useForkliftTranslation();
   const history = useHistory();
   const { setData } = useCreateVmMigrationData();
   const hasSufficientProviders = useHasSufficientProviders(namespace);
 
   const plansListURL = getResourceUrl({
-    reference: PlanModelRef,
     namespace,
     namespaced: namespace !== undefined,
+    reference: PlanModelRef,
   });
 
   const onClick = () => {

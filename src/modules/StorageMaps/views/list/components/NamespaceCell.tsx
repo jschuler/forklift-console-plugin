@@ -14,7 +14,7 @@ export const NamespaceCell: React.FC<CellProps> = ({ data }) => {
 
   return (
     <TableLinkCell
-      groupVersionKind={{ version: 'v1', kind: 'Namespace' }}
+      groupVersionKind={{ kind: 'Namespace', version: 'v1' }}
       name={namespace}
       namespace={namespace}
     />

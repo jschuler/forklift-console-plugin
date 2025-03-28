@@ -10,8 +10,8 @@ import { TableLabelCell, TableLabelCellProps } from './TableLabelCell';
  */
 export const TableIconCell: React.FC<TableIconCellProps> = ({
   children,
-  icon,
   hasLabel = false,
+  icon,
   label,
   labelColor = 'grey',
 }) => {

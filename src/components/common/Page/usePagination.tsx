@@ -21,9 +21,9 @@ export function usePagination({
   userSettings,
 }: PaginationHookProps): PaginationHookResult {
   const {
+    clear: clearSavedPerPage = () => undefined,
     perPage: defaultPerPage = DEFAULT_PER_PAGE,
     save: savePerPage = () => undefined,
-    clear: clearSavedPerPage = () => undefined,
   } = userSettings || {};
   const [perPage, setPerPage] = useState(defaultPerPage);
 

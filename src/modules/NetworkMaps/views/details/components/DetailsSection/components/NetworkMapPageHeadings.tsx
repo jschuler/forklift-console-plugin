@@ -18,9 +18,9 @@ export const NetworkMapPageHeadings: React.FC<{ name: string; namespace: string 
 }) => {
   const [obj, loaded, loadError] = useK8sWatchResource<V1beta1NetworkMap>({
     groupVersionKind: NetworkMapModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   const permissions = useGetDeleteAndEditAccessReview({

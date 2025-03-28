@@ -46,17 +46,17 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
 
   const plansListURL = useMemo(() => {
     return getResourceUrl({
-      reference: PlanModelRef,
       namespace: activeNamespace,
       namespaced: true,
+      reference: PlanModelRef,
     });
   }, [activeNamespace]);
 
   const providerURL = useMemo(() => {
     return getResourceUrl({
-      reference: ProviderModelRef,
       name: data?.provider?.metadata?.name,
       namespace: data?.provider?.metadata?.namespace,
+      reference: ProviderModelRef,
     });
   }, [data?.provider]);
 
@@ -69,9 +69,9 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
 
   const [providers] = useK8sWatchResource<V1beta1Provider[]>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     isList: true,
     namespace: namespace || projectName,
+    namespaced: true,
   });
 
   const selectedProvider =
@@ -82,10 +82,10 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
   // Init Create migration plan form state
   const [state, dispatch, emptyContext] = useFetchEffects({
     data: {
-      projectName,
-      selectedVms: filterState.selectedVMs,
-      provider: selectedProvider || data?.provider,
       planName: data?.planName,
+      projectName,
+      provider: selectedProvider || data?.provider,
+      selectedVms: filterState.selectedVMs,
     },
   });
 
@@ -145,13 +145,13 @@ export const PlanCreatePage: FC<{ namespace: string }> = ({ namespace }) => {
             id="step-2"
             isDisabled={!isFirstStepValid}
             footer={{
-              nextButtonText: t('Create migration plan'),
               isNextDisabled:
                 emptyContext ||
                 !!state?.flow?.apiError ||
                 anyValidationError ||
                 !initialLoading[SET_AVAILABLE_SOURCE_NETWORKS] ||
                 !initialLoading[SET_AVAILABLE_SOURCE_STORAGES],
+              nextButtonText: t('Create migration plan'),
             }}
           >
             <ProvidersCreateVmMigrationPage

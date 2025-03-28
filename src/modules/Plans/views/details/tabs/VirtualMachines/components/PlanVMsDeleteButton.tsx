@@ -12,7 +12,7 @@ import { VMsActionButton } from './VMsActionButton';
 export const PlanVMsDeleteButton: FC<{
   selectedIds: string[];
   plan: V1beta1Plan;
-}> = ({ selectedIds, plan }) => {
+}> = ({ plan, selectedIds }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();
 

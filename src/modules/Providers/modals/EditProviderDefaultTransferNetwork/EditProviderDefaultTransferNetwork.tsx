@@ -34,7 +34,7 @@ import {
  * @param {any} options.newValue - The new value for the 'forklift.konveyor.io/defaultTransferNetwork' annotation.
  * @returns {Promise<Object>} - The modified resource.
  */
-const onConfirm: OnConfirmHookType = async ({ resource, model, newValue: value }) => {
+const onConfirm: OnConfirmHookType = async ({ model, newValue: value, resource }) => {
   const currentAnnotations = resource?.metadata?.annotations;
   const newAnnotations = {
     ...currentAnnotations,
@@ -44,8 +44,6 @@ const onConfirm: OnConfirmHookType = async ({ resource, model, newValue: value }
   const op = resource?.metadata?.annotations ? 'replace' : 'add';
 
   const obj = await k8sPatch({
-    model: model,
-    resource: resource,
     data: [
       {
         op,
@@ -53,6 +51,8 @@ const onConfirm: OnConfirmHookType = async ({ resource, model, newValue: value }
         value: newAnnotations,
       },
     ],
+    model: model,
+    resource: resource,
   });
 
   return obj;
@@ -66,7 +66,7 @@ interface DropdownRendererProps {
 const OpenshiftNetworksInputFactory: ({ resource }) => ModalInputComponentType = ({
   resource: provider,
 }) => {
-  const DropdownRenderer: FC<DropdownRendererProps> = ({ value, onChange }) => {
+  const DropdownRenderer: FC<DropdownRendererProps> = ({ onChange, value }) => {
     // Hook for managing the open/close state of the dropdown
     const [isOpen, setIsOpen] = useState(false);
 

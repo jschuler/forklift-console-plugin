@@ -18,20 +18,20 @@ export const ProviderVirtualMachinesList: React.FC<{
   className?: string;
   selectedCountLabel?: (selectedIdCount: number) => string;
 }> = ({
-  title,
+  className,
+  initialSelectedIds,
   name,
   namespace,
   onSelect,
-  initialSelectedIds,
-  showActions,
-  className,
   selectedCountLabel,
+  showActions,
+  title,
 }) => {
   const [provider, providerLoaded, providerLoadError] = useK8sWatchResource<V1beta1Provider>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   const [vmData, vmDataLoading] = useInventoryVms({ provider }, providerLoaded, providerLoadError);

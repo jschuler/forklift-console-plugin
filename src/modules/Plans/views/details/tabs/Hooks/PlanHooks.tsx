@@ -41,20 +41,20 @@ export const PlanHooks: React.FC<{ name: string; namespace: string }> = ({ name,
   // Init state on outside changes
   useEffect(() => {
     dispatch({
-      type: 'INIT',
       payload: initialState(plan, preHookResource, postHookResource),
+      type: 'INIT',
     });
   }, [plan, preHookResource, postHookResource]);
 
   // Handle user clicking "save"
   async function onUpdate() {
-    onUpdatePlanHooks({ plan, preHookResource, postHookResource, dispatch, state });
+    onUpdatePlanHooks({ dispatch, plan, postHookResource, preHookResource, state });
   }
 
   const onClick = () => {
     dispatch({
-      type: 'INIT',
       payload: initialState(plan, preHookResource, postHookResource),
+      type: 'INIT',
     });
   };
 
@@ -102,40 +102,40 @@ export const PlanHooks: React.FC<{ name: string; namespace: string }> = ({ name,
   const onChangePreHookSet: (checked: boolean, event: React.FormEvent<HTMLInputElement>) => void = (
     checked,
   ) => {
-    dispatch({ type: 'PRE_HOOK_SET', payload: checked });
+    dispatch({ payload: checked, type: 'PRE_HOOK_SET' });
   };
 
   const onChangePostHookSet: (
     checked: boolean,
     event: React.FormEvent<HTMLInputElement>,
   ) => void = (checked) => {
-    dispatch({ type: 'POST_HOOK_SET', payload: checked });
+    dispatch({ payload: checked, type: 'POST_HOOK_SET' });
   };
 
   const onChangePreHookImage: (value: string, event: React.FormEvent<HTMLInputElement>) => void = (
     value,
   ) => {
-    dispatch({ type: 'PRE_HOOK_IMAGE', payload: value });
+    dispatch({ payload: value, type: 'PRE_HOOK_IMAGE' });
   };
 
   const onChangePreHookPlaybook: (
     value: string,
     event: React.FormEvent<HTMLInputElement>,
   ) => void = (value) => {
-    dispatch({ type: 'PRE_HOOK_PLAYBOOK', payload: value });
+    dispatch({ payload: value, type: 'PRE_HOOK_PLAYBOOK' });
   };
 
   const onChangePostHookImage: (value: string, event: React.FormEvent<HTMLInputElement>) => void = (
     value,
   ) => {
-    dispatch({ type: 'POST_HOOK_IMAGE', payload: value });
+    dispatch({ payload: value, type: 'POST_HOOK_IMAGE' });
   };
 
   const onChangePostHookPlaybook: (
     value: string,
     event: React.FormEvent<HTMLInputElement>,
   ) => void = (value) => {
-    dispatch({ type: 'POST_HOOK_PLAYBOOK', payload: value });
+    dispatch({ payload: value, type: 'POST_HOOK_PLAYBOOK' });
   };
 
   return (

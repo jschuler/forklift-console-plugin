@@ -18,9 +18,9 @@ export const StorageMapPageHeadings: React.FC<{ name: string; namespace: string 
 }) => {
   const [obj, loaded, loadError] = useK8sWatchResource<V1beta1StorageMap>({
     groupVersionKind: StorageMapModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   const permissions = useGetDeleteAndEditAccessReview({

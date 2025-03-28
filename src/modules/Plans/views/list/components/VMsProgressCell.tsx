@@ -54,9 +54,9 @@ export const VMsProgressCell: React.FC<CellProps> = ({ data }) => {
   const phaseLabel: string = phase;
 
   const planURL = getResourceUrl({
-    reference: PlanModelRef,
     name: data?.obj?.metadata?.name,
     namespace: data?.obj?.metadata?.namespace,
+    reference: PlanModelRef,
   });
 
   if (!vms) {

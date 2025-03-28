@@ -35,14 +35,14 @@ import { FilterTypeProps } from './types';
  * <font color="green">View component source on GitHub</font>](https://github.com/kubev2v/forklift-console-plugin/blob/main/packages/common/src/components/Filter/GroupedEnumFilter.tsx)
  */
 export const GroupedEnumFilter = ({
-  selectedFilters: selectedEnumIds = [],
+  hasMultipleResources,
   onFilterUpdate: onSelectedEnumIdsChange,
-  supportedValues: supportedEnumValues = [],
-  supportedGroups = [],
   placeholderLabel,
+  selectedFilters: selectedEnumIds = [],
   showFilter = true,
   showFilterIcon,
-  hasMultipleResources,
+  supportedGroups = [],
+  supportedValues: supportedEnumValues = [],
 }: FilterTypeProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -132,7 +132,7 @@ export const GroupedEnumFilter = ({
   );
 
   const renderOptions = () =>
-    supportedGroups.map(({ label, groupId }) => (
+    supportedGroups.map(({ groupId, label }) => (
       <SelectGroup key={groupId} label={label}>
         <SelectList>
           {supportedEnumValues
@@ -159,7 +159,7 @@ export const GroupedEnumFilter = ({
        * 2. each ToolbarFilter provides a different chip category
        * 3. a chip category maps to group within the Select */}
       {supportedGroups.reduce(
-        (acc, { label, groupId }) => (
+        (acc, { groupId, label }) => (
           <ToolbarFilter
             chips={selectedEnumIds
               .filter((id) => id2enum[id])

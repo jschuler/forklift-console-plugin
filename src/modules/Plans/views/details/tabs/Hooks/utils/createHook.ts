@@ -7,8 +7,8 @@ export const createHook = async (
   step: 'PostHook' | 'PreHook',
 ) => {
   await k8sCreate({
-    model: HookModel,
     data: hook,
+    model: HookModel,
   });
 
   // update plan
@@ -18,19 +18,19 @@ export const createHook = async (
     hooks: [
       ...(vm?.hooks || []),
       {
-        step: step,
         hook: {
           name: hook.metadata.name,
           namespace: hook.metadata.namespace,
         },
+        step: step,
       },
     ],
   }));
 
   return await k8sPatch({
-    model: PlanModel,
-    resource: plan,
-    path: '',
     data: [{ op: 'replace', path: '/spec/vms', value: newVms }],
+    model: PlanModel,
+    path: '',
+    resource: plan,
   });
 };

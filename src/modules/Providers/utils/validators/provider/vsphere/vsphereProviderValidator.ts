@@ -19,7 +19,7 @@ export function vsphereProviderValidator(
     provider?.metadata?.annotations?.['forklift.konveyor.io/empty-vddk-init-image'];
 
   if (!validateK8sName(name)) {
-    return { type: 'error', msg: 'invalid kubernetes resource name' };
+    return { msg: 'invalid kubernetes resource name', type: 'error' };
   }
 
   if (
@@ -27,7 +27,7 @@ export function vsphereProviderValidator(
       ? validateVCenterURL(url, secret?.data?.insecureSkipVerify).type === 'error'
       : !validateURL(url)
   ) {
-    return { type: 'error', msg: 'invalid URL' };
+    return { msg: 'invalid URL', type: 'error' };
   }
 
   if (emptyVddkInitImage === 'yes' && vddkInitImage === '') {
@@ -43,7 +43,7 @@ export function vsphereProviderValidator(
   }
 
   if (sdkEndpoint !== '' && !['vcenter', 'esxi'].includes(sdkEndpoint)) {
-    return { type: 'error', msg: 'invalid sdkEndpoint, can be vcenter or esxi' };
+    return { msg: 'invalid sdkEndpoint, can be vcenter or esxi', type: 'error' };
   }
 
   return { type: 'default' };

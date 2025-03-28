@@ -9,19 +9,19 @@ import { DetailsItem } from '../../../../../utils';
 import { ProviderDetailsItemProps } from './ProviderDetailsItem';
 
 export const URLDetailsItem: React.FC<ProviderDetailsItemProps> = ({
-  resource: provider,
   canPatch,
-  moreInfoLink,
   helpContent,
+  moreInfoLink,
+  resource: provider,
 }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();
 
   const [secret] = useK8sWatchResource<IoK8sApiCoreV1Secret>({
-    groupVersionKind: { version: 'v1', kind: 'Secret' },
-    namespaced: true,
-    namespace: provider?.spec?.secret?.namespace,
+    groupVersionKind: { kind: 'Secret', version: 'v1' },
     name: provider?.spec?.secret?.name,
+    namespace: provider?.spec?.secret?.namespace,
+    namespaced: true,
   });
 
   const defaultMoreInfoLink =

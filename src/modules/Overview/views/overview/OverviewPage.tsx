@@ -23,19 +23,19 @@ export const OverviewPage: React.FC<OverviewPageProps> = () => {
 
   const pages = [
     {
+      component: ForkliftControllerDetailsTabWrapper,
       href: '',
       name: t('Overview'),
-      component: ForkliftControllerDetailsTabWrapper,
     },
     {
+      component: ForkliftControllerYAMLTabWrapper,
       href: 'yaml',
       name: t('YAML'),
-      component: ForkliftControllerYAMLTabWrapper,
     },
     {
+      component: ForkliftControllerMetricsTabWrapper,
       href: 'metrics',
       name: t('Metrics'),
-      component: ForkliftControllerMetricsTabWrapper,
     },
   ];
 

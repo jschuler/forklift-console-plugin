@@ -15,10 +15,10 @@ export const StorageMapYAMLTab: React.FC<StorageMapYAMLTabProps> = ({ name, name
 
   const [obj, loaded, loadError] = useK8sWatchResource<V1beta1StorageMap>({
     groupVersionKind: StorageMapModelGroupVersionKind,
-    namespaced: true,
     isList: false,
-    namespace,
     name,
+    namespace,
+    namespaced: true,
   });
 
   return (

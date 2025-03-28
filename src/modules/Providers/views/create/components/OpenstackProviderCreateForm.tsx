@@ -12,8 +12,8 @@ export interface OpenstackProviderCreateFormProps {
 }
 
 export const OpenstackProviderCreateForm: React.FC<OpenstackProviderCreateFormProps> = ({
-  provider,
   onChange,
+  provider,
 }) => {
   const { t } = useForkliftTranslation();
 
@@ -50,8 +50,8 @@ export const OpenstackProviderCreateForm: React.FC<OpenstackProviderCreateFormPr
       const validationState = validateOpenstackURL(trimmedURL);
 
       dispatch({
-        type: 'SET_FIELD_VALIDATED',
         payload: { field: 'url', validationState },
+        type: 'SET_FIELD_VALIDATED',
       });
 
       onChange({ ...provider, spec: { ...provider.spec, url: trimmedURL } });

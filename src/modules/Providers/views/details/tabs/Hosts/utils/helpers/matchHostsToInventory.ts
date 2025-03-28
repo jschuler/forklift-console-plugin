@@ -51,6 +51,6 @@ export function matchHostsToInventory(
         (adapter) => adapter.ipAddress === host.spec.ipAddress,
       );
     }
-    return { inventory, host, networkAdapter };
+    return { host, inventory, networkAdapter };
   });
 }

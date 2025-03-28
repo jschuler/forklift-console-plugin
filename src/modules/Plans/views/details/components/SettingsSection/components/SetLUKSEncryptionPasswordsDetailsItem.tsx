@@ -10,10 +10,10 @@ import { PlanDetailsItemProps } from '../../DetailsSection';
 import { EditLUKSEncryptionPasswords, VIRT_V2V_HELP_LINK } from '../modals';
 
 export const SetLUKSEncryptionPasswordsDetailsItem: React.FC<PlanDetailsItemProps> = ({
-  resource,
   canPatch,
-  helpContent,
   destinationProvider,
+  helpContent,
+  resource,
 }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();

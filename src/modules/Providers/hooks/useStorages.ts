@@ -13,23 +13,23 @@ import {
 import useProviderInventory from './useProviderInventory';
 
 const glanceStorage: InventoryStorage = {
-  providerType: 'openstack',
-  id: 'glance',
-  revision: 1,
-  name: 'glance',
-  selfLink: '',
   description: '',
+  id: 'glance',
   isPublic: true,
-  qosSpecsID: '',
+  name: 'glance',
+  providerType: 'openstack',
   publicAccess: true,
+  qosSpecsID: '',
+  revision: 1,
+  selfLink: '',
 };
 
 const subPath: { [keys in ProviderType]: string } = {
-  vsphere: '/datastores',
-  openstack: '/volumetypes',
   openshift: '/storageclasses?detail=1',
+  openstack: '/volumetypes',
   ova: '/storages?detail=1',
   ovirt: '/storagedomains',
+  vsphere: '/datastores',
 };
 
 export type InventoryStorage =
@@ -44,13 +44,13 @@ export const useSourceStorages = (
 ): [InventoryStorage[], boolean, Error] => {
   const providerType: ProviderType = provider?.spec?.type as ProviderType;
   const {
+    error,
     inventory: storages,
     loading,
-    error,
   } = useProviderInventory<InventoryStorage[]>({
+    disabled: !provider || !subPath[providerType],
     provider,
     subPath: subPath[providerType] ?? '',
-    disabled: !provider || !subPath[providerType],
   });
 
   const typedStorages = useMemo(() => {
@@ -73,13 +73,13 @@ export const useOpenShiftStorages = (
 ): [OpenShiftStorageClass[], boolean, Error] => {
   const providerType: ProviderType = provider?.spec?.type as ProviderType;
   const {
+    error,
     inventory: storages,
     loading,
-    error,
   } = useProviderInventory<OpenShiftStorageClass[]>({
+    disabled: !provider || providerType !== 'openshift',
     provider,
     subPath: '/storageclasses?detail=1',
-    disabled: !provider || providerType !== 'openshift',
   });
 
   const typedStorages = useMemo(

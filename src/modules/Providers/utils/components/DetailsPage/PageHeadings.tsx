@@ -17,11 +17,11 @@ import { Breadcrumb, BreadcrumbItem, Split, SplitItem } from '@patternfly/react-
 import './PageHeadings.style.css';
 
 export const PageHeadings: React.FC<PageHeadingsProps> = ({
+  actions,
+  children,
   model,
   namespace,
   obj: data,
-  children,
-  actions,
   status: status_,
 }) => {
   const status = status_ ?? data?.['status']?.phase;
@@ -104,8 +104,8 @@ type BreadCrumbsProps = {
 const breadcrumbsForModel = (t, model: K8sModel, namespace: string) => {
   const groupVersionKind: K8sGroupVersionKind = {
     group: model.apiGroup,
-    version: model.apiVersion,
     kind: model.kind,
+    version: model.apiVersion,
   };
 
   return [

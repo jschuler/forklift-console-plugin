@@ -15,10 +15,10 @@ export const NetworkMapYAMLTab: React.FC<NetworkMapYAMLTabProps> = ({ name, name
 
   const [obj, loaded, loadError] = useK8sWatchResource<V1beta1NetworkMap>({
     groupVersionKind: NetworkMapModelGroupVersionKind,
-    namespaced: true,
     isList: false,
-    namespace,
     name,
+    namespace,
+    namespaced: true,
   });
 
   return (

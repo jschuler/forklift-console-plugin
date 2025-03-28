@@ -32,11 +32,11 @@ interface OnSaveHostParams {
  * @param {Params} params - The parameters for saving the host.
  */
 export const onSaveHost = async ({
-  provider,
   hostPairs,
   network,
-  user,
   password,
+  provider,
+  user,
 }: OnSaveHostParams) => {
   // user and password can be undefined for ESXi provider
   // Base64.encode will not handle undefined values
@@ -105,21 +105,21 @@ async function processHostSecretPair(
 
     // Create a Secret
     const secretData = {
-      kind: 'Secret',
       apiVersion: 'v1',
-      metadata: {
-        generateName: `${provider.metadata.name}-${inventory.id}-`,
-        namespace: provider.metadata.namespace,
-        labels: {
-          createdForResourceType: 'hosts',
-          createdForResource: inventory.id,
-        },
-      },
       data: {
         ip: encodedIpAddress,
         password: encodedPassword,
         provider: encodedProvider,
         user: encodedUser,
+      },
+      kind: 'Secret',
+      metadata: {
+        generateName: `${provider.metadata.name}-${inventory.id}-`,
+        labels: {
+          createdForResource: inventory.id,
+          createdForResourceType: 'hosts',
+        },
+        namespace: provider.metadata.namespace,
       },
       type: 'Opaque',
     };
@@ -172,8 +172,6 @@ async function getSecret(name: string, namespace: string) {
 
 async function patchHost(host: V1beta1Host, ipAddress: string) {
   await k8sPatch({
-    model: HostModel,
-    resource: host,
     data: [
       {
         op: 'replace',
@@ -181,6 +179,8 @@ async function patchHost(host: V1beta1Host, ipAddress: string) {
         value: ipAddress,
       },
     ],
+    model: HostModel,
+    resource: host,
   });
 }
 
@@ -191,8 +191,6 @@ async function patchSecret(
   encodedPassword: string,
 ) {
   await k8sPatch({
-    model: SecretModel,
-    resource: secretData,
     data: [
       {
         op: 'replace',
@@ -210,5 +208,7 @@ async function patchSecret(
         value: encodedPassword,
       },
     ],
+    model: SecretModel,
+    resource: secretData,
   });
 }

@@ -16,9 +16,9 @@ export const NetworkMapActionsDropdownItems = ({ data }: NetworkMapActionsDropdo
   const { obj: networkMap } = data;
 
   const networkMapURL = getResourceUrl({
-    reference: NetworkMapModelRef,
     name: networkMap?.metadata?.name,
     namespace: networkMap?.metadata?.namespace,
+    reference: NetworkMapModelRef,
   });
 
   const onClick = () => {

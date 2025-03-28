@@ -13,7 +13,7 @@ type SwitchRendererProps = {
 const MigrateSharedDisksSwitchFactory: () => ModalInputComponentType = () => {
   const { t } = useForkliftTranslation();
 
-  const SwitchRenderer: FC<SwitchRendererProps> = ({ value, onChange }) => (
+  const SwitchRenderer: FC<SwitchRendererProps> = ({ onChange, value }) => (
     <Switch
       id="migrate-shared-disks-switch"
       label={t('Migrate shared disks. This may slow down the migration process')}

@@ -22,9 +22,9 @@ export const createProviderCardItems = (
     const typeObj = providerTypes[provider.spec.type];
 
     providerCardItems[provider.metadata.uid] = {
-      title: <ProviderCardTitle provider={provider} />,
-      logo: typeObj.logo,
       content: <ProviderCardContent provider={provider} typeLabel={typeObj.title} />,
+      logo: typeObj.logo,
+      title: <ProviderCardTitle provider={provider} />,
     };
   });
 

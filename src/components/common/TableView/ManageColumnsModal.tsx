@@ -83,16 +83,16 @@ const filterActionsAndHidden = (resourceFields: ResourceField[]) =>
  * <font color="green">View component source on GitHub</font>](https://github.com/kubev2v/forklift-console-plugin/blob/main/packages/common/src/components/TableView/ManageColumnsModal.tsx)
  */
 export const ManageColumnsModal = ({
-  showModal,
-  description = 'Selected columns will be displayed in the table.',
-  onClose,
-  onChange,
-  resourceFields,
-  defaultColumns,
-  saveLabel = 'Save',
   cancelLabel = 'Cancel',
+  defaultColumns,
+  description = 'Selected columns will be displayed in the table.',
+  onChange,
+  onClose,
   reorderLabel = 'Reorder',
+  resourceFields,
   restoreLabel = 'Restore default columns',
+  saveLabel = 'Save',
+  showModal,
   title = 'Manage Columns',
 }: ManagedColumnsProps) => {
   const [editedColumns, setEditedColumns] = useState(filterActionsAndHidden(resourceFields));
@@ -118,7 +118,7 @@ export const ManageColumnsModal = ({
   };
   const onSelect = (updatedId: string, updatedValue: boolean): void => {
     setEditedColumns(
-      editedColumns.map(({ resourceFieldId, isVisible, ...rest }) => ({
+      editedColumns.map(({ isVisible, resourceFieldId, ...rest }) => ({
         resourceFieldId,
         ...rest,
         isVisible: resourceFieldId === updatedId ? updatedValue : isVisible,
@@ -168,7 +168,7 @@ export const ManageColumnsModal = ({
       <DragDrop onDrop={onDrop}>
         <Droppable hasNoWrapper>
           <DataList aria-label={title} id="table-column-management" isCompact>
-            {editedColumns.map(({ resourceFieldId: id, isVisible, isIdentity, label }) => (
+            {editedColumns.map(({ isIdentity, isVisible, label, resourceFieldId: id }) => (
               <Draggable key={id} hasNoWrapper>
                 <DataListItem aria-labelledby={`draggable-${id}`} ref={React.createRef()}>
                   <DataListItemRow>

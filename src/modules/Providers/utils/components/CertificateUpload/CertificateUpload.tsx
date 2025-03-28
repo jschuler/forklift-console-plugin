@@ -19,17 +19,17 @@ export interface CertificateUploadProps extends FileUploadProps {
  * 3. fetch from the specified URL (via tls-certificate endpoint) end verify
  */
 export const CertificateUpload: FC<CertificateUploadProps> = ({
-  id,
-  url,
-  value,
-  filenamePlaceholder,
   browseButtonText,
-  validated,
+  filenamePlaceholder,
+  id,
+  isDisabled,
+  onClearClick,
   onDataChange,
   onTextChange,
-  onClearClick,
-  isDisabled,
   type,
+  url,
+  validated,
+  value,
 }) => {
   const { showModal } = useModal();
   const { t } = useForkliftTranslation();

@@ -48,9 +48,9 @@ export const MigrationVirtualMachinesRowExtended: React.FC<RowProps<VMData>> = (
 
   const getPodLogsLink = (pod: IoK8sApiCoreV1Pod) =>
     getResourceUrl({
-      reference: 'pods',
-      namespace: pod.metadata.namespace,
       name: pod.metadata.name,
+      namespace: pod.metadata.namespace,
+      reference: 'pods',
     });
 
   const getStatusLabel = (phase: string) => {
@@ -84,8 +84,8 @@ export const MigrationVirtualMachinesRowExtended: React.FC<RowProps<VMData>> = (
                   <ResourceLink
                     groupVersionKind={{
                       group: 'kubevirt.io',
-                      version: 'v1',
                       kind: 'VirtualMachine',
+                      version: 'v1',
                     }}
                     name={props.resourceData.statusVM?.name}
                     namespace={props.resourceData.targetNamespace}
@@ -154,7 +154,7 @@ export const MigrationVirtualMachinesRowExtended: React.FC<RowProps<VMData>> = (
                 <Tr key={job.metadata.uid}>
                   <Td>
                     <ResourceLink
-                      groupVersionKind={{ group: 'batch', version: 'v1', kind: 'Job' }}
+                      groupVersionKind={{ group: 'batch', kind: 'Job', version: 'v1' }}
                       name={job?.metadata?.name}
                       namespace={job?.metadata?.namespace}
                     />
@@ -187,7 +187,7 @@ export const MigrationVirtualMachinesRowExtended: React.FC<RowProps<VMData>> = (
                 <Tr key={pvc.metadata.uid}>
                   <Td>
                     <ResourceLink
-                      groupVersionKind={{ version: 'v1', kind: 'PersistentVolumeClaim' }}
+                      groupVersionKind={{ kind: 'PersistentVolumeClaim', version: 'v1' }}
                       name={pvc?.metadata?.name}
                       namespace={pvc?.metadata?.namespace}
                     />
@@ -221,9 +221,9 @@ export const MigrationVirtualMachinesRowExtended: React.FC<RowProps<VMData>> = (
                   <Td>
                     <ResourceLink
                       groupVersionKind={{
-                        version: 'v1beta1',
-                        kind: 'DataVolume',
                         group: 'cdi.kubevirt.io',
+                        kind: 'DataVolume',
+                        version: 'v1beta1',
                       }}
                       name={dv?.metadata?.name}
                       namespace={dv?.metadata?.namespace}
@@ -357,5 +357,5 @@ const getPipelineTasks = (pipeline: V1beta1PlanStatusMigrationVmsPipeline) => {
   // search for all completed tasks (either tasks that completed successfully or ones that aren't finished but their pipeline step is).
   const tasksCompleted = tasks.filter((c) => hasTaskCompleted(c.phase, c.progress, pipeline));
 
-  return { total: tasks.length, completed: tasksCompleted.length, name: pipeline.name };
+  return { completed: tasksCompleted.length, name: pipeline.name, total: tasks.length };
 };

@@ -20,7 +20,7 @@ import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 
 import { EditComponentProps } from '../BaseCredentialsSection';
 
-export const OvirtCredentialsEdit: React.FC<EditComponentProps> = ({ secret, onChange }) => {
+export const OvirtCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, secret }) => {
   const { t } = useForkliftTranslation();
 
   const url = safeBase64Decode(secret?.data?.url);
@@ -58,10 +58,10 @@ export const OvirtCredentialsEdit: React.FC<EditComponentProps> = ({ secret, onC
   const initialState = {
     passwordHidden: true,
     validation: {
-      user: ovirtSecretFieldValidator('user', user),
-      password: ovirtSecretFieldValidator('password', password),
-      insecureSkipVerify: ovirtSecretFieldValidator('insecureSkipVerify', insecureSkipVerify),
       cacert: ovirtSecretFieldValidator('cacert', cacert),
+      insecureSkipVerify: ovirtSecretFieldValidator('insecureSkipVerify', insecureSkipVerify),
+      password: ovirtSecretFieldValidator('password', password),
+      user: ovirtSecretFieldValidator('user', user),
     },
   };
 
@@ -89,8 +89,8 @@ export const OvirtCredentialsEdit: React.FC<EditComponentProps> = ({ secret, onC
     (id, value) => {
       const validationState = ovirtSecretFieldValidator(id, value);
       dispatch({
-        type: 'SET_FIELD_VALIDATED',
         payload: { field: id, validationState },
+        type: 'SET_FIELD_VALIDATED',
       });
 
       // don't trim fields that allow spaces

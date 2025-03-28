@@ -12,7 +12,7 @@ export function openshiftProviderValidator(
   const token = secret?.data?.token || '';
 
   if (!validateK8sName(name)) {
-    return { type: 'error', msg: 'Invalid kubernetes resource name' };
+    return { msg: 'Invalid kubernetes resource name', type: 'error' };
   }
 
   const validation: ValidationMsg = validateUrlAndTokenExistence(url, token);
@@ -20,7 +20,7 @@ export function openshiftProviderValidator(
 
   // validate fields
   if (url !== '' && !validateURL(url)) {
-    return { type: 'error', msg: 'Invalid URL' };
+    return { msg: 'Invalid URL', type: 'error' };
   }
 
   return { type: 'default' };

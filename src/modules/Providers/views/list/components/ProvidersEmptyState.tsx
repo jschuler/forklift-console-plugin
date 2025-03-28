@@ -27,8 +27,8 @@ interface ProvidersEmptyStateProps {
 
 export const ProvidersEmptyState: React.FC<ProvidersEmptyStateProps> = ({
   AddButton,
-  title,
   Icon,
+  title,
 }) => {
   const { t } = useForkliftTranslation();
 

@@ -19,9 +19,9 @@ type onUpdatePlanHooksProps = {
 
 // Handle user clicking "save"
 export async function onUpdatePlanHooks(props: onUpdatePlanHooksProps) {
-  const { plan, preHookResource, postHookResource, dispatch, state } = props;
+  const { dispatch, plan, postHookResource, preHookResource, state } = props;
 
-  dispatch({ type: 'SET_LOADING', payload: true });
+  dispatch({ payload: true, type: 'SET_LOADING' });
 
   let newPlan = deepCopy(plan);
 
@@ -52,13 +52,13 @@ export async function onUpdatePlanHooks(props: onUpdatePlanHooksProps) {
       await deleteHook(newPlan, postHookResource, 'PostHook');
     }
 
-    dispatch({ type: 'SET_LOADING', payload: false });
+    dispatch({ payload: false, type: 'SET_LOADING' });
   } catch (err) {
     dispatch({
-      type: 'SET_ALERT_MESSAGE',
       payload: <AlertMessageForModals title={'Error'} message={err.message || err.toString()} />,
+      type: 'SET_ALERT_MESSAGE',
     });
 
-    dispatch({ type: 'SET_LOADING', payload: false });
+    dispatch({ payload: false, type: 'SET_LOADING' });
   }
 }

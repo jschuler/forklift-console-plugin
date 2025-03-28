@@ -8,10 +8,10 @@ import { PlanDetailsItemProps } from '../../DetailsSection';
 import { EditPlanTargetNamespace } from '../modals';
 
 export const TargetNamespaceDetailsItem: React.FC<PlanDetailsItemProps> = ({
-  resource,
   canPatch,
-  helpContent,
   destinationProvider,
+  helpContent,
+  resource,
 }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();

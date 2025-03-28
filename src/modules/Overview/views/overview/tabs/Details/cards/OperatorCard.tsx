@@ -40,7 +40,7 @@ export const OperatorCard: FC<OperatorCardProps> = ({ obj }) => {
             title={t('Namespace')}
             content={
               <ResourceLink
-                groupVersionKind={{ version: 'v1', kind: 'Namespace' }}
+                groupVersionKind={{ kind: 'Namespace', version: 'v1' }}
                 name={obj?.metadata?.namespace}
                 namespace={obj?.metadata?.namespace}
               />

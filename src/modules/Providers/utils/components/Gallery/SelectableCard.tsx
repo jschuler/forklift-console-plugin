@@ -24,13 +24,13 @@ interface SelectableCardProps {
  * @param props The properties of the SelectableCard
  */
 export const SelectableCard: React.FC<SelectableCardProps> = ({
+  className,
+  content,
+  isCompact,
+  isSelected,
+  onChange,
   title,
   titleLogo,
-  content,
-  onChange,
-  isSelected,
-  isCompact,
-  className,
 }) => {
   // Handler function to toggle selection and call onChange
   const handleClick = () => {
@@ -50,11 +50,11 @@ export const SelectableCard: React.FC<SelectableCardProps> = ({
     >
       <CardHeader
         selectableActions={{
-          selectableActionId: 'selectable-card-header',
-          selectableActionAriaLabelledby: 'selectable-card-header',
           name: 'selectable-card-header',
-          variant: 'single',
           onChange: handleClick,
+          selectableActionAriaLabelledby: 'selectable-card-header',
+          selectableActionId: 'selectable-card-header',
+          variant: 'single',
         }}
       >
         {titleLogo ? (

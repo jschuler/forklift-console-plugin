@@ -18,7 +18,7 @@ export const InventoryCellFactory: CellFactory = ({ icon }) => {
    * @returns {JSX.Element} - The rendered component.
    */
   return ({ data, fieldId, fields }: CellProps) => {
-    const { provider, inventory } = data;
+    const { inventory, provider } = data;
     const type = provider?.spec.type;
 
     const value = getResourceFieldValue({ ...provider, inventory }, fieldId, fields);

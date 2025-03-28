@@ -28,11 +28,11 @@ function getValidFilters(fields, searchParams) {
   const validFilters = fields
     .map(({ resourceFieldId }) => {
       const params = safeParse(searchParams[`${resourceFieldId}`]);
-      return { resourceFieldId, params };
+      return { params, resourceFieldId };
     })
     // Valid filter values are arrays
     .filter(({ params }) => Array.isArray(params) && params.length)
-    .map(({ resourceFieldId, params }) => [resourceFieldId, params]);
+    .map(({ params, resourceFieldId }) => [resourceFieldId, params]);
 
   return Object.fromEntries(validFilters);
 }
@@ -45,8 +45,8 @@ function getValidFilters(fields, searchParams) {
  */
 function convertFiltersToSearchParams(fields, filters) {
   const searchParams = fields
-    .map(({ resourceFieldId }) => ({ resourceFieldId, filters: filters[resourceFieldId] }))
-    .map(({ resourceFieldId, filters }) => [
+    .map(({ resourceFieldId }) => ({ filters: filters[resourceFieldId], resourceFieldId }))
+    .map(({ filters, resourceFieldId }) => [
       resourceFieldId,
       Array.isArray(filters) && filters.length ? JSON.stringify(filters) : undefined,
     ]);

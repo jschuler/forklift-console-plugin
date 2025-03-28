@@ -17,13 +17,13 @@ import {
   TokenWithUsernameSecretFieldsFormGroup,
 } from './OpenstackCredentialsEditFormGroups';
 
-export const OpenstackCredentialsEdit: React.FC<EditComponentProps> = ({ secret, onChange }) => {
+export const OpenstackCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, secret }) => {
   const { t } = useForkliftTranslation();
 
   const insecureSkipVerifyHelperTextMsgs = {
     error: t('Error: this field must be set to a boolean value.'),
-    successAndSkipped: t("The provider's CA certificate won't be validated."),
     successAndNotSkipped: t("The provider's CA certificate will be validated."),
+    successAndSkipped: t("The provider's CA certificate won't be validated."),
   };
 
   const insecureSkipVerifyHelperTextPopover = (
@@ -105,7 +105,7 @@ export const OpenstackCredentialsEdit: React.FC<EditComponentProps> = ({ secret,
   const handleChange = useCallback(
     (id, value) => {
       const validationState = openstackSecretFieldValidator(id, value);
-      dispatch({ type: 'SET_FIELD_VALIDATED', payload: { field: id, validationState } });
+      dispatch({ payload: { field: id, validationState }, type: 'SET_FIELD_VALIDATED' });
 
       // don't trim fields that allow spaces
       const encodedValue = ['cacert'].includes(id)
@@ -119,7 +119,7 @@ export const OpenstackCredentialsEdit: React.FC<EditComponentProps> = ({ secret,
 
   const handleAuthTypeChange = useCallback(
     (type: string) => {
-      dispatch({ type: 'SET_AUTHENTICATION_TYPE', payload: type });
+      dispatch({ payload: type, type: 'SET_AUTHENTICATION_TYPE' });
 
       switch (type) {
         case 'passwordSecretFields':
@@ -148,8 +148,8 @@ export const OpenstackCredentialsEdit: React.FC<EditComponentProps> = ({ secret,
             ...secret,
             data: {
               ...secret.data,
-              ['authType']: Base64.encode('applicationcredential'),
               applicationCredentialID: undefined,
+              ['authType']: Base64.encode('applicationcredential'),
               username: undefined,
             },
           });

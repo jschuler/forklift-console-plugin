@@ -17,9 +17,9 @@ export type AlignedDecimalProps = {
 };
 
 export const AlignedDecimal: React.FC<AlignedDecimalProps> = ({
-  value,
-  unit = '',
   fractionalPrecision = 2,
+  unit = '',
+  value,
 }) => {
   const { t } = useForkliftTranslation();
 

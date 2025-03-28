@@ -53,22 +53,22 @@ export const MigrationsChartCard: FC<MigrationsCardProps> = () => {
 
   const [migrations] = useK8sWatchResource<V1beta1Migration[]>({
     groupVersionKind: MigrationModelGroupVersionKind,
-    namespaced: true,
     isList: true,
+    namespaced: true,
   });
   const migrationsDataPoints: {
     running: MigrationDataPoint[];
     failed: MigrationDataPoint[];
     succeeded: MigrationDataPoint[];
   } = {
-    running: toDataPointsForMigrations(
-      migrations.filter((m) => m?.status?.conditions?.find((it) => it?.type === 'Running')),
-      toStartedMigration,
-      selectedTimeRange,
-    ),
     failed: toDataPointsForMigrations(
       migrations.filter((m) => m?.status?.conditions?.find((it) => it?.type === 'Failed')),
       toFinishedMigration,
+      selectedTimeRange,
+    ),
+    running: toDataPointsForMigrations(
+      migrations.filter((m) => m?.status?.conditions?.find((it) => it?.type === 'Running')),
+      toStartedMigration,
       selectedTimeRange,
     ),
     succeeded: toDataPointsForMigrations(
@@ -173,28 +173,28 @@ export const MigrationsChartCard: FC<MigrationsCardProps> = () => {
             <ChartGroup offset={11} horizontal={false}>
               <ChartBar
                 data={migrationsDataPoints.running.map(({ dateLabel, value }) => ({
+                  label: t('{{dateLabel}} Running: {{value}}', { dateLabel, value }),
+                  name: t('Running'),
                   x: dateLabel,
                   y: value,
-                  name: t('Running'),
-                  label: t('{{dateLabel}} Running: {{value}}', { dateLabel, value }),
                 }))}
                 labelComponent={<ChartTooltip constrainToVisibleArea />}
               />
               <ChartBar
                 data={migrationsDataPoints.failed.map(({ dateLabel, value }) => ({
+                  label: t('{{dateLabel}} Failed: {{value}}', { dateLabel, value }),
+                  name: t('Failed'),
                   x: dateLabel,
                   y: value,
-                  name: t('Failed'),
-                  label: t('{{dateLabel}} Failed: {{value}}', { dateLabel, value }),
                 }))}
                 labelComponent={<ChartTooltip constrainToVisibleArea />}
               />
               <ChartBar
                 data={migrationsDataPoints.succeeded.map(({ dateLabel, value }) => ({
+                  label: t('{{dateLabel}} Succeeded: {{value}}', { dateLabel, value }),
+                  name: 'Succeeded',
                   x: dateLabel,
                   y: value,
-                  name: 'Succeeded',
-                  label: t('{{dateLabel}} Succeeded: {{value}}', { dateLabel, value }),
                 }))}
                 labelComponent={<ChartTooltip constrainToVisibleArea />}
               />

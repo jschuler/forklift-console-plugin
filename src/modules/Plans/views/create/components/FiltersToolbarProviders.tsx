@@ -16,9 +16,9 @@ export interface FiltersToolbarProvidersProps {
 }
 
 export const FiltersToolbarProviders: React.FunctionComponent<FiltersToolbarProvidersProps> = ({
-  filterState,
-  filterDispatch,
   className,
+  filterDispatch,
+  filterState,
 }) => {
   return (
     <Toolbar className={className}>

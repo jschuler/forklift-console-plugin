@@ -7,11 +7,11 @@ export function ovirtProviderValidator(provider: V1beta1Provider): ValidationMsg
   const url = provider?.spec?.url || '';
 
   if (!validateK8sName(name)) {
-    return { type: 'error', msg: 'invalid kubernetes resource name' };
+    return { msg: 'invalid kubernetes resource name', type: 'error' };
   }
 
   if (!validateURL(url)) {
-    return { type: 'error', msg: 'invalid URL' };
+    return { msg: 'invalid URL', type: 'error' };
   }
 
   return { type: 'default' };

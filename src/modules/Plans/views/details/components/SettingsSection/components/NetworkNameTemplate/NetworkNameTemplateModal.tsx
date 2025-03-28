@@ -10,7 +10,7 @@ import NameTemplateModalBody from '../NameTemplate/NameTemplateModal/components/
 import NameTemplateModalHelper from '../NameTemplate/NameTemplateModal/components/NameTemplateModalHelper/NameTemplateModalHelper';
 import NameTemplateModal from '../NameTemplate/NameTemplateModal/NameTemplateModal';
 
-const NetworkNameTemplateModal: FC<SettingsEditModalProps> = ({ title, jsonPath, resource }) => {
+const NetworkNameTemplateModal: FC<SettingsEditModalProps> = ({ jsonPath, resource, title }) => {
   const { t } = useForkliftTranslation();
 
   return (

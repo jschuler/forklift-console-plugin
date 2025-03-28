@@ -8,7 +8,7 @@ import { PlanDetailsItemProps } from '../../../DetailsSection';
 import { EnhancedPlan } from '../../utils/types';
 import VolumeNameTemplateModal from './VolumeNameTemplateModal';
 
-const VolumeNameTemplateDetailsItem: FC<PlanDetailsItemProps> = ({ resource, canPatch }) => {
+const VolumeNameTemplateDetailsItem: FC<PlanDetailsItemProps> = ({ canPatch, resource }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();
 

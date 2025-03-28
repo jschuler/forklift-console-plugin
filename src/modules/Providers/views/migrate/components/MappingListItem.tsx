@@ -39,18 +39,18 @@ export interface MappingListItemProps {
 }
 
 export const MappingListItem: FC<MappingListItemProps> = ({
-  source,
+  deleteMapping,
   destination,
   destinations,
   generalSources,
+  generalSourcesLabel,
+  index,
+  isDisabled,
+  noSourcesLabel,
+  replaceMapping,
+  source,
   usedSources,
   usedSourcesLabel,
-  generalSourcesLabel,
-  noSourcesLabel,
-  index,
-  replaceMapping,
-  deleteMapping,
-  isDisabled,
 }) => {
   const { t } = useForkliftTranslation();
   const [isSrcOpen, setIsSrcOpen] = useState(false);
@@ -59,7 +59,7 @@ export const MappingListItem: FC<MappingListItemProps> = ({
   const [trgSelected, setTrgSelected] = useState<string>(destination);
 
   const onClick = () => {
-    deleteMapping({ source, destination });
+    deleteMapping({ destination, source });
   };
 
   const onSrcToggleClick = () => {
@@ -88,8 +88,8 @@ export const MappingListItem: FC<MappingListItemProps> = ({
     value: string | number | undefined,
   ) => {
     replaceMapping({
-      current: { source, destination },
-      next: { source: value as string, destination },
+      current: { destination, source },
+      next: { destination, source: value as string },
     });
 
     // Toggle the dropdown menu open state
@@ -102,8 +102,8 @@ export const MappingListItem: FC<MappingListItemProps> = ({
     value: string | number | undefined,
   ) => {
     replaceMapping({
-      current: { source, destination },
-      next: { source, destination: value as string },
+      current: { destination, source },
+      next: { destination: value as string, source },
     });
 
     // Toggle the dropdown menu open state
@@ -203,7 +203,7 @@ export const MappingListItem: FC<MappingListItemProps> = ({
 
 const toGroup = (sources: MappingSource[], noSourcesLabel: string, selectedSource: string) =>
   sources.length !== 0 ? (
-    sources.map(({ label, isMapped }) => (
+    sources.map(({ isMapped, label }) => (
       <SelectOption value={label} key={label} isDisabled={isMapped && label !== selectedSource}>
         {label}
       </SelectOption>

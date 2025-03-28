@@ -15,24 +15,24 @@ export type DiskOption = {
  * @returns {DiskOption[]} Array of disk options.
  */
 export const diskOptions = (t = (text: string) => text): DiskOption[] => [
-  { key: '', description: t('Boot from first root device') },
-  { key: '/dev/sda', description: t('Boot from the first hard drive') },
+  { description: t('Boot from first root device'), key: '' },
+  { description: t('Boot from the first hard drive'), key: '/dev/sda' },
   {
-    key: '/dev/sda1',
     description: t('Boot from the first partition on the first hard drive'),
+    key: '/dev/sda1',
   },
   {
-    key: '/dev/sda2',
     description: t('Boot from the second partition on the first hard drive'),
+    key: '/dev/sda2',
   },
-  { key: '/dev/sdb', description: t('Boot from the second hard drive') },
+  { description: t('Boot from the second hard drive'), key: '/dev/sdb' },
   {
-    key: '/dev/sdb1',
     description: t('Boot from the first partition on the second hard drive'),
+    key: '/dev/sdb1',
   },
   {
-    key: '/dev/sdb2',
     description: t('Boot from the second partition on the second hard drive'),
+    key: '/dev/sdb2',
   },
 ];
 

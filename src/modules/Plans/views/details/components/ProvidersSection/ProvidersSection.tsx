@@ -10,10 +10,10 @@ import { DescriptionList } from '@patternfly/react-core';
 import { providersSectionReducer, ProvidersSectionState } from './state';
 
 const initialState: ProvidersSectionState = {
+  hasChanges: false,
   plan: null,
   sourceProviderMode: 'view',
   targetProviderMode: 'view',
-  hasChanges: false,
   updating: false,
 };
 
@@ -23,14 +23,14 @@ export const ProvidersSection: React.FC<ProvidersSectionProps> = ({ obj }) => {
 
   // Initialize the state with the prop obj
   React.useEffect(() => {
-    dispatch({ type: 'INIT', payload: obj });
+    dispatch({ payload: obj, type: 'INIT' });
   }, [obj]);
 
   const [providers, providersLoaded, providersLoadError] = useK8sWatchResource<V1beta1Provider[]>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     isList: true,
     namespace: obj.metadata.namespace,
+    namespaced: true,
   });
 
   return (

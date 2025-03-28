@@ -33,10 +33,10 @@ export const MigrationVMsCancelModal: React.FC<MigrationVMsCancelModalProps> = (
       const op = migration?.spec?.cancel ? 'replace' : 'add';
 
       await k8sPatch({
-        model: MigrationModel,
-        resource: migration,
-        path: '',
         data: [{ op, path: '/spec/cancel', value: vms }],
+        model: MigrationModel,
+        path: '',
+        resource: migration,
       });
 
       toggleModal();

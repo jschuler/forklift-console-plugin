@@ -16,10 +16,10 @@ export interface SectionHeadingProps {
  */
 export const SectionHeading: FC<SectionHeadingProps> = ({
   children,
-  text,
   className,
-  id,
   'data-testid': dataTestid,
+  id,
+  text,
 }) => (
   <h2 className={`co-section-heading ${className || ''}`} data-testid={dataTestid} id={id}>
     <span>{text}</span>

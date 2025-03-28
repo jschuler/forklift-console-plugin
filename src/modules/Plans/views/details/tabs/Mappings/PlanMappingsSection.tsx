@@ -79,16 +79,16 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
   planNetworkMaps,
   planStorageMaps,
   sourceNetworks,
-  targetNetworks,
   sourceStorages,
+  targetNetworks,
   targetStorages,
 }) => {
   const { t } = useForkliftTranslation();
 
   const initialState: PlanMappingsSectionState = {
-    edit: false,
-    dataChanged: false,
     alertMessage: null,
+    dataChanged: false,
+    edit: false,
     updatedNetwork: planNetworkMaps?.spec?.map,
     updatedStorage: planStorageMaps?.spec?.map,
   };
@@ -111,8 +111,8 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
 
         return {
           ...state,
-          dataChanged,
           alertMessage: null,
+          dataChanged,
           updatedNetwork: planNetworkMaps?.spec?.map,
           updatedStorage: planStorageMaps?.spec?.map,
         };
@@ -133,8 +133,8 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
 
         return {
           ...state,
-          dataChanged,
           alertMessage: null,
+          dataChanged,
           updatedNetwork,
         };
       }
@@ -151,8 +151,8 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
 
         return {
           ...state,
-          dataChanged,
           alertMessage: null,
+          dataChanged,
           updatedStorage,
         };
       }
@@ -188,12 +188,12 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
 
     // If there is no more network maps to use, set the 'Add mappings' button as disabled, otherwise add the map entity
     newNetworkMap
-      ? newState.push({ source: newNetworkMap.source, destination: newNetworkMap.destination })
+      ? newState.push({ destination: newNetworkMap.destination, source: newNetworkMap.source })
       : setIsAddNetworkMapAvailable(false);
 
     return {
-      type: 'ADD_NETWORK_MAPPING',
       payload: { newState },
+      type: 'ADD_NETWORK_MAPPING',
     };
   };
 
@@ -213,16 +213,16 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
 
     // If there is no more storage maps to use, set the 'Add mappings' button as disabled, otherwise add the map entity
     newStorageMap
-      ? newState.push({ source: newStorageMap.source, destination: newStorageMap.destination })
+      ? newState.push({ destination: newStorageMap.destination, source: newStorageMap.source })
       : setIsAddStorageMapAvailable(false);
 
     return {
-      type: 'ADD_STORAGE_MAPPING',
       payload: { newState },
+      type: 'ADD_STORAGE_MAPPING',
     };
   };
 
-  const onDeleteNetworkMapping = ({ source, destination }: Mapping) => {
+  const onDeleteNetworkMapping = ({ destination, source }: Mapping) => {
     const newState = state.updatedNetwork.filter(
       (obj) =>
         (mapSourceNetworksIdsToLabels(sourceNetworks)[obj.source.id] !== source &&
@@ -235,12 +235,12 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
     setIsAddNetworkMapAvailable(true);
 
     return {
-      type: 'DELETE_NETWORK_MAPPING',
       payload: { newState },
+      type: 'DELETE_NETWORK_MAPPING',
     };
   };
 
-  const onDeleteStorageMapping = ({ source, destination }: Mapping) => {
+  const onDeleteStorageMapping = ({ destination, source }: Mapping) => {
     const newState = state.updatedStorage.filter(
       (obj) =>
         mapSourceStoragesIdsToLabels(sourceStorages)[obj.source.id] != source ||
@@ -252,8 +252,8 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
     setIsAddStorageMapAvailable(true);
 
     return {
-      type: 'DELETE_STORAGE_MAPPING',
       payload: { newState },
+      type: 'DELETE_STORAGE_MAPPING',
     };
   };
 
@@ -294,8 +294,8 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
     }
 
     return {
-      type: 'REPLACE_NETWORK_MAPPING',
       payload: { newState },
+      type: 'REPLACE_NETWORK_MAPPING',
     };
   };
 
@@ -330,8 +330,8 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
     }
 
     return {
-      type: 'REPLACE_STORAGE_MAPPING',
       payload: { newState },
+      type: 'REPLACE_STORAGE_MAPPING',
     };
   };
 
@@ -359,8 +359,8 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
       setIsAddStorageMapAvailable(true);
     } catch (err) {
       dispatch({
-        type: 'SET_ALERT_MESSAGE',
         payload: err.message || err.toString(),
+        type: 'SET_ALERT_MESSAGE',
       });
 
       setIsLoading(false);
@@ -440,18 +440,18 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
   };
 
   const labeledSelectedNetworkMaps: Mapping[] = state.updatedNetwork?.map((obj) => ({
-    source: mapSourceNetworksIdsToLabels(sourceNetworks)[obj.source.id || obj.source?.type],
     destination:
       mapTargetNetworksIdsToLabels(targetNetworks, plan)[obj.destination.type] ??
       obj.destination?.name ??
       'Not available',
+    source: mapSourceNetworksIdsToLabels(sourceNetworks)[obj.source.id || obj.source?.type],
   }));
 
   const labeledSelectedStorageMaps: Mapping[] = state.updatedStorage?.map((obj) => ({
-    source: mapSourceStoragesIdsToLabels(sourceStorages)[obj.source.id] || obj.source?.name,
     destination: mapTargetStoragesLabelsToIds(targetStorages, plan)[obj.destination.storageClass]
       ? obj.destination.storageClass
       : 'Not available',
+    source: mapSourceStoragesIdsToLabels(sourceStorages)[obj.source.id] || obj.source?.name,
   }));
 
   const nonSelectedSourceNetworks = sourceNetworks.filter(

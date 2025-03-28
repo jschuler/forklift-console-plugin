@@ -46,7 +46,7 @@ interface DuplicateModalProps {
  * @param {DuplicateModalProps} props - Props for DeleteModal
  * @returns {React.Element} The DeleteModal component
  */
-export const DuplicateModal: React.FC<DuplicateModalProps> = ({ title, resource, redirectTo }) => {
+export const DuplicateModal: React.FC<DuplicateModalProps> = ({ redirectTo, resource, title }) => {
   const { t } = useForkliftTranslation();
   const { toggleModal } = useModal();
   const [isLoading, toggleIsLoading] = useToggle();
@@ -57,27 +57,27 @@ export const DuplicateModal: React.FC<DuplicateModalProps> = ({ title, resource,
 
   const [plans, plansLoaded, plansLoadError] = useK8sWatchResource<V1beta1Plan[]>({
     groupVersionKind: PlanModelGroupVersionKind,
-    namespaced: true,
     isList: true,
     namespace: resource?.metadata?.namespace,
+    namespaced: true,
   });
 
   const [networkMap, networkMapLoaded, networkMapLoadError] =
     useK8sWatchResource<V1beta1NetworkMap>({
       groupVersionKind: NetworkMapModelGroupVersionKind,
-      namespaced: true,
       isList: false,
       name: resource?.spec?.map?.network.name,
       namespace: resource?.spec?.map?.network.namespace,
+      namespaced: true,
     });
 
   const [storageMap, storageMapLoaded, storageMapLoadError] =
     useK8sWatchResource<V1beta1StorageMap>({
       groupVersionKind: StorageMapModelGroupVersionKind,
-      namespaced: true,
       isList: false,
       name: resource?.spec?.map?.storage.name,
       namespace: resource?.spec?.map?.storage.namespace,
+      namespaced: true,
     });
 
   const title_ = title || t('Duplicate migration plan');
@@ -109,30 +109,34 @@ export const DuplicateModal: React.FC<DuplicateModalProps> = ({ title, resource,
       const newNetworkMap_: V1beta1NetworkMap = {
         apiVersion: 'forklift.konveyor.io/v1beta1',
         kind: 'NetworkMap',
-        spec: networkMap.spec,
         metadata: {
           generateName: `${newName}-`,
           namespace: resource.metadata.namespace,
         },
+        spec: networkMap.spec,
       };
-      const newNetworkMap = await k8sCreate({ model: NetworkMapModel, data: newNetworkMap_ });
+      const newNetworkMap = await k8sCreate({ data: newNetworkMap_, model: NetworkMapModel });
 
       // Duplicate storage map
       const newStorageMap_: V1beta1StorageMap = {
         apiVersion: 'forklift.konveyor.io/v1beta1',
         kind: 'StorageMap',
-        spec: storageMap.spec,
         metadata: {
           generateName: `${newName}-`,
           namespace: resource.metadata.namespace,
         },
+        spec: storageMap.spec,
       };
-      const newStorageMap = await k8sCreate({ model: StorageMapModel, data: newStorageMap_ });
+      const newStorageMap = await k8sCreate({ data: newStorageMap_, model: StorageMapModel });
 
       // Duplicate plan
       const newPlan_: V1beta1Plan = {
         apiVersion: 'forklift.konveyor.io/v1beta1',
         kind: 'Plan',
+        metadata: {
+          name: newName,
+          namespace: resource.metadata.namespace,
+        },
         spec: {
           ...resource.spec,
           archived: false,
@@ -151,27 +155,23 @@ export const DuplicateModal: React.FC<DuplicateModalProps> = ({ title, resource,
             },
           },
         },
-        metadata: {
-          name: newName,
-          namespace: resource.metadata.namespace,
-        },
       };
-      const newPlan = await k8sCreate({ model: PlanModel, data: newPlan_ });
+      const newPlan = await k8sCreate({ data: newPlan_, model: PlanModel });
 
       // Patch owner in network map
       await patchOwner(newNetworkMap, NetworkMapModel, {
+        apiVersion: 'forklift.konveyor.io/v1beta1',
+        kind: 'Plan',
         name: newPlan.metadata.name,
         uid: newPlan.metadata.uid,
-        kind: 'Plan',
-        apiVersion: 'forklift.konveyor.io/v1beta1',
       });
 
       // Patch owner in storage map
       await patchOwner(newStorageMap, StorageMapModel, {
+        apiVersion: 'forklift.konveyor.io/v1beta1',
+        kind: 'Plan',
         name: newPlan.metadata.name,
         uid: newPlan.metadata.uid,
-        kind: 'Plan',
-        apiVersion: 'forklift.konveyor.io/v1beta1',
       });
 
       if (redirectTo) {
@@ -267,8 +267,6 @@ async function patchOwner(
   ownerRef: { name: string; uid: string; kind: string; apiVersion: string },
 ) {
   const patchedSecret = await k8sPatch({
-    model: model,
-    resource: resource,
     data: [
       {
         op: 'replace',
@@ -283,6 +281,8 @@ async function patchOwner(
         ],
       },
     ],
+    model: model,
+    resource: resource,
   });
 
   return patchedSecret;

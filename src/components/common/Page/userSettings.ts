@@ -19,7 +19,7 @@ const saveRestOrRemoveKey = (key: string, { rest }: { [k: string]: { [n: string]
   }
 };
 
-const toField = ({ resourceFieldId, isVisible }) => ({ resourceFieldId, isVisible });
+const toField = ({ isVisible, resourceFieldId }) => ({ isVisible, resourceFieldId });
 
 const sanitizeFields = (fields: unknown): { resourceFieldId: string; isVisible?: boolean }[] =>
   Array.isArray(fields)
@@ -42,36 +42,36 @@ const sanitizeFields = (fields: unknown): { resourceFieldId: string; isVisible?:
  */
 export const loadUserSettings = ({ pageId }): UserSettings => {
   const key = `${process.env.PLUGIN_NAME}/${pageId}`;
-  const { fields, perPage, filters } = parseOrClean(key);
+  const { fields, filters, perPage } = parseOrClean(key);
 
   return {
     fields: {
+      clear: () => {
+        const { fields, ...rest } = parseOrClean(key);
+        saveRestOrRemoveKey(key, { fields, rest });
+      },
       data: sanitizeFields(fields),
       save: (fields) =>
         saveToLocalStorage(
           key,
           JSON.stringify({ ...parseOrClean(key), fields: fields.map(toField) }),
         ),
-      clear: () => {
-        const { fields, ...rest } = parseOrClean(key);
-        saveRestOrRemoveKey(key, { fields, rest });
-      },
-    },
-    pagination: {
-      perPage: typeof perPage === 'number' ? perPage : undefined,
-      save: (perPage) => saveToLocalStorage(key, JSON.stringify({ ...parseOrClean(key), perPage })),
-      clear: () => {
-        const { perPage, ...rest } = parseOrClean(key);
-        saveRestOrRemoveKey(key, { perPage, rest });
-      },
     },
     filters: {
-      data: filters,
-      save: (filters) => saveToLocalStorage(key, JSON.stringify({ ...parseOrClean(key), filters })),
       clear: () => {
         const { filters, ...rest } = parseOrClean(key);
         saveRestOrRemoveKey(key, { filters, rest });
       },
+      data: filters,
+      save: (filters) => saveToLocalStorage(key, JSON.stringify({ ...parseOrClean(key), filters })),
+    },
+    pagination: {
+      clear: () => {
+        const { perPage, ...rest } = parseOrClean(key);
+        saveRestOrRemoveKey(key, { perPage, rest });
+      },
+      perPage: typeof perPage === 'number' ? perPage : undefined,
+      save: (perPage) => saveToLocalStorage(key, JSON.stringify({ ...parseOrClean(key), perPage })),
     },
   };
 };

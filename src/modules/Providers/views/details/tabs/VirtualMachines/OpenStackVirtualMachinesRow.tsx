@@ -26,19 +26,19 @@ interface RenderTdProps {
 }
 
 const cellRenderers: Record<string, React.FC<VMCellProps>> = {
-  name: VMNameCellRenderer,
   concerns: VMConcernsCellRenderer,
+  flavorID: ({ data }) => <TableCell>{(data?.vm as OpenstackVM)?.flavorID}</TableCell>,
   hostID: ({ data }) => <TableCell>{(data?.vm as OpenstackVM)?.hostID}</TableCell>,
+  imageID: ({ data }) => <TableCell>{(data?.vm as OpenstackVM)?.imageID}</TableCell>,
+  name: VMNameCellRenderer,
   path: ({ data }) => <TableCell>{(data?.vm as OpenstackVM)?.path}</TableCell>,
   status: ({ data }) => <TableCell>{(data?.vm as OpenstackVM)?.status}</TableCell>,
   tenantID: ({ data }) => <TableCell>{(data?.vm as OpenstackVM)?.tenantID}</TableCell>,
-  imageID: ({ data }) => <TableCell>{(data?.vm as OpenstackVM)?.imageID}</TableCell>,
-  flavorID: ({ data }) => <TableCell>{(data?.vm as OpenstackVM)?.flavorID}</TableCell>,
 };
 
 export const OpenStackVirtualMachinesCells: React.FC<RowProps<VmData>> = ({
-  resourceFields,
   resourceData,
+  resourceFields,
 }) => {
   return (
     <>

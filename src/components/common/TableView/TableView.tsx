@@ -20,18 +20,18 @@ import { RowProps, SortType, TableViewHeaderProps } from './types';
  * @see useSort
  */
 export function TableView<T>({
+  activeSort,
+  'aria-label': ariaLabel,
+  children,
+  currentNamespace,
+  entities,
+  expandedIds,
+  Header,
+  Row,
+  setActiveSort,
+  toId,
   uidFieldId = UID,
   visibleColumns,
-  entities,
-  'aria-label': ariaLabel,
-  Row,
-  children,
-  activeSort,
-  setActiveSort,
-  currentNamespace,
-  Header,
-  toId,
-  expandedIds,
 }: TableViewProps<T>) {
   const hasChildren = children.filter(Boolean).length > 0;
   const columnSignature = visibleColumns.map(({ resourceFieldId: id }) => id).join();
@@ -40,7 +40,7 @@ export function TableView<T>({
     <Table aria-label={ariaLabel} variant="compact" isStickyHeader>
       <Thead>
         <Tr>
-          <Header {...{ activeSort, setActiveSort, visibleColumns, dataOnScreen: entities }} />
+          <Header {...{ activeSort, dataOnScreen: entities, setActiveSort, visibleColumns }} />
         </Tr>
       </Thead>
       <Tbody>

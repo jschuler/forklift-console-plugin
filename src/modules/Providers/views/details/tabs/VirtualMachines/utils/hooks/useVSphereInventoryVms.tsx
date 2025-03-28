@@ -19,17 +19,17 @@ export const useVSphereInventoryVms = (
   const validProvider = providerLoaded && !providerLoadError && provider;
 
   const hostsInventoryOptions: UseProviderInventoryParams = {
+    interval: 180000,
     provider: validProvider,
     subPath: 'hosts?detail=4',
-    interval: 180000,
   };
 
   const { inventory: hosts } = useProviderInventory<ProviderHost[]>(hostsInventoryOptions);
 
   const foldersInventoryOptions: UseProviderInventoryParams = {
+    interval: 180000,
     provider: validProvider,
     subPath: 'folders?detail=4',
-    interval: 180000,
   };
 
   const { inventory: folders } = useProviderInventory<VSphereResource[]>(foldersInventoryOptions);

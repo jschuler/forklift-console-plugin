@@ -25,14 +25,14 @@ interface RenderTdProps {
   resourceFields: ResourceField[];
 }
 const cellRenderers: Record<string, React.FC<VMCellProps>> = {
-  name: VMNameCellRenderer,
   concerns: VMConcernsCellRenderer,
+  name: VMNameCellRenderer,
   ovaPath: ({ data }) => <TableCell>{(data?.vm as OvaVM)?.OvaPath}</TableCell>,
 };
 
 export const OvaVirtualMachinesCells: React.FC<RowProps<VmData>> = ({
-  resourceFields,
   resourceData,
+  resourceFields,
 }) => {
   return (
     <>

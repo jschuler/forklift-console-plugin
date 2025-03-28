@@ -9,31 +9,31 @@ import { GlobalActionToolbarProps } from '../common/utils/types';
 import StandardPage, { StandardPageProps } from './StandardPage';
 
 export function withRowSelection<T>({
-  CellMapper,
-  isSelected,
-  isExpanded,
-  toggleSelectFor,
-  toggleExpandFor,
   canSelect,
+  CellMapper,
+  isExpanded,
+  isSelected,
+  toggleExpandFor,
+  toggleSelectFor,
 }) {
   const Enhanced = (props: RowProps<T>) => (
     <>
       {isExpanded && (
         <Td
           expand={{
-            rowIndex: props.resourceIndex,
             isExpanded: isExpanded(props.resourceData),
             onToggle: () => toggleExpandFor([props.resourceData]),
+            rowIndex: props.resourceIndex,
           }}
         />
       )}
       {isSelected && (
         <Td
           select={{
-            rowIndex: props.resourceIndex,
-            onSelect: () => toggleSelectFor([props.resourceData]),
-            isSelected: isSelected(props.resourceData),
             isDisabled: !canSelect(props.resourceData),
+            isSelected: isSelected(props.resourceData),
+            onSelect: () => toggleSelectFor([props.resourceData]),
+            rowIndex: props.resourceIndex,
           }}
         />
       )}
@@ -45,11 +45,11 @@ export function withRowSelection<T>({
 }
 
 export function withHeaderSelection<T>({
-  HeaderMapper,
-  isSelected,
-  isExpanded,
-  toggleSelectFor,
   canSelect,
+  HeaderMapper,
+  isExpanded,
+  isSelected,
+  toggleSelectFor,
 }) {
   const Enhanced = ({ dataOnScreen, ...other }: TableViewHeaderProps<T>) => {
     const selectableItems = dataOnScreen.filter(canSelect);
@@ -61,9 +61,9 @@ export function withHeaderSelection<T>({
         {isSelected && (
           <Th
             select={{
-              onSelect: () => toggleSelectFor(selectableItems),
-              isSelected: allSelected,
               isHeaderSelectDisabled: !selectableItems?.length, // Disable if no selectable items
+              isSelected: allSelected,
+              onSelect: () => toggleSelectFor(selectableItems),
             }}
           />
         )}
@@ -118,12 +118,12 @@ export type GlobalActionWithSelection<T> = GlobalActionToolbarProps<T> & {
  * 2. check box status at row level does not depend from other rows and  can be calculated from the item via canSelect() function
  */
 export function withIdBasedSelection<T>({
-  toId,
   canSelect,
-  onSelect,
-  onExpand,
-  selectedIds: initialSelectedIds,
   expandedIds: initialExpandedIds,
+  onExpand,
+  onSelect,
+  selectedIds: initialSelectedIds,
+  toId,
 }: IdBasedSelectionProps<T>) {
   const Enhanced = (props: StandardPageProps<T>) => {
     const [selectedIds, setSelectedIds] = useState(initialSelectedIds);
@@ -167,21 +167,21 @@ export function withIdBasedSelection<T>({
 
     const RowMapper = withTr(
       withRowSelection({
-        CellMapper: CellMapper,
         canSelect,
-        isSelected,
+        CellMapper: CellMapper,
         isExpanded,
-        toggleSelectFor,
+        isSelected,
         toggleExpandFor,
+        toggleSelectFor,
       }),
       ExpandedComponent,
     );
 
     const HeaderMapper = withHeaderSelection({
-      HeaderMapper: props.HeaderMapper ?? DefaultHeader,
       canSelect,
-      isSelected,
+      HeaderMapper: props.HeaderMapper ?? DefaultHeader,
       isExpanded,
+      isSelected,
       toggleSelectFor,
     });
 
@@ -258,12 +258,12 @@ export interface StandardPageWithSelectionProps<T> extends StandardPageProps<T> 
  */
 export function StandardPageWithSelection<T>(props: StandardPageWithSelectionProps<T>) {
   const {
-    toId,
     canSelect = () => true,
+    expandedIds,
+    onExpand,
     onSelect,
     selectedIds,
-    onExpand,
-    expandedIds,
+    toId,
     ...rest
   } = props;
 
@@ -276,12 +276,12 @@ export function StandardPageWithSelection<T>(props: StandardPageWithSelectionPro
   }
 
   const EnhancedStandardPage = withIdBasedSelection<T>({
-    toId,
     canSelect,
+    expandedIds,
+    onExpand,
     onSelect,
     selectedIds,
-    onExpand,
-    expandedIds,
+    toId,
   });
 
   return onSelect ? <EnhancedStandardPage {...rest} /> : <StandardPage {...rest} />;

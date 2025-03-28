@@ -29,7 +29,7 @@ import {
  *
  * @returns {ReactNode - A React table row (Tr) component.
  */
-export const ProviderRow: React.FC<RowProps<ProviderData>> = ({ resourceFields, resourceData }) => {
+export const ProviderRow: React.FC<RowProps<ProviderData>> = ({ resourceData, resourceFields }) => {
   return (
     <Tr>
       {resourceFields.map(({ resourceFieldId }) =>
@@ -71,16 +71,16 @@ const renderTd = ({ resourceData, resourceFieldId, resourceFields }: RenderTdPro
 };
 
 const cellRenderers: Record<string, React.FC<CellProps>> = {
+  ['actions']: (props) => ProviderActionsDropdown({ isKebab: true, ...props }),
+  ['hostCount']: InventoryCellFactory({ icon: <OutlinedHddIcon /> }),
   ['name']: ProviderLinkCell,
-  ['phase']: StatusCell,
-  ['url']: URLCell,
-  ['type']: TypeCell,
   ['namespace']: NamespaceCell,
   ['networkCount']: InventoryCellFactory({ icon: <NetworkIcon /> }),
+  ['phase']: StatusCell,
   ['storageCount']: InventoryCellFactory({ icon: <DatabaseIcon /> }),
+  ['type']: TypeCell,
+  ['url']: URLCell,
   ['vmCount']: VirtualMachinesCell,
-  ['hostCount']: InventoryCellFactory({ icon: <OutlinedHddIcon /> }),
-  ['actions']: (props) => ProviderActionsDropdown({ isKebab: true, ...props }),
 };
 
 interface RenderTdProps {

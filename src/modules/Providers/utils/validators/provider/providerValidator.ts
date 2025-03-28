@@ -32,7 +32,7 @@ export function providerValidator(
       validationError = ovaProviderValidator(provider);
       break;
     default:
-      validationError = { type: 'error', msg: 'unknown provider type' };
+      validationError = { msg: 'unknown provider type', type: 'error' };
   }
 
   return validationError;

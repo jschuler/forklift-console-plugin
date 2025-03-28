@@ -31,9 +31,9 @@ export const PlanActionsDropdownItems = ({ data }: PlanActionsDropdownItemsProps
   const { obj: plan } = data;
 
   const planURL = getResourceUrl({
-    reference: PlanModelRef,
     name: plan?.metadata?.name,
     namespace: plan?.metadata?.namespace,
+    reference: PlanModelRef,
   });
 
   const phase = getPlanPhase(data);

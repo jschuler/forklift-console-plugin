@@ -20,7 +20,7 @@ import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 
 import { EditComponentProps } from '../BaseCredentialsSection';
 
-export const OpenshiftCredentialsEdit: React.FC<EditComponentProps> = ({ secret, onChange }) => {
+export const OpenshiftCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, secret }) => {
   const { t } = useForkliftTranslation();
 
   const url = safeBase64Decode(secret?.data?.url);
@@ -55,9 +55,9 @@ export const OpenshiftCredentialsEdit: React.FC<EditComponentProps> = ({ secret,
   const initialState = {
     passwordHidden: true,
     validation: {
-      token: openshiftSecretFieldValidator('token', token),
-      insecureSkipVerify: openshiftSecretFieldValidator('insecureSkipVerify', insecureSkipVerify),
       cacert: openshiftSecretFieldValidator('cacert', cacert),
+      insecureSkipVerify: openshiftSecretFieldValidator('insecureSkipVerify', insecureSkipVerify),
+      token: openshiftSecretFieldValidator('token', token),
     },
   };
 
@@ -84,7 +84,7 @@ export const OpenshiftCredentialsEdit: React.FC<EditComponentProps> = ({ secret,
   const handleChange = useCallback(
     (id, value) => {
       const validationState = openshiftSecretFieldValidator(id, value);
-      dispatch({ type: 'SET_FIELD_VALIDATED', payload: { field: id, validationState } });
+      dispatch({ payload: { field: id, validationState }, type: 'SET_FIELD_VALIDATED' });
 
       // don't trim fields that allow spaces
       const encodedValue = ['cacert'].includes(id)

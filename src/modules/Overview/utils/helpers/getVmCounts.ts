@@ -36,11 +36,11 @@ function incrementCounts(conditions: string[], vm, vmCounts: { [key: string]: nu
  */
 export function getVmCounts(migrations: V1beta1Migration[]): { [key: string]: number } {
   const vmCounts: { [key: string]: number } = {
-    Total: 0,
-    Running: 0,
-    Failed: 0,
     Canceled: 0,
+    Failed: 0,
+    Running: 0,
     Succeeded: 0,
+    Total: 0,
   };
 
   for (const migration of migrations || []) {

@@ -20,15 +20,15 @@ export const ProviderPageHeadings: React.FC<{ name: string; namespace: string }>
 }) => {
   const [provider, providerLoaded] = useK8sWatchResource<V1beta1Provider>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   const {
+    error: inventoryError,
     inventory,
     loading: inventoryLoading,
-    error: inventoryError,
   } = useProviderInventory<ProviderInventory>({
     provider,
   });
@@ -38,7 +38,7 @@ export const ProviderPageHeadings: React.FC<{ name: string; namespace: string }>
     namespace,
   });
 
-  const data = { provider, inventory, permissions };
+  const data = { inventory, permissions, provider };
   const alerts = [];
 
   const criticalCondition =

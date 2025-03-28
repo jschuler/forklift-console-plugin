@@ -46,13 +46,13 @@ export const loadUserSettings = ({ userSettingsKeySuffix }): OverviewUserSetting
 
   return {
     welcome: {
-      hideWelcome: typeof hideWelcome === 'boolean' ? hideWelcome : undefined,
-      save: (hideWelcome) =>
-        saveToLocalStorage(key, JSON.stringify({ ...parseOrClean(key), hideWelcome })),
       clear: () => {
         const { hideWelcome, ...rest } = parseOrClean(key);
         saveRestOrRemoveKey(key, { hideWelcome, rest });
       },
+      hideWelcome: typeof hideWelcome === 'boolean' ? hideWelcome : undefined,
+      save: (hideWelcome) =>
+        saveToLocalStorage(key, JSON.stringify({ ...parseOrClean(key), hideWelcome })),
     },
   };
 };

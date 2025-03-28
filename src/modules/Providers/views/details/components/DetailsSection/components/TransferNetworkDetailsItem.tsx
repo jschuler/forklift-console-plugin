@@ -6,10 +6,10 @@ import { DetailsItem } from '../../../../../utils';
 import { ProviderDetailsItemProps } from './ProviderDetailsItem';
 
 export const TransferNetworkDetailsItem: React.FC<ProviderDetailsItemProps> = ({
-  resource: provider,
   canPatch,
-  moreInfoLink,
   helpContent,
+  moreInfoLink,
+  resource: provider,
 }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();

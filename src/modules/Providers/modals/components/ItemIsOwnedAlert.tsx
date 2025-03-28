@@ -15,7 +15,7 @@ interface ItemIsOwnedAlertProps {
   namespace: string;
 }
 
-export const ItemIsOwnedAlert: React.FC<ItemIsOwnedAlertProps> = ({ owner, namespace }) => {
+export const ItemIsOwnedAlert: React.FC<ItemIsOwnedAlertProps> = ({ namespace, owner }) => {
   const { t } = useForkliftTranslation();
 
   return (

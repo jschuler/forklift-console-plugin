@@ -21,7 +21,7 @@ import { getOpenshiftProviderWebUILink } from './utils';
 export const OpenshiftDetailsSection: React.FC<DetailsSectionProps> = ({ data }) => {
   const { t } = useForkliftTranslation();
 
-  const { provider, permissions } = data;
+  const { permissions, provider } = data;
   const webUILink = getOpenshiftProviderWebUILink(provider);
 
   return (

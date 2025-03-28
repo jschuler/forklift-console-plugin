@@ -13,9 +13,9 @@ import { ProviderDetailsItemProps } from './ProviderDetailsItem';
  * @param {DetailsItemProps} props - The props of the details item.
  */
 export const NameDetailsItem: React.FC<ProviderDetailsItemProps> = ({
-  resource: provider,
-  moreInfoLink,
   helpContent,
+  moreInfoLink,
+  resource: provider,
 }) => {
   const { t } = useForkliftTranslation();
 

@@ -13,17 +13,17 @@ export interface ChipsToolbarProvidersProps {
 }
 
 export const ChipsToolbarProviders: React.FunctionComponent<ChipsToolbarProvidersProps> = ({
-  filterState,
   filterDispatch,
+  filterState,
 }) => {
   const deleteNameFilter = (_) => {
-    filterDispatch({ type: 'SET_NAME_FILTER', payload: '' });
+    filterDispatch({ payload: '', type: 'SET_NAME_FILTER' });
   };
 
   const deleteTypeFilter = (type: string) => {
     filterDispatch({
-      type: 'UPDATE_TYPE_FILTERS',
       payload: filterState.typeFilters.filter((t) => t !== type),
+      type: 'UPDATE_TYPE_FILTERS',
     });
   };
 

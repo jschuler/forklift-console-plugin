@@ -32,17 +32,17 @@ interface RenderTdProps {
 }
 
 const cellRenderers: Record<string, React.FC<VMCellProps>> = {
-  name: VMNameCellRenderer,
   concerns: VMConcernsCellRenderer,
-  host: ({ data }) => <TableCell>{data?.hostName}</TableCell>,
   folder: ({ data }) => <TableCell>{data?.folderName}</TableCell>,
+  host: ({ data }) => <TableCell>{data?.hostName}</TableCell>,
+  name: VMNameCellRenderer,
   path: ({ data }) => <TableCell>{(data?.vm as VSphereVM)?.path}</TableCell>,
   powerState: PowerStateCellRenderer,
 };
 
 export const VSphereVirtualMachinesCells: React.FC<RowProps<VmData>> = ({
-  resourceFields,
   resourceData,
+  resourceFields,
 }) => {
   return (
     <>

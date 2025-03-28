@@ -16,14 +16,14 @@ const NetworkMapDetailsPageInternal: React.FC<{
 
   const pages = [
     {
+      component: () => <NetworkMapDetailsTab name={name} namespace={namespace} />,
       href: '',
       name: t('Details'),
-      component: () => <NetworkMapDetailsTab name={name} namespace={namespace} />,
     },
     {
+      component: () => <NetworkMapYAMLTab name={name} namespace={namespace} />,
       href: 'yaml',
       name: t('YAML'),
-      component: () => <NetworkMapYAMLTab name={name} namespace={namespace} />,
     },
   ];
 

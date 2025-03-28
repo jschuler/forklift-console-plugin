@@ -41,15 +41,15 @@ export const PlanVirtualMachines: React.FC<{ name: string; namespace: string }> 
 }) => {
   const [plan, planLoaded, planLoadError] = useK8sWatchResource<V1beta1Plan>({
     groupVersionKind: PlanModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   const permissions = useGetDeleteAndEditAccessReview({ model: PlanModel, namespace });
   const [sourceProvider] = usePlanSourceProvider(plan, namespace);
 
-  const data = { plan, permissions };
+  const data = { permissions, plan };
 
   return (
     <ModalHOC>

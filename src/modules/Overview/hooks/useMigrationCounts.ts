@@ -28,23 +28,23 @@ type CountState = {
 export const useMigrationCounts = (): MigrationCountsHookResponse => {
   const [counts, setCounts] = useState<CountState>({
     migrationCounts: {
-      Total: 0,
-      Running: 0,
       Failure: 0,
+      Running: 0,
       Successful: 0,
+      Total: 0,
     },
     vmCounts: {
-      Total: 0,
-      Running: 0,
       Failure: 0,
+      Running: 0,
       Successful: 0,
+      Total: 0,
     },
   });
 
   const [migrations, loaded, loadError] = useK8sWatchResource<V1beta1Migration[]>({
     groupVersionKind: MigrationModelGroupVersionKind,
-    namespaced: true,
     isList: true,
+    namespaced: true,
   });
 
   // Update 'counts' whenever 'migrations' changes and 'loaded' is true and 'loadError' is false.
@@ -59,9 +59,9 @@ export const useMigrationCounts = (): MigrationCountsHookResponse => {
 
   return {
     count: counts.migrationCounts,
-    vmCount: counts.vmCounts,
     loaded,
     loadError,
+    vmCount: counts.vmCounts,
   };
 };
 

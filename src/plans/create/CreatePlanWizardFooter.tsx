@@ -58,8 +58,8 @@ export const CreatePlanWizardFooter: FC<CreatePlanWizardFooterProps> = ({
 
   const onCancel = () => {
     const plansListURL = getResourceUrl({
-      reference: PlanModelRef,
       namespace: activeNamespace,
+      reference: PlanModelRef,
     });
 
     history.push(plansListURL);

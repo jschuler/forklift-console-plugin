@@ -11,9 +11,9 @@ const usePlanSourceProvider = (
 
   const [providers, providersLoaded, providersLoadError] = useK8sWatchResource<V1beta1Provider[]>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     isList: true,
     namespace,
+    namespaced: true,
   });
   const planSourceProvider = useMemo(
     () => providers?.find((provider) => provider.metadata.name === planSourceProviderName),

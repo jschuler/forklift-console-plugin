@@ -57,25 +57,14 @@ export const VmMigrationsChartCard: FC<MigrationsCardProps> = () => {
   );
   const [migrations] = useK8sWatchResource<V1beta1Migration[]>({
     groupVersionKind: MigrationModelGroupVersionKind,
-    namespaced: true,
     isList: true,
+    namespaced: true,
   });
   const VmMigrationsDataPoints: {
     running: MigrationDataPoint[];
     failed: MigrationDataPoint[];
     succeeded: MigrationDataPoint[];
   } = {
-    running: toDataPointsForVmMigrations(
-      migrations
-        .map((migration) =>
-          migration?.status?.vms.filter(
-            (vm) => vm?.phase !== 'Completed' && vm?.phase != 'Canceled',
-          ),
-        )
-        .reduce((append, vm) => append.concat(vm), []),
-      toStartedVmMigration,
-      selectedTimeRange,
-    ),
     failed: toDataPointsForVmMigrations(
       migrations
         .map((migration) =>
@@ -85,6 +74,17 @@ export const VmMigrationsChartCard: FC<MigrationsCardProps> = () => {
         )
         .reduce((append, vm) => append.concat(vm), []),
       toFinishedVmMigration,
+      selectedTimeRange,
+    ),
+    running: toDataPointsForVmMigrations(
+      migrations
+        .map((migration) =>
+          migration?.status?.vms.filter(
+            (vm) => vm?.phase !== 'Completed' && vm?.phase != 'Canceled',
+          ),
+        )
+        .reduce((append, vm) => append.concat(vm), []),
+      toStartedVmMigration,
       selectedTimeRange,
     ),
     succeeded: toDataPointsForVmMigrations(
@@ -195,28 +195,28 @@ export const VmMigrationsChartCard: FC<MigrationsCardProps> = () => {
             <ChartGroup offset={11} horizontal={false}>
               <ChartBar
                 data={VmMigrationsDataPoints.running.map(({ dateLabel, value }) => ({
+                  label: t('{{dateLabel}} Running: {{value}}', { dateLabel, value }),
+                  name: t('Running'),
                   x: dateLabel,
                   y: value,
-                  name: t('Running'),
-                  label: t('{{dateLabel}} Running: {{value}}', { dateLabel, value }),
                 }))}
                 labelComponent={<ChartTooltip constrainToVisibleArea />}
               />
               <ChartBar
                 data={VmMigrationsDataPoints.failed.map(({ dateLabel, value }) => ({
+                  label: t('{{dateLabel}} Failed: {{value}}', { dateLabel, value }),
+                  name: t('Failed'),
                   x: dateLabel,
                   y: value,
-                  name: t('Failed'),
-                  label: t('{{dateLabel}} Failed: {{value}}', { dateLabel, value }),
                 }))}
                 labelComponent={<ChartTooltip constrainToVisibleArea />}
               />
               <ChartBar
                 data={VmMigrationsDataPoints.succeeded.map(({ dateLabel, value }) => ({
+                  label: t('{{dateLabel}} Succeeded: {{value}}', { dateLabel, value }),
+                  name: 'Succeeded',
                   x: dateLabel,
                   y: value,
-                  name: 'Succeeded',
-                  label: t('{{dateLabel}} Succeeded: {{value}}', { dateLabel, value }),
                 }))}
                 labelComponent={<ChartTooltip constrainToVisibleArea />}
               />

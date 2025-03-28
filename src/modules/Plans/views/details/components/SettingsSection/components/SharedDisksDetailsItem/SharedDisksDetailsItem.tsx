@@ -10,7 +10,7 @@ import MigrateSharedDisksModal from './components/MigrateSharedDisksModal/Migrat
 import { getMigrateSharedDisks } from './utils/helpers';
 import { PlanDetailsItemProps } from '../../../DetailsSection';
 
-const SharedDisksDetailsItem: FC<PlanDetailsItemProps> = ({ resource, canPatch }) => {
+const SharedDisksDetailsItem: FC<PlanDetailsItemProps> = ({ canPatch, resource }) => {
   const { t } = useForkliftTranslation();
   const { showModal } = useModal();
 

@@ -21,33 +21,33 @@ import { PlanVirtualMachinesRow } from './PlanVirtualMachinesRow';
 const fieldsMetadataFactory: (isVsphere: boolean) => ResourceFieldFactory = (isVsphere) => (t) =>
   [
     {
-      resourceFieldId: 'name',
+      filter: {
+        placeholderLabel: t('Filter by name'),
+        type: 'freetext',
+      },
+      isIdentity: true, // Name is sufficient ID when Namespace is pre-selected
+      isVisible: true,
       jsonPath: '$.specVM.name',
       label: t('Name'),
-      isVisible: true,
-      isIdentity: true, // Name is sufficient ID when Namespace is pre-selected
-      filter: {
-        type: 'freetext',
-        placeholderLabel: t('Filter by name'),
-      },
+      resourceFieldId: 'name',
       sortable: true,
     },
     {
-      resourceFieldId: 'conditions',
+      isVisible: true,
       jsonPath: (obj: VMData) => {
         return obj?.conditions?.[0]?.category;
       },
       label: t('Conditions'),
-      isVisible: true,
+      resourceFieldId: 'conditions',
       sortable: true,
     },
     {
-      resourceFieldId: 'actions',
-      label: '',
       isAction: true,
-      isVisible: true,
-      sortable: false,
       isHidden: !isVsphere,
+      isVisible: true,
+      label: '',
+      resourceFieldId: 'actions',
+      sortable: false,
     },
   ];
 
@@ -81,15 +81,15 @@ export const PlanVirtualMachinesList: FC<{
   });
 
   const vmData: VMData[] = virtualMachines.map((vm, index) => ({
+    conditions: conditionsDict[vm.id],
+    dvs: [],
+    jobs: [],
+    planData: obj,
+    pods: [],
+    pvcs: [],
     specVM: vm,
     statusVM: vmDict[vm.id],
-    pods: [],
-    jobs: [],
-    pvcs: [],
-    dvs: [],
-    conditions: conditionsDict[vm.id],
     targetNamespace: plan?.spec?.targetNamespace,
-    planData: obj,
     vmIndex: index,
   }));
   const vmDataSource: [VMData[], boolean, unknown] = [vmData || [], true, undefined];

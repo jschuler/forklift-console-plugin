@@ -10,11 +10,11 @@ import { NameTemplateRadioOptions } from '../utils/constants';
 import { onConfirmNameTemplate } from '../utils/utils';
 
 const NameTemplateModal: FC<SettingsEditModalProps> = ({
-  resource,
-  jsonPath,
-  title,
   body,
   helperText,
+  jsonPath,
+  resource,
+  title,
 }) => {
   const plan = resource as EnhancedPlan;
   const nameTemplate = getValueByJsonPath(plan, jsonPath) as string;

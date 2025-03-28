@@ -9,9 +9,9 @@ export const useProviderType = (name: string, namespace: string): string | undef
 
   const [provider, loaded, error] = useK8sWatchResource<V1beta1Provider>({
     groupVersionKind: ProviderModelGroupVersionKind,
-    namespaced: true,
     name,
     namespace,
+    namespaced: true,
   });
 
   useEffect(() => {

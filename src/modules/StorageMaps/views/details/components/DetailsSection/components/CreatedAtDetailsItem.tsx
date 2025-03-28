@@ -6,9 +6,9 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { StorageDetailsItemProps } from './StorageDetailsItemProps';
 
 export const CreatedAtDetailsItem: React.FC<StorageDetailsItemProps> = ({
-  resource,
-  moreInfoLink,
   helpContent,
+  moreInfoLink,
+  resource,
 }) => {
   const { t } = useForkliftTranslation();
 

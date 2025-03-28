@@ -12,8 +12,8 @@ export interface OpenshiftProviderCreateFormProps {
 }
 
 export const OpenshiftProviderFormCreate: React.FC<OpenshiftProviderCreateFormProps> = ({
-  provider,
   onChange,
+  provider,
 }) => {
   const { t } = useForkliftTranslation();
 
@@ -50,8 +50,8 @@ export const OpenshiftProviderFormCreate: React.FC<OpenshiftProviderCreateFormPr
       const validationState = validateOpenshiftURL(trimmedUrl);
 
       dispatch({
-        type: 'SET_FIELD_VALIDATED',
         payload: { field: 'url', validationState },
+        type: 'SET_FIELD_VALIDATED',
       });
 
       onChange({ ...provider, spec: { ...provider.spec, url: trimmedUrl } });

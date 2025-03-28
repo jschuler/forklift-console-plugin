@@ -20,7 +20,7 @@ import { getOvirtProviderWebUILink } from './utils';
 export const OvirtDetailsSection: React.FC<DetailsSectionProps> = ({ data }) => {
   const { t } = useForkliftTranslation();
 
-  const { provider, permissions } = data;
+  const { permissions, provider } = data;
   const webUILink = getOvirtProviderWebUILink(provider);
 
   return (

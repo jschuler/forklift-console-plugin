@@ -12,7 +12,7 @@ const ProvidersCreateVmMigrationPage: React.FC<{
   state: CreateVmMigrationPageState;
   dispatch: React.Dispatch<PageAction<CreateVmMigration, unknown>>;
   emptyContext: boolean;
-}> = ({ state, dispatch, emptyContext }) => {
+}> = ({ dispatch, emptyContext, state }) => {
   if (emptyContext) {
     // display empty node and wait for redirect triggered from useEffect
     // the redirect should be triggered right after the first render()

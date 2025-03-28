@@ -37,16 +37,16 @@ export interface ProviderVirtualMachinesListProps {
 export const toId = (item: VmData) => item.vm.id;
 
 export const ProviderVirtualMachinesList: FC<ProviderVirtualMachinesListProps> = ({
-  title,
-  obj,
   cellMapper,
-  fieldsMetadataFactory,
-  pageId,
-  onSelect,
-  initialSelectedIds,
-  showActions,
   className,
+  fieldsMetadataFactory,
+  initialSelectedIds,
+  obj,
+  onSelect,
+  pageId,
   selectedCountLabel,
+  showActions,
+  title,
 }) => {
   const { t } = useForkliftTranslation();
 
@@ -86,8 +86,8 @@ export const ProviderVirtualMachinesList: FC<ProviderVirtualMachinesListProps> =
       userSettings={userSettings}
       extraSupportedFilters={{
         concerns: GroupedEnumFilter,
-        host: EnumFilter,
         features: EnumFilter,
+        host: EnumFilter,
       }}
       extraSupportedMatchers={[concernsMatcher, hostMatcher, featuresMatcher]}
       GlobalActionToolbarItems={showActions ? actions : undefined}

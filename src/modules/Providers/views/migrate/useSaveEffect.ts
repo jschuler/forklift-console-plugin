@@ -21,14 +21,14 @@ import { CreateVmMigrationPageState } from './types';
 
 const createStorage = (storageMap: V1beta1StorageMap) =>
   k8sCreate({
-    model: StorageMapModel,
     data: storageMap,
+    model: StorageMapModel,
   });
 
 const createNetwork = (netMap: V1beta1NetworkMap) => {
   return k8sCreate({
-    model: NetworkMapModel,
     data: updateNetworkMapDestination(netMap),
+    model: NetworkMapModel,
   });
 };
 
@@ -38,8 +38,8 @@ const createPlan = async (
   storageMap: V1beta1StorageMap,
 ) => {
   const createdPlan = await k8sCreate({
-    model: PlanModel,
     data: plan,
+    model: PlanModel,
   });
   const ownerReferences = [getObjectRef(createdPlan)];
   return [ownerReferences, netMap, storageMap];
@@ -52,8 +52,6 @@ const addOwnerRef = async (model: K8sModel, resource, ownerReferences) => {
   }));
 
   return await k8sPatch({
-    model,
-    resource,
     data: [
       {
         op: 'add',
@@ -61,6 +59,8 @@ const addOwnerRef = async (model: K8sModel, resource, ownerReferences) => {
         value: cleanOwnerReferences,
       },
     ],
+    model,
+    resource,
   });
 };
 
@@ -77,7 +77,7 @@ export const useSaveEffect = (state: CreateVmMigrationPageState, dispatch) => {
   useEffect(() => {
     const {
       flow,
-      underConstruction: { plan, netMap, storageMap },
+      underConstruction: { netMap, plan, storageMap },
     } = state;
     if (!flow.editingDone || !mounted.current) {
       return;
@@ -105,9 +105,9 @@ export const useSaveEffect = (state: CreateVmMigrationPageState, dispatch) => {
           mounted.current &&
           history.push(
             getResourceUrl({
-              reference: PlanModelRef,
-              namespace: plan.metadata.namespace,
               name: plan.metadata.name,
+              namespace: plan.metadata.namespace,
+              reference: PlanModelRef,
             }),
           ),
       )

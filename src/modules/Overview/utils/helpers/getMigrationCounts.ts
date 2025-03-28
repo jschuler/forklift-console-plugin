@@ -7,11 +7,11 @@ import { V1beta1Migration } from '@kubev2v/types';
  */
 export function getMigrationCounts(migrations: V1beta1Migration[]): { [key: string]: number } {
   const migrationCounts: { [key: string]: number } = {
-    Total: 0,
-    Running: 0,
-    Failed: 0,
     Canceled: 0,
+    Failed: 0,
+    Running: 0,
     Succeeded: 0,
+    Total: 0,
   };
 
   for (const migration of migrations || []) {

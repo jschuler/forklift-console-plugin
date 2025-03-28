@@ -17,7 +17,7 @@ const NameTemplateInputFactory: (
 ) => ModalInputComponentType = (selected, setSelected) => {
   const { t } = useForkliftTranslation();
 
-  const InputRenderer: FC<InputRendererProps> = ({ value, onChange }) => (
+  const InputRenderer: FC<InputRendererProps> = ({ onChange, value }) => (
     <>
       <Radio
         isChecked={selected === NameTemplateRadioOptions.defaultNameTemplate}

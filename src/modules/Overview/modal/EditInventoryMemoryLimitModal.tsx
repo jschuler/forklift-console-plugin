@@ -10,10 +10,10 @@ import SettingsSelectInput from './SettingsSelectInput';
 
 // Define the options
 const options = [
-  { key: '400Mi', name: '400Mi', description: 'Low memory limit' },
-  { key: '1000Mi', name: '1000Mi', description: 'Moderate memory limit' },
-  { key: '2000Mi', name: '2000Mi', description: 'High memory limit' },
-  { key: '8000Mi', name: '8000Mi', description: 'Very high memory limit' },
+  { description: 'Low memory limit', key: '400Mi', name: '400Mi' },
+  { description: 'Moderate memory limit', key: '1000Mi', name: '1000Mi' },
+  { description: 'High memory limit', key: '2000Mi', name: '2000Mi' },
+  { description: 'Very high memory limit', key: '8000Mi', name: '8000Mi' },
 ];
 
 /**

@@ -24,8 +24,8 @@ export const useK8sWatchForkliftController = (): K8sForkliftControllerWatchResul
 
   const [controllers, loaded, loadError] = useK8sWatchResource<V1beta1ForkliftController[]>({
     groupVersionKind: ForkliftControllerModelGroupVersionKind,
-    namespaced: true,
     isList: true,
+    namespaced: true,
   });
 
   useEffect(() => {

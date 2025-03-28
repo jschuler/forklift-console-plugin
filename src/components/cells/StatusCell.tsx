@@ -12,12 +12,12 @@ export interface StatusCellProps {
   icon: React.ReactNode;
 }
 
-export const StatusCell: React.FC<StatusCellProps> = ({ label, conditions, icon }) => {
+export const StatusCell: React.FC<StatusCellProps> = ({ conditions, icon, label }) => {
   if (!conditions?.length) {
     return <TextWithIcon label={label} icon={icon} />;
   }
 
-  const allConditions = conditions.map(({ type, message, category, status }) => (
+  const allConditions = conditions.map(({ category, message, status, type }) => (
     <TextWithIcon
       className="forklift-table__flex-cell-popover"
       key={type}
