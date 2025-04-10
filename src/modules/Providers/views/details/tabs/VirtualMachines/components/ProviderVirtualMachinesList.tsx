@@ -1,4 +1,4 @@
-import React, { type FC } from 'react';
+import type { FC } from 'react';
 import { EnumFilter } from 'src/components/common/Filter/EnumFilter';
 import { GroupedEnumFilter } from 'src/components/common/Filter/GroupedEnumFilter';
 import type { ValueMatcher } from 'src/components/common/FilterGroup/types';
@@ -117,5 +117,5 @@ const featuresMatcher: ValueMatcher = {
 
 const hostMatcher: ValueMatcher = {
   filterType: 'host',
-  matchValue: (value: string) => (filter: string) => value == filter,
+  matchValue: (value: string) => (filter: string) => value === filter,
 };

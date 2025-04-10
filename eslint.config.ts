@@ -1,3 +1,5 @@
+/* eslint-disable @cspell/spellchecker */
+
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -125,7 +127,7 @@ export default [
       camelcase: ['error', { allow: ['required_'] }],
       'capitalized-comments': 'off',
       complexity: 'off',
-      'id-length': ['error', { exceptions: ['t'] }],
+      'id-length': ['error', { exceptions: ['t', 'e', 'x', 'y', 'a', 'b', '_', 'i'] }],
       'import/named': 'error',
       'import/no-duplicates': ['error', { 'prefer-inline': true }],
       'import/no-named-as-default-member': 'off',
@@ -138,7 +140,21 @@ export default [
       'no-duplicate-imports': 'off',
       'no-inline-comments': 'off',
       'no-magic-numbers': 'off',
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              importNames: ['default', '*'],
+              message:
+                "Do not import React using default or star import. Import specific exports instead (e.g., `import { useState } from 'react'`).",
+              name: 'react',
+            },
+          ],
+        },
+      ],
       'no-ternary': 'off',
+      'no-undef-init': 'off',
       'no-undefined': 'off',
       'no-unused-vars': 'off',
       'no-warning-comments': 'off',

@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import { isPlanEditable } from 'src/modules/Plans/utils/helpers/getPlanPhase';
 import { useModal } from 'src/modules/Providers/modals/ModalHOC/ModalHOC';
 import { DetailsItem } from 'src/modules/Providers/utils/components/DetailsPage/DetailItem';
@@ -9,7 +9,7 @@ import type { V1beta1PlanSpecTransferNetwork } from '@kubev2v/types';
 import type { PlanDetailsItemProps } from '../../DetailsSection/components/PlanDetailsItemProps';
 import { EditPlanTransferNetwork } from '../modals/EditPlanTransferNetwork/EditPlanTransferNetwork';
 
-export const TransferNetworkDetailsItem: React.FC<PlanDetailsItemProps> = ({
+export const TransferNetworkDetailsItem: FC<PlanDetailsItemProps> = ({
   canPatch,
   destinationProvider,
   helpContent,
@@ -25,8 +25,8 @@ export const TransferNetworkDetailsItem: React.FC<PlanDetailsItemProps> = ({
     network for all migration plans. Otherwise, the pod network is used.`,
   );
 
-  const TransferNetworkToName = (n: V1beta1PlanSpecTransferNetwork) =>
-    n && `${n.namespace}/${n.name}`;
+  const TransferNetworkToName = (network: V1beta1PlanSpecTransferNetwork) =>
+    network && `${network.namespace}/${network.name}`;
 
   const content = TransferNetworkToName(resource?.spec?.transferNetwork);
 

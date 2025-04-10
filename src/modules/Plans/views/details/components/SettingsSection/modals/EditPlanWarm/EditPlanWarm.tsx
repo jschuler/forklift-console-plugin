@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC, FormEvent } from 'react';
 import { EditModal } from 'src/modules/Providers/modals/EditModal/EditModal';
 import type {
   EditModalProps,
@@ -38,8 +38,8 @@ type SwitchRendererProps = {
 };
 
 const WarmInputFactory: () => ModalInputComponentType = () => {
-  const SwitchRenderer: React.FC<SwitchRendererProps> = ({ onChange, value }) => {
-    const onChangeInternal: (checked: boolean, event: React.FormEvent<HTMLInputElement>) => void = (
+  const SwitchRenderer: FC<SwitchRendererProps> = ({ onChange, value }) => {
+    const onChangeInternal: (checked: boolean, event: FormEvent<HTMLInputElement>) => void = (
       checked,
     ) => {
       onChange(checked ? 'true' : 'false');
@@ -51,8 +51,8 @@ const WarmInputFactory: () => ModalInputComponentType = () => {
         label="Warm migration, most of the data is copied during the precopy stage while the source virtual machines (VMs) are running."
         labelOff="Cold migration, the source virtual machines are shut down while the data is copied."
         isChecked={value === 'true'}
-        onChange={(e, v) => {
-          onChangeInternal(v, e);
+        onChange={(e, value) => {
+          onChangeInternal(value, e);
         }}
       />
     );
@@ -61,7 +61,7 @@ const WarmInputFactory: () => ModalInputComponentType = () => {
   return SwitchRenderer;
 };
 
-const EditPlanWarm_: React.FC<EditPlanWarmProps> = (props) => {
+const EditPlanWarm_: FC<EditPlanWarmProps> = (props) => {
   const { t } = useForkliftTranslation();
 
   return (
@@ -94,6 +94,6 @@ type EditPlanWarmProps = Modify<
   }
 >;
 
-export const EditPlanWarm: React.FC<EditPlanWarmProps> = (props) => {
+export const EditPlanWarm: FC<EditPlanWarmProps> = (props) => {
   return <EditPlanWarm_ {...props} />;
 };

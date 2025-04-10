@@ -8,7 +8,7 @@ export * from './console_components';
 
 // mocks for non-React code (standard ts syntax)
 export class Dummy extends Error {
-  constructor() {
+  public constructor() {
     super('Dummy file for exports');
   }
 }
@@ -17,6 +17,6 @@ export class Dummy extends Error {
  * @export
  * @returns {any[]}
  */
-export function useResolvedExtensions(): any[] {
+export const useResolvedExtensions = (): any[] => {
   return [[], undefined, undefined];
-}
+};

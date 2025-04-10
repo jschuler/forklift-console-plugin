@@ -1,4 +1,4 @@
-import React, { type ReactNode } from 'react';
+import type { FormEvent, ReactNode } from 'react';
 import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpText/FormGroupWithHelpText';
 import { HelpIconPopover } from 'src/components/common/HelpIconPopover/HelpIconPopover';
 import SectionHeading from 'src/components/headers/SectionHeading';
@@ -144,10 +144,9 @@ export const PlansCreateForm = ({
   const networkMessages = buildNetworkMessages(t);
   const storageMessages = buildStorageMessages(t);
 
-  const onChangeTargetProvider: (
-    value: string,
-    event: React.FormEvent<HTMLSelectElement>,
-  ) => void = (value) => {
+  const onChangeTargetProvider: (value: string, event: FormEvent<HTMLSelectElement>) => void = (
+    value,
+  ) => {
     dispatch(setPlanTargetProvider(value));
   };
 
@@ -195,8 +194,8 @@ export const PlansCreateForm = ({
           >
             <FormSelect
               value={plan.spec.provider?.destination?.name}
-              onChange={(e, v) => {
-                onChangeTargetProvider(v, e);
+              onChange={(e, value) => {
+                onChangeTargetProvider(value, e);
               }}
               id="targetProvider"
               isDisabled={flow.editingDone}
@@ -213,7 +212,7 @@ export const PlansCreateForm = ({
                   .filter(getIsTarget)
                   .map((provider, index) => (
                     <FormSelectOption
-                      key={provider?.metadata?.name || index}
+                      key={provider?.metadata?.name ?? index}
                       value={provider?.metadata?.name}
                       label={provider?.metadata?.name ?? provider?.metadata?.uid ?? String(index)}
                     />

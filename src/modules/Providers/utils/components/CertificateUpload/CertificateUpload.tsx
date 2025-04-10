@@ -1,4 +1,4 @@
-import React, { type FC } from 'react';
+import type { FC } from 'react';
 import { useModal } from 'src/modules/Providers/modals/ModalHOC/ModalHOC';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
@@ -38,8 +38,8 @@ export const CertificateUpload: FC<CertificateUploadProps> = ({
     showModal(
       <FetchCertificateModal
         url={url}
-        handleSave={(v) => {
-          onTextChange(null, v);
+        handleSave={(value) => {
+          onTextChange(null, value);
         }}
         existingCert={value ? String(value) : undefined}
       />,

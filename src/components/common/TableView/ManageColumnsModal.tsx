@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { createRef, type FormEvent, useState } from 'react';
 
 import {
   Button,
@@ -135,7 +135,7 @@ export const ManageColumnsModal = ({
 
   type onChangeFactoryType = (
     id: string,
-  ) => (checked: boolean, event: React.FormEvent<HTMLInputElement>) => void;
+  ) => (checked: boolean, event: FormEvent<HTMLInputElement>) => void;
 
   const onChangeFactory: onChangeFactoryType = (id) => (checked) => {
     onSelect(id, checked);
@@ -174,7 +174,7 @@ export const ManageColumnsModal = ({
           <DataList aria-label={title} id="table-column-management" isCompact>
             {editedColumns.map(({ isIdentity, isVisible, label, resourceFieldId: id }) => (
               <Draggable key={id} hasNoWrapper>
-                <DataListItem aria-labelledby={`draggable-${id}`} ref={React.createRef()}>
+                <DataListItem aria-labelledby={`draggable-${id}`} ref={createRef()}>
                   <DataListItemRow>
                     <DataListControl>
                       <DataListDragButton
@@ -187,12 +187,14 @@ export const ManageColumnsModal = ({
                         checked={
                           // visibility for identity resourceFields (namespace) is governed by parent component
                           isIdentity
-                            ? resourceFields.find((c) => c.resourceFieldId === id)?.isVisible
+                            ? resourceFields.find(
+                                (resourceField) => resourceField.resourceFieldId === id,
+                              )?.isVisible
                             : isVisible
                         }
                         isDisabled={isIdentity}
-                        onChange={(e, v) => {
-                          onChangeFactory(id)(v, e);
+                        onChange={(e, value) => {
+                          onChangeFactory(id)(value, e);
                         }}
                         otherControls
                       />

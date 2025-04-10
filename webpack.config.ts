@@ -57,7 +57,7 @@ const config: Configuration = {
       },
       {
         test: /\.s?(css)$/,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         generator: {
@@ -98,6 +98,10 @@ const config: Configuration = {
     new ForkTsCheckerWebpackPlugin({
       typescript: {
         configFile: path.resolve(__dirname, 'tsconfig.json'),
+        diagnosticOptions: {
+          semantic: false,
+          syntactic: false,
+        },
       },
     }),
     new ConsoleRemotePlugin({
@@ -119,12 +123,12 @@ if (process.env.NODE_ENV === 'production') {
   config.mode = 'production';
 
   // Ensure `output` is initialized if undefined
-  config.output = config.output || {};
+  config.output ??= {};
   config.output.filename = '[name]-bundle-[hash].min.js';
   config.output.chunkFilename = '[name]-chunk-[chunkhash].min.js';
 
   // Ensure `optimization` is initialized if undefined
-  config.optimization = config.optimization || {};
+  config.optimization ??= {};
   config.optimization.chunkIds = 'deterministic';
   config.optimization.minimize = true;
 }
