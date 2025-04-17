@@ -14,7 +14,6 @@ import type { SortType } from './types';
  * @see localeCompare
  * @param locale to be used by string compareFn
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const universalComparator = (a: any, b: any, locale: string) => {
   return localeCompare(String(a ?? ''), String(b ?? ''), locale);
 };
@@ -29,12 +28,12 @@ export const universalComparator = (a: any, b: any, locale: string) => {
  * @param fieldComparator (optional) custom field compareFn. Defaults to universal string based compareFn.
  * @returns compareFn function
  */
-export function compareWith(
+export const compareWith = (
   currentSort: SortType,
   locale: string,
   fieldComparator: (a, b, locale: string) => number,
   fields: ResourceField[],
-): (a, b) => number {
+): ((a, b) => number) => {
   return (a, b) => {
     if (!currentSort?.resourceFieldId) {
       return 0;
@@ -47,7 +46,7 @@ export function compareWith(
     );
     return currentSort.isAsc ? compareValue : -compareValue;
   };
-}
+};
 
 /**
  * Hook for maintaining sort state. Supported features:

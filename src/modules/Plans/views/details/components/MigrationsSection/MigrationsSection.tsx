@@ -1,5 +1,6 @@
-import React from 'react';
+import type { FC } from 'react';
 
+import Suspend from '@components/Suspend';
 import {
   MigrationModelGroupVersionKind,
   type V1beta1Migration,
@@ -7,11 +8,9 @@ import {
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
-import { Suspend } from '../Suspend';
-
 import { MigrationsTable } from './components/MigrationsTable';
 
-export const MigrationsSection: React.FC<MigrationsSectionProps> = ({ obj }) => {
+export const MigrationsSection: FC<MigrationsSectionProps> = ({ obj }) => {
   const [migrations, loaded, loadError] = useK8sWatchResource<V1beta1Migration[]>({
     groupVersionKind: MigrationModelGroupVersionKind,
     isList: true,
@@ -20,7 +19,7 @@ export const MigrationsSection: React.FC<MigrationsSectionProps> = ({ obj }) => 
   });
 
   const ownedMigrations = migrations.filter(
-    (m) => m?.metadata?.ownerReferences?.[0]?.uid === obj.metadata.uid,
+    (migration) => migration?.metadata?.ownerReferences?.[0]?.uid === obj.metadata.uid,
   );
 
   return (

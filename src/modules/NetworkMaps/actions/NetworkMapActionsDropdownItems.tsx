@@ -1,4 +1,3 @@
-import React from 'react';
 import { DropdownItemLink } from 'src/components/actions/DropdownItemLink';
 import { DeleteModal } from 'src/modules/Providers/modals/DeleteModal/DeleteModal';
 import { useModal } from 'src/modules/Providers/modals/ModalHOC/ModalHOC';
@@ -23,13 +22,13 @@ export const NetworkMapActionsDropdownItems = ({ data }: NetworkMapActionsDropdo
   });
 
   const onClick = () => {
-    showModal(<DeleteModal resource={networkMap} model={NetworkMapModel} />);
+    showModal(<DeleteModal resource={networkMap!} model={NetworkMapModel} />);
   };
 
   return [
     <DropdownItemLink
       value={0}
-      key="EditNetworkMapping"
+      itemKey="EditNetworkMapping"
       href={networkMapURL}
       description={t('Edit NetworkMap')}
     />,

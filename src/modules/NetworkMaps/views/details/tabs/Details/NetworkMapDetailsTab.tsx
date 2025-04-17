@@ -1,8 +1,8 @@
-import React from 'react';
+import type { FC } from 'react';
 import SectionHeading from 'src/components/headers/SectionHeading';
-import { Suspend } from 'src/modules/Plans/views/details/components/Suspend';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
+import Suspend from '@components/Suspend';
 import { NetworkMapModelGroupVersionKind, type V1beta1NetworkMap } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { PageSection } from '@patternfly/react-core';
@@ -17,7 +17,7 @@ type NetworkMapDetailsTabProps = {
   namespace: string;
 };
 
-export const NetworkMapDetailsTab: React.FC<NetworkMapDetailsTabProps> = ({ name, namespace }) => {
+export const NetworkMapDetailsTab: FC<NetworkMapDetailsTabProps> = ({ name, namespace }) => {
   const { t } = useForkliftTranslation();
 
   const [obj, loaded, loadError] = useK8sWatchResource<V1beta1NetworkMap>({

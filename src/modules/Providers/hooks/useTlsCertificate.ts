@@ -25,7 +25,7 @@ export const toColonSeparatedHex = (hexString: string) =>
     // [a,b,c,d] => [[c,d][a,b]]
     .reduce(
       ([last = [], ...rest]: string[][], char: string) =>
-        last.length != 2 ? [[...last, char], ...rest] : [[char], last, ...rest],
+        last.length !== 2 ? [[...last, char], ...rest] : [[char], last, ...rest],
       [],
     )
     // [[c,d][a,b]] => [[a,b], [c,d]]
@@ -59,19 +59,23 @@ export const useTlsCertificate = (url: string) => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    consoleFetch(getServicesApiUrl(`tls-certificate?URL=${url}`), {
-      method: 'GET',
-    })
-      .then(async (response: Response) => response.text())
-      .then((certificate) => {
-        setCertificate(certificate);
-      })
-      .catch((e) => {
+    const fetchCertificate = async () => {
+      try {
+        const response = await consoleFetch(getServicesApiUrl(`tls-certificate?URL=${url}`), {
+          method: 'GET',
+        });
+        const certificateText = await response.text();
+        setCertificate(certificateText);
+      } catch (e) {
         setFetchError(e);
-      })
-      .then(() => {
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+
+    (async () => {
+      await fetchCertificate();
+    })();
   }, [url]);
 
   const x509Cert: X509 = parseToX509(certificate);

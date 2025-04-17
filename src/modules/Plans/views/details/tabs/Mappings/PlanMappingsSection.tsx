@@ -1,4 +1,4 @@
-import React, { type ReactNode, useReducer, useState } from 'react';
+import { type FC, type ReactNode, useReducer, useState } from 'react';
 import { universalComparator } from 'src/components/common/TableView/sort';
 import { isPlanEditable } from 'src/modules/Plans/utils/helpers/getPlanPhase';
 import type { InventoryNetwork } from 'src/modules/Providers/hooks/useNetworks';
@@ -75,7 +75,7 @@ type PlanMappingsSectionProps = {
   targetStorages: OpenShiftStorageClass[];
 };
 
-export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
+export const PlanMappingsSection: FC<PlanMappingsSectionProps> = ({
   plan,
   planNetworkMaps,
   planStorageMaps,
@@ -97,12 +97,11 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
   const [isLoading, setIsLoading] = useState(false);
   const [isAddNetworkMapAvailable, setIsAddNetworkMapAvailable] = useState(true);
   const [isAddStorageMapAvailable, setIsAddStorageMapAvailable] = useState(true);
-  const [state, dispatch] = useReducer(reducer, initialState);
 
-  function reducer(
+  const reducer = (
     state: PlanMappingsSectionState,
     action: { type: string; payload? },
-  ): PlanMappingsSectionState {
+  ): PlanMappingsSectionState => {
     switch (action.type) {
       case 'TOGGLE_EDIT': {
         return { ...state, edit: !state.edit };
@@ -160,26 +159,27 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
       default:
         return state;
     }
-  }
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   // Toggles between view and edit modes
-  function onToggleEdit() {
+  const onToggleEdit = () => {
     dispatch({ type: 'TOGGLE_EDIT' });
-  }
+  };
 
   // Handle user clicking "cancel"
-  function onCancel() {
+  const onCancel = () => {
     // clear changes and return to view mode
     setIsAddNetworkMapAvailable(true);
     setIsAddStorageMapAvailable(true);
     dispatch({ type: 'SET_CANCEL' });
     dispatch({ type: 'TOGGLE_EDIT' });
-  }
+  };
 
   const onAddNetworkMapping = () => {
     const nextSourceNetworksIndex = sourceNetworks.findIndex(
       (sourceNet) =>
-        state.updatedNetwork.length == 0 ||
+        state.updatedNetwork.length === 0 ||
         !state.updatedNetwork.find((updatedNet) => sourceNet.id === updatedNet.source.id),
     );
     const newNetworkMap = createReplacedNetworkMap(nextSourceNetworksIndex);
@@ -201,7 +201,7 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
   const onAddStorageMapping = () => {
     const nextSourceStoragesIndex = sourceStorages.findIndex(
       (sourceStorage) =>
-        state.updatedStorage.length == 0 ||
+        state.updatedStorage.length === 0 ||
         !state.updatedStorage.find(
           (updatedStorage) => sourceStorage.id === updatedStorage.source.id,
         ),
@@ -244,10 +244,10 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
   const onDeleteStorageMapping = ({ destination, source }: Mapping) => {
     const newState = state.updatedStorage.filter(
       (obj) =>
-        mapSourceStoragesIdsToLabels(sourceStorages)[obj.source.id] != source ||
+        mapSourceStoragesIdsToLabels(sourceStorages)[obj.source.id] !== source ||
         (mapTargetStoragesLabelsToIds(targetStorages, plan)[obj.destination.storageClass]
           ? obj.destination.storageClass
-          : 'Not available') != destination,
+          : 'Not available') !== destination,
     );
 
     setIsAddStorageMapAvailable(true);
@@ -261,11 +261,11 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
   const onReplaceNetworkMapping = ({ current, next }) => {
     const replacedIndex = state.updatedNetwork.findIndex(
       (obj) =>
-        (mapSourceNetworksIdsToLabels(sourceNetworks)[obj.source.id] == current.source ||
+        (mapSourceNetworksIdsToLabels(sourceNetworks)[obj.source.id] === current.source ||
           (obj.source.type === 'pod' && current.source.includes('Pod'))) &&
         (mapTargetNetworksIdsToLabels(targetNetworks, plan)[obj.destination.type] ??
           obj.destination?.name ??
-          'Not available') == current.destination,
+          'Not available') === current.destination,
     );
 
     const nextSourceIndex = sourceNetworks.findIndex(
@@ -300,10 +300,10 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
   const onReplaceStorageMapping = ({ current, next }) => {
     const replacedIndex = state.updatedStorage.findIndex(
       (obj) =>
-        mapSourceStoragesIdsToLabels(sourceStorages)[obj.source.id] == current.source &&
+        mapSourceStoragesIdsToLabels(sourceStorages)[obj.source.id] === current.source &&
         (mapTargetStoragesLabelsToIds(targetStorages, plan)[obj.destination.storageClass]
           ? obj.destination.storageClass
-          : 'Not available') == current.destination,
+          : 'Not available') === current.destination,
     );
 
     const nextSourceIndex = sourceStorages.findIndex(
@@ -333,7 +333,7 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
   };
 
   // Handle user clicking "Update Mappings"
-  async function onUpdate() {
+  const onUpdate = async () => {
     setIsLoading(true);
 
     try {
@@ -362,7 +362,7 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
 
       setIsLoading(false);
     }
-  }
+  };
 
   const ovirtFindObj = (obj, nextName: string) => {
     return obj.path === nextName || obj.name === nextName;
@@ -452,7 +452,7 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
 
   const nonSelectedSourceNetworks = sourceNetworks.filter(
     (sourceNet) =>
-      state.updatedNetwork.length == 0 ||
+      state.updatedNetwork.length === 0 ||
       !state.updatedNetwork.find((updatedNet) => sourceNet.id === updatedNet.source.id),
   );
 
@@ -470,7 +470,7 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
 
   const nonSelectedSourceStorages = sourceStorages.filter(
     (sourceStorage) =>
-      state.updatedStorage.length == 0 ||
+      state.updatedStorage.length === 0 ||
       !state.updatedStorage.find((updatedStorage) => sourceStorage.id === updatedStorage.source.id),
   );
 
@@ -486,7 +486,7 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
     ),
   ];
 
-  const PlanMappingsSectionEditMode: React.FC = () => {
+  const PlanMappingsSectionEditMode: FC = () => {
     const { t } = useForkliftTranslation();
     return (
       <>
@@ -567,7 +567,7 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
     );
   };
 
-  const PlanMappingsSectionViewMode: React.FC = () => {
+  const PlanMappingsSectionViewMode: FC = () => {
     const { t } = useForkliftTranslation();
     const DisableEditMappings = hasSomeCompleteRunningVMs(plan) || !isPlanEditable(plan);
 
@@ -685,7 +685,7 @@ export const PlanMappingsSection: React.FC<PlanMappingsSectionProps> = ({
             variant="danger"
             title={t('Error')}
           >
-            {state.alertMessage?.toString()}
+            {state.alertMessage}
           </Alert>
         </>
       ) : null}

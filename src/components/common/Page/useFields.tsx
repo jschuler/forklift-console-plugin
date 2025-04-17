@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { type Dispatch, type SetStateAction, useMemo, useState } from 'react';
 
 import { NAMESPACE } from '../utils/constants';
 import type { ResourceField } from '../utils/types';
@@ -10,7 +10,7 @@ const sameOrderAndVisibility = (a: ResourceField[], b: ResourceField[]): boolean
     return false;
   }
 
-  for (let i = 0; i < a.length; i++) {
+  for (let i = 0; i < a.length; i += 1) {
     if (
       a[i]?.resourceFieldId !== b[i]?.resourceFieldId ||
       Boolean(a[i]?.isVisible) !== Boolean(b[i]?.isVisible)
@@ -38,7 +38,7 @@ export const useFields = (
   currentNamespace: string,
   defaultFields: ResourceField[],
   userSettings?: FieldSettings,
-): [ResourceField[], React.Dispatch<React.SetStateAction<ResourceField[]>>] => {
+): [ResourceField[], Dispatch<SetStateAction<ResourceField[]>>] => {
   const {
     clear: clearSettings = () => undefined,
     data: fieldsFromSettings = [],

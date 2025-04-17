@@ -25,7 +25,7 @@ export const getResourceFieldValue = (
   resourceFieldId: string,
   resourceFields: ResourceField[],
 ) => {
-  const field = resourceFields.find((f) => f.resourceFieldId === resourceFieldId);
+  const field = resourceFields.find((field) => field.resourceFieldId === resourceFieldId);
   if (typeof resourceData !== 'object' || !field) {
     return undefined;
   }
@@ -64,17 +64,18 @@ export const createMatcher =
     matchValue: (value: unknown) => (filterValue: string) => boolean;
     resourceFields: ResourceField[];
   }) =>
-  (resourceData): boolean =>
+  (resourceData: unknown): boolean =>
     resourceFields
       .filter(({ filter }) => filter?.type === filterType)
       .filter(
         ({ filter, resourceFieldId }) =>
-          selectedFilters[resourceFieldId]?.length || filter?.defaultValues,
+          (resourceFieldId && selectedFilters[resourceFieldId]?.length) || filter?.defaultValues,
       )
       .map(({ filter, resourceFieldId }) => ({
-        filters: selectedFilters[resourceFieldId]?.length
-          ? selectedFilters[resourceFieldId]
-          : filter?.defaultValues,
+        filters:
+          resourceFieldId && selectedFilters[resourceFieldId]?.length
+            ? selectedFilters[resourceFieldId]
+            : filter?.defaultValues,
         value: getResourceFieldValue(resourceData, resourceFieldId, resourceFields),
       }))
       .map(({ filters, value }) => filters.some(matchValue(value)))
@@ -159,7 +160,7 @@ export const createMetaMatcher =
     resourceFields: ResourceField[],
     valueMatchers: ValueMatcher[] = defaultValueMatchers,
   ) =>
-  (resourceData): boolean =>
+  (resourceData: unknown): boolean =>
     valueMatchers
       .map(({ filterType, matchValue }) =>
         createMatcher({ filterType, matchValue, resourceFields, selectedFilters }),

@@ -17,14 +17,14 @@ export const usePlanMigration = (plan: V1beta1Plan): WatchK8sResult<V1beta1Migra
 
   const planMigrations = (
     migrations && migrationLoaded && !migrationLoadError ? migrations : []
-  ).filter((m) => m?.metadata?.ownerReferences?.[0]?.uid === plan?.metadata?.uid);
+  ).filter((migration) => migration?.metadata?.ownerReferences?.[0]?.uid === plan?.metadata?.uid);
 
   planMigrations?.sort(
     (a, b) =>
       new Date(b.metadata.creationTimestamp).getTime() -
       new Date(a.metadata.creationTimestamp).getTime(),
   );
-  const lastMigration = planMigrations[0];
+  const [lastMigration] = planMigrations;
 
   return [lastMigration, migrationLoaded, migrationLoadError];
 };

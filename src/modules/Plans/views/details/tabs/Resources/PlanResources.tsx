@@ -1,8 +1,10 @@
-import React from 'react';
+import type { FC } from 'react';
 import useProviderInventory, {
   type UseProviderInventoryParams,
 } from 'src/modules/Providers/hooks/useProviderInventory';
 
+import Loading from '@components/Loading';
+import Suspend from '@components/Suspend';
 import {
   type OpenshiftVM,
   type OpenstackVM,
@@ -18,19 +20,13 @@ import {
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { Bullseye } from '@patternfly/react-core';
 
-import { Loading } from '../../components/Loading';
-import { Suspend } from '../../components/Suspend';
-
 import { OpenshiftPlanResources } from './OpenshiftPlanResources';
 import { OpenstackPlanResources } from './OpenstackPlanResources';
 import { OVAPlanResources } from './OVAPlanResources';
 import { OvirtPlanResources } from './OvirtPlanResources';
 import { VSpherePlanResources } from './VSpherePlanResources';
 
-export const PlanResources: React.FC<{ name: string; namespace: string }> = ({
-  name,
-  namespace,
-}) => {
+export const PlanResources: FC<{ name: string; namespace: string }> = ({ name, namespace }) => {
   const [plan, loaded, loadError] = useK8sWatchResource<V1beta1Plan>({
     groupVersionKind: PlanModelGroupVersionKind,
     name,

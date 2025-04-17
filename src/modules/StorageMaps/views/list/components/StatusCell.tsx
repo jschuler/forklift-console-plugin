@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import Linkify from 'react-linkify';
 import { Link } from 'react-router-dom-v5-compat';
 import { getResourceFieldValue } from 'src/components/common/FilterGroup/matchers';
@@ -12,28 +12,42 @@ import { CheckCircleIcon, ExclamationCircleIcon } from '@patternfly/react-icons'
 
 import type { CellProps } from './CellProps';
 
-export const StatusCell: React.FC<CellProps> = ({ data, fieldId, fields }) => {
+type Phase = 'Critical' | 'Not Ready' | 'Ready';
+
+const statusIcons = {
+  Critical: <ExclamationCircleIcon color="#C9190B" />,
+  'Not Ready': <Spinner size="sm" />,
+  Ready: <CheckCircleIcon color="#3E8635" />,
+};
+
+const phaseLabels = {
+  // t('Critical')
+  Critical: 'Critical',
+  // t('Not Ready')
+  'Not Ready': 'Not Ready',
+  // t('Ready')
+  Ready: 'Ready',
+};
+
+export const StatusCell: FC<CellProps> = ({ data, fieldId, fields }) => {
   const { t } = useForkliftTranslation();
 
-  const phase = getResourceFieldValue(data, 'phase', fields);
+  const phase = getResourceFieldValue(data, 'phase', fields) as Phase;
   const phaseLabel = phaseLabels[phase] ? t(phaseLabels[phase]) : t('Undefined');
 
   switch (phase) {
     case 'Critical':
-      return ErrorStatusCell({
-        data,
-        fieldId,
-        fields,
-        t,
-      });
+      return <ErrorStatusCell data={data} fieldId={fieldId} fields={fields} t={t} />;
+    case 'Not Ready':
+    case 'Ready':
     default:
       return <TableIconCell icon={statusIcons[phase]}>{phaseLabel}</TableIconCell>;
   }
 };
 
-const ErrorStatusCell: React.FC<CellProps & { t }> = ({ data, fields, t }) => {
+const ErrorStatusCell: FC<CellProps & { t }> = ({ data, fields, t }) => {
   const { obj: StorageMap } = data;
-  const phase = getResourceFieldValue(data, 'phase', fields);
+  const phase = getResourceFieldValue(data, 'phase', fields) as Phase;
   const phaseLabel = phaseLabels[phase] ? t(phaseLabels[phase]) : t('Undefined');
   const StorageMapURL = getResourceUrl({
     name: StorageMap?.metadata?.name,
@@ -42,7 +56,7 @@ const ErrorStatusCell: React.FC<CellProps & { t }> = ({ data, fields, t }) => {
   });
 
   // Find the error message from the status conditions
-  const bodyContent = StorageMap?.status?.conditions.find(
+  const bodyContent = StorageMap?.status?.conditions?.find(
     (condition) => condition?.category === 'Critical',
   )?.message;
 
@@ -72,19 +86,4 @@ const ErrorStatusCell: React.FC<CellProps & { t }> = ({ data, fields, t }) => {
       </Button>
     </Popover>
   );
-};
-
-const statusIcons = {
-  Critical: <ExclamationCircleIcon color="#C9190B" />,
-  'Not Ready': <Spinner size="sm" />,
-  Ready: <CheckCircleIcon color="#3E8635" />,
-};
-
-const phaseLabels = {
-  // t('Critical')
-  Critical: 'Critical',
-  // t('Not Ready')
-  'Not Ready': 'Not Ready',
-  // t('Ready')
-  Ready: 'Ready',
 };

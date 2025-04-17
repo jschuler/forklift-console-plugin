@@ -17,12 +17,12 @@ import { k8sPatch } from '@openshift-console/dynamic-plugin-sdk';
  * @param {updatedStorage} V1beta1StorageMapSpecMap[] - The V1beta1StorageMapSpecMap array, containing the updated data.
  * @returns {Promise<void>} A promise that resolves when the patch operation is complete.
  */
-export async function patchPlanMappingsData(
+export const patchPlanMappingsData = async (
   planNetworkMaps: V1beta1NetworkMap,
   planStorageMaps: V1beta1StorageMap,
   updatedNetwork: V1beta1NetworkMapSpecMap[],
   updatedStorage: V1beta1StorageMapSpecMap[],
-) {
+) => {
   await k8sPatch({
     data: [
       {
@@ -46,7 +46,7 @@ export async function patchPlanMappingsData(
     model: StorageMapModel,
     resource: planStorageMaps,
   });
-}
+};
 
 /**
  * Updates the destination name and namespace in the network map entries.
@@ -56,15 +56,15 @@ export async function patchPlanMappingsData(
  * @param {NetworkMap} networkMap - The network map object to update.
  * @returns {NetworkMap} The updated network map object.
  */
-function updateNetworkMapSpecMapDestination(
+const updateNetworkMapSpecMapDestination = (
   networkMaps: V1beta1NetworkMapSpecMap[],
-): V1beta1NetworkMapSpecMap[] {
+): V1beta1NetworkMapSpecMap[] => {
   networkMaps?.forEach((entry) => {
-    const parts = entry?.destination?.name?.split('/');
-    if (parts?.length === 2) {
-      entry.destination.namespace = parts[0];
-      entry.destination.name = parts[1];
+    const [namespace, name] = entry?.destination?.name?.split('/') ?? [];
+    if (namespace && name) {
+      entry.destination.namespace = namespace;
+      entry.destination.name = name;
     }
   });
   return networkMaps;
-}
+};

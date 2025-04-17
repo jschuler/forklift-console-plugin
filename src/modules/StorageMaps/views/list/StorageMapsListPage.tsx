@@ -1,5 +1,5 @@
-import React from 'react';
-import { EnumToTuple } from 'src/components/common/FilterGroup/helpers';
+import type { FC } from 'react';
+import { enumToTuple } from 'src/components/common/FilterGroup/helpers';
 import { loadUserSettings } from 'src/components/common/Page/userSettings';
 import StandardPage from 'src/components/page/StandardPage';
 import useGetDeleteAndEditAccessReview from 'src/modules/Providers/hooks/useGetDeleteAndEditAccessReview';
@@ -53,7 +53,7 @@ export const fieldsMetadataFactory: ResourceFieldFactory = (t) => [
       placeholderLabel: t('Status'),
       primary: true,
       type: 'enum',
-      values: EnumToTuple(STORAGE_MAP_STATUS),
+      values: enumToTuple(STORAGE_MAP_STATUS),
     },
     isVisible: true,
     jsonPath: getStorageMapPhase,
@@ -103,7 +103,7 @@ export const fieldsMetadataFactory: ResourceFieldFactory = (t) => [
   },
 ];
 
-const StorageMapsListPage: React.FC<{
+const StorageMapsListPage: FC<{
   namespace: string;
 }> = ({ namespace }) => {
   const { t } = useForkliftTranslation();
@@ -166,7 +166,7 @@ type EmptyStateProps = {
   namespace?: string;
 };
 
-const EmptyState_: React.FC<EmptyStateProps> = ({ namespace }) => {
+const EmptyState_: FC<EmptyStateProps> = ({ namespace }) => {
   return <StorageMapsEmptyState namespace={namespace} />;
 };
 

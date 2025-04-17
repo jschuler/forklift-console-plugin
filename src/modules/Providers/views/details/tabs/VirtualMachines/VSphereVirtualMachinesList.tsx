@@ -1,5 +1,5 @@
-import React from 'react';
-import { EnumToTuple } from 'src/components/common/FilterGroup/helpers';
+import type { FC } from 'react';
+import { enumToTuple } from 'src/components/common/FilterGroup/helpers';
 
 import type { ResourceFieldFactory } from '@components/common/utils/types';
 import type { VSphereVM } from '@kubev2v/types';
@@ -7,7 +7,7 @@ import type { VSphereVM } from '@kubev2v/types';
 import { ProviderVirtualMachinesList } from './components/ProviderVirtualMachinesList';
 import type { VmData } from './components/VMCellProps';
 import { concernFilter } from './utils/filters/concernFilter';
-import { VsphereHostFilter } from './utils/filters/VsphereHostFilter';
+import { vsphereHostFilter } from './utils/filters/VsphereHostFilter';
 import { getVmPowerState } from './utils/helpers/getVmPowerState';
 import { useVSphereInventoryVms } from './utils/hooks/useVSphereInventoryVms';
 import type { ProviderVirtualMachinesProps } from './ProviderVirtualMachines';
@@ -35,7 +35,7 @@ export const vSphereVmFieldsMetadataFactory: ResourceFieldFactory = (t) => [
     sortable: true,
   },
   {
-    filter: VsphereHostFilter(t),
+    filter: vsphereHostFilter(t),
     isIdentity: false,
     isVisible: true,
     jsonPath: '$.hostName',
@@ -71,7 +71,7 @@ export const vSphereVmFieldsMetadataFactory: ResourceFieldFactory = (t) => [
     filter: {
       placeholderLabel: t('Filter by power state'),
       type: 'enum',
-      values: EnumToTuple({ off: 'Off', on: 'On', unknown: 'Unknown' }),
+      values: enumToTuple({ off: 'Off', on: 'On', unknown: 'Unknown' }),
     },
     isIdentity: false,
     isVisible: true,
@@ -82,7 +82,7 @@ export const vSphereVmFieldsMetadataFactory: ResourceFieldFactory = (t) => [
   },
 ];
 
-export const VSphereVirtualMachinesList: React.FC<ProviderVirtualMachinesProps> = (props) => {
+export const VSphereVirtualMachinesList: FC<ProviderVirtualMachinesProps> = (props) => {
   const { obj } = props;
   const [hostsDict, foldersDict] = useVSphereInventoryVms({ provider: obj.provider }, true, null);
   const { vmData } = obj;

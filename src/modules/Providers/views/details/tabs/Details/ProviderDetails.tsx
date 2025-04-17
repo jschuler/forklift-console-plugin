@@ -1,13 +1,13 @@
-import React from 'react';
+import type { FC } from 'react';
 import { Link } from 'react-router-dom-v5-compat';
 import SectionHeading from 'src/components/headers/SectionHeading';
-import { Loading } from 'src/modules/Plans/views/details/components/Loading';
 import useGetDeleteAndEditAccessReview from 'src/modules/Providers/hooks/useGetDeleteAndEditAccessReview';
 import useProviderInventory from 'src/modules/Providers/hooks/useProviderInventory';
 import { getResourceUrl } from 'src/modules/Providers/utils/helpers/getResourceUrl';
 import type { ProviderData } from 'src/modules/Providers/utils/types/ProviderData';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
+import Loading from '@components/Loading';
 import {
   type ProviderInventory,
   ProviderModel,
@@ -32,7 +32,7 @@ type ProviderDetailsProps = {
   loadError?: unknown;
 };
 
-const ProviderDetails: React.FC<ProviderDetailsProps> = ({ loaded, loadError, obj }) => {
+const ProviderDetails: FC<ProviderDetailsProps> = ({ loaded, loadError, obj }) => {
   const { t } = useForkliftTranslation();
   const { inventory, provider } = obj;
 
@@ -94,7 +94,7 @@ const ProviderDetails: React.FC<ProviderDetailsProps> = ({ loaded, loadError, ob
   );
 };
 
-export const ProviderDetailsWrapper: React.FC<{ name: string; namespace: string }> = ({
+export const ProviderDetailsWrapper: FC<{ name: string; namespace: string }> = ({
   name,
   namespace,
 }) => {

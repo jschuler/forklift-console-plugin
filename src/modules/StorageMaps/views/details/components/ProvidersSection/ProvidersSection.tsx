@@ -1,7 +1,7 @@
-import React, { useReducer } from 'react';
-import { Suspend } from 'src/modules/Plans/views/details/components/Suspend';
+import { type FC, useEffect, useReducer } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
+import Suspend from '@components/Suspend';
 import {
   ProviderModelGroupVersionKind,
   StorageMapModel,
@@ -22,12 +22,12 @@ const initialState: ProvidersSectionState = {
   updating: false,
 };
 
-export const ProvidersSection: React.FC<ProvidersSectionProps> = ({ obj }) => {
+export const ProvidersSection: FC<ProvidersSectionProps> = ({ obj }) => {
   const { t } = useForkliftTranslation();
   const [state, dispatch] = useReducer(providersSectionReducer, initialState);
 
   // Initialize the state with the prop obj
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch({ payload: obj, type: 'INIT' });
   }, [obj]);
 
@@ -38,7 +38,9 @@ export const ProvidersSection: React.FC<ProvidersSectionProps> = ({ obj }) => {
     namespaced: true,
   });
 
-  const targetProviders = providers.filter((p) => ['openshift'].includes(p?.spec?.type));
+  const targetProviders = providers.filter((provider) =>
+    ['openshift'].includes(provider?.spec?.type),
+  );
 
   const onUpdate = async () => {
     dispatch({ payload: true, type: 'SET_UPDATING' });
@@ -51,14 +53,14 @@ export const ProvidersSection: React.FC<ProvidersSectionProps> = ({ obj }) => {
 
   const onChangeSource: (value: string) => void = (value) => {
     dispatch({
-      payload: providers.find((p) => p?.metadata?.name === value),
+      payload: providers.find((provider) => provider?.metadata?.name === value),
       type: 'SET_SOURCE_PROVIDER',
     });
   };
 
   const onChangeTarget: (value: string) => void = (value) => {
     dispatch({
-      payload: providers.find((p) => p?.metadata?.name === value),
+      payload: providers.find((provider) => provider?.metadata?.name === value),
       type: 'SET_TARGET_PROVIDER',
     });
   };

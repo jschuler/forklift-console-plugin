@@ -1,5 +1,4 @@
-import React, { type FC, type MouseEvent } from 'react';
-import { useFormContext } from 'react-hook-form';
+import type { FC, MouseEvent } from 'react';
 import { useHistory } from 'react-router';
 import { getResourceUrl } from 'src/modules/Providers/utils/helpers/getResourceUrl';
 
@@ -15,6 +14,7 @@ import {
 import { useForkliftTranslation } from '@utils/i18n';
 
 import { PlanWizardStepId } from './constants';
+import { useCreatePlanFormContext } from './hooks';
 
 type CreatePlanWizardFooterProps = Partial<Pick<WizardFooterProps, 'nextButtonText' | 'onNext'>>;
 
@@ -25,26 +25,25 @@ export const CreatePlanWizardFooter: FC<CreatePlanWizardFooterProps> = ({
   const history = useHistory();
   const { t } = useForkliftTranslation();
   const [activeNamespace] = useActiveNamespace();
-  const { trigger } = useFormContext();
+  const { trigger } = useCreatePlanFormContext();
   const { activeStep, goToNextStep, goToPrevStep, goToStepById } = useWizardContext();
   const canSkipToReview =
     activeStep.id === PlanWizardStepId.MigrationType ||
     activeStep.id === PlanWizardStepId.OtherSettings;
 
-  const onStepSubmit = async (event) => {
+  const onStepSubmit = async (event: MouseEvent<HTMLButtonElement>) => {
     if (onSubmit) {
-      onSubmit(event);
-      return;
+      return onSubmit(event);
     }
 
-    return trigger(null, { shouldFocus: true });
+    return trigger(undefined, { shouldFocus: true });
   };
 
   const onNextClick = async (event: MouseEvent<HTMLButtonElement>) => {
     const isValid = await onStepSubmit(event);
 
     if (isValid) {
-      goToNextStep();
+      await goToNextStep();
     }
   };
 
@@ -75,7 +74,7 @@ export const CreatePlanWizardFooter: FC<CreatePlanWizardFooterProps> = ({
         {t('Back')}
       </Button>
       <Button variant={ButtonVariant.primary} onClick={onNextClick}>
-        {nextButtonText || t('Next')}
+        {nextButtonText ?? t('Next')}
       </Button>
       {canSkipToReview && (
         <Button variant={ButtonVariant.tertiary} onClick={onSkipToReviewClick}>

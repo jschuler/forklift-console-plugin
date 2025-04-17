@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import { Base64 } from 'js-base64';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
 
@@ -10,7 +10,7 @@ import type { ListComponentProps } from '../BaseCredentialsSection';
 
 import type { Fields } from './Fields';
 
-export const OpenshiftCredentialsList: React.FC<ListComponentProps> = ({ reveal, secret }) => {
+export const OpenshiftCredentialsList: FC<ListComponentProps> = ({ reveal, secret }) => {
   const { t } = useForkliftTranslation();
 
   const items = [];
@@ -67,8 +67,7 @@ export const OpenshiftCredentialsList: React.FC<ListComponentProps> = ({ reveal,
     },
   };
 
-  for (const key in fields) {
-    const field = fields[key];
+  Object.entries(fields).forEach(([key, field]) => {
     const base64Value = secret.data?.[key];
     const value = base64Value ? Base64.decode(secret.data[key]) : undefined;
 
@@ -87,7 +86,7 @@ export const OpenshiftCredentialsList: React.FC<ListComponentProps> = ({ reveal,
         </div>
       </>,
     );
-  }
+  });
 
   return <>{items}</>;
 };

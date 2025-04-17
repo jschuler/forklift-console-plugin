@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import { Base64 } from 'js-base64';
 import { DetailsItem } from 'src/modules/Providers/utils/components/DetailsPage/DetailItem';
 import { ForkliftTrans, useForkliftTranslation } from 'src/utils/i18n';
@@ -11,7 +11,7 @@ import type { ListComponentProps } from '../BaseCredentialsSection';
 
 import type { Fields } from './Fields';
 
-export const OvirtCredentialsList: React.FC<ListComponentProps> = ({ reveal, secret }) => {
+export const OvirtCredentialsList: FC<ListComponentProps> = ({ reveal, secret }) => {
   const { t } = useForkliftTranslation();
 
   const items = [];
@@ -71,8 +71,7 @@ export const OvirtCredentialsList: React.FC<ListComponentProps> = ({ reveal, sec
     },
   };
 
-  for (const key in fields) {
-    const field = fields[key];
+  Object.entries(fields).forEach(([key, field]) => {
     const base64Value = secret.data?.[key];
     const value = base64Value ? Base64.decode(secret.data[key]) : undefined;
 
@@ -100,7 +99,7 @@ export const OvirtCredentialsList: React.FC<ListComponentProps> = ({ reveal, sec
         </div>
       </>,
     );
-  }
+  });
 
   return <>{items}</>;
 };

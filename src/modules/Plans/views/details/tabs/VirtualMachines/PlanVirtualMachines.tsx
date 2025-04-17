@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import {
   canPlanReStart,
   isPlanExecuting,
@@ -9,6 +9,7 @@ import useGetDeleteAndEditAccessReview from 'src/modules/Providers/hooks/useGetD
 import usePlanSourceProvider from 'src/modules/Providers/hooks/usePlanSourceProvider';
 import { ModalHOC } from 'src/modules/Providers/modals/ModalHOC/ModalHOC';
 
+import Suspend from '@components/Suspend';
 import {
   PlanModel,
   PlanModelGroupVersionKind,
@@ -16,8 +17,6 @@ import {
   type V1beta1Provider,
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
-
-import { Suspend } from '../../components/Suspend';
 
 import { MigrationVirtualMachinesList } from './Migration/MigrationVirtualMachinesList';
 import { PlanVirtualMachinesList } from './Plan/PlanVirtualMachinesList';
@@ -31,7 +30,7 @@ type PlanVirtualMachinesProps = {
   sourceProvider?: V1beta1Provider;
 };
 
-const PlanVirtualMachines_: React.FC<PlanVirtualMachinesProps> = (props) => {
+const PlanVirtualMachines_: FC<PlanVirtualMachinesProps> = (props) => {
   const plan = props?.planData.plan;
 
   if (isPlanExecuting(plan)) {
@@ -44,7 +43,7 @@ const PlanVirtualMachines_: React.FC<PlanVirtualMachinesProps> = (props) => {
   return <PlanVirtualMachinesList {...props} />;
 };
 
-export const PlanVirtualMachines: React.FC<{ name: string; namespace: string }> = ({
+export const PlanVirtualMachines: FC<{ name: string; namespace: string }> = ({
   name,
   namespace,
 }) => {
