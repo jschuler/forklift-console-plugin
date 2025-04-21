@@ -1,4 +1,4 @@
-import React from 'react';
+import type { Dispatch, FC } from 'react';
 import type {
   CreateVmMigration,
   PageAction,
@@ -17,14 +17,14 @@ import type {
 
 import { MemoizedProviderVirtualMachinesList } from './MemoizedProviderVirtualMachinesList';
 
-export const SelectSourceProvider: React.FC<{
+export const SelectSourceProvider: FC<{
   projectName: string;
   filterState: PlanCreatePageState;
   providers: V1beta1Provider[];
   selectedProvider: V1beta1Provider;
   state: CreateVmMigrationPageState;
-  dispatch: React.Dispatch<PageAction<CreateVmMigration, unknown>>;
-  filterDispatch: React.Dispatch<PlanCreatePageActionTypes>;
+  dispatch: Dispatch<PageAction<CreateVmMigration, unknown>>;
+  filterDispatch: Dispatch<PlanCreatePageActionTypes>;
 }> = ({
   dispatch,
   filterDispatch,
@@ -37,7 +37,7 @@ export const SelectSourceProvider: React.FC<{
   const { t } = useForkliftTranslation();
 
   // Get the ready providers (note: currently forklift does not allow filter be status.phase)
-  const readyProviders = providers.filter((p) => p?.status?.phase === 'Ready');
+  const readyProviders = providers.filter((provider) => provider?.status?.phase === 'Ready');
 
   const filteredProviders = readyProviders.filter(
     (provider) =>

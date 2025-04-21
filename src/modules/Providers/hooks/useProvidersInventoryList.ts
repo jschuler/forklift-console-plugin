@@ -76,7 +76,9 @@ const useProvidersInventoryList = ({
       }
     };
 
-    fetchData();
+    (async () => {
+      await fetchData();
+    })();
 
     const intervalId = setInterval(fetchData, interval);
     return () => {
@@ -151,14 +153,14 @@ const useProvidersInventoryList = ({
    * @param {Error} e The error object to handle
    * @returns {void}
    */
-  function handleError(e: Error): void {
+  const handleError = (e: Error): void => {
     if (e?.toString() !== oldErrorRef.current?.error) {
       setError(e);
       setLoading(false);
 
       oldErrorRef.current = { error: e?.toString() };
     }
-  }
+  };
 
   /**
    * Checks if there have been changes to any inventory items, and if so,
@@ -170,10 +172,10 @@ const useProvidersInventoryList = ({
    *
    * @returns {void}
    */
-  function updateInventoryIfChanged(
+  const updateInventoryIfChanged = (
     newInventoryList: ProvidersInventoryList,
     fieldsToAvoidComparing: string[],
-  ): void {
+  ): void => {
     // Calculate total lengths of old and new inventories.
     const oldTotalLength = INVENTORY_TYPES.reduce(
       (total, type) => total + (oldDataRef.current?.inventoryList?.[type]?.length || 0),
@@ -223,7 +225,7 @@ const useProvidersInventoryList = ({
       setLoading(false);
       oldDataRef.current = { inventoryList: newInventoryList };
     }
-  }
+  };
 
   return { error, inventory, loading };
 };

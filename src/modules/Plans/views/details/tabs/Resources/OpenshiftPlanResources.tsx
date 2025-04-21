@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import SectionHeading from 'src/components/headers/SectionHeading';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
@@ -8,9 +8,7 @@ import { Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 
 import { AlignedDecimal } from './AlignedDecimal';
 
-export const OpenshiftPlanResources: React.FC<{ planInventory: OpenshiftVM[] }> = ({
-  planInventory,
-}) => {
+export const OpenshiftPlanResources: FC<{ planInventory: OpenshiftVM[] }> = ({ planInventory }) => {
   const { t } = useForkliftTranslation();
 
   const planInventoryRunning = planInventory?.filter((vm) => vm?.object?.spec?.running);
@@ -109,7 +107,8 @@ const getK8sCPU = (vm: V1VirtualMachine) => vm?.spec?.template?.spec?.domain?.cp
 const getK8sVMMemory = (vm: V1VirtualMachine) =>
   vm?.spec?.template?.spec?.domain?.resources.requests?.memory || '0Mi';
 
-function k8sMemoryToBytes(memoryString) {
+/* eslint-disable id-length */
+export const k8sMemoryToBytes = (memoryString: string) => {
   const units = {
     E: 10 ** 18,
     EI: 2 ** 60,
@@ -128,25 +127,25 @@ function k8sMemoryToBytes(memoryString) {
   };
 
   // Enhance the regex to include both binary and decimal SI units
-  const regex = /^(\d+)(Ki|Mi|Gi|Ti|Pi|Ei|K|M|G|T|P|E)?$/i;
-  const match = memoryString.match(regex);
+  const regex = /^(?<group1>\d+)(?<group2>Ki|Mi|Gi|Ti|Pi|Ei|K|M|G|T|P|E)?$/iu;
+  const match = regex.exec(memoryString);
 
   if (match) {
     const value = parseInt(match[1], 10);
-    const unit = match[2];
+    const [, , unit] = match;
 
     if (unit) {
       // Normalize unit to handle case-insensitivity
       const normalizedUnit = unit.toUpperCase();
-      return value * (units[normalizedUnit] || 1);
+      return value * (units[normalizedUnit] ?? 1);
     }
     // Assuming plain bytes if no unit is specified
     return value;
   }
   throw new Error('Invalid memory string format');
-}
+};
 
-function k8sCpuToCores(cpuString) {
+const k8sCpuToCores = (cpuString) => {
   if (cpuString === undefined) {
     return undefined;
   }
@@ -162,4 +161,4 @@ function k8sCpuToCores(cpuString) {
   }
   // Directly parse the string as a float representing cores.
   return parseFloat(cpuString);
-}
+};

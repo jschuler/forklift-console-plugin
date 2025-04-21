@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import { EditProviderVDDKImage } from 'src/modules/Providers/modals/EditProviderVDDKImage/EditProviderVDDKImage';
 import { useModal } from 'src/modules/Providers/modals/ModalHOC/ModalHOC';
 import { DetailsItem } from 'src/modules/Providers/utils/components/DetailsPage/DetailItem';
@@ -9,7 +9,7 @@ import { ExclamationTriangleIcon } from '@patternfly/react-icons';
 
 import type { ProviderDetailsItemProps } from './ProviderDetailsItem';
 
-export const VDDKDetailsItem: React.FC<ProviderDetailsItemProps> = ({
+export const VDDKDetailsItem: FC<ProviderDetailsItemProps> = ({
   canPatch,
   helpContent,
   moreInfoLink,
@@ -19,7 +19,7 @@ export const VDDKDetailsItem: React.FC<ProviderDetailsItemProps> = ({
   const { showModal } = useModal();
 
   const defaultMoreInfoLink =
-    'https://docs.redhat.com/en/documentation/migration_toolkit_for_virtualization/2.7/html-single/installing_and_using_the_migration_toolkit_for_virtualization/index#creating-vddk-image_mtv';
+    'https://docs.redhat.com/en/documentation/migration_toolkit_for_virtualization/2.8/html-single/installing_and_using_the_migration_toolkit_for_virtualization/index#creating-vddk-image_mtv';
   const defaultHelpContent = (
     <ForkliftTrans>
       Virtual Disk Development Kit (VDDK) container init image path. The path must be empty or a

@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 import type { EnumGroup, EnumValue } from '../utils/types';
 
 /**
@@ -12,7 +14,7 @@ export type FilterTypeProps = {
    * Filter apply handler. Implementation of filter values is filter specific.
    * @param values list of selected filter values
    */
-  onFilterUpdate: (values: string[], resourceFieldId?: string) => any;
+  onFilterUpdate: (values: string[], resourceFieldId?: string) => unknown;
   /**
    * A text located inside the filter field or next to it.
    */
@@ -42,7 +44,7 @@ export type FilterTypeProps = {
    */
   resolvedLanguage: string;
   /** Text that explains how to use the filter. */
-  helperText?: string | React.ReactNode;
+  helperText?: string | ReactNode;
   /** Toggles visibility of FilterIcon within the Select input field. */
   showFilterIcon?: boolean;
   /** Used for grouped enum filters that deal with groups pointing to different resources. */

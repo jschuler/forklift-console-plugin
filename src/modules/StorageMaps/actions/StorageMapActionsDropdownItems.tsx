@@ -1,4 +1,3 @@
-import React from 'react';
 import { DropdownItemLink } from 'src/components/actions/DropdownItemLink';
 import { DeleteModal } from 'src/modules/Providers/modals/DeleteModal/DeleteModal';
 import { useModal } from 'src/modules/Providers/modals/ModalHOC/ModalHOC';
@@ -23,13 +22,13 @@ export const StorageMapActionsDropdownItems = ({ data }: StorageMapActionsDropdo
   });
 
   const onClick = () => {
-    showModal(<DeleteModal resource={StorageMap} model={StorageMapModel} />);
+    showModal(<DeleteModal resource={StorageMap!} model={StorageMapModel} />);
   };
 
   return [
     <DropdownItemLink
       value={0}
-      key="EditStorageMapping"
+      itemKey="EditStorageMapping"
       href={StorageMapURL}
       description={t('Edit StorageMap')}
     />,

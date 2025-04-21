@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC, FormEvent } from 'react';
 import { EditModal } from 'src/modules/Providers/modals/EditModal/EditModal';
 import type {
   EditModalProps,
@@ -39,8 +39,8 @@ type SwitchRendererProps = {
 const PreserveStaticIPsInputFactory: () => ModalInputComponentType = () => {
   const { t } = useForkliftTranslation();
 
-  const SwitchRenderer: React.FC<SwitchRendererProps> = ({ onChange, value }) => {
-    const onChangeInternal: (checked: boolean, event: React.FormEvent<HTMLInputElement>) => void = (
+  const SwitchRenderer: FC<SwitchRendererProps> = ({ onChange, value }) => {
+    const onChangeInternal: (checked: boolean, event: FormEvent<HTMLInputElement>) => void = (
       checked,
     ) => {
       onChange(checked ? 'true' : 'false');
@@ -52,8 +52,8 @@ const PreserveStaticIPsInputFactory: () => ModalInputComponentType = () => {
         label={t('Preserve the static IPs of the virtual machines migrated')}
         isChecked={value === 'true'}
         hasCheckIcon
-        onChange={(e, v) => {
-          onChangeInternal(v, e);
+        onChange={(e, value) => {
+          onChangeInternal(value, e);
         }}
       />
     );
@@ -62,7 +62,7 @@ const PreserveStaticIPsInputFactory: () => ModalInputComponentType = () => {
   return SwitchRenderer;
 };
 
-const EditPlanPreserveStaticIPs_: React.FC<EditPlanPreserveStaticIPsProps> = (props) => {
+const EditPlanPreserveStaticIPs_: FC<EditPlanPreserveStaticIPsProps> = (props) => {
   const { t } = useForkliftTranslation();
 
   return (
@@ -90,6 +90,6 @@ type EditPlanPreserveStaticIPsProps = Modify<
   }
 >;
 
-export const EditPlanPreserveStaticIPs: React.FC<EditPlanPreserveStaticIPsProps> = (props) => {
+export const EditPlanPreserveStaticIPs: FC<EditPlanPreserveStaticIPsProps> = (props) => {
   return <EditPlanPreserveStaticIPs_ {...props} />;
 };

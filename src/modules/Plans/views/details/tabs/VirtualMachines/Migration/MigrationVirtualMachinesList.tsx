@@ -1,4 +1,4 @@
-import React, { type FC, useState } from 'react';
+import { type FC, useState } from 'react';
 import { loadUserSettings } from 'src/components/common/Page/userSettings';
 import {
   type GlobalActionWithSelection,
@@ -11,7 +11,6 @@ import { isPlanArchived, isPlanExecuting } from 'src/modules/Plans/utils/helpers
 import type { PlanData } from 'src/modules/Plans/utils/types/PlanData';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
-import type { ResourceFieldFactory } from '@components/common/utils/types';
 import type {
   IoK8sApiBatchV1Job,
   IoK8sApiCoreV1PersistentVolumeClaim,
@@ -22,6 +21,7 @@ import type {
 } from '@kubev2v/types';
 import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 import { HelperText, HelperTextItem } from '@patternfly/react-core';
+import { t } from '@utils/i18n';
 
 import { MigrationVMsCancelButton } from '../components/MigrationVMsCancelButton';
 import { PlanVMsDeleteButton } from '../components/PlanVMsDeleteButton';
@@ -40,9 +40,11 @@ const vmStatuses = [
 ];
 
 const getVMMigrationStatus = (obj: VMData) => {
-  const isError = obj.statusVM?.conditions?.find((c) => c.type === 'Failed' && c.status === 'True');
+  const isError = obj.statusVM?.conditions?.find(
+    (condition) => condition.type === 'Failed' && condition.status === 'True',
+  );
   const isSuccess = obj.statusVM?.conditions?.find(
-    (c) => c.type === 'Succeeded' && c.status === 'True',
+    (condition) => condition.type === 'Succeeded' && condition.status === 'True',
   );
   const isWaiting = obj.statusVM?.phase === 'CopyingPaused';
   const isRunning = obj.statusVM?.completed === undefined;
@@ -71,7 +73,7 @@ const getVMMigrationStatus = (obj: VMData) => {
   return 'Unknown';
 };
 
-const fieldsMetadataFactory: ResourceFieldFactory = (t) => [
+const fieldsMetadata = [
   {
     filter: {
       placeholderLabel: t('Filter by name'),
@@ -123,7 +125,7 @@ const fieldsMetadataFactory: ResourceFieldFactory = (t) => [
   {
     isVisible: true,
     jsonPath: (obj: VMData) => {
-      const diskTransfer = obj.statusVM?.pipeline.find((p) => p.name === 'DiskTransfer');
+      const diskTransfer = obj.statusVM?.pipeline.find((pipe) => pipe.name === 'DiskTransfer');
 
       return diskTransfer?.progress?.total
         ? diskTransfer?.progress?.completed / diskTransfer?.progress?.total
@@ -135,7 +137,7 @@ const fieldsMetadataFactory: ResourceFieldFactory = (t) => [
   {
     isVisible: true,
     jsonPath: (obj: VMData) => {
-      const diskTransfer = obj.statusVM?.pipeline.find((p) => p.name === 'DiskTransfer');
+      const diskTransfer = obj.statusVM?.pipeline.find((pipe) => pipe.name === 'DiskTransfer');
 
       return diskTransfer?.progress?.total
         ? diskTransfer?.progress?.completed / diskTransfer?.progress?.total
@@ -178,10 +180,10 @@ export const MigrationVirtualMachinesList: FC<{ planData: PlanData }> = ({ planD
   });
 
   const podsDict: Record<string, IoK8sApiCoreV1Pod[]> = {};
-  (pods && loaded && !loadError ? pods : []).forEach((p) =>
-    podsDict[p.metadata.labels.vmID]
-      ? podsDict[p.metadata.labels.vmID].push(p)
-      : (podsDict[p.metadata.labels.vmID] = [p]),
+  (pods && loaded && !loadError ? pods : []).forEach((pod) =>
+    podsDict[pod.metadata.labels.vmID]
+      ? podsDict[pod.metadata.labels.vmID].push(pod)
+      : (podsDict[pod.metadata.labels.vmID] = [pod]),
   );
 
   const [jobs, jobsLoaded, jobsLoadError] = useK8sWatchResource<IoK8sApiBatchV1Job[]>({
@@ -193,10 +195,10 @@ export const MigrationVirtualMachinesList: FC<{ planData: PlanData }> = ({ planD
   });
 
   const jobsDict: Record<string, IoK8sApiBatchV1Job[]> = {};
-  (jobs && jobsLoaded && !jobsLoadError ? jobs : []).forEach((j) =>
-    jobsDict[j.metadata.labels.vmID]
-      ? jobsDict[j.metadata.labels.vmID].push(j)
-      : (jobsDict[j.metadata.labels.vmID] = [j]),
+  (jobs && jobsLoaded && !jobsLoadError ? jobs : []).forEach((job) =>
+    jobsDict[job.metadata.labels.vmID]
+      ? jobsDict[job.metadata.labels.vmID].push(job)
+      : (jobsDict[job.metadata.labels.vmID] = [job]),
   );
 
   const [pvcs, pvcsLoaded, pvcsLoadError] = useK8sWatchResource<
@@ -210,10 +212,10 @@ export const MigrationVirtualMachinesList: FC<{ planData: PlanData }> = ({ planD
   });
 
   const pvcsDict: Record<string, IoK8sApiCoreV1PersistentVolumeClaim[]> = {};
-  (pvcs && pvcsLoaded && !pvcsLoadError ? pvcs : []).forEach((p) =>
-    pvcsDict[p.metadata.labels.vmID]
-      ? pvcsDict[p.metadata.labels.vmID].push(p)
-      : (pvcsDict[p.metadata.labels.vmID] = [p]),
+  (pvcs && pvcsLoaded && !pvcsLoadError ? pvcs : []).forEach((pvc) =>
+    pvcsDict[pvc.metadata.labels.vmID]
+      ? pvcsDict[pvc.metadata.labels.vmID].push(pvc)
+      : (pvcsDict[pvc.metadata.labels.vmID] = [pvc]),
   );
 
   const [dvs, dvsLoaded, dvsLoadError] = useK8sWatchResource<V1beta1DataVolume[]>({
@@ -229,10 +231,10 @@ export const MigrationVirtualMachinesList: FC<{ planData: PlanData }> = ({ planD
   });
 
   const dvsDict: Record<string, V1beta1DataVolume[]> = {};
-  (dvs && dvsLoaded && !dvsLoadError ? dvs : []).forEach((p) =>
-    dvsDict[p.metadata.labels.vmID]
-      ? dvsDict[p.metadata.labels.vmID].push(p)
-      : (dvsDict[p.metadata.labels.vmID] = [p]),
+  (dvs && dvsLoaded && !dvsLoadError ? dvs : []).forEach((dataVolume) =>
+    dvsDict[dataVolume.metadata.labels.vmID]
+      ? dvsDict[dataVolume.metadata.labels.vmID].push(dataVolume)
+      : (dvsDict[dataVolume.metadata.labels.vmID] = [dataVolume]),
   );
 
   const [expandedIds, setExpandedIds] = useState([]);
@@ -244,15 +246,15 @@ export const MigrationVirtualMachinesList: FC<{ planData: PlanData }> = ({ planD
     plan?.status?.migration?.vms || [];
 
   const vmDict: Record<string, V1beta1PlanStatusMigrationVms> = {};
-  migrationVirtualMachines.forEach((m) => (vmDict[m.id] = m));
+  migrationVirtualMachines.forEach((migration) => (vmDict[migration.id] = migration));
 
-  const vmData: VMData[] = virtualMachines.map((m) => ({
-    dvs: dvsDict[m.id],
-    jobs: jobsDict[m.id],
-    pods: podsDict[m.id],
-    pvcs: pvcsDict[m.id],
-    specVM: m,
-    statusVM: vmDict[m.id],
+  const vmData: VMData[] = virtualMachines.map((vmSpec) => ({
+    dvs: dvsDict[vmSpec.id],
+    jobs: jobsDict[vmSpec.id],
+    pods: podsDict[vmSpec.id],
+    pvcs: pvcsDict[vmSpec.id],
+    specVM: vmSpec,
+    statusVM: vmDict[vmSpec.id],
     targetNamespace: plan?.spec?.targetNamespace,
   }));
 
@@ -279,7 +281,6 @@ export const MigrationVirtualMachinesList: FC<{ planData: PlanData }> = ({ planD
   const canSelectWhenNotExecuting = (item: VMData) =>
     (item?.statusVM?.started === undefined || item?.statusVM?.error !== undefined) && !isExecuting;
 
-  const fieldsMetadata = fieldsMetadataFactory(t);
   const props: PageWithSelectionProps = {
     CellMapper: MigrationVirtualMachinesRow,
     dataSource: [vmData || [], true, undefined],

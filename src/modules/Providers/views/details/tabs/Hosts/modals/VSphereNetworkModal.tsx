@@ -1,4 +1,4 @@
-import React, { type ReactNode, useCallback, useReducer, useState } from 'react';
+import { type FC, type FormEvent, type ReactNode, useCallback, useReducer, useState } from 'react';
 import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpText/FormGroupWithHelpText';
 import { AlertMessageForModals } from 'src/modules/Providers/modals/components/AlertMessageForModals';
 import { useModal } from 'src/modules/Providers/modals/ModalHOC/ModalHOC';
@@ -20,7 +20,6 @@ import {
   TextInput,
 } from '@patternfly/react-core';
 import { EyeIcon, EyeSlashIcon } from '@patternfly/react-icons';
-import { DEFAULT } from '@utils/constants';
 
 import { calculateCidrNotation } from '../utils/helpers/calculateCidrNotation';
 import type { InventoryHostPair } from '../utils/helpers/matchHostsToInventory';
@@ -34,22 +33,47 @@ type VSphereNetworkModalProps = {
   selected: string[];
 };
 
+type ValidationState = 'success' | 'warning' | 'error' | 'default' | undefined;
+
+type State = {
+  endpointType: string;
+  isLoading: boolean;
+  isSaveDisabled: boolean;
+  isSelectOpen: boolean;
+  network: NetworkAdapters;
+  password: string;
+  passwordHidden: boolean;
+  username: string;
+  validation: {
+    password: ValidationState;
+    username: ValidationState;
+  };
+};
+
+type Action =
+  | { type: 'SET_NETWORK'; payload: NetworkAdapters }
+  | { type: 'TOGGLE_OPEN' }
+  | { type: 'TOGGLE_LOADING' }
+  | { type: 'SET_USERNAME'; payload: string }
+  | { type: 'SET_PASSWORD'; payload: string }
+  | { type: 'TOGGLE_PASSWORD_HIDDEN' };
+
 const initialState = {
   endpointType: 'vcenter',
   isLoading: false,
   isSaveDisabled: true,
   isSelectOpen: false,
-  network: '',
+  network: undefined as unknown as NetworkAdapters,
   password: '',
   passwordHidden: true,
   username: '',
   validation: {
-    password: DEFAULT,
-    username: DEFAULT,
+    password: 'default' as ValidationState,
+    username: 'default' as ValidationState,
   },
 };
 
-function reducer(state, action) {
+const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case 'SET_NETWORK':
       return {
@@ -84,9 +108,9 @@ function reducer(state, action) {
     default:
       throw new Error();
   }
-}
+};
 
-function shouldDisableSave(state, updatedFields) {
+const shouldDisableSave = (state, updatedFields) => {
   const updatedState = { ...state, ...updatedFields };
 
   if (state.endpointType === 'esxi') {
@@ -100,20 +124,19 @@ function shouldDisableSave(state, updatedFields) {
     !validateUsername(updatedState.username) ||
     !validatePassword(updatedState.password)
   );
-}
+};
 
-export const VSphereNetworkModal: React.FC<VSphereNetworkModalProps> = ({
-  data,
-  provider,
-  selected,
-}) => {
+export const VSphereNetworkModal: FC<VSphereNetworkModalProps> = ({ data, provider, selected }) => {
   const { t } = useForkliftTranslation();
   const { toggleModal } = useModal();
   const [alertMessage, setAlertMessage] = useState<ReactNode>(null);
 
-  const endpointType = provider?.spec?.settings?.sdkEndpoint;
+  const endpointType = provider?.spec?.settings?.sdkEndpoint ?? '';
 
-  const [state, dispatch] = useReducer(reducer, { ...initialState, endpointType });
+  const [state, dispatch] = useReducer<React.Reducer<State, Action>>(reducer, {
+    ...initialState,
+    endpointType,
+  });
 
   const onSelectToggle = () => {
     dispatch({ type: 'TOGGLE_OPEN' });
@@ -145,7 +168,7 @@ export const VSphereNetworkModal: React.FC<VSphereNetworkModalProps> = ({
     .sort((a, b) => a.inventory.name.localeCompare(b.inventory.name));
 
   const selectedLength = selected.length;
-  const firstInventoryHostPair = selectedInventoryHostPairs[0];
+  const [firstInventoryHostPair] = selectedInventoryHostPairs;
 
   /**
    * Handles save action.
@@ -198,15 +221,11 @@ export const VSphereNetworkModal: React.FC<VSphereNetworkModalProps> = ({
     };
   });
 
-  const onChangUser: (value: string, event: React.FormEvent<HTMLInputElement>) => void = (
-    value,
-  ) => {
+  const onChangUser: (value: string, event: FormEvent<HTMLInputElement>) => void = (value) => {
     dispatch({ payload: value, type: 'SET_USERNAME' });
   };
 
-  const onChangePassword: (value: string, event: React.FormEvent<HTMLInputElement>) => void = (
-    value,
-  ) => {
+  const onChangePassword: (value: string, event: FormEvent<HTMLInputElement>) => void = (value) => {
     dispatch({ payload: value, type: 'SET_PASSWORD' });
   };
 
@@ -272,8 +291,8 @@ export const VSphereNetworkModal: React.FC<VSphereNetworkModalProps> = ({
                 type="text"
                 id="username"
                 value={state.username}
-                onChange={(e, v) => {
-                  onChangUser(v, e);
+                onChange={(e, value) => {
+                  onChangUser(value, e);
                 }}
                 validated={state.validation.username}
               />
@@ -294,8 +313,8 @@ export const VSphereNetworkModal: React.FC<VSphereNetworkModalProps> = ({
                   type={state.passwordHidden ? 'password' : 'text'}
                   aria-label="Password input"
                   value={state.password}
-                  onChange={(e, v) => {
-                    onChangePassword(v, e);
+                  onChange={(e, value) => {
+                    onChangePassword(value, e);
                   }}
                   validated={state.validation.password}
                 />
@@ -313,7 +332,7 @@ export const VSphereNetworkModal: React.FC<VSphereNetworkModalProps> = ({
   );
 };
 
-function getNetworkAdapterByLabel(networkAdapters: NetworkAdapters[], label: string) {
+const getNetworkAdapterByLabel = (networkAdapters: NetworkAdapters[], label: string) => {
   const selectedAdapter = networkAdapters.find((adapter) => {
     const cidr = calculateCidrNotation(adapter.ipAddress, adapter.subnetMask);
     const adapterLabel = `${adapter.name} - ${cidr}`;
@@ -321,12 +340,12 @@ function getNetworkAdapterByLabel(networkAdapters: NetworkAdapters[], label: str
   });
 
   return selectedAdapter;
-}
+};
 
-function validateUsername(username) {
+const validateUsername = (username) => {
   return validateNoSpaces(username);
-}
+};
 
-function validatePassword(password) {
+const validatePassword = (password) => {
   return validateNoSpaces(password);
-}
+};

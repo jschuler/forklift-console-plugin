@@ -1,7 +1,7 @@
-import React from 'react';
-import { EnumToTuple } from 'src/components/common/FilterGroup/helpers';
+import type { FC } from 'react';
+import { enumToTuple } from 'src/components/common/FilterGroup/helpers';
 
-import type { ResourceFieldFactory } from '@components/common/utils/types';
+import { t } from '@utils/i18n';
 
 import { ProviderVirtualMachinesList } from './components/ProviderVirtualMachinesList';
 import type { VmData } from './components/VMCellProps';
@@ -11,7 +11,7 @@ import { toVmFeatureEnum } from './utils/helpers/toVmFeatureEnum';
 import { OpenShiftVirtualMachinesCells } from './OpenShiftVirtualMachinesRow';
 import type { ProviderVirtualMachinesProps } from './ProviderVirtualMachines';
 
-export const openShiftVmFieldsMetadataFactory: ResourceFieldFactory = (t) => [
+export const openShiftVmFieldsMetadataFactory = [
   {
     filter: {
       placeholderLabel: t('Filter by name'),
@@ -33,14 +33,14 @@ export const openShiftVmFieldsMetadataFactory: ResourceFieldFactory = (t) => [
     isVisible: true,
     jsonPath: '$.vm.object.metadata.namespace',
     label: t('Namespace'),
-    resourceFieldId: 'possibly_remote_namespace',
+    resourceFieldId: 'possiblyRemoteNamespace',
     sortable: true,
   },
   {
     filter: {
       placeholderLabel: t('Filter by status'),
       type: 'enum',
-      values: EnumToTuple({ off: 'Off', on: 'On', unknown: 'Unknown' }),
+      values: enumToTuple({ off: 'Off', on: 'On', unknown: 'Unknown' }),
     },
     isIdentity: false,
     isVisible: true,
@@ -53,7 +53,7 @@ export const openShiftVmFieldsMetadataFactory: ResourceFieldFactory = (t) => [
     filter: {
       placeholderLabel: t('Filter by features'),
       type: 'features',
-      values: EnumToTuple(toVmFeatureEnum(t)),
+      values: enumToTuple(toVmFeatureEnum()),
     },
     isIdentity: false,
     isVisible: true,
@@ -76,11 +76,11 @@ export const openShiftVmFieldsMetadataFactory: ResourceFieldFactory = (t) => [
   },
 ];
 
-export const OpenShiftVirtualMachinesList: React.FC<ProviderVirtualMachinesProps> = (props) => (
+export const OpenShiftVirtualMachinesList: FC<ProviderVirtualMachinesProps> = (props) => (
   <ProviderVirtualMachinesList
     {...props}
     cellMapper={OpenShiftVirtualMachinesCells}
-    fieldsMetadataFactory={openShiftVmFieldsMetadataFactory}
+    fieldsMetadata={openShiftVmFieldsMetadataFactory}
     pageId="OpenShiftVirtualMachinesList"
   />
 );

@@ -1,4 +1,4 @@
-import React, { type FC, type Ref, useState } from 'react';
+import { type FC, type MouseEvent, type Ref, useState } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import {
@@ -21,17 +21,19 @@ import {
   type MenuToggleElement,
 } from '@patternfly/react-core';
 import { EllipsisVIcon } from '@patternfly/react-icons';
-import chart_color_blue_200 from '@patternfly/react-tokens/dist/esm/chart_color_blue_200';
-import chart_color_green_400 from '@patternfly/react-tokens/dist/esm/chart_color_green_400';
-import chart_color_red_100 from '@patternfly/react-tokens/dist/esm/chart_color_red_100';
+import chartColorBlue200 from '@patternfly/react-tokens/dist/esm/chart_color_blue_200';
+import chartColorGreen400 from '@patternfly/react-tokens/dist/esm/chart_color_green_400';
+import chartColorRed100 from '@patternfly/react-tokens/dist/esm/chart_color_red_100';
 
 import { TimeRangeOptions, TimeRangeOptionsDictionary } from '../utils/timeRangeOptions';
 import { type MigrationDataPoint, toDataPoints } from '../utils/toDataPointsHelper';
 
 import type { MigrationsCardProps } from './MigrationsCard';
 
-const toStartedVmMigration = (v: V1beta1MigrationStatusVms): string => v.started;
-const toFinishedVmMigration = (v: V1beta1MigrationStatusVms): string => v.completed;
+const toStartedVmMigration = (migrationStatus: V1beta1MigrationStatusVms): string =>
+  migrationStatus.started;
+const toFinishedVmMigration = (migrationStatus: V1beta1MigrationStatusVms): string =>
+  migrationStatus.completed;
 const toDataPointsForVmMigrations = (
   allVmMigrations: V1beta1MigrationStatusVms[],
   toTimestamp: (m: V1beta1MigrationStatusVms) => string,
@@ -46,7 +48,7 @@ export const VmMigrationsChartCard: FC<MigrationsCardProps> = () => {
     setIsDropdownOpened((isDropdownOpened) => !isDropdownOpened);
   };
 
-  const onSelect = (_event: React.MouseEvent | undefined, _value: string | number | undefined) => {
+  const onSelect = (_event: MouseEvent | undefined, _value: string | number | undefined) => {
     setIsDropdownOpened(false);
   };
 
@@ -78,7 +80,7 @@ export const VmMigrationsChartCard: FC<MigrationsCardProps> = () => {
       migrations
         .map((migration) =>
           migration?.status?.vms.filter(
-            (vm) => vm?.phase !== 'Completed' && vm?.phase != 'Canceled',
+            (vm) => vm?.phase !== 'Completed' && vm?.phase !== 'Canceled',
           ),
         )
         .reduce((append, vm) => append.concat(vm), []),
@@ -99,9 +101,9 @@ export const VmMigrationsChartCard: FC<MigrationsCardProps> = () => {
   };
 
   const maxVmMigrationValue = Math.max(
-    ...VmMigrationsDataPoints.running.map((m) => m.value),
-    ...VmMigrationsDataPoints.failed.map((m) => m.value),
-    ...VmMigrationsDataPoints.succeeded.map((m) => m.value),
+    ...VmMigrationsDataPoints.running.map((migration) => migration.value),
+    ...VmMigrationsDataPoints.failed.map((migration) => migration.value),
+    ...VmMigrationsDataPoints.succeeded.map((migration) => migration.value),
   );
 
   const handleTimeRangeSelectedFactory = (timeRange: TimeRangeOptions) => () => {
@@ -166,17 +168,13 @@ export const VmMigrationsChartCard: FC<MigrationsCardProps> = () => {
         <Flex justifyContent={{ default: 'justifyContentSpaceBetween' }}>
           <Chart
             ariaDesc="Bar chart with VM migration statistics"
-            colorScale={[
-              chart_color_blue_200.var,
-              chart_color_red_100.var,
-              chart_color_green_400.var,
-            ]}
+            colorScale={[chartColorBlue200.var, chartColorRed100.var, chartColorGreen400.var]}
             domainPadding={{ x: [30, 25] }}
             maxDomain={{ y: maxVmMigrationValue ? undefined : 5 }}
             legendData={[
-              { name: t('Running'), symbol: { fill: chart_color_blue_200.var } },
-              { name: t('Failed'), symbol: { fill: chart_color_red_100.var } },
-              { name: t('Succeeded'), symbol: { fill: chart_color_green_400.var } },
+              { name: t('Running'), symbol: { fill: chartColorBlue200.var } },
+              { name: t('Failed'), symbol: { fill: chartColorRed100.var } },
+              { name: t('Succeeded'), symbol: { fill: chartColorGreen400.var } },
             ]}
             legendPosition="bottom"
             height={400}

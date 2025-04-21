@@ -1,4 +1,4 @@
-import React, { type FC } from 'react';
+import type { FC } from 'react';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
 import type { SettingsEditModalProps } from '../../utils/types';
@@ -24,7 +24,7 @@ const VolumeNameTemplateModal: FC<SettingsEditModalProps> = ({ jsonPath, resourc
           bodyText={t(
             'Volume name template is a template for generating volume interface names in the target virtual machine.',
           )}
-          allowedVariables={getVolumeNameTemplateAllowedVariables(t)}
+          allowedVariables={getVolumeNameTemplateAllowedVariables()}
         />
       }
       helperText={<NameTemplateModalHelper examples={volumeNameTemplateHelperExamples} />}

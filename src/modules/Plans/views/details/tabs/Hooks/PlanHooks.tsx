@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import { type FC, type FormEvent, useEffect, useReducer } from 'react';
 import { Base64 } from 'js-base64';
 import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpText/FormGroupWithHelpText';
 import SectionHeading from 'src/components/headers/SectionHeading';
@@ -6,6 +6,7 @@ import { isPlanEditable } from 'src/modules/Plans/utils/helpers/getPlanPhase';
 import { AlertMessageForModals } from 'src/modules/Providers/modals/components/AlertMessageForModals';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
+import Suspend from '@components/Suspend';
 import { CodeEditor } from '@openshift-console/dynamic-plugin-sdk';
 import {
   Button,
@@ -20,14 +21,12 @@ import {
   TextInput,
 } from '@patternfly/react-core';
 
-import { Suspend } from '../../components/Suspend';
-
 import { usePlanHooks } from './hooks/usePlanHooks';
 import { initialState } from './state/initialState';
 import { formReducer } from './state/reducer';
 import { onUpdatePlanHooks } from './utils/onUpdatePlanHooks';
 
-export const PlanHooks: React.FC<{ name: string; namespace: string }> = ({ name, namespace }) => {
+export const PlanHooks: FC<{ name: string; namespace: string }> = ({ name, namespace }) => {
   const { t } = useForkliftTranslation();
 
   const [plan, preHookResource, postHookResource, loaded, loadError, warning] = usePlanHooks(
@@ -49,9 +48,9 @@ export const PlanHooks: React.FC<{ name: string; namespace: string }> = ({ name,
   }, [plan, preHookResource, postHookResource]);
 
   // Handle user clicking "save"
-  async function onUpdate() {
-    onUpdatePlanHooks({ dispatch, plan, postHookResource, preHookResource, state });
-  }
+  const onUpdate = async () => {
+    await onUpdatePlanHooks({ dispatch, plan, postHookResource, preHookResource, state });
+  };
 
   const onClick = () => {
     dispatch({
@@ -101,42 +100,39 @@ export const PlanHooks: React.FC<{ name: string; namespace: string }> = ({ name,
     </>
   );
 
-  const onChangePreHookSet: (checked: boolean, event: React.FormEvent<HTMLInputElement>) => void = (
+  const onChangePreHookSet: (checked: boolean, event: FormEvent<HTMLInputElement>) => void = (
     checked,
   ) => {
     dispatch({ payload: checked, type: 'PRE_HOOK_SET' });
   };
 
-  const onChangePostHookSet: (
-    checked: boolean,
-    event: React.FormEvent<HTMLInputElement>,
-  ) => void = (checked) => {
+  const onChangePostHookSet: (checked: boolean, event: FormEvent<HTMLInputElement>) => void = (
+    checked,
+  ) => {
     dispatch({ payload: checked, type: 'POST_HOOK_SET' });
   };
 
-  const onChangePreHookImage: (value: string, event: React.FormEvent<HTMLInputElement>) => void = (
+  const onChangePreHookImage: (value: string, event: FormEvent<HTMLInputElement>) => void = (
     value,
   ) => {
     dispatch({ payload: value, type: 'PRE_HOOK_IMAGE' });
   };
 
-  const onChangePreHookPlaybook: (
-    value: string,
-    event: React.FormEvent<HTMLInputElement>,
-  ) => void = (value) => {
+  const onChangePreHookPlaybook: (value: string, event: FormEvent<HTMLInputElement>) => void = (
+    value,
+  ) => {
     dispatch({ payload: value, type: 'PRE_HOOK_PLAYBOOK' });
   };
 
-  const onChangePostHookImage: (value: string, event: React.FormEvent<HTMLInputElement>) => void = (
+  const onChangePostHookImage: (value: string, event: FormEvent<HTMLInputElement>) => void = (
     value,
   ) => {
     dispatch({ payload: value, type: 'POST_HOOK_IMAGE' });
   };
 
-  const onChangePostHookPlaybook: (
-    value: string,
-    event: React.FormEvent<HTMLInputElement>,
-  ) => void = (value) => {
+  const onChangePostHookPlaybook: (value: string, event: FormEvent<HTMLInputElement>) => void = (
+    value,
+  ) => {
     dispatch({ payload: value, type: 'POST_HOOK_PLAYBOOK' });
   };
 
@@ -180,8 +176,8 @@ export const PlanHooks: React.FC<{ name: string; namespace: string }> = ({ name,
               labelOff="Do not enable a pre migration hook"
               isChecked={state.preHookSet}
               isDisabled={!isPlanEditable(plan)}
-              onChange={(e, v) => {
-                onChangePreHookSet(v, e);
+              onChange={(e, value) => {
+                onChangePreHookSet(value, e);
               }}
             />
           </FormGroupWithHelpText>
@@ -193,8 +189,8 @@ export const PlanHooks: React.FC<{ name: string; namespace: string }> = ({ name,
                   spellCheck="false"
                   value={state.preHook?.spec?.image}
                   type="url"
-                  onChange={(e, v) => {
-                    onChangePreHookImage(v, e);
+                  onChange={(e, value) => {
+                    onChangePreHookImage(value, e);
                   }}
                   isDisabled={!isPlanEditable(plan)}
                   aria-label="pre hook image"
@@ -236,8 +232,8 @@ export const PlanHooks: React.FC<{ name: string; namespace: string }> = ({ name,
               labelOff="Do not enable a post migration hook"
               isChecked={state.postHookSet}
               isDisabled={!isPlanEditable(plan)}
-              onChange={(e, v) => {
-                onChangePostHookSet(v, e);
+              onChange={(e, value) => {
+                onChangePostHookSet(value, e);
               }}
             />
           </FormGroupWithHelpText>
@@ -249,8 +245,8 @@ export const PlanHooks: React.FC<{ name: string; namespace: string }> = ({ name,
                   spellCheck="false"
                   value={state.postHook?.spec?.image}
                   type="url"
-                  onChange={(e, v) => {
-                    onChangePostHookImage(v, e);
+                  onChange={(e, value) => {
+                    onChangePostHookImage(value, e);
                   }}
                   aria-label="post hook image"
                 />

@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import { EditProviderURLModal } from 'src/modules/Providers/modals/EditProviderURL/EditProviderURLModal';
 import { useModal } from 'src/modules/Providers/modals/ModalHOC/ModalHOC';
 import { DetailsItem } from 'src/modules/Providers/utils/components/DetailsPage/DetailItem';
@@ -9,7 +9,7 @@ import { useK8sWatchResource } from '@openshift-console/dynamic-plugin-sdk';
 
 import type { ProviderDetailsItemProps } from './ProviderDetailsItem';
 
-export const URLDetailsItem: React.FC<ProviderDetailsItemProps> = ({
+export const URLDetailsItem: FC<ProviderDetailsItemProps> = ({
   canPatch,
   helpContent,
   moreInfoLink,
@@ -26,7 +26,7 @@ export const URLDetailsItem: React.FC<ProviderDetailsItemProps> = ({
   });
 
   const defaultMoreInfoLink =
-    'https://docs.redhat.com/en/documentation/migration_toolkit_for_virtualization/2.7/html-single/installing_and_using_the_migration_toolkit_for_virtualization/index#adding-source-providers';
+    'https://docs.redhat.com/en/documentation/migration_toolkit_for_virtualization/2.8/html/installing_and_using_the_migration_toolkit_for_virtualization/migrating-virt_cnv#adding-source-provider_cnv';
   const defaultHelpContent =
     t(`URL of the providers API endpoint. The URL must be a valid endpoint for the provider type, see
       the documentation for each provider type to learn more about the URL format.`);

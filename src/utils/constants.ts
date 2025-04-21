@@ -1,5 +1,4 @@
 export const EMPTY_MSG = '-';
-export const DEFAULT = 'default';
 
 export enum Namespace {
   AllProjects = '#ALL_NS#',
@@ -7,6 +6,15 @@ export enum Namespace {
   OpenshiftMtv = 'openshift-mtv',
 }
 
+export const ALL_PROJECTS_KEY = '#ALL_NS#';
+
 export enum ServerBranding {
   Okd = 'okd',
 }
+
+export const taskStatuses = {
+  completed: 'Completed',
+};
+
+export const ADD = 'add';
+export const REPLACE = 'replace';

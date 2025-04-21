@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import { DetailsItem } from 'src/modules/Providers/utils/components/DetailsPage/DetailItem';
 import { useForkliftTranslation } from 'src/utils/i18n';
 
@@ -6,7 +6,7 @@ import { DescriptionList } from '@patternfly/react-core';
 
 import type { InventoryProps } from './InventorySection';
 
-export const VSphereInventorySection: React.FC<InventoryProps> = ({ data }) => {
+export const VSphereInventorySection: FC<InventoryProps> = ({ data }) => {
   const { t } = useForkliftTranslation();
   const { inventory, provider } = data;
 
@@ -48,9 +48,7 @@ export const VSphereInventorySection: React.FC<InventoryProps> = ({ data }) => {
 
   const items = [];
 
-  for (const key in inventoryItems) {
-    const item = inventoryItems?.[key];
-
+  Object.entries(inventoryItems).forEach(([key, item]) => {
     if (item) {
       const isEmpty = key === 'empty';
       const inventoryValue = inventory[key] || '-';
@@ -65,7 +63,7 @@ export const VSphereInventorySection: React.FC<InventoryProps> = ({ data }) => {
         />,
       );
     }
-  }
+  });
 
   return (
     <DescriptionList

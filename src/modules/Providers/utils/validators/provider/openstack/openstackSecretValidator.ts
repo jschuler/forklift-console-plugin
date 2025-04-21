@@ -6,10 +6,12 @@ import type { ValidationMsg } from '../../common';
 
 import { openstackSecretFieldValidator } from './openstackSecretFieldValidator';
 
-export function openstackSecretValidator(secret: IoK8sApiCoreV1Secret): ValidationMsg {
+export const openstackSecretValidator = (secret: IoK8sApiCoreV1Secret): ValidationMsg => {
   const authType = safeBase64Decode(secret?.data?.authType) || 'password';
 
+  // eslint-disable-next-line no-useless-assignment
   let requiredFields = [];
+  // eslint-disable-next-line no-useless-assignment
   let validateFields = [];
 
   // guess authenticationType based on authType and username
@@ -103,4 +105,4 @@ export function openstackSecretValidator(secret: IoK8sApiCoreV1Secret): Validati
   }
 
   return { type: 'default' };
-}
+};

@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import Linkify from 'react-linkify';
 import { Link } from 'react-router-dom-v5-compat';
 import { getResourceFieldValue } from 'src/components/common/FilterGroup/matchers';
@@ -9,10 +9,11 @@ import { useForkliftTranslation } from 'src/utils/i18n';
 import { NetworkMapModelRef } from '@kubev2v/types';
 import { Button, Popover, Spinner, Text, TextContent, TextVariants } from '@patternfly/react-core';
 import { CheckCircleIcon, ExclamationCircleIcon } from '@patternfly/react-icons';
+import { t } from '@utils/i18n';
 
 import type { CellProps } from './CellProps';
 
-export const StatusCell: React.FC<CellProps> = ({ data, fieldId, fields }) => {
+export const StatusCell: FC<CellProps> = ({ data, fieldId, fields }) => {
   const { t } = useForkliftTranslation();
 
   const phase = getResourceFieldValue(data, 'phase', fields);
@@ -20,18 +21,15 @@ export const StatusCell: React.FC<CellProps> = ({ data, fieldId, fields }) => {
 
   switch (phase) {
     case 'Critical':
-      return ErrorStatusCell({
-        data,
-        fieldId,
-        fields,
-        t,
-      });
+      return <ErrorStatusCell data={data} fieldId={fieldId} fields={fields} />;
     default:
       return <TableIconCell icon={statusIcons[phase]}>{phaseLabel}</TableIconCell>;
   }
 };
 
-const ErrorStatusCell: React.FC<CellProps & { t }> = ({ data, fields, t }) => {
+const ErrorStatusCell: FC<CellProps> = ({ data, fields }) => {
+  const { t } = useForkliftTranslation();
+
   const { obj: networkMap } = data;
   const phase = getResourceFieldValue(data, 'phase', fields);
   const phaseLabel = phaseLabels[phase] ? t(phaseLabels[phase]) : t('Undefined');
@@ -81,10 +79,7 @@ const statusIcons = {
 };
 
 const phaseLabels = {
-  // t('Critical')
-  Critical: 'Critical',
-  // t('Not Ready')
-  'Not Ready': 'Not Ready',
-  // t('Ready')
-  Ready: 'Ready',
+  Critical: t('Critical'),
+  'Not Ready': t('Not Ready'),
+  Ready: t('Ready'),
 };

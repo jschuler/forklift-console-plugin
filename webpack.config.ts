@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-/* eslint-disable @cspell/spellchecker */
-
 import * as path from 'path';
 
+// eslint-disable-next-line import/default
+import CopyPlugin from 'copy-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import svgToMiniDataURI from 'mini-svg-data-uri';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
@@ -15,7 +14,6 @@ import { ENVIRONMENT_DEFAULTS } from './environment-defaults';
 import extensions from './plugin-extensions';
 import pluginMetadata from './plugin-metadata';
 
-const CopyPlugin = require('copy-webpack-plugin');
 type Configuration = {
   devServer?: WebpackDevServerConfiguration;
 } & WebpackConfiguration;
@@ -47,8 +45,8 @@ const config: Configuration = {
   module: {
     rules: [
       {
-        exclude: /node_modules/,
-        test: /\.(jsx?|tsx?)$/,
+        exclude: [/node_modules/u, /__tests__/u, /__mocks__/u],
+        test: /\.(?:jsx?|tsx?)$/u,
         use: [
           {
             loader: 'ts-loader',
@@ -56,31 +54,30 @@ const config: Configuration = {
         ],
       },
       {
-        test: /\.s?(css)$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.s?(?:css)$/u,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         generator: {
           dataUrl: (content: string) => {
-            content = content.toString();
-            return svgToMiniDataURI(content);
+            return svgToMiniDataURI(content.toString());
           },
         },
-        test: /\.svg$/,
+        test: /\.svg$/u,
         type: 'asset/inline',
       },
       {
         generator: {
           filename: 'assets/[name].[ext]',
         },
-        test: /\.(png|jpg|jpeg|gif|woff2?|ttf|eot|otf)(\?.*$|$)/,
+        test: /\.(?:png|jpg|jpeg|gif|woff2?|ttf|eot|otf)(?:\?.*$|$)/u,
         type: 'asset/resource',
       },
       {
         resolve: {
           fullySpecified: false,
         },
-        test: /\.m?js/,
+        test: /\.m?js/u,
       },
     ],
   },
@@ -98,6 +95,10 @@ const config: Configuration = {
     new ForkTsCheckerWebpackPlugin({
       typescript: {
         configFile: path.resolve(__dirname, 'tsconfig.json'),
+        diagnosticOptions: {
+          semantic: false,
+          syntactic: false,
+        },
       },
     }),
     new ConsoleRemotePlugin({
@@ -119,13 +120,14 @@ if (process.env.NODE_ENV === 'production') {
   config.mode = 'production';
 
   // Ensure `output` is initialized if undefined
-  config.output = config.output || {};
+  config.output ??= {};
   config.output.filename = '[name]-bundle-[hash].min.js';
   config.output.chunkFilename = '[name]-chunk-[chunkhash].min.js';
 
   // Ensure `optimization` is initialized if undefined
-  config.optimization = config.optimization || {};
+  config.optimization ??= {};
   config.optimization.chunkIds = 'deterministic';
   config.optimization.minimize = true;
 }
+
 export default config;

@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer } from 'react';
+import { type FC, type FormEvent, useCallback, useReducer } from 'react';
 import { Base64 } from 'js-base64';
 import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpText/FormGroupWithHelpText';
 import { safeBase64Decode } from 'src/modules/Providers/utils/helpers/safeBase64Decode';
@@ -13,7 +13,7 @@ import type { EditComponentProps } from '../../BaseCredentialsSection';
 
 import { OpenstackSecretFieldId } from './constants';
 
-export const TokenWithUsernameSecretFieldsFormGroup: React.FC<EditComponentProps> = ({
+export const TokenWithUsernameSecretFieldsFormGroup: FC<EditComponentProps> = ({
   onChange,
   secret,
 }) => {
@@ -72,7 +72,7 @@ export const TokenWithUsernameSecretFieldsFormGroup: React.FC<EditComponentProps
 
   type onChangeFactoryType = (
     changedField: string,
-  ) => (value: string, event: React.FormEvent<HTMLInputElement>) => void;
+  ) => (value: string, event: FormEvent<HTMLInputElement>) => void;
 
   const onChangeFactory: onChangeFactoryType = (changedField) => (value) => {
     handleChange(changedField, value);
@@ -97,8 +97,8 @@ export const TokenWithUsernameSecretFieldsFormGroup: React.FC<EditComponentProps
             id={OpenstackSecretFieldId.Token}
             name={OpenstackSecretFieldId.Token}
             value={token}
-            onChange={(e, v) => {
-              onChangeFactory(OpenstackSecretFieldId.Token)(v, e);
+            onChange={(event, value) => {
+              onChangeFactory(OpenstackSecretFieldId.Token)(value, event);
             }}
             validated={state.validation.token.type}
           />
@@ -127,8 +127,8 @@ export const TokenWithUsernameSecretFieldsFormGroup: React.FC<EditComponentProps
           id={OpenstackSecretFieldId.Username}
           name={OpenstackSecretFieldId.Username}
           value={username}
-          onChange={(e, v) => {
-            onChangeFactory(OpenstackSecretFieldId.Username)(v, e);
+          onChange={(e, value) => {
+            onChangeFactory(OpenstackSecretFieldId.Username)(value, e);
           }}
           validated={state.validation.username.type}
         />
@@ -149,8 +149,8 @@ export const TokenWithUsernameSecretFieldsFormGroup: React.FC<EditComponentProps
           id={OpenstackSecretFieldId.RegionName}
           name={OpenstackSecretFieldId.RegionName}
           value={regionName}
-          onChange={(e, v) => {
-            onChangeFactory(OpenstackSecretFieldId.RegionName)(v, e);
+          onChange={(event, value) => {
+            onChangeFactory(OpenstackSecretFieldId.RegionName)(value, event);
           }}
           validated={state.validation.regionName.type}
         />
@@ -171,8 +171,8 @@ export const TokenWithUsernameSecretFieldsFormGroup: React.FC<EditComponentProps
           id={OpenstackSecretFieldId.ProjectName}
           name={OpenstackSecretFieldId.ProjectName}
           value={projectName}
-          onChange={(e, v) => {
-            onChangeFactory(OpenstackSecretFieldId.ProjectName)(v, e);
+          onChange={(event, value) => {
+            onChangeFactory(OpenstackSecretFieldId.ProjectName)(value, event);
           }}
           validated={state.validation.projectName.type}
         />
@@ -193,8 +193,8 @@ export const TokenWithUsernameSecretFieldsFormGroup: React.FC<EditComponentProps
           id={OpenstackSecretFieldId.DomainName}
           name={OpenstackSecretFieldId.DomainName}
           value={domainName}
-          onChange={(e, v) => {
-            onChangeFactory(OpenstackSecretFieldId.DomainName)(v, e);
+          onChange={(event, value) => {
+            onChangeFactory(OpenstackSecretFieldId.DomainName)(value, event);
           }}
           validated={state.validation.domainName.type}
         />

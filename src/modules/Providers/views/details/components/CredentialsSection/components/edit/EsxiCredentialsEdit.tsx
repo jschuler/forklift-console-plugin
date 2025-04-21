@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer } from 'react';
+import { type FC, type FormEvent, type MouseEvent, useCallback, useReducer } from 'react';
 import { Base64 } from 'js-base64';
 import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpText/FormGroupWithHelpText';
 import { CertificateUpload } from 'src/modules/Providers/utils/components/CertificateUpload/CertificateUpload';
@@ -21,7 +21,7 @@ import HelpIcon from '@patternfly/react-icons/dist/esm/icons/help-icon';
 
 import type { EditComponentProps } from '../BaseCredentialsSection';
 
-export const EsxiCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, secret }) => {
+export const EsxiCredentialsEdit: FC<EditComponentProps> = ({ onChange, secret }) => {
   const { t } = useForkliftTranslation();
 
   const user = safeBase64Decode(secret?.data?.user);
@@ -102,7 +102,7 @@ export const EsxiCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, se
     dispatch({ type: 'TOGGLE_PASSWORD_HIDDEN' });
   };
 
-  const onClickEventPreventDef: (event: React.MouseEvent<HTMLButtonElement>) => void = (event) => {
+  const onClickEventPreventDef: (event: MouseEvent<HTMLButtonElement>) => void = (event) => {
     event.preventDefault();
   };
 
@@ -110,19 +110,15 @@ export const EsxiCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, se
     togglePasswordHidden();
   };
 
-  const onChangeUser: (value: string, event: React.FormEvent<HTMLInputElement>) => void = (
-    value,
-  ) => {
+  const onChangeUser: (value: string, event: FormEvent<HTMLInputElement>) => void = (value) => {
     handleChange('user', value);
   };
 
-  const onChangePassword: (value: string, event: React.FormEvent<HTMLInputElement>) => void = (
-    value,
-  ) => {
+  const onChangePassword: (value: string, event: FormEvent<HTMLInputElement>) => void = (value) => {
     handleChange('password', value);
   };
 
-  const onChangeInsecure: (checked: boolean, event: React.FormEvent<HTMLInputElement>) => void = (
+  const onChangeInsecure: (checked: boolean, event: FormEvent<HTMLInputElement>) => void = (
     checked,
   ) => {
     handleChange('insecureSkipVerify', checked ? 'true' : 'false');
@@ -152,8 +148,8 @@ export const EsxiCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, se
           type="text"
           id="username"
           name="username"
-          onChange={(e, v) => {
-            onChangeUser(v, e);
+          onChange={(e, value) => {
+            onChangeUser(value, e);
           }}
           value={user}
           validated={state.validation.user.type}
@@ -174,8 +170,8 @@ export const EsxiCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, se
             isRequired
             type={state.passwordHidden ? 'password' : 'text'}
             aria-label="Password input"
-            onChange={(e, v) => {
-              onChangePassword(v, e);
+            onChange={(e, value) => {
+              onChangePassword(value, e);
             }}
             value={password}
             validated={state.validation.password.type}
@@ -220,8 +216,8 @@ export const EsxiCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, se
           label={t('Skip certificate validation')}
           isChecked={insecureSkipVerify === 'true'}
           hasCheckIcon
-          onChange={(e, v) => {
-            onChangeInsecure(v, e);
+          onChange={(e, value) => {
+            onChangeInsecure(value, e);
           }}
         />
       </FormGroupWithHelpText>
@@ -253,11 +249,11 @@ export const EsxiCredentialsEdit: React.FC<EditComponentProps> = ({ onChange, se
           url={url}
           value={cacert}
           validated={state.validation.cacert.type}
-          onDataChange={(_e, v) => {
-            onDataChange(v);
+          onDataChange={(_e, value) => {
+            onDataChange(value);
           }}
-          onTextChange={(_e, v) => {
-            onTextChange(v);
+          onTextChange={(_e, value) => {
+            onTextChange(value);
           }}
           onClearClick={() => {
             handleChange('cacert', '');

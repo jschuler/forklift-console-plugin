@@ -1,4 +1,4 @@
-import React, { type MouseEvent as ReactMouseEvent, type Ref, useState } from 'react';
+import { type MouseEvent as ReactMouseEvent, type Ref, useState } from 'react';
 
 import {
   Badge,
@@ -78,7 +78,7 @@ export const GroupedEnumFilter = ({
     }
 
     onSelectedEnumIdsChange(
-      selectedEnumIds.filter((id) => id2enum[id] && id !== id),
+      selectedEnumIds.filter((enumId) => id2enum[enumId] && id !== enumId),
       id2enum[id].resourceFieldId,
     );
   };

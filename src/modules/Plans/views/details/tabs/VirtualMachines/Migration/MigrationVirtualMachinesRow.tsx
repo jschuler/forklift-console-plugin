@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC, ReactNode } from 'react';
 import { getResourceFieldValue } from 'src/components/common/FilterGroup/matchers';
 import type { RowProps } from 'src/components/common/TableView/types';
 import { ConsoleTimestamp } from 'src/components/ConsoleTimestamp/ConsoleTimestamp';
@@ -14,7 +14,7 @@ import { NameCellRenderer } from '../components/NameCellRenderer';
 import type { PlanVMsCellProps } from '../components/PlanVMsCellProps';
 import type { VMData } from '../types/VMData';
 
-export const MigrationVirtualMachinesRow: React.FC<RowProps<VMData>> = ({
+export const MigrationVirtualMachinesRow: FC<RowProps<VMData>> = ({
   resourceData,
   resourceFields,
 }) => {
@@ -38,10 +38,10 @@ const renderTd = ({ resourceData, resourceFieldId, resourceFields }: RenderTdPro
   );
 };
 
-const cellRenderers: Record<string, React.FC<PlanVMsCellProps>> = {
+const cellRenderers: Record<string, FC<PlanVMsCellProps>> = {
   diskCounter: (props: PlanVMsCellProps) => {
-    const diskTransfer = props.data.statusVM?.pipeline.find((p) =>
-      p?.name?.startsWith('DiskTransfer'),
+    const diskTransfer = props.data.statusVM?.pipeline.find((pipe) =>
+      pipe?.name?.startsWith('DiskTransfer'),
     );
 
     const { completedTasks, totalTasks } = countTasks(diskTransfer);
@@ -64,15 +64,18 @@ const cellRenderers: Record<string, React.FC<PlanVMsCellProps>> = {
   },
   name: NameCellRenderer,
   status: (props: PlanVMsCellProps) => {
-    const pipeline = props.data.statusVM?.pipeline || [];
+    const pipeline = props.data.statusVM?.pipeline ?? [];
     let lastRunningItem: V1beta1PlanStatusMigrationVmsPipeline;
 
+    const [firstPipelineItem] = pipeline;
+    const lastPipelineItem = pipeline[pipeline.length - 1];
+
     if (pipeline[0]?.phase === 'Pending') {
-      lastRunningItem = pipeline[0];
-    } else if (pipeline[pipeline.length - 1]?.phase === 'Completed') {
-      lastRunningItem = pipeline[pipeline.length - 1];
+      lastRunningItem = firstPipelineItem;
+    } else if (lastPipelineItem?.phase === 'Completed') {
+      lastRunningItem = lastPipelineItem;
     } else {
-      const lastNonePendingIndex = pipeline.findIndex((p) => p?.phase === 'Pending') - 1;
+      const lastNonePendingIndex = pipeline.findIndex((pipe) => pipe?.phase === 'Pending') - 1;
       lastRunningItem = pipeline[lastNonePendingIndex];
     }
 
@@ -122,15 +125,15 @@ const cellRenderers: Record<string, React.FC<PlanVMsCellProps>> = {
           isCenterAligned={true}
           className="forklift-page-plan-details-vm-status"
         >
-          {pipeline.map((p) => (
+          {pipeline.map((pipe) => (
             <ProgressStep
-              key={p?.name}
-              variant={getVariant(p)}
-              icon={getIcon(p)}
-              id={p?.name}
-              titleId={p?.name}
+              key={pipe?.name}
+              variant={getVariant(pipe)}
+              icon={getIcon(pipe)}
+              id={pipe?.name}
+              titleId={pipe?.name}
             >
-              {p?.name}
+              {pipe?.name}
             </ProgressStep>
           ))}
         </ProgressStepper>
@@ -138,8 +141,8 @@ const cellRenderers: Record<string, React.FC<PlanVMsCellProps>> = {
     );
   },
   transfer: (props: PlanVMsCellProps) => {
-    const diskTransfer = props.data.statusVM?.pipeline.find((p) =>
-      p?.name?.startsWith('DiskTransfer'),
+    const diskTransfer = props.data.statusVM?.pipeline.find((pipe) =>
+      pipe?.name?.startsWith('DiskTransfer'),
     );
     const annotations: { unit: string } = diskTransfer?.annotations as undefined;
     const { completed, total } = getTransferProgress(diskTransfer);
@@ -166,14 +169,14 @@ type PopoverVariant = 'success' | 'info' | 'warning' | 'danger' | 'custom';
 type GetVariantType = (p: V1beta1PlanStatusMigrationVmsPipeline) => ProgressStepperVariant;
 type GetPopoverVariantType = (p: V1beta1PlanStatusMigrationVmsPipeline) => PopoverVariant;
 
-type GetIconType = (p: V1beta1PlanStatusMigrationVmsPipeline) => React.ReactNode;
+type GetIconType = (p: V1beta1PlanStatusMigrationVmsPipeline) => ReactNode;
 
-export const getVariant: GetVariantType = (p) => {
-  if (p?.error) {
+export const getVariant: GetVariantType = (plan) => {
+  if (plan?.error) {
     return 'danger';
   }
 
-  switch (p?.phase) {
+  switch (plan?.phase) {
     case 'Completed':
       return 'success';
     case 'Pending':
@@ -185,12 +188,12 @@ export const getVariant: GetVariantType = (p) => {
   }
 };
 
-const gePopoverVariant: GetPopoverVariantType = (p) => {
-  if (p?.error) {
+const gePopoverVariant: GetPopoverVariantType = (plan) => {
+  if (plan?.error) {
     return 'danger';
   }
 
-  switch (p?.phase) {
+  switch (plan?.phase) {
     case 'Completed':
       return 'success';
     case 'Pending':
@@ -201,12 +204,12 @@ const gePopoverVariant: GetPopoverVariantType = (p) => {
   }
 };
 
-export const getIcon: GetIconType = (p) => {
-  if (p?.error) {
+export const getIcon: GetIconType = (plan) => {
+  if (plan?.error) {
     return <ResourcesAlmostFullIcon />;
   }
 
-  switch (p?.phase) {
+  switch (plan?.phase) {
     case 'Completed':
       return <ResourcesFullIcon />;
     case 'Pending':

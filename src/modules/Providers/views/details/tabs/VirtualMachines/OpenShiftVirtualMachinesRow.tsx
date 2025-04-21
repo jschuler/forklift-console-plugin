@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import type { RowProps } from 'src/components/common/TableView/types';
 import { TableCell } from 'src/modules/Providers/utils/components/TableCell/TableCell';
 
@@ -14,14 +14,14 @@ import { getVmTemplate } from './utils/helpers/vmProps';
 const toNamespace = ({ data }: VMCellProps) =>
   (data.vm.providerType === 'openshift' && data.vm.object?.metadata?.namespace) || '';
 
-const cellRenderers: Record<string, React.FC<VMCellProps>> = {
+const cellRenderers: Record<string, FC<VMCellProps>> = {
   features: VmFeaturesCell,
   name: withResourceLink({
     toGVK: () => ({ group: 'kubevirt.io', kind: 'VirtualMachine', version: 'v1' }),
     toName: ({ data }) => data.name,
     toNamespace,
   }),
-  possibly_remote_namespace: withResourceLink({
+  possiblyRemoteNamespace: withResourceLink({
     toGVK: () => ({ group: '', kind: 'Namespace', version: 'v1' }),
     toName: toNamespace,
     toNamespace: () => '',
@@ -47,7 +47,7 @@ type RenderTdProps = {
   resourceFields: ResourceField[];
 };
 
-export const OpenShiftVirtualMachinesCells: React.FC<RowProps<VmData>> = ({
+export const OpenShiftVirtualMachinesCells: FC<RowProps<VmData>> = ({
   resourceData,
   resourceFields,
 }) => {

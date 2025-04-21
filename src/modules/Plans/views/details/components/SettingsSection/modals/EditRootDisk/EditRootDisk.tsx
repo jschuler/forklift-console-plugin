@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import { FilterableSelect } from 'src/components/FilterableSelect/FilterableSelect';
 import { EditModal } from 'src/modules/Providers/modals/EditModal/EditModal';
 import type {
@@ -47,9 +47,9 @@ type DropdownRendererProps = {
 };
 
 const RootDiskInputFactory: () => ModalInputComponentType = () => {
-  const DropdownRenderer: React.FC<DropdownRendererProps> = ({ onChange, value }) => {
+  const DropdownRenderer: FC<DropdownRendererProps> = ({ onChange, value }) => {
     const { t } = useForkliftTranslation();
-    const options = diskOptions(t);
+    const options = diskOptions();
 
     const dropdownItems = options.map((option) => ({
       children: (
@@ -80,7 +80,7 @@ const RootDiskInputFactory: () => ModalInputComponentType = () => {
   return DropdownRenderer;
 };
 
-export const EditRootDisk: React.FC<EditRootDiskProps> = (props) => {
+export const EditRootDisk: FC<EditRootDiskProps> = (props) => {
   const { t } = useForkliftTranslation();
 
   const plan = props.resource;

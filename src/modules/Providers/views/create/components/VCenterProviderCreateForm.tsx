@@ -1,9 +1,17 @@
-import React, { useCallback, useEffect, useReducer } from 'react';
+import {
+  type FC,
+  type FormEvent,
+  type MouseEvent,
+  useCallback,
+  useEffect,
+  useReducer,
+} from 'react';
 import { FormGroupWithHelpText } from 'src/components/common/FormGroupWithHelpText/FormGroupWithHelpText';
 import {
   VDDKHelperText,
   VDDKHelperTextShort,
 } from 'src/modules/Providers/utils/components/VDDKHelperText/VDDKHelperText';
+import type { ActionFieldValidated } from 'src/modules/Providers/utils/validators/common';
 import { validateVCenterURL } from 'src/modules/Providers/utils/validators/provider/vsphere/validateVCenterURL';
 import { validateVDDKImage } from 'src/modules/Providers/utils/validators/provider/vsphere/validateVDDKImage';
 import { useForkliftTranslation } from 'src/utils/i18n';
@@ -18,7 +26,7 @@ type VCenterProviderCreateFormProps = {
   onChange: (newValue: V1beta1Provider) => void;
 };
 
-export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps> = ({
+export const VCenterProviderCreateForm: FC<VCenterProviderCreateFormProps> = ({
   onChange,
   provider,
   secret,
@@ -38,18 +46,7 @@ export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps>
     },
   };
 
-  // When certificate changes, re-validate the URL
-  useEffect(() => {
-    dispatch({
-      payload: {
-        field: 'url',
-        validationState: validateVCenterURL(url, secret?.data?.insecureSkipVerify),
-      },
-      type: 'SET_FIELD_VALIDATED',
-    });
-  }, [secret]);
-
-  const reducer = (state, action) => {
+  const reducer = (state: typeof initialState, action: ActionFieldValidated) => {
     switch (action.type) {
       case 'SET_FIELD_VALIDATED':
         return {
@@ -66,11 +63,22 @@ export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps>
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  // When certificate changes, re-validate the URL
+  useEffect(() => {
+    dispatch({
+      payload: {
+        field: 'url',
+        validationState: validateVCenterURL(url, secret?.data?.insecureSkipVerify),
+      },
+      type: 'SET_FIELD_VALIDATED',
+    });
+  }, [secret]);
+
   const handleChange = useCallback(
-    (id, value) => {
+    (id: string, value?: string) => {
       const trimmedValue = value?.trim();
 
-      if (id == 'emptyVddkInitImage') {
+      if (id === 'emptyVddkInitImage') {
         const validationState = validateVDDKImage(undefined);
 
         dispatch({
@@ -97,7 +105,7 @@ export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps>
         });
       }
 
-      if (id == 'vddkInitImage') {
+      if (id === 'vddkInitImage') {
         const validationState = validateVDDKImage(trimmedValue);
 
         dispatch({
@@ -117,7 +125,7 @@ export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps>
         });
       }
 
-      if (id == 'sdkEndpoint') {
+      if (id === 'sdkEndpoint') {
         const sdkEndpoint = trimmedValue || undefined;
 
         onChange({
@@ -144,25 +152,21 @@ export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps>
     [provider, secret],
   );
 
-  const onClick: (event: React.MouseEvent<HTMLButtonElement>) => void = (event) => {
+  const onClick: (event: MouseEvent<HTMLButtonElement>) => void = (event) => {
     event.preventDefault();
   };
 
-  const onChangeUrl: (value: string, event: React.FormEvent<HTMLInputElement>) => void = (
-    value,
-  ) => {
+  const onChangeUrl: (value: string, event: FormEvent<HTMLInputElement>) => void = (value) => {
     handleChange('url', value);
   };
 
-  const onChangEmptyVddk: (checked: boolean, event: React.FormEvent<HTMLInputElement>) => void = (
+  const onChangEmptyVddk: (checked: boolean, event: FormEvent<HTMLInputElement>) => void = (
     checked,
   ) => {
     handleChange('emptyVddkInitImage', checked ? 'yes' : undefined);
   };
 
-  const onChangeVddk: (value: string, event: React.FormEvent<HTMLInputElement>) => void = (
-    value,
-  ) => {
+  const onChangeVddk: (value: string, event: FormEvent<HTMLInputElement>) => void = (value) => {
     handleChange('vddkInitImage', value);
   };
 
@@ -210,8 +214,8 @@ export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps>
           name="url"
           value={url}
           validated={state.validation.url.type}
-          onChange={(e, v) => {
-            onChangeUrl(v, e);
+          onChange={(e, value) => {
+            onChangeUrl(value, e);
           }}
         />
       </FormGroupWithHelpText>
@@ -241,8 +245,8 @@ export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps>
               'Skip VMware Virtual Disk Development Kit (VDDK) SDK acceleration (not recommended).',
             )}
             isChecked={emptyVddkInitImage === 'yes'}
-            onChange={(e, v) => {
-              onChangEmptyVddk(v, e);
+            onChange={(e, value) => {
+              onChangEmptyVddk(value, e);
             }}
             id="emptyVddkInitImage"
             name="emptyVddkInitImage"
@@ -260,8 +264,8 @@ export const VCenterProviderCreateForm: React.FC<VCenterProviderCreateFormProps>
             validated={
               emptyVddkInitImage === 'yes' ? 'default' : state.validation.vddkInitImage.type
             }
-            onChange={(e, v) => {
-              onChangeVddk(v, e);
+            onChange={(e, value) => {
+              onChangeVddk(value, e);
             }}
           />
         </div>

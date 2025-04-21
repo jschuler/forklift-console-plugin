@@ -5,7 +5,7 @@ import type { V1beta1Migration } from '@kubev2v/types';
  * @param {V1beta1Migration[]} migrations - The array of migration objects to inspect.
  * @return {Object} A dictionary with the phase as the key and the count as the value.
  */
-export function getMigrationCounts(migrations: V1beta1Migration[]): Record<string, number> {
+export const getMigrationCounts = (migrations: V1beta1Migration[]): Record<string, number> => {
   const migrationCounts: Record<string, number> = {
     Canceled: 0,
     Failed: 0,
@@ -15,17 +15,16 @@ export function getMigrationCounts(migrations: V1beta1Migration[]): Record<strin
   };
 
   for (const migration of migrations || []) {
-    migrationCounts.Total++;
-    if ('conditions' in migration.status) {
+    migrationCounts.Total += 1;
+
+    if (migration.status?.conditions) {
       for (const condition of migration.status.conditions) {
-        if (condition.status == 'True') {
-          if (condition.type in migrationCounts) {
-            migrationCounts[condition.type]++;
-          }
+        if (condition.status === 'True' && condition.type in migrationCounts) {
+          migrationCounts[condition.type] += 1;
         }
       }
     }
   }
 
   return migrationCounts;
-}
+};
